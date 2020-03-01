@@ -18,12 +18,18 @@ We are going to use ant desgin(React) for front end design
 
 
 Things need to install
+
 You may need to install node.js:
 https://www.npmjs.com/get-npm
 
 Client side
+
 cd into my-app and do the following
-npm install
-npm install antd
-npm install react-router-dom
-npm install axios
+
+1.npm install
+
+2.npm install antd
+
+3.npm install react-router-dom
+
+4.npm install axios

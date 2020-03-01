@@ -1,6 +1,10 @@
 # College4me
 I already to the setups, I will do the database setup later. You guys can get familar with these things first.
 
+my-app is front end react folder
+
+server is backend express folder
+
 We are using VSCode as our ide.
 I think u can download from this link?
 https://code.visualstudio.com/download

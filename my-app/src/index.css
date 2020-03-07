@@ -1,0 +1,90 @@
+@import '~antd/dist/antd.css';
+
+#homepage{
+    margin: auto;
+    width: 100%;
+    padding: 40px;
+}
+
+
+.Navi {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  
+.tab {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.Profile_icon{
+  float: right;
+}
+.Profile_icon:hover{
+  background-color: gray;
+  height: 50px;
+  width: 45px;
+}
+
+.Profilebut .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  float: right;
+}
+
+.Profilebut:hover .tooltiptext {
+  background-color: white;
+  visibility: visible;
+}
+#title{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.even{
+  text-align: center;
+  margin-bottom: 3%;
+}
+.odd{
+  text-align: center;
+  background-image: linear-gradient(to bottom, white, #F0F8FF);
+  margin-bottom: 3%;
+  
+}
+#Title_text{
+  font-size: 65px;
+}
+
+#Title_para{
+  font-size: 27px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.even_title{
+  text-align: center;
+}
+.even_card{
+  padding-left: 30%;
+}
+
+.odd_title{
+  text-align: center;
+}
+.odd_card{
+  padding-left: 30%;
+}

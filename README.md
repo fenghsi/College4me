@@ -37,3 +37,10 @@ cd into my-app and do the following
 3.npm install react-router-dom
 
 4.npm install axios
+
+Install mongodb
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+
+//for scraping data
+npm install --save axios cheerio

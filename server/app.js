@@ -7,8 +7,19 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
+var scrapeRouter = require('./routes/scrape');
 
 var app = express();
+
+const mongoose = require('mongoose')
+
+///create db call c4me in ur local
+mongoose.connect('mongodb://localhost:27017/c4me', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use("/", testAPIRouter);
+app.use('/', testAPIRouter);
+app.use('/', scrapeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -32,6 +32,9 @@ function Home(props) {
         const res = await axios.post('/test', {
             id:1
         });
+        const scrapedata = await axios.post('/scrape_college_ranking', {
+            id:1
+        });
         settestmsg(res.data.msg);
         history.push('/' );
     }

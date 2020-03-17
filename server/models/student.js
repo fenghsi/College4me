@@ -7,6 +7,7 @@ const studentSchema = new Schema({
         required: true,
         unique: true
     },
+    username: String,
     password: String,
     residence_state: String,
     high_school_name: String,
@@ -35,6 +36,11 @@ const studentSchema = new Schema({
     num_AP_passed: Number,
     hidden_score: Number
 });
+
+studentSchema.methods.validPassword = function(password) {
+    return password === this.password;
+};
+
 
 let model = mongoose.model('Student', studentSchema);
 module.exports = model;

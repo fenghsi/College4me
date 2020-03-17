@@ -16,15 +16,6 @@ function Home(props) {
     let history = useHistory();
     const [testmsg, settestmsg] = useState(null);
     const location = useLocation();
-    useEffect(() => {
-        async function fetchData() {
-            const res = await axios.post(location.pathname, {
-                id:1
-            });
-            settestmsg(null);
-        };
-        fetchData();
-    }, [location]);
 
    
     async function handletest(event){
@@ -32,9 +23,9 @@ function Home(props) {
         const res = await axios.post('/test', {
             id:1
         });
-        const scrapedata = await axios.post('/scrape_college_ranking', {
-            id:1
-        });
+        // const scrapedata = await axios.post('/scrape_college_ranking', {
+        //     id:1
+        // });
         settestmsg(res.data.msg);
         history.push('/' );
     }

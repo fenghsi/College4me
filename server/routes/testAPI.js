@@ -48,6 +48,13 @@ router.post('/test', async function(req, res, next) {
         // let application = await Application.findOne({userid: "feyu1"}).lean();
         // console.log(application);
 
+        // await Item.updateOne({id: req.params.id},
+        //     {
+        //         $inc: { 'property.likes': 1, interest: 1  },
+        //         $addToSet: { likedBy: req.user.username }
+        //     }
+        // );
+
         return res.json({
             msg:"Welcome"
         });

@@ -1,0 +1,21 @@
+@import '~antd/dist/antd.css';
+
+
+.profile_tab{
+    
+}
+
+.profile_tabpane{
+}
+
+.profile_basic{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 4%;
+}
+.pb_col-1{
+    font-size: 30px;
+    background-color: rgb(249, 247, 243);
+    padding-left: 20px;
+}
+

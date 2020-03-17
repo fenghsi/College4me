@@ -1,17 +1,24 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testAPIRouter = require('./routes/testAPI');
-var scrapeRouter = require('./routes/scrape');
-
-var app = express();
-
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+const session = require('express-session');
+const flash = require('connect-flash');
 const mongoose = require('mongoose')
+const MongoStore = require('connect-mongo')(session);
+const indexRouter = require('./routes/index');
+
+const usersRouter = require('./routes/users');
+const testAPIRouter = require('./routes/testAPI');
+const scrapeRouter = require('./routes/scrape');
+
+
+const app = express();
+
+
+
 
 ///create db call c4me in ur local
 mongoose.connect('mongodb://localhost:27017/c4me', {
@@ -20,7 +27,7 @@ mongoose.connect('mongodb://localhost:27017/c4me', {
     useCreateIndex: true,
     useFindAndModify: false
 });
-
+require('./config/passport');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -28,7 +35,18 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+///newly added
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser('secret'));
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 180 * 60 * 1000 },
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

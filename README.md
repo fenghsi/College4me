@@ -44,3 +44,10 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 
 //for scraping data
 npm install --save axios cheerio
+
+//for cookie and passport 
+npm install connect-mongo
+npm install express-session
+npm install passport-local
+npm install passport
+npm install connect-flash

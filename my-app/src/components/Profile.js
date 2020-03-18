@@ -1,11 +1,15 @@
 import React ,  { useState, useEffect } from 'react';
 import axios from "axios";
 import { useLocation,useHistory} from "react-router-dom";
+import { Button, Radio, Empty } from 'antd';
+import { EditOutlined  } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import { Descriptions } from 'antd';
 import { Table, Tag } from 'antd';
-
-
+import { Form, Input,  Select} from 'antd';
+import { notification } from 'antd';
+import { Typography} from 'antd';
+const { Title} = Typography;
 
 
 const { TabPane } = Tabs;
@@ -78,54 +82,159 @@ function callback(key) {
   console.log(key);
 }
 
+const onFinishFailed = errorInfo => {
+  console.log('Failed:', errorInfo);
+};
+
+
 
 function Profile(props) {
-
+    let history = useHistory();
+    
+    
     return (
             <div>
                 <Tabs className="profile_tab" defaultActiveKey="1" onChange={callback}>
                     <TabPane></TabPane>
                     <TabPane className="profile_tabpane" tab="Basic Info" key="1">
-                        <Descriptions  className="profile_basic" title="Basic Info">
-                            <Descriptions.Item className="pb_col-1" label="UserName">{props.Student.username}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="Residence State">{props.Student.residence_state}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="High School">{props.Student.high_school_name}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="High School City">{props.Student.high_school_city}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="High School State">{props.Student.high_school_state}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="College Class">{props.Student.college_class}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="First Major">{props.Student.major_1}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="Second Major">{props.Student.major_2}</Descriptions.Item>
-                        </Descriptions>
+                        <Form
+                        className="Edit_basic_info"
+                        name="basic_info"
+                        initialValues={{ remember: true }}
+                        onFinish={props.handleEditBasicInfo}
+                        onFinishFailed={onFinishFailed}
+                        initialValues={{
+                          username: props.Student.username,
+                          ResidenceState: props.Student.residence_state,
+                          HighSchool: props.Student.high_school_name,
+                          HighSchoolCity:props.Student.high_school_city,
+                          HighSchoolState:props.Student.high_school_state,
+                          CollegeClass: props.Student.college_class,
+                          FirstMajor: props.Student.major_1,
+                          SecondMajor: props.Student.major_2, 
+                          prefix: '86',
+                        }}
+                        >   <Title>Basic Info</Title>
+                            <Form.Item label="Username" name="username" rules={[ {required: true},]}>
+                              <Input disabled={props.DisableBasic}/> 
+                            </Form.Item>
+                            <Form.Item label="Residence State" name="ResidenceState"><Input disabled={props.DisableBasic} /></Form.Item>
+                            <Form.Item label="High School" name="HighSchool"><Input disabled={props.DisableBasic} /></Form.Item>
+                            <Form.Item label="High School City" name="HighSchoolCity"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item label="High School State" name="HighSchoolState"><Input disabled={props.DisableBasic} /></Form.Item>
+                            <Form.Item label="College Class" name="CollegeClass"><Input disabled={props.DisableBasic} /></Form.Item>
+                            <Form.Item label="First Major" name="FirstMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item label="Second Major" name="SecondMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item >
+                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />}  >
+                                {props.saveOreditBasic}
+                              </Button>
+                           </Form.Item>
+                        </Form>
                     </TabPane>
                     <TabPane className="profile_tabpane" tab="Scores & Grades" key="2">
-                        <Descriptions className="profile_basic" title="School">
-                            <Descriptions.Item className="pb_col-1" label="GPA">{props.Student.GPA}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="Num AP Passed">{props.Student.num_AP_passed}</Descriptions.Item>
-                        </Descriptions>
-                        <Descriptions className="profile_basic" title="SAT">
-                            <Descriptions.Item className="pb_col-1" label="SAT EBRW">{props.Student.SAT_EBRW}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Math">{props.Student.SAT_math}</Descriptions.Item>
-                        </Descriptions>
-                        <Descriptions className="profile_basic" title="ACT">
-                            <Descriptions.Item className="pb_col-1" label="ACT English">{props.Student.ACT_English}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="ACT Reading">{props.Student.ACT_reading}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="ACT Math">{props.Student.ACT_math}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="ACT Science">{props.Student.ACT_science}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="ACT Composite">{props.Student.ACT_composite}</Descriptions.Item>
-                        </Descriptions>
-                        <Descriptions className="profile_basic" title="SAT II">
-                            <Descriptions.Item className="pb_col-1" label="SAT Literature">{props.Student.SAT_literature}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT US Hist">{props.Student.SAT_US_hist}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT World Hist">{props.Student.SAT_world_hist}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Math I">{props.Student.SAT_math_I}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Math II">{props.Student.SAT_math_II}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Eco Bio">{props.Student.SAT_eco_bio}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Mol Bio">{props.Student.SAT_mol_bio}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Chemistry">{props.Student.SAT_chemistry}</Descriptions.Item>
-                            <Descriptions.Item className="pb_col-1" label="SAT Physics">{props.Student.SAT_physics}</Descriptions.Item>
-                        </Descriptions>
+
+                      <Form
+                          className="Edit_basic_info"
+                          name="profile_score_school"
+                          initialValues={{ remember: true }}
+                          onFinish={props.handleEditScoreSchool}
+                          onFinishFailed={onFinishFailed}
+                          initialValues={{
+                            GPA: props.Student.GPA,
+                            NumAPPassed: props.Student.num_AP_passed,
+                            prefix: '86',
+                          }}>
+                          <Title>School</Title>
+                          <Form.Item label="GPA" name="GPA"><Input disabled={props.DisableScoreSchool} /></Form.Item>
+                          <Form.Item label="Num AP Passed" name="NumAPPassed"><Input disabled={props.DisableScoreSchool}/></Form.Item>
+                          <Form.Item >
+                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                               {props.saveOreditScoreSchool}
+                              </Button>
+                          </Form.Item>
+                      </Form>
+                      <Form
+                          className="Edit_basic_info"
+                          name="profile_score_SAT"
+                          initialValues={{ remember: true }}
+                          onFinish={props.handleEditScoreSAT}
+                          onFinishFailed={onFinishFailed}
+                          initialValues={{
+                            SATEBRW: props.Student.SAT_EBRW,
+                            SATMath: props.Student.SAT_math,
+                            prefix: '86',
+                          }}>
+                          <Title>SAT</Title>
+                          <Form.Item label="SAT EBRW" name="SATEBRW"><Input disabled={props.DisableScoreSAT}/></Form.Item>
+                          <Form.Item label="SAT Math" name="SATMath"><Input disabled={props.DisableScoreSAT}/></Form.Item>
+                          <Form.Item >
+                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              {props.saveOreditScoreSAT}
+                              </Button>
+                          </Form.Item>
+                      </Form>
+                      <Form
+                          className="Edit_basic_info"
+                          name="profile_score_ACT"
+                          initialValues={{ remember: true }}
+                          onFinish={props.handleEditScoreACT}
+                          onFinishFailed={onFinishFailed}
+                          initialValues={{
+                            ACTEnglish: props.Student.ACT_English,
+                            ACTReading: props.Student.ACT_reading,
+                            ACTMath: props.Student.ACT_math,
+                            ACTScience: props.Student.ACT_science,
+                            ACTComposite: props.Student.ACT_composite,
+                            prefix: '86',
+                          }}>
+                          <Title>ACT</Title>
+                          <Form.Item label="ACT English" name="ACTEnglish"><Input disabled={props.DisableScoreACT}/></Form.Item>
+                          <Form.Item label="ACT Reading" name="ACTReading"><Input disabled={props.DisableScoreACT}/></Form.Item>
+                          <Form.Item label="ACT Math" name="ACTMath"><Input disabled={props.DisableScoreACT}/></Form.Item>
+                          <Form.Item label="ACT Science" name="ACTScience"><Input disabled={props.DisableScoreACT}/></Form.Item>
+                          <Form.Item label="ACT Composite" name="ACTComposite"><Input disabled={props.DisableScoreACT}/></Form.Item>
+                          <Form.Item >
+                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              {props.saveOreditScoreACT}
+                              </Button>
+                          </Form.Item>
+                      </Form>
+                      <Form
+                          className="Edit_basic_info"
+                          name="profile_score_ACT"
+                          initialValues={{ remember: true }}
+                          onFinish={props.handleEditScoreSubject}
+                          onFinishFailed={onFinishFailed}
+                          initialValues={{
+                            SATLiterature: props.Student.SAT_literature,
+                            SATUSHist: props.Student.SAT_US_hist,
+                            SATWorldHist: props.Student.SAT_world_hist,
+                            SATMathI: props.Student.SAT_math_I,
+                            SATMathII: props.Student.SAT_math_II,
+                            SATEcoBio: props.Student.SAT_eco_bio,
+                            SATMolBio: props.Student.SAT_mol_bio,
+                            SATChemistry: props.Student.SAT_chemistry,
+                            SATPhysics: props.Student.SAT_physics,
+                            prefix: '86',
+                          }}>
+                          <Title>SAT Subject Test</Title>
+                          <Form.Item label="SAT Literature" name="SATLiterature"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT US Hist" name="SATUSHist"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT World Hist" name="SATWorldHist"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Math I" name="SATMathI"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Math II" name="SATMathII"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Eco Bio" name="SATEcoBio"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Mol Bio" name="SATMolBio"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Chemistry" name="SATChemistry"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item label="SAT Physics" name="SATPhysics"><Input disabled={props.DisableScoreSATSub}/></Form.Item>
+                          <Form.Item >
+                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                                {props.saveOreditScoreSATSub}
+                              </Button>
+                          </Form.Item>
+                      </Form>
                     </TabPane>
-                                   
                     <TabPane className="profile_tabpane" tab="Applications" key="3">
                         <Table columns={columns} dataSource={data} />                    
                     </TabPane>

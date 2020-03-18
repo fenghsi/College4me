@@ -7,7 +7,10 @@ const studentSchema = new Schema({
         required: true,
         unique: true
     },
-    username: String,
+    username :{
+        type: String,
+        required: true
+    },
     password: String,
     residence_state: String,
     high_school_name: String,

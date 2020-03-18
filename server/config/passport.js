@@ -10,11 +10,11 @@ passport.serializeUser(function(user, done) {
     done(null, user);
   });
 passport.use(new LocalStrategy({
-        usernameField: 'username',
+        usernameField: 'userid',
         passwordField: 'password'
     },
-    function(username, password, done) {
-        Student.findOne({ userid: username}, function(err, user) {
+    function(userid, password, done) {
+        Student.findOne({ userid: userid}, function(err, user) {
             if (err) {
                 return done(err);
             }

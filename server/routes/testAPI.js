@@ -12,7 +12,8 @@ router.post('/test', async function(req, res, next) {
         // });
         // await newApplication.save();
         // const newStudent = new Student({
-        //     userid :"feyu1",
+        //     userid :"feyu",
+        //     username:"feyu",
         //     password: "1111",
         //     residence_state: "NY",
         //     high_school_name: "Ward Melville High School",
@@ -29,14 +30,14 @@ router.post('/test', async function(req, res, next) {
         //     ACT_reading: 30,
         //     ACT_science: 34,
         //     ACT_composite: 32,
-        //     // SAT_literature: Number,
-        //     // SAT_US_hist: Number,
+        //     SAT_literature: 660,
+        //     SAT_US_hist: 770,
         //     SAT_world_hist: 690,
         //     SAT_math_I: 730,
         //     SAT_math_II: 720,
-        //     // SAT_eco_bio: Number,
-        //     // SAT_mol_bio: Number,
-        //     // SAT_chemistry: Number,
+        //     SAT_eco_bio: 800,
+        //     SAT_mol_bio: 700,
+        //     SAT_chemistry: 670,
         //     SAT_physics: 740,
         //     num_AP_passed: 4,
         //     hidden_score: 95

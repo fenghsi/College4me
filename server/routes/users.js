@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 const Student = require('../models/student');
+const Applications = require('../models/applications');
 
 /* GET users listing. */
 
@@ -171,6 +172,111 @@ router.post('/editbasicInfo',async function(req, res, next) {
     });
     
 });
+
+
+router.post('/getApplications',async function(req, res, next) {
+    let applications = await Applications.find({userid: req.body.username}).lean();
+    const originData = [];
+    applications.map((app, index)=>{
+        originData.push({
+            key:  index,
+            college: app.college,
+            status: app.status,
+            questionable: "Need to compute",
+        })
+    });
+
+    return res.json({
+        status: "ok",
+        applications: originData
+    });
+    
+    
+});
+
+router.post('/updateApplication',async function(req, res, next) {
+    await Applications.updateOne({userid:req.body.userid,college:req.body.college }, 
+        {   
+            college : req.body.newcollege, 
+            status : req.body.newstatus
+        });
+    let applications = await Applications.find({userid: req.body.userid}).lean();
+    const originData = [];
+    applications.map((app, index)=>{
+        originData.push({
+            key:  index,
+            college: app.college,
+            status: app.status,
+            questionable: "Need to compute",
+        })
+    });
+
+    return res.json({
+        status: "ok",
+        applications: originData
+    });
+});
+
+router.post('/addApplication',async function(req, res, next) {
+    let application = await Applications.findOne({userid:req.body.userid, college:req.body.college}).lean();
+    if(!application){
+        const newApplication = new Applications({
+            userid: req.body.userid,
+            college: req.body.college,
+            status: req.body.status,
+        });
+        await newApplication.save();
+        application = await Applications.find({userid:req.body.userid}).lean();
+        const originData = [];
+        application.map((app, index)=>{
+            originData.push({
+                key:  index,
+                college: app.college,
+                status: app.status,
+                questionable: "Need to compute",
+            })
+        });
+        return res.json({
+            status: "ok",
+            applications: originData
+        });
+    }
+    else{
+        return res.json({
+            status: "err"
+        });
+
+    }
+
+
+});
+
+router.post('/deleteApplication',async function(req, res, next) {
+    console.log(req);
+    console.log(req.body.college);
+    await Applications.deleteOne({userid:req.body.userid, college:req.body.college}, async function (err, result) {
+        if(err|| result.deletedCount === 0){
+            return res.json({
+                status: "err"
+            });
+        }
+    });
+    let application = await Applications.find({userid:req.body.userid}).lean();
+    const originData = [];
+    application.map((app, index)=>{
+        originData.push({
+            key:  index,
+            college: app.college,
+            status: app.status,
+            questionable: "Need to compute",
+        })
+    });
+    return res.json({
+        applications: originData,
+        status: "ok"
+    });
+});
+
 
 
 

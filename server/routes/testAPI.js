@@ -6,7 +6,7 @@ const Application = require('../models/applications');
 router.post('/test', async function(req, res, next) {
     if(req.body.id==1){
         // const newApplication = new Application({
-        //     userid: "feyu1",
+        //     userid: "feyu",
         //     college: "Massachusetts Institute of Technology",
         //     status: "pending"
         // });

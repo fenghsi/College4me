@@ -12,28 +12,23 @@ import { notification } from 'antd';
 function App() {
     const [user, setUser] = useState(null);
     const [Student, setStudent] = useState(null);
+    const [Applications,setApplications ]= useState();
     let history = useHistory();
 
-    //profile textbox enable or disable
+    //switch states of profile textbox enable or disable
     const [DisableBasic, setDisableBasic] = useState(true);
     const [DisableScoreSchool, setDisableScoreSchool] = useState(true);
     const [DisableScoreSAT, setDisableScoreSAT] = useState(true);
     const [DisableScoreACT, setDisableScoreACT] = useState(true);
     const [DisableScoreSATSub, setDisableScoreSATSub] = useState(true);
-    //////
+    //switch states of profile edit button or save buttons
     const [saveOreditBasic, setsaveOreditBasic] = useState('Edit');
     const [saveOreditScoreSchool, setsaveOreditScoreSchool] = useState('Edit');
     const [saveOreditScoreSAT, setsaveOreditScoreSAT] = useState('Edit');
     const [saveOreditScoreACT, setsaveOreditScoreACT] = useState('Edit');
     const [saveOreditScoreSATSub, setsaveOreditScoreSATSub] = useState('Edit');
+   
     
-    // useEffect(() => {
-    //   async function fetchData() {
-    //       const res = await axios.get('/user');
-    //       setUser(res.data.username);
-    //   };
-    //   fetchData();
-    // }, []);
 
   
     async function handleLogin(event) {
@@ -53,6 +48,13 @@ function App() {
                 username: event.username
               });
               setStudent(res2.data.student);
+              //set applications
+              const res3 = await axios.post('/getApplications', { 
+                username: event.username
+              });
+              //need to set applications
+              setApplications(res3.data.applications);
+
               history.push('/');
           }
           else{
@@ -167,15 +169,16 @@ function App() {
           ACT_reading: event.ACTReading,
           ACT_math: event.ACTMath,
           ACT_science:event.ACTScience,
-          ACT_composite:event.ACTComposite
+          ACT_composite:Math.round((event.ACTEnglish+event.ACTReading+event.ACTMath+event.ACTScience)/4),
         });
         setStudent(res.data.student);
-        history.push('/profile');
+        //history.push('/');
         notification.open({
           message: "Successfully Edit ACT Score" ,
           description: res.data.status,
           duration:2.5 
         });
+        history.push('/profile');
       }
     }
 
@@ -210,7 +213,30 @@ function App() {
         });
       }
     }
-  
+    async function handleAddNewApp(event) {
+      
+      const res = await axios.post('/addApplication', {
+        userid: Student.userid,
+        college: event.college,
+        status: event.status
+      });
+      if(res.data.status ==='err'){//college is already selected 
+        notification.open({
+          message: "Declined",
+          description: "This college is already in the list!" ,
+          duration:2.5 
+        });
+      }
+      else{
+        notification.open({
+          message: "Successfully Added "+event.college,
+          duration:2.5 
+        });
+        setApplications(res.data.applications);
+      }
+     
+
+    }
   return (
     <div>
        <Navbar user = {user} handleLogout={handleLogout}/>
@@ -219,7 +245,7 @@ function App() {
                   <Route exact path="/" render={() => (<Home/>)} />
                   {user &&
                       <React.Fragment>
-                          <Route exact path="/profile" render={() => (<Profile Student={Student} saveOreditBasic={saveOreditBasic} saveOreditScoreACT={saveOreditScoreACT} saveOreditScoreSAT={saveOreditScoreSAT} saveOreditScoreSchool={saveOreditScoreSchool} saveOreditScoreSATSub={saveOreditScoreSATSub}  DisableScoreACT={DisableScoreACT} DisableScoreSAT={DisableScoreSAT} DisableScoreSchool={DisableScoreSchool} DisableScoreSATSub={DisableScoreSATSub} DisableBasic={DisableBasic}  handleEditBasicInfo={handleEditBasicInfo} handleEditScoreACT={handleEditScoreACT} handleEditScoreSubject={handleEditScoreSubject} handleEditScoreSAT={handleEditScoreSAT} handleEditScoreSchool={handleEditScoreSchool}/>)} />
+                          <Route exact path="/profile" render={() => (<Profile Applications={Applications} setApplications={setApplications} handleAddNewApp={handleAddNewApp} Student={Student} saveOreditBasic={saveOreditBasic} saveOreditScoreACT={saveOreditScoreACT} saveOreditScoreSAT={saveOreditScoreSAT} saveOreditScoreSchool={saveOreditScoreSchool} saveOreditScoreSATSub={saveOreditScoreSATSub}  DisableScoreACT={DisableScoreACT} DisableScoreSAT={DisableScoreSAT} DisableScoreSchool={DisableScoreSchool} DisableScoreSATSub={DisableScoreSATSub} DisableBasic={DisableBasic}  handleEditBasicInfo={handleEditBasicInfo} handleEditScoreACT={handleEditScoreACT} handleEditScoreSubject={handleEditScoreSubject} handleEditScoreSAT={handleEditScoreSAT} handleEditScoreSchool={handleEditScoreSchool}/>)} />
                       </React.Fragment>
                   }
                   {!user &&

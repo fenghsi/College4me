@@ -15,6 +15,24 @@ function App() {
     const [Applications,setApplications ]= useState();
     let history = useHistory();
 
+    useEffect(() => {
+      async function fetchData() {
+          const res = await axios.get('/user');
+          if(res.data.user==null){
+          }        
+          else{
+            setStudent(res.data.user);
+            setUser(res.data.user.username);
+            const res2 = await axios.post('/getApplications', { 
+              username:res.data.user.username
+            });
+            setApplications(res2.data.applications);
+            
+          }  
+      };
+      fetchData();
+  }, []);
+
     //switch states of profile textbox enable or disable
     const [DisableBasic, setDisableBasic] = useState(true);
     const [DisableScoreSchool, setDisableScoreSchool] = useState(true);
@@ -27,14 +45,11 @@ function App() {
     const [saveOreditScoreSAT, setsaveOreditScoreSAT] = useState('Edit');
     const [saveOreditScoreACT, setsaveOreditScoreACT] = useState('Edit');
     const [saveOreditScoreSATSub, setsaveOreditScoreSATSub] = useState('Edit');
-   
-    
 
-  
     async function handleLogin(event) {
         
           const res = await axios.post('/login', { 
-              userid: event.username,
+              username: event.username,
               password: event.password
           });
           if(res.data.status==='ok'){
@@ -70,6 +85,7 @@ function App() {
         await axios.post('/logout');
         setUser(null);
         setStudent(null);
+        setApplications(null);
         notification.open({
           message: "Logout Successfully",
           description:"bye ", 
@@ -234,18 +250,53 @@ function App() {
         });
         setApplications(res.data.applications);
       }
-     
-
     }
+
+    async function handlereset(){
+      setsaveOreditBasic('Edit'); 
+      setsaveOreditScoreACT('Edit'); 
+      setsaveOreditScoreSAT('Edit'); 
+      setsaveOreditScoreSchool('Edit'); 
+      setsaveOreditScoreSATSub('Edit');           
+      setDisableScoreACT(true); 
+      setDisableScoreSAT(true);                            
+      setDisableScoreSchool(true); 
+      setDisableScoreSATSub(true); 
+      setDisableBasic(true);
+    }
+
+
+
   return (
     <div>
-       <Navbar user = {user} handleLogout={handleLogout}/>
+       <Navbar user = {user} handleLogout={handleLogout} handlereset={handlereset}/>
           <div className="container">
               <Switch>
                   <Route exact path="/" render={() => (<Home/>)} />
                   {user &&
                       <React.Fragment>
-                          <Route exact path="/profile" render={() => (<Profile Applications={Applications} setApplications={setApplications} handleAddNewApp={handleAddNewApp} Student={Student} saveOreditBasic={saveOreditBasic} saveOreditScoreACT={saveOreditScoreACT} saveOreditScoreSAT={saveOreditScoreSAT} saveOreditScoreSchool={saveOreditScoreSchool} saveOreditScoreSATSub={saveOreditScoreSATSub}  DisableScoreACT={DisableScoreACT} DisableScoreSAT={DisableScoreSAT} DisableScoreSchool={DisableScoreSchool} DisableScoreSATSub={DisableScoreSATSub} DisableBasic={DisableBasic}  handleEditBasicInfo={handleEditBasicInfo} handleEditScoreACT={handleEditScoreACT} handleEditScoreSubject={handleEditScoreSubject} handleEditScoreSAT={handleEditScoreSAT} handleEditScoreSchool={handleEditScoreSchool}/>)} />
+                          <Route exact path="/profile" render={() => (
+                          <Profile Applications={Applications} 
+                                   setApplications={setApplications} 
+                                   handleAddNewApp={handleAddNewApp} 
+                                   Student={Student} 
+                                   saveOreditBasic={saveOreditBasic} 
+                                   saveOreditScoreACT={saveOreditScoreACT} 
+                                   saveOreditScoreSAT={saveOreditScoreSAT} 
+                                   saveOreditScoreSchool={saveOreditScoreSchool} 
+                                   saveOreditScoreSATSub={saveOreditScoreSATSub}  
+                                   DisableScoreACT={DisableScoreACT} 
+                                   DisableScoreSAT={DisableScoreSAT} 
+                                   DisableScoreSchool={DisableScoreSchool} 
+                                   DisableScoreSATSub={DisableScoreSATSub} 
+                                   DisableBasic={DisableBasic}  
+                                   handleEditBasicInfo={handleEditBasicInfo} 
+                                   handleEditScoreACT={handleEditScoreACT} 
+                                   handleEditScoreSubject={handleEditScoreSubject} 
+                                   handleEditScoreSAT={handleEditScoreSAT} 
+                                   handleEditScoreSchool={handleEditScoreSchool}
+                              />)} 
+                           />
                       </React.Fragment>
                   }
                   {!user &&

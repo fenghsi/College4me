@@ -20,7 +20,7 @@ function Navigation_bar (props){
       {props.user &&
           <React.Fragment>
               <Menu.Item className="Icon_menu_1" key="0">
-              <Link className="Icon_menu_text" to="/profile"><button className="Icon_menu_link" >Profile</button></Link>
+              <Link className="Icon_menu_text" to="/profile"><button className="Icon_menu_link"  onClick={props.handlereset}>Profile</button></Link>
               </Menu.Item>
               <Menu.Item className="Icon_menu_1" key="2">
               <Link  className="Icon_menu_text"><button className="Icon_menu_link" onClick={props.handleLogout}>Logout</button></Link>

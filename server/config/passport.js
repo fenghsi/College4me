@@ -1,16 +1,25 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const Student = require('../models/student');
+const Application = require('../models/applications');
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(async function(user, done) {
+    // console.log('serializing user: ');
+    // console.log(user);
+    // console.log(user._id);
+    
     done(null, user);
   });
   
-  passport.deserializeUser(function(user, done) {
+  passport.deserializeUser( async function(user, done) {
+    // let user = await Student.findById(user.userid).lean();
+    // console.log("Deser");
+    // console.log(id);
+    // console.log(user);
     done(null, user);
   });
 passport.use(new LocalStrategy({
-        usernameField: 'userid',
+        usernameField: 'username',
         passwordField: 'password'
     },
     function(userid, password, done) {

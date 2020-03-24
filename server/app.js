@@ -18,8 +18,6 @@ const scrapeRouter = require('./routes/scrape');
 const app = express();
 
 
-
-
 ///create db call c4me in ur local
 mongoose.connect('mongodb://localhost:27017/c4me', {
     useUnifiedTopology: true,

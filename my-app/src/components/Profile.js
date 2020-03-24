@@ -31,6 +31,7 @@ const onFinishFailed = errorInfo => {
 function Profile(props) {
     let history = useHistory();
 
+    
     //////all state
     const allstates = <Select disabled={props.DisableBasic}>
     <Option value="AL">Alabama</Option>
@@ -85,15 +86,14 @@ function Profile(props) {
     <Option value="WI">Wisconsin</Option>
     <Option value="WY">Wyoming</Option>
   </Select>	;  
-
     //////////////////state
 
-    ////// ////////class of graduation
+    //////////////////////class of graduation
     let d = new Date();
     let n = d.getFullYear();
     const classyears = [];
     for (let i = n; i < n+18; i++) {
-    classyears.push(<Option value={i}>{i}</Option>);
+      classyears.push(<Option value={i}>{i}</Option>);
     }
     const classyear =<Select disabled={props.DisableBasic}>{classyears}</Select>;
     /////////////////////
@@ -110,8 +110,6 @@ function Profile(props) {
       Num_ap_passes.push(<Option value={i}>{i}</Option>);
     }
     const Num_ap_pass =<Select disabled={props.DisableScoreSchool}>{Num_ap_passes}</Select>;
-
-
     /////////////////////
 
 
@@ -135,9 +133,7 @@ function Profile(props) {
       index,
       children,
       ...restProps
-    }) => {
-      
-              
+    }) => { 
       const inputNode = dataIndex==='college' ? appcolleges:appStatus;
       return (
         <td {...restProps}>
@@ -192,9 +188,7 @@ function Profile(props) {
           //description: res.data.applications[].college,
           duration:2.5 
         });
-
       }
-      
     };
 
     const save = async key => {
@@ -327,8 +321,6 @@ function Profile(props) {
         }),
       };
     });
-
-    
     /////////////////////////////////////////////////////////////above are all for edit applications
 
 const SAT_brew_and_math_sbs = [];
@@ -522,7 +514,6 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                         onFinish={props.handleAddNewApp}
                         onFinishFailed={onFinishFailed}
                     >
-                        
                       <Form.Item label="College" name="college"  rules={[ {required: true},]} style={{ width:500 }}>{appcolleges }</Form.Item>
                       <Form.Item label="Status" name="status"  rules={[ {required: true},]} style={{ width:500 }}>{appStatus}</Form.Item>
                       <Form.Item >

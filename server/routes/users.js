@@ -13,6 +13,17 @@ const Applications = require('../models/applications');
 //   });
 // });
 
+router.get('/user',  function(req, res, next) {
+    //console.log(req.session.passport);
+    const user = req.session.passport? req.session.passport.user : null;
+   // console.log(req.session);
+   // console.log(user);
+    return res.json({
+        user: user
+    });
+});
+
+
 router.post('/adduser', async function(req, res, next) {
   let student = await Student.findOne({userid: req.body.username}).lean();
   if(!student){
@@ -48,17 +59,22 @@ router.post('/login', function(req, res, next) {
               return res.status(500).json({
                   status: "err",
                   error: err
-              });
+            });
           return res.json({
               status: "ok",
-              username: req.user.userid
+              username: req.user.username
           });
       });
   })(req, res, next);
 });
 //logout
 router.post('/logout', function(req, res, next) {
-    req.logout();
+    if(!req.session.passport.user) {
+        return res.status(500).json({
+            status: "error"
+        });
+    }
+    req.session.destroy();
     return res.json({
         status: "ok"
     });
@@ -252,8 +268,8 @@ router.post('/addApplication',async function(req, res, next) {
 });
 
 router.post('/deleteApplication',async function(req, res, next) {
-    console.log(req);
-    console.log(req.body.college);
+    //console.log(req);
+  //  console.log(req.body.college);
     await Applications.deleteOne({userid:req.body.userid, college:req.body.college}, async function (err, result) {
         if(err|| result.deletedCount === 0){
             return res.json({

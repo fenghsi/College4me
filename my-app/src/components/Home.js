@@ -23,9 +23,16 @@ function Home(props) {
         const res = await axios.post('/test', {
             id:1
         });
-        // const scrapedata = await axios.post('/scrape_college_ranking', {
-        //     id:1
+        // const scrapedata1 = await axios.post('/import_Colleges', {
+           
         // });
+        // const scrapedata2 = await axios.post('/scrape_college_ranking', {
+           
+        // });
+        // const scrapedata3 = await axios.post('/import_college_scorecard', {
+           
+        // });
+        
         settestmsg(res.data.msg);
         history.push('/' );
     }

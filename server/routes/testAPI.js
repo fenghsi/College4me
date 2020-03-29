@@ -56,6 +56,11 @@ router.post('/test', async function(req, res, next) {
         //     }
         // );
 
+        // await Student.updateOne({userid:"feyu"}, 
+        //     {   
+        //         $set: {admin_status:"admin" }
+        // });
+
         return res.json({
             msg:"Welcome"
         });

@@ -1,7 +1,7 @@
-import React ,  { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useHistory , Link} from 'react-router-dom';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button} from 'antd';
 import { Typography} from 'antd';
 import { notification } from 'antd';
 

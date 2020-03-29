@@ -37,7 +37,8 @@ const studentSchema = new Schema({
     SAT_chemistry: Number,
     SAT_physics: Number,
     num_AP_passed: Number,
-    hidden_score: Number
+    hidden_score: Number,
+    acountType: String
 });
 
 studentSchema.methods.validPassword = function(password) {

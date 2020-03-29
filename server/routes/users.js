@@ -3,21 +3,11 @@ var router = express.Router();
 const passport = require('passport');
 const Student = require('../models/student');
 const Applications = require('../models/applications');
+const Colleges= require('../models/colleges');
 
-/* GET users listing. */
 
-// router.get('/user',  function(req, res, next) {
-//   const user = req.user ? req.user.username : null;
-//   return res.json({
-//       username: user
-//   });
-// });
-
-router.get('/user',  function(req, res, next) {
-    //console.log(req.session.passport);
-    const user = req.session.passport? req.session.passport.user : null;
-   // console.log(req.session);
-   // console.log(user);
+router.get('/user', async function(req, res, next) {
+    const user = req.session.passport? await Student.findOne({userid: req.session.passport.user.userid}).lean() : null;
     return res.json({
         user: user
     });
@@ -193,14 +183,18 @@ router.post('/editbasicInfo',async function(req, res, next) {
 router.post('/getApplications',async function(req, res, next) {
     let applications = await Applications.find({userid: req.body.username}).lean();
     const originData = [];
-    applications.map((app, index)=>{
+    const mapping =applications.map(async (app, index)=>{
+        let college = await Colleges.findOne({name:app.college}).lean();
+        let student = await Student.findOne({userid:req.body.username}).lean();
+        let question = app.status=="accepted"?compute_Questionable(college,student):null;
         originData.push({
             key:  index,
             college: app.college,
             status: app.status,
-            questionable: "Need to compute",
+            questionable:question
         })
     });
+    await Promise.all(mapping);
 
     return res.json({
         status: "ok",
@@ -218,15 +212,18 @@ router.post('/updateApplication',async function(req, res, next) {
         });
     let applications = await Applications.find({userid: req.body.userid}).lean();
     const originData = [];
-    applications.map((app, index)=>{
+    const mapping =applications.map(async (app, index)=>{
+        let college = await Colleges.findOne({name:app.college}).lean();
+        let student = await Student.findOne({userid:req.body.userid}).lean();
+        let question = app.status=="accepted"?compute_Questionable(college,student):null;
         originData.push({
             key:  index,
             college: app.college,
             status: app.status,
-            questionable: "Need to compute",
+            questionable:question
         })
     });
-
+    await Promise.all(mapping);
     return res.json({
         status: "ok",
         applications: originData
@@ -243,18 +240,22 @@ router.post('/addApplication',async function(req, res, next) {
         });
         await newApplication.save();
         application = await Applications.find({userid:req.body.userid}).lean();
-        const originData = [];
-        application.map((app, index)=>{
+        let originData =[];
+        const mapping =application.map(async (app, index)=>{
+            let college = await Colleges.findOne({name:app.college}).lean();
+            let student = await Student.findOne({userid:req.body.userid}).lean();
+            let question = app.status=="accepted"?compute_Questionable(college,student):null;
             originData.push({
                 key:  index,
                 college: app.college,
                 status: app.status,
-                questionable: "Need to compute",
+                questionable:question
             })
         });
+        await Promise.all(mapping);
         return res.json({
             status: "ok",
-            applications: originData
+            applications: originData,
         });
     }
     else{
@@ -268,8 +269,7 @@ router.post('/addApplication',async function(req, res, next) {
 });
 
 router.post('/deleteApplication',async function(req, res, next) {
-    //console.log(req);
-  //  console.log(req.body.college);
+
     await Applications.deleteOne({userid:req.body.userid, college:req.body.college}, async function (err, result) {
         if(err|| result.deletedCount === 0){
             return res.json({
@@ -279,14 +279,18 @@ router.post('/deleteApplication',async function(req, res, next) {
     });
     let application = await Applications.find({userid:req.body.userid}).lean();
     const originData = [];
-    application.map((app, index)=>{
+    const mapping =application.map(async (app, index)=>{
+        let college = await Colleges.findOne({name:app.college}).lean();
+        let student = await Student.findOne({userid:req.body.userid}).lean();
+        let question = app.status=="accepted"?compute_Questionable(college,student):null;
         originData.push({
             key:  index,
             college: app.college,
             status: app.status,
-            questionable: "Need to compute",
+            questionable:question
         })
     });
+    await Promise.all(mapping);
     return res.json({
         applications: originData,
         status: "ok"
@@ -294,7 +298,41 @@ router.post('/deleteApplication',async function(req, res, next) {
 });
 
 
+function compute_Questionable(college, student) {
+    
+    let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
+    let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
+    let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");
+    let studentACT = convert_to_percentile(student.ACT_composite!=null?student.ACT_composite:null,"ACT");
+    
+    if(studentSAT!=null & studentACT!=null){
+        return (studentSAT>studentACT?(collegeAvgSAT-10>studentSAT):(collegeAvgAct-10>studentACT))?"Yes":"No";
+    }
+    else if(studentSAT!=null){
+        return (studentSAT<collegeAvgSAT-10)?"Yes":"No";
+    }
+    else if(studentACT!=null){
+        return (studentACT<collegeAvgAct-10)?"Yes":"No";
+    }
+    else{
+        return null;
+    }
+}
 
+function convert_to_percentile(score, type){
+    if(score==null){
+        return null;
+    }
+    if(type =="ACT"){
+       return score/36*100;
+    }
+    else if(type =="SAT"){
+       return score/1600*100;
+    }
+    else if(type =="GPA"){
+       return score/4*100;
+    }
+}    
 
 
 module.exports = router;

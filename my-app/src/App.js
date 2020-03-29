@@ -6,32 +6,21 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import SignUpForm from './components/user/SignUpForm';
 import SignInForm from './components/user/SignInForm';
+import Reviews_Questionable from './components/admin/Review_Questionable';
+import FindSimilarHighSchool from './components/FindSimilarHighSchool';
 import { notification } from 'antd';
 
-
 function App() {
+    const [Admin, setAdmin] = useState(null);
     const [user, setUser] = useState(null);
     const [Student, setStudent] = useState(null);
     const [Applications,setApplications ]= useState();
     let history = useHistory();
 
     useEffect(() => {
-      async function fetchData() {
-          const res = await axios.get('/user');
-          if(res.data.user==null){
-          }        
-          else{
-            setStudent(res.data.user);
-            setUser(res.data.user.username);
-            const res2 = await axios.post('/getApplications', { 
-              username:res.data.user.username
-            });
-            setApplications(res2.data.applications);
-            
-          }  
-      };
-      fetchData();
-  }, []);
+      handleRefresh();
+    }, []);
+
 
     //switch states of profile textbox enable or disable
     const [DisableBasic, setDisableBasic] = useState(true);
@@ -45,6 +34,22 @@ function App() {
     const [saveOreditScoreSAT, setsaveOreditScoreSAT] = useState('Edit');
     const [saveOreditScoreACT, setsaveOreditScoreACT] = useState('Edit');
     const [saveOreditScoreSATSub, setsaveOreditScoreSATSub] = useState('Edit');
+
+    async function handleRefresh(){
+      const res = await axios.get('/user');
+      if(res.data.user==null){
+      }        
+      else{
+        setStudent(res.data.user);
+        setAdmin(res.data.user.acountType);
+        setUser(res.data.user.username);
+        const res2 = await axios.post('/getApplications', { 
+          username:res.data.user.username
+        });
+        setApplications(res2.data.applications);
+        
+      }  
+  }
 
     async function handleLogin(event) {
         
@@ -63,6 +68,7 @@ function App() {
                 username: event.username
               });
               setStudent(res2.data.student);
+              setAdmin(res2.data.student.acountType);
               //set applications
               const res3 = await axios.post('/getApplications', { 
                 username: event.username
@@ -85,6 +91,7 @@ function App() {
         await axios.post('/logout');
         setUser(null);
         setStudent(null);
+        setAdmin(null);
         setApplications(null);
         notification.open({
           message: "Logout Successfully",
@@ -138,6 +145,11 @@ function App() {
           SAT_math:event.SATMath
         });
         setStudent(res.data.student);
+        const res2 = await axios.post('/getApplications', { 
+          username:Student.userid,
+        });
+        setApplications(res2.data.applications);
+        //history.push('/');
         history.push('/profile');
         notification.open({
           message: "Successfully Edit SAT Score" ,
@@ -179,21 +191,27 @@ function App() {
       else{
         setsaveOreditScoreACT('Edit');
         setDisableScoreACT(true);
+        
         const res = await axios.post('/editscoreact', {
           userid: Student.userid,
           ACT_English: event.ACTEnglish,
           ACT_reading: event.ACTReading,
           ACT_math: event.ACTMath,
           ACT_science:event.ACTScience,
-          ACT_composite:Math.round((event.ACTEnglish+event.ACTReading+event.ACTMath+event.ACTScience)/4),
+          ACT_composite:(event.ACTEnglish!=null&event.ACTReading!=null&event.ACTMath!=null&event.ACTScience!=null)?Math.round((event.ACTEnglish+event.ACTReading+event.ACTMath+event.ACTScience)/4):null,
         });
         setStudent(res.data.student);
+        const res2 = await axios.post('/getApplications', { 
+          username:Student.userid,
+        });
+        setApplications(res2.data.applications);
         //history.push('/');
         notification.open({
           message: "Successfully Edit ACT Score" ,
           description: res.data.status,
           duration:2.5 
         });
+        //history.push('/');
         history.push('/profile');
       }
     }
@@ -221,8 +239,8 @@ function App() {
       });
       
       setStudent(res.data.student);
-        history.push('/profile');
-        notification.open({
+      history.push('/profile');
+      notification.open({
           message: "Successfully Edit SAT Subject Score" ,
           description: res.data.status,
           duration:2.5 
@@ -266,13 +284,18 @@ function App() {
     }
 
 
-
   return (
     <div>
        <Navbar user = {user} handleLogout={handleLogout} handlereset={handlereset}/>
           <div className="container">
               <Switch>
                   <Route exact path="/" render={() => (<Home/>)} />
+            
+                  {(Admin=="admin") &&
+                      <React.Fragment>
+                          <Route exact path="/admin" render={() => (<Reviews_Questionable/>)} />
+                      </React.Fragment>
+                  }
                   {user &&
                       <React.Fragment>
                           <Route exact path="/profile" render={() => (
@@ -297,6 +320,7 @@ function App() {
                                    handleEditScoreSchool={handleEditScoreSchool}
                               />)} 
                            />
+                        <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
                       </React.Fragment>
                   }
                   {!user &&
@@ -304,7 +328,7 @@ function App() {
                           <Route exact path="/adduser" render={() => (<SignUpForm/>)} />
                           <Route path="/signin" render={() => (<SignInForm handleLogin={handleLogin}/>)}/> 
                       </React.Fragment>
-                  }
+                  } 
                   
               </Switch>
           </div>

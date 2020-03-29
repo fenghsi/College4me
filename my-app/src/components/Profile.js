@@ -1,12 +1,10 @@
 import React ,  { useState, useEffect } from 'react';
 import axios from "axios";
 import { useLocation,useHistory} from "react-router-dom";
-import { Button, Radio, Empty } from 'antd';
+import { Button } from 'antd';
 import { EditOutlined  } from '@ant-design/icons';
 import { Tabs } from 'antd';
-import { Descriptions } from 'antd';
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
-import { Tag } from 'antd';
+import { Table, Input, Popconfirm, Form } from 'antd';
 import { Select} from 'antd';
 import { notification } from 'antd';
 import { Typography} from 'antd';
@@ -16,21 +14,17 @@ const { Title} = Typography;
 const { TabPane } = Tabs;
 
 
-function callback(key) {
-  console.log(key);
-}
-
-const onFinishFailed = errorInfo => {
-  console.log('Failed:', errorInfo);
-};
-
-
-
-
-
 function Profile(props) {
     let history = useHistory();
+    const [tabpanekey, setTabpanekey] = useState("1");
 
+    function callback(key) {
+      setTabpanekey(""+key);
+    }
+    
+    const onFinishFailed = errorInfo => {
+      console.log('Failed:', errorInfo);
+    };
     
     //////all state
     const allstates = <Select disabled={props.DisableBasic}>
@@ -339,7 +333,6 @@ function Profile(props) {
           description: errInfo,
           duration:2.5 
         });
-        console.log('Validate Failed:', errInfo);
       }
     };
 
@@ -451,7 +444,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
 
     return (
             <div>
-                <Tabs className="profile_tab" defaultActiveKey="1" onChange={callback}>
+                <Tabs className="profile_tab" defaultActiveKey={tabpanekey} onChange={callback}>
                     <TabPane></TabPane>
                     <TabPane className="profile_tabpane" tab="Basic Info" key="1">
                         <Form

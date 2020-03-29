@@ -9,6 +9,8 @@ const fs = require('fs')
 const readline = require('readline');
 const College = require('../models/colleges');
 const csv=require("csvtojson");
+const Student = require('../models/student');
+const Applications = require('../models/applications');
   
 
 //Import all the colloges in colleges.txt(Only name)
@@ -30,8 +32,8 @@ router.post('/import_Colleges', async function(req, res, next) {
 router.post('/scrape_college_ranking', async function(req, res, next) {
     const result = await axios.get(WSJUrl);
     for (const college of result.data.data) {
-        console.log(college.name);
-        console.log(college.rank);
+        // console.log(college.name);
+        // console.log(college.rank);
         await College.updateOne({name:college.name}, 
             {   
                 $set: {ranking:college.rank_order }
@@ -94,6 +96,27 @@ async function updateCollege_from_Scorecard(cname, college) {
             state: college.STABBR
     });
 }
+
+//7.4 Delete all student profiles
+router.post('/delete_all_student_profiles', async function(req, res, next) {
+    await Student.deleteMany({}).lean();
+});
+
+//7.6 Review Questionable
+// router.post('/getQuestionable', async function(req, res, next) {
+//     let applications = await Student.find({status: "accepted"}).lean();
+//     const originData = [];
+//     applications.map((app, index)=>{
+//         originData.push({
+//             key:  index,
+//             college: app.college,
+//             status: app.status,
+//             questionable: "Need to compute",
+//         })
+//     });
+    
+// });
+
 
 
 module.exports = router;

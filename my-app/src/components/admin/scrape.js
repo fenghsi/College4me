@@ -69,6 +69,17 @@ function Scrape(props) {
            
         });
     }
+    async function handleCollegeDataCom(event){
+        event.preventDefault();
+        notification.open({
+            message: "scrape_college_data",
+            duration:2.5 
+        });
+        const scrapedata1 = await axios.post('/scrape_college_data', {
+           
+        });
+        
+    }
     
     return (
         <div>
@@ -85,6 +96,11 @@ function Scrape(props) {
             7.2
             <form onSubmit={handleImportScorecard}>
                     <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Import college Scorecard datas</button>
+            </form>
+            <br></br>
+            7.3
+            <form onSubmit={handleCollegeDataCom}>
+                    <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Scrape collegedata.com</button>
             </form>
             <br></br>
             7.4

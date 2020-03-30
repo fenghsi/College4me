@@ -14,7 +14,20 @@ const collegesSchema = new Schema({
     size: String,
     hidden_score: Number,
     city: String,
-    state: String
+    state: String,
+    completion_rate: String,
+    range_avg_SAT_math: String,
+    range_avg_SAT_EBRW: String,
+    range_avg_ACT: String,
+    avg_high_GPA: String,
+    majors: {
+        type: [String],
+        default: undefined
+    },
+    cost_of_attendance: {
+        type: [String],
+        default: undefined
+    },
 });
 
 let model = mongoose.model('Colleges', collegesSchema);

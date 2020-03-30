@@ -13,6 +13,7 @@ const CollegeScoreCardUrl = '../../../../desktop/CollegScoreCard.csv';
 const collegeTxtUrl = 'colleges.txt';
 const StudentsUrl = 'students.csv';
 const ApplicationsUrl = 'applications.csv';
+const actCollegeDataUrl = 'https://www.collegedata.com/';
 
 
 //Import all the colloges in colleges.txt(Only name)
@@ -81,6 +82,26 @@ router.post('/import_college_scorecard', async function(req, res, next) {
             }
         });
    })
+});
+//7.3 Scrape collegedata.com
+
+router.post('/scrape_college_data', async function(req, res, next) {
+    const fileStr = fs.createReadStream(collegeTxtUrl);
+    const rl = readline.createInterface({
+        input: fileStr,
+        crlfDelay: Infinity
+    });
+    for await (const col of rl) {
+        let extension = col.replace(/[\,\&\s]+/g, '-').replace(/The-/,'').replace(/SUNY/, 'State-University-of-New-York');
+        
+        console.log(extension);
+        if (col == 'The College of St Scholastica') {
+            extension = extension.replace(/The-/, '');
+            console.log(extension);
+        }
+        const colDataUrl = actCollegeDataUrl + 'College/' + extension;
+        await scrapeEachCollegeData(colDataUrl, col);
+    }
 });
 
 //7.4 Delete all student profiles
@@ -211,6 +232,138 @@ async function updateCollege_from_Scorecard(cname, college) {
             state: college.STABBR,
             avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
             avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
+    });
+}
+
+async function scrapeEachCollegeData(url, cname) {
+    // This function scrape one college info from CollegeData.com
+    const collegeData = await axios.get(url);
+    const html = collegeData.data;
+    const contents = cheerio.load(html);
+
+    await contents('#profile-overview').find('.dl-split-sm').each(async function(){
+        let lis = await contents(this).html(); //whole html
+        let items = lis.split('\n');
+        let caseIdent = -1;
+        for(let e of items){
+            let noSpaceElem = e.trim();
+            if (caseIdent == -1) {
+                if (noSpaceElem == '<dt>Cost of Attendance</dt>') {    
+                    caseIdent = 0;
+                } else if (noSpaceElem == '<dt>Students Graduating Within 4 Years</dt>') {
+                    caseIdent = 1;
+                } else if (noSpaceElem == '<dt>SAT Math</dt>') {
+                    caseIdent = 2;
+                } else if (noSpaceElem == '<dt>SAT EBRW</dt>') {
+                    caseIdent = 3;
+                } else if (noSpaceElem == '<dt>ACT Composite</dt>') {
+                    caseIdent = 4;
+                }
+            }
+            else if (caseIdent == 0) { //cost of attendance
+                var list = noSpaceElem.split('<br>');
+                for (var i = 0; i < list.length; i ++) {
+                    var cost = list[i].match(/(\d+\,)?\d+/);
+                    if (!(cost === null)) {
+                        console.log("cost: " + cost[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $push: {cost_of_attendance: cost[0]}}
+                        )
+                    }
+                }
+                caseIdent = -1;
+            }
+            else if (caseIdent == 1) { //completion rate
+                var comRate = noSpaceElem.match(/\d+(\.\d+)?%/g);
+                if (!(comRate === null)) {
+                    console.log('complRate: ' + comRate[0]);
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {completion_rate: comRate[0]}}
+                    )
+                } else {
+                    var trimmed = noSpaceElem.replace(/<dd>*/, '').replace(/<\/dd>/, '');
+                    console.log('complRate: ' + trimmed)
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {completion_rate: trimmed}}
+                    )
+                }
+                caseIdent = -1;
+            }
+            else if (caseIdent == 2) { //SAT Math
+                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
+                    var range = noSpaceElem.match(/\d+-\d+/);
+                    if (!(range === null)) {
+                        console.log('SAT_Math: ' + range[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_math: range[0]}}
+                        )
+                    } else {
+                        console.log('SAT_Math: ' + noSpaceElem);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_math: noSpaceElem}}
+                        )
+                    }
+                }
+                else if (noSpaceElem == '</dd>') {
+                    caseIdent = -1;
+                }
+            }
+            else if (caseIdent == 3) { //SAT EBRW
+                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
+                    var rangeEBRW = noSpaceElem.match(/\d+-\d+/);
+                    if (!(rangeEBRW === null)) {
+                        console.log('SAT_EBRW: ' + rangeEBRW[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_EBRW: rangeEBRW[0]}}
+                        )
+                    } else {
+                        console.log('SAT_EBRW: ' + noSpaceElem);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_EBRW: noSpaceElem}}
+                        )
+                    }
+                }
+                else if (noSpaceElem == '</dd>') {
+                    caseIdent = -1;
+                }
+            }
+            else if (caseIdent == 4) { //ACT Comp
+                var listACT = noSpaceElem.split('<br>');
+                var rangeACT = ''
+                if (listACT.length == 1) {
+                    rangeACT = listACT[0].match(/\d+-\d+/);
+                } else { //two elem
+                    rangeACT = listACT[1].match(/\d+-\d+/);
+                }
+                if (!(rangeACT === null)) {
+                    console.log('ACT_Comp: ' + rangeACT[0]);
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {range_avg_ACT: rangeACT[0]}}
+                    )
+                }
+                caseIdent = -1;
+            }
+        };
+    });
+    const majs = await contents('#profile-academics').find('.col-sm-6').each(async function(){
+        let majors = await contents(this).find('.list--nice').text().split('\n');
+        for(let e of majors){
+            let major = e.trim();
+            if (!(major.localeCompare('') == 0)) {
+                await College.updateOne(
+                    {name:cname},
+                    { $push: {majors: major}}
+                )
+            }
+        };
     });
 }
 

@@ -50,6 +50,9 @@ router.post('/import_college_scorecard', async function(req, res, next) {
             if(cname=="The University of Alabama"){
                 updateCollege_from_Scorecard("University of Alabama", college);
             }
+            else if (cname == "Franklin and Marshall College"){
+                updateCollege_from_Scorecard("Franklin & Marshall College", college);
+            }
             else if(cname=="The College of Saint Scholastica"){
                 updateCollege_from_Scorecard("The College of St Scholastica", college);
             }
@@ -59,7 +62,7 @@ router.post('/import_college_scorecard', async function(req, res, next) {
             else if(cname=="The University of Montana"){
                 updateCollege_from_Scorecard("University of Montana", college);
             }
-            else if(cname=="Indiana University-Bloomington"){
+            else if(cname=="Indiana University, Bloomington"){
                 updateCollege_from_Scorecard("Indiana University Bloomington", college);
             }
             else{

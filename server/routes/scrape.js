@@ -70,7 +70,9 @@ router.post('/import_college_scorecard', async function(req, res, next) {
                             admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:"NULL",
                             size: (college.UG!="NULL"?college.UG:(college.UGDS!="NULL"?college.UGDS:"NULL")),
                             city: college.CITY,
-                            state: college.STABBR
+                            state: college.STABBR,
+                            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
+                            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
                     });
                 }
             }
@@ -203,7 +205,9 @@ async function updateCollege_from_Scorecard(cname, college) {
             admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:"NULL",
             size: (college.UG!="NULL"?college.UG:(college.UGDS!="NULL"?college.UGDS:"NULL")),
             city: college.CITY,
-            state: college.STABBR
+            state: college.STABBR,
+            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
+            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
     });
 }
 

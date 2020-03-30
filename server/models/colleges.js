@@ -8,10 +8,9 @@ const collegesSchema = new Schema({
         unique: true
     },
     ranking: String,
-    avg_SAT: String,
-    avg_ACT: String,
+    avg_SAT: Number,
+    avg_ACT: Number,
     admission_rate:String,
-    cost: String,
     size: String,
     hidden_score: Number,
     city: String,

@@ -19,7 +19,6 @@ const collegesSchema = new Schema({
     range_avg_SAT_math: String,
     range_avg_SAT_EBRW: String,
     range_avg_ACT: String,
-    avg_high_GPA: String,
     majors: {
         type: [String],
         default: undefined

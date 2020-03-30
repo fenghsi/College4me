@@ -69,7 +69,7 @@ function App() {
                 username: event.username
               });
               setStudent(res2.data.student);
-              setAdmin(res2.data.student.acountType);
+              setAdmin(res2.data.student.accountType);
               //set applications
               const res3 = await axios.post('/getApplications', { 
                 username: event.username
@@ -287,7 +287,7 @@ function App() {
 
   return (
     <div>
-       <Navbar user = {user} handleLogout={handleLogout} handlereset={handlereset}/>
+       <Navbar user = {user} admin={Admin} handleLogout={handleLogout} handlereset={handlereset}/>
           <div className="container">
               <Switch>
                   <Route exact path="/" render={() => (<Home/>)} />

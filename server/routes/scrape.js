@@ -34,11 +34,9 @@ router.post('/import_Colleges', async function(req, res, next) {
 router.post('/scrape_college_ranking', async function(req, res, next) {
     const result = await axios.get(WSJUrl);
     for (const college of result.data.data) {
-        // console.log(college.name);
-        // console.log(college.rank);
         await College.updateOne({name:college.name}, 
             {   
-                $set: {ranking:college.rank_order }
+                $set: {ranking:college.rank }
         });
     }
 });
@@ -46,7 +44,7 @@ router.post('/scrape_college_ranking', async function(req, res, next) {
 //7.2 Import College Scorecard data file.  Import information about all colleges in colleges.txt.
 router.post('/import_college_scorecard', async function(req, res, next) {
     csv().fromFile(CollegeScoreCardUrl).then(async function(CSjson){ 
-        let count = 0;
+
         CSjson.forEach(async function(college) {
             let cname =await college.INSTNM.replace("-",", ");
             if(cname=="The University of Alabama"){
@@ -67,15 +65,10 @@ router.post('/import_college_scorecard', async function(req, res, next) {
             else{
                 let c = await College.findOne({name:cname }).lean();
                 if(c){
-                    await count++;
                     await College.updateOne({name: cname}, 
                         {   
-                            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
-                            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
-                            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:-1,
-                            cost: (college.NPT4_PRIV!="NULL"?college.NPT4_PRIV:(college.NPT4_PUB!="NULL"?college.NPT4_PUB:-1)),
-                            size: (college.NUM4_PRIV!="NULL"?college.NUM4_PRIV:(college.NUM4_PUB!="NULL"?college.NUM4_PUB:-1)),
-                            hidden_score: 0,
+                            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:"NULL",
+                            size: (college.UG!="NULL"?college.UG:(college.UGDS!="NULL"?college.UGDS:"NULL")),
                             city: college.CITY,
                             state: college.STABBR
                     });
@@ -207,12 +200,8 @@ router.post('/import_student_profile_dataset_Student', async function(req, res, 
 async function updateCollege_from_Scorecard(cname, college) {
     await College.updateOne({name: cname}, 
         {   
-            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
-            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
-            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:-1,
-            cost: (college.NPT4_PRIV!="NULL"?college.NPT4_PRIV:(college.NPT4_PUB!="NULL"?college.NPT4_PUB:-1)),
-            size: (college.NUM4_PRIV!="NULL"?college.NUM4_PRIV:(college.NUM4_PUB!="NULL"?college.NUM4_PUB:-1)),
-            hidden_score: 0,
+            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:"NULL",
+            size: (college.UG!="NULL"?college.UG:(college.UGDS!="NULL"?college.UGDS:"NULL")),
             city: college.CITY,
             state: college.STABBR
     });

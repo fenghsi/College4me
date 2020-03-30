@@ -64,13 +64,6 @@ function FindSimilarHighSchool(props) {
           <Button>Search</Button>
         </div> 
 
-        <div className="even">
-          <form onSubmit={findhandler}>
-            <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Delete All Student Profiles</button>
-          </form>
-          <p>{testmsg}</p >
-          <br></br>
-        </div>
 
 
       </class>

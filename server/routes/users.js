@@ -21,7 +21,8 @@ router.post('/adduser', async function(req, res, next) {
       const newStudent = new Student({
             userid :req.body.username,
             username: req.body.username,
-            password: req.body.password
+            password: req.body.password,
+            accountType: "student"
       });
       newStudent.save();
 

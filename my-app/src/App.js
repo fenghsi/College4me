@@ -8,6 +8,7 @@ import SignUpForm from './components/user/SignUpForm';
 import SignInForm from './components/user/SignInForm';
 import Reviews_Questionable from './components/admin/Review_Questionable';
 import FindSimilarHighSchool from './components/FindSimilarHighSchool';
+import Scrape from './components/admin/scrape';
 import { notification } from 'antd';
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
       }        
       else{
         setStudent(res.data.user);
-        setAdmin(res.data.user.acountType);
+        setAdmin(res.data.user.accountType);
         setUser(res.data.user.username);
         const res2 = await axios.post('/getApplications', { 
           username:res.data.user.username
@@ -294,6 +295,7 @@ function App() {
                   {(Admin=="admin") &&
                       <React.Fragment>
                           <Route exact path="/admin" render={() => (<Reviews_Questionable/>)} />
+                          <Route exact path="/scrape" render={() => (<Scrape/>)} />
                       </React.Fragment>
                   }
                   {user &&

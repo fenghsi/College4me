@@ -1,8 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const WSJUrl = "http://allv22.all.cs.stonybrook.edu/~stoller/cse416/WSJ_THE/united_states_rankings_2020_limit0_25839923f8b1714cf54659d4e4af6c3b.json";
-const CollegeScoreCardUrl = '../../../../desktop/CollegScoreCard.csv';
-const collegeTxtUrl = 'colleges.txt';
 const axios = require("axios");
 const cheerio = require('cheerio')
 const fs = require('fs') 
@@ -11,7 +8,12 @@ const College = require('../models/colleges');
 const csv=require("csvtojson");
 const Student = require('../models/student');
 const Applications = require('../models/applications');
-  
+const WSJUrl = "http://allv22.all.cs.stonybrook.edu/~stoller/cse416/WSJ_THE/united_states_rankings_2020_limit0_25839923f8b1714cf54659d4e4af6c3b.json";
+const CollegeScoreCardUrl = '../../../../desktop/CollegScoreCard.csv';
+const collegeTxtUrl = 'colleges.txt';
+const StudentsUrl = 'students.csv';
+const ApplicationsUrl = 'applications.csv';
+
 
 //Import all the colloges in colleges.txt(Only name)
 router.post('/import_Colleges', async function(req, res, next) {
@@ -83,23 +85,106 @@ router.post('/import_college_scorecard', async function(req, res, next) {
    })
 });
 
-async function updateCollege_from_Scorecard(cname, college) {
-    await College.updateOne({name: cname}, 
-        {   
-            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
-            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
-            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:-1,
-            cost: (college.NPT4_PRIV!="NULL"?college.NPT4_PRIV:(college.NPT4_PUB!="NULL"?college.NPT4_PUB:-1)),
-            size: (college.NUM4_PRIV!="NULL"?college.NUM4_PRIV:(college.NUM4_PUB!="NULL"?college.NUM4_PUB:-1)),
-            hidden_score: 0,
-            city: college.CITY,
-            state: college.STABBR
-    });
-}
-
 //7.4 Delete all student profiles
 router.post('/delete_all_student_profiles', async function(req, res, next) {
-    await Student.deleteMany({}).lean();
+    await Student.deleteMany({accountType:"student"}).lean();
+});
+
+
+//7.5 Import student profile dataset. Application
+router.post('/import_student_profile_dataset_Application', async function(req, res, next) {
+    csv().fromFile(ApplicationsUrl).then(async function(CSjson){ 
+        CSjson.forEach(async function(application) {
+            let applicationUserid = await application.userid;
+            let applicationCollege = await application.college;
+            let FileApplication = await Applications.findOne({userid:applicationUserid, college:applicationCollege}).lean();
+            if (FileApplication == null){
+                const newApplication = new Applications({
+                    userid: application.userid,
+                    college: application.college,
+                    status: application.status,
+                });
+                await newApplication.save();
+            }else{
+                await Applications.update({userid:applicationUserid, college:applicationCollege},{status: application.status})
+            }
+            
+        });
+    });
+});  
+
+//7.5 Import student profile dataset. Student
+router.post('/import_student_profile_dataset_Student', async function(req, res, next) {
+    csv().fromFile(StudentsUrl).then(async function(CSjson){ 
+        CSjson.forEach(async function(student) {
+            let Filestudent = await Student.findOne({userid:student.userid}).lean();
+            if (Filestudent == null){
+                const newStudent = new Student({
+                    userid: student.userid,
+                    username: student.userid,
+                    password: student.password,
+                    residence_state: student.residence_state,
+                    high_school_name: student.high_school_name,
+                    high_school_city : student.high_school_city,
+                    high_school_state : student.high_school_state,
+                    GPA: student.GPA,
+                    college_class: student.college_class,
+                    major_1: student.major_1 ,
+                    major_2: student.major_2,
+                    SAT_math: student.SAT_math,
+                    SAT_EBRW: student.SAT_EBRW,
+                    ACT_English: student.ACT_English,
+                    ACT_math: student.ACT_math,
+                    ACT_reading: student.ACT_reading,
+                    ACT_science: student.ACT_science,
+                    ACT_composite: student.ACT_composite,
+                    SAT_literature: student.SAT_literature,
+                    SAT_US_hist: student.SAT_US_hist,
+                    SAT_world_hist: student.SAT_world_hist,
+                    SAT_math_I: student.SAT_math_I,
+                    SAT_math_II: student.SAT_math_II,
+                    SAT_eco_bio: student.SAT_eco_bio,
+                    SAT_mol_bio: student.SAT_mol_bio,
+                    SAT_chemistry: student.SAT_chemistry,
+                    SAT_physics: student.SAT_physics,
+                    num_AP_passed: student.num_AP_passed,
+                    accountType: "student"
+                });
+                await newStudent.save();
+            }else{
+                await Student.updateOne({userid:student.userid},
+                    {   username: student.userid,
+                        password: student.password,
+                        residence_state: student.residence_state,
+                        high_school_name: student.high_school_name,
+                        high_school_city : student.high_school_city,
+                        high_school_state : student.high_school_state,
+                        GPA: student.GPA,
+                        college_class: student.college_class,
+                        major_1: student.major_1 ,
+                        major_2: student.major_2,
+                        SAT_math: student.SAT_math,
+                        SAT_EBRW: student.SAT_EBRW,
+                        ACT_English: student.ACT_English,
+                        ACT_math: student.ACT_math,
+                        ACT_reading: student.ACT_reading,
+                        ACT_science: student.ACT_science,
+                        ACT_composite: student.ACT_composite,
+                        SAT_literature: student.SAT_literature,
+                        SAT_US_hist: student.SAT_US_hist,
+                        SAT_world_hist: student.SAT_world_hist,
+                        SAT_math_I: student.SAT_math_I,
+                        SAT_math_II: student.SAT_math_II,
+                        SAT_eco_bio: student.SAT_eco_bio,
+                        SAT_mol_bio: student.SAT_mol_bio,
+                        SAT_chemistry: student.SAT_chemistry,
+                        SAT_physics: student.SAT_physics,
+                        num_AP_passed: student.num_AP_passed,
+                        accountType: "student"
+                })
+            }      
+        });
+    });
 });
 
 //7.6 Review Questionable
@@ -117,6 +202,20 @@ router.post('/delete_all_student_profiles', async function(req, res, next) {
     
 // });
 
+//helpers
 
+async function updateCollege_from_Scorecard(cname, college) {
+    await College.updateOne({name: cname}, 
+        {   
+            avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
+            avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
+            admission_rate: college.ADM_RATE!="NULL"?college.ADM_RATE:-1,
+            cost: (college.NPT4_PRIV!="NULL"?college.NPT4_PRIV:(college.NPT4_PUB!="NULL"?college.NPT4_PUB:-1)),
+            size: (college.NUM4_PRIV!="NULL"?college.NUM4_PRIV:(college.NUM4_PUB!="NULL"?college.NUM4_PUB:-1)),
+            hidden_score: 0,
+            city: college.CITY,
+            state: college.STABBR
+    });
+}
 
 module.exports = router;

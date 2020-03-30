@@ -11,7 +11,10 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
-    password: String,
+    password :{
+        type: String,
+        required: true
+    },
     residence_state: String,
     high_school_name: String,
     high_school_city : String,
@@ -38,7 +41,10 @@ const studentSchema = new Schema({
     SAT_physics: Number,
     num_AP_passed: Number,
     hidden_score: Number,
-    acountType: String
+    accountType: {
+        type: String,
+        required: true
+    },
 });
 
 studentSchema.methods.validPassword = function(password) {

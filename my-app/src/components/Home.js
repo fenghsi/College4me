@@ -45,7 +45,7 @@ function Home(props) {
                     <Paragraph id ="Title_para">The best tool for matching students to Colleges  <br /> Ready for your College Journey</Paragraph>
                     <div className="even">
                         <form onSubmit={handletest}>
-                                <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Click Me</button>
+                                <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Create Admin account(username: "feyu" passwd:"1111")</button>
                         </form>
                         <p>{testmsg}</p>
                         <br></br>

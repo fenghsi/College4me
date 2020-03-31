@@ -61,13 +61,13 @@ router.post('/test', async function(req, res, next) {
         //         $set: {admin_status:"admin" }
         // });
 
-        // const newStudent = new Student({
-        //     userid :"feyu",
-        //     username:"feyu",
-        //     password: "1111",
-        //     accountType:"admin"
-        // });
-        // await newStudent.save();
+        const newStudent = new Student({
+            userid :"feyu",
+            username:"feyu",
+            password: "1111",
+            accountType:"admin"
+        });
+        await newStudent.save();
 
 
         return res.json({

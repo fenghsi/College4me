@@ -8,8 +8,11 @@ import SignUpForm from './components/user/SignUpForm';
 import SignInForm from './components/user/SignInForm';
 import Reviews_Questionable from './components/admin/Review_Questionable';
 import FindSimilarHighSchool from './components/FindSimilarHighSchool';
+import SearchCollege from './components/SearchCollege';
 import Scrape from './components/admin/scrape';
 import { notification } from 'antd';
+import { Select} from 'antd';
+const { Option } = Select;
 
 function App() {
     const [Admin, setAdmin] = useState(null);
@@ -35,6 +38,9 @@ function App() {
     const [saveOreditScoreSAT, setsaveOreditScoreSAT] = useState('Edit');
     const [saveOreditScoreACT, setsaveOreditScoreACT] = useState('Edit');
     const [saveOreditScoreSATSub, setsaveOreditScoreSATSub] = useState('Edit');
+
+
+    ////////////// Below are functions above are const
 
     async function handleRefresh(){
       const res = await axios.get('/user');
@@ -284,6 +290,8 @@ function App() {
       setDisableBasic(true);
     }
 
+  //////////////
+
 
   return (
     <div>
@@ -323,6 +331,7 @@ function App() {
                               />)} 
                            />
                         <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
+                        <Route exact path="/SearchCollege" render={() => (<SearchCollege/>)} />
                       </React.Fragment>
                   }
                   {!user &&

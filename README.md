@@ -52,3 +52,7 @@ npm install passport-local
 npm install passport
 npm install connect-flash
 npm i csvtojson
+
+
+//for front end
+npm install react-infinite-scroller

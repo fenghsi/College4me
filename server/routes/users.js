@@ -151,6 +151,16 @@ router.post('/editscoresat',async function(req, res, next) {
             SAT_math : req.body.SAT_math,
         });
     let student = await Student.findOne({userid: req.body.userid}).lean();
+    let applications = await Applications.find({userid: req.body.userid}).lean();
+    //update application questionable since edit the score
+    const mapping =applications.map(async (app, index)=>{
+        await Applications.updateOne({userid: app.userid, college: app.college}, 
+            {   
+                questionable: null
+            });
+    });
+    await Promise.all(mapping);
+
     return res.json({
         status: "ok",
         student: student
@@ -192,7 +202,7 @@ router.post('/getApplications',async function(req, res, next) {
             key:  index,
             college: app.college,
             status: app.status,
-            questionable:question
+            questionable:app.questionable? app.questionable:question
         })
     });
     await Promise.all(mapping);
@@ -209,7 +219,8 @@ router.post('/updateApplication',async function(req, res, next) {
     await Applications.updateOne({userid:req.body.userid,college:req.body.college }, 
         {   
             college : req.body.newcollege, 
-            status : req.body.newstatus
+            status : req.body.newstatus,
+            questionable : null
         });
     let applications = await Applications.find({userid: req.body.userid}).lean();
     const originData = [];
@@ -221,7 +232,7 @@ router.post('/updateApplication',async function(req, res, next) {
             key:  index,
             college: app.college,
             status: app.status,
-            questionable:question
+            questionable: app.questionable? app.questionable:question
         })
     });
     await Promise.all(mapping);
@@ -250,7 +261,7 @@ router.post('/addApplication',async function(req, res, next) {
                 key:  index,
                 college: app.college,
                 status: app.status,
-                questionable:question
+                questionable:app.questionable? app.questionable:question
             })
         });
         await Promise.all(mapping);
@@ -265,8 +276,6 @@ router.post('/addApplication',async function(req, res, next) {
         });
 
     }
-
-
 });
 
 router.post('/deleteApplication',async function(req, res, next) {
@@ -288,7 +297,7 @@ router.post('/deleteApplication',async function(req, res, next) {
             key:  index,
             college: app.college,
             status: app.status,
-            questionable:question
+            questionable:app.questionable? app.questionable:question
         })
     });
     await Promise.all(mapping);
@@ -300,7 +309,7 @@ router.post('/deleteApplication',async function(req, res, next) {
 
 
 function compute_Questionable(college, student) {
-    
+     
     let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
     let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
     let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");

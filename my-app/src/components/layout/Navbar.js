@@ -39,6 +39,7 @@ function Navigation_bar (props){
            {props.user && props.admin=="admin" &&
             <React.Fragment>
               <Link className="tab" to={"/scrape"}>Scrape</Link>
+              <Link className="tab" to={"/questionable"}>Questionable students</Link>
             </React.Fragment>
           }
            {props.user && props.admin=="student" &&

@@ -14,6 +14,7 @@ const applicationSchema = new Schema({
         type: String,
         required: true
     },
+    questionable : String,
 });
 
 let model = mongoose.model('Applications', applicationSchema);

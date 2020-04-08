@@ -207,19 +207,112 @@ router.post('/import_student_profile_dataset_Student', async function(req, res, 
 });
 
 //7.6 Review Questionable
-// router.post('/getQuestionable', async function(req, res, next) {
-//     let applications = await Student.find({status: "accepted"}).lean();
-//     const originData = [];
-//     applications.map((app, index)=>{
-//         originData.push({
-//             key:  index,
-//             college: app.college,
-//             status: app.status,
-//             questionable: "Need to compute",
-//         })
-//     });
-    
-// });
+router.post('/getQuestionable', async function(req, res, next) {
+    let students = await Student.find({}).lean();
+    let result = [];
+    const mapping =students.map(async (student, index)=>{
+        let applications = await Applications.find({userid:student.userid, status: "accepted"}).lean();
+        const originData = [];
+        const mapping2 =applications.map(async (app, index)=>{
+            let college = await College.findOne({name:app.college}).lean();
+            if(compute_Questionable(college,student)==="Yes" && app.questionable!="No"){
+                originData.push({
+                    key:  index,
+                    college: app.college,
+                    status: app.status,
+                    questionable: "Yes"
+                })
+            }
+        });
+        await Promise.all(mapping2);
+        if(originData.length!=0){
+            result.push({
+                key: result.length,
+                name: student.username,
+                residence_state: student.residence_state,
+                high_school_name: student.high_school_name,
+                high_school_city : student.high_school_city,
+                high_school_state : student.high_school_state,
+                GPA: student.GPA,
+                college_class: student.college_class,
+                major_1: student.major_1 ,
+                major_2: student.major_2,
+                SAT_math: student.SAT_math,
+                SAT_EBRW: student.SAT_EBRW,
+                ACT_English: student.ACT_English,
+                ACT_math: student.ACT_math,
+                ACT_reading: student.ACT_reading,
+                ACT_science: student.ACT_science,
+                ACT_composite: student.ACT_composite,
+                SAT_literature: student.SAT_literature,
+                SAT_US_hist: student.SAT_US_hist,
+                SAT_world_hist: student.SAT_world_hist,
+                SAT_math_I: student.SAT_math_I,
+                SAT_math_II: student.SAT_math_II,
+                SAT_eco_bio: student.SAT_eco_bio,
+                SAT_mol_bio: student.SAT_mol_bio,
+                SAT_chemistry: student.SAT_chemistry,
+                SAT_physics: student.SAT_physics,
+                num_AP_passed: student.num_AP_passed,
+                application : originData
+            });
+        }
+    });
+    await Promise.all(mapping);
+    //console.log(result);
+    return res.json({
+        result :result
+    });
+});
+
+
+router.get('/questionable/:id', async function(req, res, next) {
+    let applications = await Applications.find({userid:req.params.id, status: "accepted"}).lean();
+    let student = await Student.findOne({userid:req.params.id }).lean();
+    const originData = [];
+    const mapping =applications.map(async (app, index)=>{
+        let college = await College.findOne({name:app.college}).lean();
+        if(compute_Questionable(college,student)==="Yes" && app.questionable!="No"){
+            originData.push({
+                key:  index,
+                college: app.college,
+                status: app.status,
+                questionable: "Yes"
+            })
+        }
+    });
+    await Promise.all(mapping);
+
+    return res.json({
+        applications: originData,
+        student:student
+    });
+});
+
+router.post('/unmarkQuestionable',async function(req, res, next) {
+    await Applications.updateOne({userid:req.body.userid,college:req.body.college }, 
+        {   
+            questionable : "No"
+        });
+    let applications = await Applications.find({userid: req.body.userid}).lean();
+    let student = await Student.findOne({userid:req.body.userid }).lean();
+    const originData = [];
+    const mapping =applications.map(async (app, index)=>{
+        let college = await College.findOne({name:app.college}).lean();
+        if(compute_Questionable(college,student)==="Yes" && app.questionable!="No"){
+            originData.push({
+                key:  index,
+                college: app.college,
+                status: app.status,
+                questionable: "Yes"
+            })
+        }
+    });
+    await Promise.all(mapping);
+    return res.json({
+        applications: originData
+    });
+});
 
 //helpers
 
@@ -366,5 +459,43 @@ async function scrapeEachCollegeData(url, cname) {
         };
     });
 }
+
+
+
+function compute_Questionable(college, student) {
+    
+    let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
+    let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
+    let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");
+    let studentACT = convert_to_percentile(student.ACT_composite!=null?student.ACT_composite:null,"ACT");
+    
+    if(studentSAT!=null & studentACT!=null){
+        return (studentSAT>studentACT?(collegeAvgSAT-10>studentSAT):(collegeAvgAct-10>studentACT))?"Yes":"No";
+    }
+    else if(studentSAT!=null){
+        return (studentSAT<collegeAvgSAT-10)?"Yes":"No";
+    }
+    else if(studentACT!=null){
+        return (studentACT<collegeAvgAct-10)?"Yes":"No";
+    }
+    else{
+        return null;
+    }
+}
+
+function convert_to_percentile(score, type){
+    if(score==null){
+        return null;
+    }
+    if(type =="ACT"){
+       return score/36*100;
+    }
+    else if(type =="SAT"){
+       return score/1600*100;
+    }
+    else if(type =="GPA"){
+       return score/4*100;
+    }
+}  
 
 module.exports = router;

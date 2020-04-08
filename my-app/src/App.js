@@ -10,6 +10,7 @@ import Reviews_Questionable from './components/admin/Review_Questionable';
 import FindSimilarHighSchool from './components/FindSimilarHighSchool';
 import SearchCollege from './components/SearchCollege';
 import Scrape from './components/admin/scrape';
+import QuestionableByid from './components/admin/QuestionableById';
 import { notification } from 'antd';
 import { Select} from 'antd';
 const { Option } = Select;
@@ -302,8 +303,9 @@ function App() {
             
                   {(Admin=="admin") &&
                       <React.Fragment>
-                          <Route exact path="/admin" render={() => (<Reviews_Questionable/>)} />
+                          <Route exact path="/questionable" render={() => (<Reviews_Questionable/>)} />
                           <Route exact path="/scrape" render={() => (<Scrape/>)} />
+                          <Route exact path="/questionable/:id" render={() => (<QuestionableByid />)} />
                       </React.Fragment>
                   }
                   {user &&

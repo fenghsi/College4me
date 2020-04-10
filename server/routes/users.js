@@ -308,6 +308,13 @@ router.post('/deleteApplication',async function(req, res, next) {
 });
 
 
+router.post('/searchColleges',async function(req, res, next) {
+   // const properties = await Property.find({ price: { $gte:req.query.priceMin, $lte: req.query.priceMax } });
+
+});
+
+
+
 function compute_Questionable(college, student) {
      
     let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");

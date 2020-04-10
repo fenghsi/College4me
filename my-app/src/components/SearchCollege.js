@@ -6,12 +6,14 @@ import { Button, Form } from 'antd';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Input, AutoComplete } from 'antd';
 import { notification } from 'antd';
-
+import { Layout } from 'antd';
+import { Table } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
 
 function SearchCollege(props) {
     
-    const [data, setData] = useState([]);
+   // const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
     const [options, setOptions] = useState([
@@ -117,18 +119,104 @@ function SearchCollege(props) {
         { value : "William Jewell College"},
         { value : "Williams College"}
     ]);
-    
+    const columns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filters: [
+            {
+              text: 'Joe',
+              value: 'Joe',
+            },
+            {
+              text: 'Jim',
+              value: 'Jim',
+            },
+            {
+              text: 'Submenu',
+              value: 'Submenu',
+              children: [
+                {
+                  text: 'Green',
+                  value: 'Green',
+                },
+                {
+                  text: 'Black',
+                  value: 'Black',
+                },
+              ],
+            },
+          ],
+          // specify the condition of filtering result
+          // here is that finding the name started with `value`
+          onFilter: (value, record) => record.name.indexOf(value) === 0,
+          sorter: (a, b) => a.name.length - b.name.length,
+          sortDirections: ['descend'],
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          defaultSortOrder: 'descend',
+          sorter: (a, b) => a.age - b.age,
+        },
+        {
+          title: 'Address',
+          dataIndex: 'address',
+          filters: [
+            {
+              text: 'London',
+              value: 'London',
+            },
+            {
+              text: 'New York',
+              value: 'New York',
+            },
+          ],
+          filterMultiple: false,
+          onFilter: (value, record) => record.address.indexOf(value) === 0,
+          sorter: (a, b) => a.address.length - b.address.length,
+          sortDirections: ['descend', 'ascend'],
+        },
+      ];
+      
+      const data = [
+        {
+          key: '1',
+          name: 'John Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park',
+        },
+        {
+          key: '2',
+          name: 'Jim Green',
+          age: 42,
+          address: 'London No. 1 Lake Park',
+        },
+        {
+          key: '3',
+          name: 'Joe Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park',
+        },
+        {
+          key: '4',
+          name: 'Jim Red',
+          age: 32,
+          address: 'London No. 2 Lake Park',
+        },
+      ];
     
     useEffect(() => {
         async function fetchData() {
             //const res = await axios.post('/getColleges');
-            setData([{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"}]);
+           // setData([{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"}]);
         };
         fetchData();
     }, []);
     
     
     async function handleSearchCollege(event) {
+
         notification.open({
             message: event.CollegeSearchBar,
             duration:2.5  
@@ -136,40 +224,49 @@ function SearchCollege(props) {
     }
 
     return (
-      <div>
-          <Form
+
+    <Layout>
+      <Header >
+      <Form
             className="Search_college_form"
             name="Search_College"
             onFinish={handleSearchCollege}
+            style={{margin:'10px 10px 10px 10px'} }
             > 
             <Form.Item  name="CollegeSearchBar">
                 <AutoComplete
                     dropdownMatchSelectWidth={"100%"}
-                    style={{ width: "50%" }}
+                    style={{ width: "100%" }}
                     options={options}
                     // onSelect={onSelect}
                     filterOption={(inputValue, option) =>
                         option.value.toUpperCase().includes(inputValue.toUpperCase()) 
                     }
                 >
-                    <Input.Search size="large" placeholder="Enter Keywords"  />
+                    <Input.Search style={{width:'100%'} }size="large" placeholder="Enter Keywords"  />
                 </AutoComplete>
             </Form.Item>
           </Form>
-          <div className="demo-infinite-container">
+      </Header>
+      <Layout>
+        <Sider style={{background:'burlywood', padding:'0 0 500px 0'} }>Sider</Sider>
+        <Content style={{background:'snow',padding:'20px 20px 20px 20px'}}>
+        {/* <div className="demo-infinite-container" >
             <InfiniteScroll
             initialLoad={false}
             pageStart={0}
             hasMore={!loading && hasMore}
             useWindow={false}
+            style={{background:'white',padding:'20px 20px 20px 20px'}}
             >
             <List
                 dataSource={data}
                 renderItem={item => (
                 <List.Item key={item.id}>
                     <List.Item.Meta
-                    title={item.name}
-                    description={item.description}
+                    // title={item.name}
+                    // description={item.description}
+                    style={{ background:'white',padding:'50px 50px 50px 50px'}}
                     />
                     <div>Content</div>
                 </List.Item>
@@ -182,8 +279,60 @@ function SearchCollege(props) {
                 )}
             </List>
             </InfiniteScroll>
-        </div>
-      </div>
+        </div> */}
+        <Table columns={columns} dataSource={data}  />
+        </Content>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
+    //   <div>
+    //       <Form
+    //         className="Search_college_form"
+    //         name="Search_College"
+    //         onFinish={handleSearchCollege}
+    //         > 
+    //         <Form.Item  name="CollegeSearchBar">
+    //             <AutoComplete
+    //                 dropdownMatchSelectWidth={"100%"}
+    //                 style={{ width: "50%" }}
+    //                 options={options}
+    //                 // onSelect={onSelect}
+    //                 filterOption={(inputValue, option) =>
+    //                     option.value.toUpperCase().includes(inputValue.toUpperCase()) 
+    //                 }
+    //             >
+    //                 <Input.Search size="large" placeholder="Enter Keywords"  />
+    //             </AutoComplete>
+    //         </Form.Item>
+    //       </Form>
+    //       <div className="demo-infinite-container">
+    //         <InfiniteScroll
+    //         initialLoad={false}
+    //         pageStart={0}
+    //         hasMore={!loading && hasMore}
+    //         useWindow={false}
+    //         >
+    //         <List
+    //             dataSource={data}
+    //             renderItem={item => (
+    //             <List.Item key={item.id}>
+    //                 <List.Item.Meta
+    //                 title={item.name}
+    //                 description={item.description}
+    //                 />
+    //                 <div>Content</div>
+    //             </List.Item>
+    //             )}
+    //         >
+    //             {loading && hasMore && (
+    //             <div className="demo-loading-container">
+    //                 <Spin />
+    //             </div>
+    //             )}
+    //         </List>
+    //         </InfiniteScroll>
+    //     </div>
+    //   </div>
     );
 }
 

@@ -741,7 +741,7 @@ function SearchCollege(props) {
 
             
         </Sider>
-        <Content style={{background:'snow',padding:'20px 20px 20px 20px', height:"800px"}}>
+        <Content style={{background:'snow',padding:'20px 20px 20px 20px', height:"900px"}}>
         <Table 
             columns={mergedColumns} 
             dataSource={data} 

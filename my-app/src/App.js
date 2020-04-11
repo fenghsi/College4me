@@ -333,7 +333,7 @@ function App() {
                               />)} 
                            />
                         <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
-                        <Route exact path="/SearchCollege" render={() => (<SearchCollege/>)} />
+                        <Route exact path="/SearchCollege" render={() => (<SearchCollege Student={Student} />)} />
                       </React.Fragment>
                   }
                   {!user &&

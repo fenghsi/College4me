@@ -8,7 +8,11 @@ import { notification } from 'antd';
 import { Layout } from 'antd';
 import { Table } from 'antd';
 import { Slider } from 'antd';
+import { Switch } from 'antd';
+import { Select } from 'antd';
+const { Option } = Select;
 const { Header, Footer, Sider, Content } = Layout;
+
 
 
 function SearchCollege(props) {
@@ -16,16 +20,70 @@ function SearchCollege(props) {
     const [data, setData] = useState([]);
     const [majors, setMajors] = useState();
     const [name, setName] = useState();
-    const [keyword, setKeyword] = useState({CollegeSearchBar:'all'});
+    const [mode, setMode] = useState(false);
+    const [keyword, setKeyword] = useState({CollegeSearchBar:''});
+    const [states, setStates] = useState([]);
     const [admission_rate, setAdmission_rate] = useState([0,100]);
     const [completion_rate, setCompletion_rate] = useState([0,100]);
-    const [cost_of_attendance, setCost_of_attendance] = useState();
+    const [cost_of_attendance, setCost_of_attendance] = useState([0,80000]);
     const [ranking, setRanking] = useState([1,1000]);
     const [size, setSize] = useState([1,70000]);
     const [sat_math, setSat_math] = useState([200,800]);
     const [sat_EBRW, setSat_EBRW] = useState([200,800]);
     const [act_Composite, setact_Composite] = useState([1,36]);
-   
+    const allstates = <Select mode="multiple" style={{ width: '100%' }}>
+        <Option value="AL">Alabama</Option>
+        <Option value="AK">Alaska</Option>
+        <Option value="AZ">Arizona</Option>
+        <Option value="AR">Arkansas</Option>
+        <Option value="CA">California</Option>
+        <Option value="CO">Colorado</Option>
+        <Option value="CT">Connecticut</Option>
+        <Option value="DE">Delaware</Option>
+        <Option value="DC">District Of Columbia</Option>
+        <Option value="FL">Florida</Option>
+        <Option value="GA">Georgia</Option>
+        <Option value="HI">Hawaii</Option>
+        <Option value="ID">Idaho</Option>
+        <Option value="IL">Illinois</Option>
+        <Option value="IN">Indiana</Option>
+        <Option value="IA">Iowa</Option>
+        <Option value="KS">Kansas</Option>
+        <Option value="KY">Kentucky</Option>
+        <Option value="LA">Louisiana</Option>
+        <Option value="ME">Maine</Option>
+        <Option value="MD">Maryland</Option>
+        <Option value="MA">Massachusetts</Option>
+        <Option value="MI">Michigan</Option>
+        <Option value="MN">Minnesota</Option>
+        <Option value="MS">Mississippi</Option>
+        <Option value="MO">Missouri</Option>
+        <Option value="MT">Montana</Option>
+        <Option value="NE">Nebraska</Option>
+        <Option value="NV">Nevada</Option>
+        <Option value="NH">New Hampshire</Option>
+        <Option value="NJ">New Jersey</Option>
+        <Option value="NM">New Mexico</Option>
+        <Option value="NY">New York</Option>
+        <Option value="NC">North Carolina</Option>
+        <Option value="ND">North Dakota</Option>
+        <Option value="OH">Ohio</Option>
+        <Option value="OK">Oklahoma</Option>
+        <Option value="OR">Oregon</Option>
+        <Option value="PA">Pennsylvania</Option>
+        <Option value="RI">Rhode Island</Option>
+        <Option value="SC">South Carolina</Option>
+        <Option value="SD">South Dakota</Option>
+        <Option value="TN">Tennessee</Option>
+        <Option value="TX">Texas</Option>
+        <Option value="UT">Utah</Option>
+        <Option value="VT">Vermont</Option>
+        <Option value="VA">Virginia</Option>
+        <Option value="WA">Washington</Option>
+        <Option value="WV">West Virginia</Option>
+        <Option value="WI">Wisconsin</Option>
+        <Option value="WY">Wyoming</Option>
+    </Select>	;  
 
     const [options, setOptions] = useState([
         { value : "American University"},
@@ -142,17 +200,20 @@ function SearchCollege(props) {
         {
           title: 'Ranking',
           dataIndex: 'ranking',
-          width:200
+          width:200,
+          sorter: (a, b) => a.ranking - b.ranking,
         },
         {
             title: 'Admission Rate',
             dataIndex: 'admission_rate',
-            width:200
+            width:200,
+            sorter: (a, b) => a.admission_rate - b.admission_rate,
         },
         {
             title: 'Size',
             dataIndex: 'size',
-            width:200
+            width:200,
+            sorter: (a, b) => a.size - b.size,
         },
         {
             title: 'City',
@@ -172,17 +233,19 @@ function SearchCollege(props) {
         {
             title: 'Debt',
             dataIndex: 'debt',
-            width:200
+            width:200,
+            sorter: (a, b) => a.debt - b.debt,
         },
         {
             title: 'Completion Rate(4 years)',
             dataIndex: 'completion_rate',
-            width:250
+            width:250,
+            sorter: (a, b) => a.completion_rate.replace("%",'') - b.completion_rate.replace("%",''),
         },
         {
             title: 'Range Avg SAT Math',
             dataIndex: 'range_avg_SAT_math',
-            width:200
+            width:200,
         },
         {
             title: 'Range Avg SAT EBRW',
@@ -197,12 +260,13 @@ function SearchCollege(props) {
         {
             title: 'Majors',
             dataIndex: 'majors',
-            width:1000
+            width:2000
         },
         {
             title: 'Cost of attendance',
             dataIndex: 'cost_of_attendance',
-            width:200
+            width:200,
+            sorter: (a, b) => a.cost_of_attendance - b.cost_of_attendance,
         },
       ];
 
@@ -235,6 +299,31 @@ function SearchCollege(props) {
         setKeyword(event);
         const res = await axios.post('/searchColleges', {
             keyword: event.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states
+          });
+        setData(res.data.colleges);
+        notification.open({
+            message: "Search succesfully",
+            duration:2.5  
+          });
+    }
+    async function handleSearchCollege2(event) {
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            mode: !mode,
+            inoutstate: props.Student.residence_state,
             admission_rate:admission_rate,
             completion_rate:completion_rate,
             cost_of_attendance:cost_of_attendance,
@@ -247,6 +336,7 @@ function SearchCollege(props) {
             act_Composite:act_Composite,
           });
         setData(res.data.colleges);
+        setMode(!mode);
         notification.open({
             message: "Search succesfully",
             duration:2.5  
@@ -305,6 +395,13 @@ function SearchCollege(props) {
         }
     }
 
+    async function handleCOSFilter(event){
+        setCost_of_attendance([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+
 
     return (
 
@@ -321,10 +418,11 @@ function SearchCollege(props) {
                     dropdownMatchSelectWidth={"100%"}
                     style={{ width: "100%" }}
                     options={options}
-                    // onSelect={onSelect}
+                    defaultValue = {keyword.CollegeSearchBar}
                     filterOption={(inputValue, option) =>
                         option.value.toUpperCase().includes(inputValue.toUpperCase()) 
                     }
+                    autoFocus = {true}
                 >
                     <Input.Search style={{width:'100%'} }size="large" placeholder="Enter Keywords"  />
                 </AutoComplete>
@@ -336,39 +434,44 @@ function SearchCollege(props) {
             <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
                 <h1 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Filters</h1>
             </div>
-            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'white', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>Admission Rate</h4>
                 <Slider range step={0.01} min={0} max={1} marks={{0: '0',1: '1'}}  defaultValue={[0, 1]} onChange={e => setAdmission_rate([e[0],e[1]])} onAfterChange={handleAdmissionFilter} />
             </div>
-            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'snow', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Completion Rate</h4>
                 <Slider range step={1} min={0} max={100} marks={{0: '0%',100: '100%'}}  defaultValue={[0, 100]} onChange={e => setCompletion_rate([e[0],e[1]])} onAfterChange={handleCompleteionFilter} />
             </div>
             
-            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'white', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>Ranking</h4>
                 <Slider range step={10} min={1} max={1000} marks={{1: '1st',1000: '1000th'}}  defaultValue={[1, 1000]} onChange={e => setRanking([e[0],e[1]])} onAfterChange={handleRankFilter} />
             </div>
-            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'snow', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>size</h4>
                 <Slider range step={100} min={1} max={70000} marks={{1: '1',70000: '70000'}}  defaultValue={[1, 70000]} onChange={e => setSize([e[0],e[1]])} onAfterChange={handleSizeFilter} />
             </div>
-            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'white', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>SAT Math</h4>
                 <Slider range step={10} min={200} max={800} marks={{200: '200',800: '800'}}  defaultValue={[0, 800]} onChange={e => setSat_math([e[0],e[1]])} onAfterChange={handleSATMathFilter} />
             </div>
-            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'snow', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>SAT EBRW</h4>
                 <Slider range step={10} min={200} max={800} marks={{200: '200',800: '800'}}  defaultValue={[0, 800]} onChange={e => setSat_EBRW([e[0],e[1]])} onAfterChange={handleOnSATEBRWFilter} />
             </div>
-            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'white', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>ACT Composite</h4>
                 <Slider range step={1} min={0} max={36} marks={{1: '1',36: '36'}}  defaultValue={[0, 36]} onChange={e => setact_Composite([e[0],e[1]])} onAfterChange={handleACTCOMPFilter} />
             </div>
-            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+            <div style={{background: 'snow', width:'100%', padding:'5px 10px 5px 10px'}}>
                 <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Cost of Attendence</h4>
                 <Slider range step={100} min={0} max={80000} marks={{0: '0$',80000: '80000$'}}  defaultValue={[0, 80000]} onChange={e => setCost_of_attendance([e[0],e[1]])} onAfterChange={handleCOSFilter} />
             </div>
+            <div style={{background: 'white', width:'100%', padding:'5px 10px 5px 10px'}}>
+                <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>States</h4>
+                {allstates}
+            </div>
+
             
         </Sider>
         <Content style={{background:'snow',padding:'20px 20px 20px 20px'}}>
@@ -376,9 +479,11 @@ function SearchCollege(props) {
             columns={mergedColumns} 
             dataSource={data} 
             bordered
-            title={() => 'Colleges'}
-            footer={() => ''}
-            scroll={{ x: 1300 }} 
+            title={() => <div>  Search Mode:     <Switch checkedChildren="Lax" unCheckedChildren="Strict" defaultChecked  onChange={handleSearchCollege2}/>                                          </div>}
+            footer={() => !props.Student.residence_state?<div>Your didn't enter a state!</div>:<div>Your current state is in {props.Student.residence_state}. </div>}
+            scroll={{ x: 240 , y: 700}} 
+            pagination={10}
+            rowCount={7}
         />
         </Content>
       </Layout>

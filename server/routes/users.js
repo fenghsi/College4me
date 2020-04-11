@@ -312,22 +312,25 @@ router.post('/searchColleges',async function(req, res, next) {
     // const properties = await Property.find({ price: { $gte:req.query.priceMin, $lte: req.query.priceMax } });
     let colleges = await Colleges.find({}).lean();
     const originData = [];
+    console.log(req.body.mode?"on":"off");
     const mapping =colleges.map(async (college, index)=>{
         //check conditions
+        const mode =!req.body.mode;
         const ranking =req.body.ranking[0]<=college.ranking & college.ranking<=req.body.ranking[1];
-        const admission_rate = (college.admission_rate==="Not reported"|college.admission_rate===undefined|college.admission_rate===null|college.admission_rate==='NULL')?true:req.body.admission_rate[0]<=college.admission_rate & college.admission_rate<= req.body.admission_rate[1];
-        const completion_rate = (college.completion_rate.replace("%", "")==="Not reported"|college.completion_rate.replace("%", "")===undefined|college.completion_rate.replace("%", "")===null)?true:req.body.completion_rate[0]<=college.completion_rate.replace("%", "") & college.completion_rate.replace("%", "")<= req.body.completion_rate[1];
-        const size = (college.size==="Not reported"|college.size===undefined|college.size===null)?true:(req.body.size[0]<=college.size & college.size<= req.body.size[1]);
-        const sat_math = (college.range_avg_SAT_math==="Not reported"|college.range_avg_SAT_math===undefined|college.range_avg_SAT_math===null)? true:((parseInt(college.range_avg_SAT_math.split("-")[0])+parseInt(college.range_avg_SAT_math.split("-")[1]))/2>req.body.sat_math[0] & (parseInt(college.range_avg_SAT_math.split("-")[0])+parseInt(college.range_avg_SAT_math.split("-")[1]))/2<req.body.sat_math[1]);
-        const sat_EBRW = (college.range_avg_SAT_EBRW==="Not reported"|college.range_avg_SAT_EBRW===undefined|college.range_avg_SAT_EBRW===null)? true:((parseInt(college.range_avg_SAT_EBRW.split("-")[0])+parseInt(college.range_avg_SAT_EBRW.split("-")[1]))/2>req.body.sat_EBRW[0] & (parseInt(college.range_avg_SAT_EBRW.split("-")[0])+parseInt(college.range_avg_SAT_EBRW.split("-")[1]))/2<req.body.sat_EBRW[1]);
-        const act_Composite = (college.range_avg_ACT==="Not reported"|college.range_avg_ACT===undefined|college.range_avg_ACT===null)? true:((parseInt(college.range_avg_ACT.split("-")[0])+parseInt(college.range_avg_ACT.split("-")[1]))/2>req.body.act_Composite[0] & (parseInt(college.range_avg_ACT.split("-")[0])+parseInt(college.range_avg_ACT.split("-")[1]))/2<req.body.act_Composite[1]);
-        // const sat_math = req.body.size[0]<=college.size & college.size<= req.body.size[1];
-        // console.log((parseInt(college.range_avg_SAT_math.split("-")[0])+parseInt(college.range_avg_SAT_math.split("-")[1]))/2);
-        // console.log(req.body.sat_math[1])
-        // console.log(college.size==="58392"?size :'')
-        // console.log(college.size==="58392"?req.body.size :'')
-        // console.log(college.size==="58392"?college.size :'')
-        if(ranking  &size &admission_rate&completion_rate&sat_EBRW &sat_math&act_Composite){
+        const admission_rate = (college.admission_rate==="Not reported"|college.admission_rate===undefined|college.admission_rate===null|college.admission_rate==='NULL')?mode:req.body.admission_rate[0]<=college.admission_rate & college.admission_rate<= req.body.admission_rate[1];
+        const completion_rate = (college.completion_rate.replace("%", "")==="Not reported"|college.completion_rate.replace("%", "")===undefined|college.completion_rate.replace("%", "")===null)?mode:req.body.completion_rate[0]<=college.completion_rate.replace("%", "") & college.completion_rate.replace("%", "")<= req.body.completion_rate[1];
+        const size = (college.size==="Not reported"|college.size===undefined|college.size===null)?mode:(req.body.size[0]<=college.size & college.size<= req.body.size[1]);
+        const sat_math = (college.range_avg_SAT_math==="Not reported"|college.range_avg_SAT_math===undefined|college.range_avg_SAT_math===null)? mode:((parseInt(college.range_avg_SAT_math.split("-")[0])+parseInt(college.range_avg_SAT_math.split("-")[1]))/2>req.body.sat_math[0] & (parseInt(college.range_avg_SAT_math.split("-")[0])+parseInt(college.range_avg_SAT_math.split("-")[1]))/2<req.body.sat_math[1]);
+        const sat_EBRW = (college.range_avg_SAT_EBRW==="Not reported"|college.range_avg_SAT_EBRW===undefined|college.range_avg_SAT_EBRW===null)? mode:((parseInt(college.range_avg_SAT_EBRW.split("-")[0])+parseInt(college.range_avg_SAT_EBRW.split("-")[1]))/2>req.body.sat_EBRW[0] & (parseInt(college.range_avg_SAT_EBRW.split("-")[0])+parseInt(college.range_avg_SAT_EBRW.split("-")[1]))/2<req.body.sat_EBRW[1]);
+        const act_Composite = (college.range_avg_ACT==="Not reported"|college.range_avg_ACT===undefined|college.range_avg_ACT===null)? mode:((parseInt(college.range_avg_ACT.split("-")[0])+parseInt(college.range_avg_ACT.split("-")[1]))/2>req.body.act_Composite[0] & (parseInt(college.range_avg_ACT.split("-")[0])+parseInt(college.range_avg_ACT.split("-")[1]))/2<req.body.act_Composite[1]);
+        const keyword = (req.body.keyword===''|req.body.keyword===null| req.body.keyword===undefined|req.body.keyword==='all')?true:(college.name.toLowerCase()).includes((req.body.keyword).toLowerCase());
+        const inoutstate = college.state===req.body.inoutstate? true:false;
+        const cost_of_attendance = (college.cost_of_attendance===undefined |college.cost_of_attendance===null )?(null):(inoutstate? college.cost_of_attendance[0]:(college.cost_of_attendance.length==2?college.cost_of_attendance[1]:college.cost_of_attendance[0])).replace(",", "");
+        
+        const check_cost_of_attendance = cost_of_attendance==null?mode:(req.body.cost_of_attendance[0]<=cost_of_attendance & cost_of_attendance<= req.body.cost_of_attendance[1]);
+        // console.log(req.body.cost_of_attendance[0]);
+        // console.log(req.body.cost_of_attendance[1]);
+        if(ranking  &size &admission_rate&completion_rate&sat_EBRW &sat_math&act_Composite &keyword & check_cost_of_attendance){
             //console.log(req.body.ranking[0]<=college.ranking<=req.body.ranking[1]);
             originData.push({
                 key:index,
@@ -340,13 +343,13 @@ router.post('/searchColleges',async function(req, res, next) {
                 admission_rate:college.admission_rate,
                 size: college.size,
                 city: college.city,
-                state: college.state,
-                completion_rate: college.completion_rate,
-                range_avg_SAT_math: college.range_avg_SAT_math,
-                range_avg_SAT_EBRW: college.range_avg_SAT_EBRW,
-                range_avg_ACT: college.range_avg_ACT,
+                state: college.state=="Not reported"?'':college.state,
+                completion_rate: college.completion_rate=="Not reported"?'':college.completion_rate,
+                range_avg_SAT_math: college.range_avg_SAT_math=="Not reported"?'':college.range_avg_SAT_math,
+                range_avg_SAT_EBRW: college.range_avg_SAT_EBRW=="Not reported"?'':college.range_avg_SAT_EBRW,
+                range_avg_ACT: college.range_avg_ACT=="Not reported"?'':college.range_avg_ACT,
                 majors:college.majors,  
-                cost_of_attendance:college.cost_of_attendance===undefined ?(null):(college.cost_of_attendance.length===2?(college.cost_of_attendance[0]+"-"+college.cost_of_attendance[1]):college.cost_of_attendance[0])
+                cost_of_attendance:cost_of_attendance
             })
         }
     });

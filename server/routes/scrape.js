@@ -37,7 +37,7 @@ router.post('/scrape_college_ranking', async function(req, res, next) {
     for (const college of result.data.data) {
         await College.updateOne({name:college.name}, 
             {   
-                $set: {ranking:college.rank }
+                $set: {ranking:college.rank_order }
         });
     }
 });
@@ -77,6 +77,8 @@ router.post('/import_college_scorecard', async function(req, res, next) {
                             state: college.STABBR,
                             avg_SAT: college.SAT_AVG!="NULL"?college.SAT_AVG:-1,
                             avg_ACT: college.ACTCMMID!="NULL"?college.ACTCMMID:-1,
+                            control: college.CONTROL!="NULL"?college.CONTROL:"NULL",
+                            debt: college.GRAD_DEBT_MDN!="NULL"?college.GRAD_DEBT_MDN:"NULL",
                     });
                 }
             }

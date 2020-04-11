@@ -3,19 +3,30 @@ import axios from "axios";
 import { useLocation,useHistory} from "react-router-dom";
 import { List, Spin } from 'antd';
 import { Button, Form } from 'antd';
-import InfiniteScroll from 'react-infinite-scroller';
 import { Input, AutoComplete } from 'antd';
 import { notification } from 'antd';
 import { Layout } from 'antd';
 import { Table } from 'antd';
+import { Slider } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 
 function SearchCollege(props) {
     
-   // const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
+    const [data, setData] = useState([]);
+    const [majors, setMajors] = useState();
+    const [name, setName] = useState();
+    const [keyword, setKeyword] = useState({CollegeSearchBar:'all'});
+    const [admission_rate, setAdmission_rate] = useState([0,100]);
+    const [completion_rate, setCompletion_rate] = useState([0,100]);
+    const [cost_of_attendance, setCost_of_attendance] = useState();
+    const [ranking, setRanking] = useState([1,1000]);
+    const [size, setSize] = useState([1,70000]);
+    const [sat_math, setSat_math] = useState([200,800]);
+    const [sat_EBRW, setSat_EBRW] = useState([200,800]);
+    const [act_Composite, setact_Composite] = useState([1,36]);
+   
+
     const [options, setOptions] = useState([
         { value : "American University"},
         { value : "Barnard College"},
@@ -123,105 +134,177 @@ function SearchCollege(props) {
         {
           title: 'Name',
           dataIndex: 'name',
-          filters: [
-            {
-              text: 'Joe',
-              value: 'Joe',
-            },
-            {
-              text: 'Jim',
-              value: 'Jim',
-            },
-            {
-              text: 'Submenu',
-              value: 'Submenu',
-              children: [
-                {
-                  text: 'Green',
-                  value: 'Green',
-                },
-                {
-                  text: 'Black',
-                  value: 'Black',
-                },
-              ],
-            },
-          ],
-          // specify the condition of filtering result
-          // here is that finding the name started with `value`
-          onFilter: (value, record) => record.name.indexOf(value) === 0,
+          fixed:"left",
+          width:200,
           sorter: (a, b) => a.name.length - b.name.length,
           sortDirections: ['descend'],
         },
         {
-          title: 'Age',
-          dataIndex: 'age',
-          defaultSortOrder: 'descend',
-          sorter: (a, b) => a.age - b.age,
+          title: 'Ranking',
+          dataIndex: 'ranking',
+          width:200
         },
         {
-          title: 'Address',
-          dataIndex: 'address',
-          filters: [
-            {
-              text: 'London',
-              value: 'London',
-            },
-            {
-              text: 'New York',
-              value: 'New York',
-            },
-          ],
-          filterMultiple: false,
-          onFilter: (value, record) => record.address.indexOf(value) === 0,
-          sorter: (a, b) => a.address.length - b.address.length,
-          sortDirections: ['descend', 'ascend'],
+            title: 'Admission Rate',
+            dataIndex: 'admission_rate',
+            width:200
+        },
+        {
+            title: 'Size',
+            dataIndex: 'size',
+            width:200
+        },
+        {
+            title: 'City',
+            dataIndex: 'city',
+            width:200
+        },
+        {
+            title: 'State',
+            dataIndex: 'state',
+            width:100
+        },
+        {
+            title: 'Control',
+            dataIndex: 'control',
+            width:200
+        },
+        {
+            title: 'Debt',
+            dataIndex: 'debt',
+            width:200
+        },
+        {
+            title: 'Completion Rate(4 years)',
+            dataIndex: 'completion_rate',
+            width:250
+        },
+        {
+            title: 'Range Avg SAT Math',
+            dataIndex: 'range_avg_SAT_math',
+            width:200
+        },
+        {
+            title: 'Range Avg SAT EBRW',
+            dataIndex: 'range_avg_SAT_EBRW',
+            width:200
+        },
+        {
+            title: 'Range Avg ACT',
+            dataIndex: 'range_avg_ACT',
+            width:200
+        },
+        {
+            title: 'Majors',
+            dataIndex: 'majors',
+            width:1000
+        },
+        {
+            title: 'Cost of attendance',
+            dataIndex: 'cost_of_attendance',
+            width:200
         },
       ];
-      
-      const data = [
-        {
-          key: '1',
-          name: 'John Brown',
-          age: 32,
-          address: 'New York No. 1 Lake Park',
-        },
-        {
-          key: '2',
-          name: 'Jim Green',
-          age: 42,
-          address: 'London No. 1 Lake Park',
-        },
-        {
-          key: '3',
-          name: 'Joe Black',
-          age: 32,
-          address: 'Sidney No. 1 Lake Park',
-        },
-        {
-          key: '4',
-          name: 'Jim Red',
-          age: 32,
-          address: 'London No. 2 Lake Park',
-        },
-      ];
+
+      const mergedColumns = columns.map(col => {
+        if (!col.editable) {
+          return col;
+        }
+    
+        return {
+          ...col,
+          onCell: record => ({
+            record,
+            inputType: 'text',
+            dataIndex: col.dataIndex,
+            title: col.title,
+          }),
+        };
+      });
+    
     
     useEffect(() => {
         async function fetchData() {
-            //const res = await axios.post('/getColleges');
-           // setData([{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"},{name:"sbu1", description:"suny"},{name:"baffalo2",description:"suny"}]);
+            handleSearchCollege(keyword);
         };
         fetchData();
     }, []);
     
     
     async function handleSearchCollege(event) {
-
+        setKeyword(event);
+        const res = await axios.post('/searchColleges', {
+            keyword: event.CollegeSearchBar,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+          });
+        setData(res.data.colleges);
         notification.open({
-            message: event.CollegeSearchBar,
+            message: "Search succesfully",
             duration:2.5  
           });
     }
+
+    async function handleAdmissionFilter(event){
+        setAdmission_rate([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+        
+    }
+    async function handleRankFilter(event){
+        setRanking([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+    async function handleSizeFilter(event){
+        setSize([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+    async function handleSATMathFilter(event){
+        setSat_math([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+    async function handleACTCOMPFilter(event){
+        setact_Composite([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+    async function handleOnSATEBRWFilter(event){
+        setSat_EBRW([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+
+    async function handleCompleteionFilter(event){
+        setCompletion_rate([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+    
+    async function handleCOSFilter(event){
+        setCost_of_attendance([event[0],event[1]]);
+        if(keyword !=null){
+            await handleSearchCollege(keyword);
+        }
+    }
+
 
     return (
 
@@ -249,90 +332,59 @@ function SearchCollege(props) {
           </Form>
       </Header>
       <Layout>
-        <Sider style={{background:'burlywood', padding:'0 0 500px 0'} }>Sider</Sider>
+        <Sider style={{ background: 'snow',padding:'0 0 0 0'} }>
+            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h1 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Filters</h1>
+            </div>
+            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>Admission Rate</h4>
+                <Slider range step={0.01} min={0} max={1} marks={{0: '0',1: '1'}}  defaultValue={[0, 1]} onChange={e => setAdmission_rate([e[0],e[1]])} onAfterChange={handleAdmissionFilter} />
+            </div>
+            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Completion Rate</h4>
+                <Slider range step={1} min={0} max={100} marks={{0: '0%',100: '100%'}}  defaultValue={[0, 100]} onChange={e => setCompletion_rate([e[0],e[1]])} onAfterChange={handleCompleteionFilter} />
+            </div>
+            
+            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>Ranking</h4>
+                <Slider range step={10} min={1} max={1000} marks={{1: '1st',1000: '1000th'}}  defaultValue={[1, 1000]} onChange={e => setRanking([e[0],e[1]])} onAfterChange={handleRankFilter} />
+            </div>
+            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>size</h4>
+                <Slider range step={100} min={1} max={70000} marks={{1: '1',70000: '70000'}}  defaultValue={[1, 70000]} onChange={e => setSize([e[0],e[1]])} onAfterChange={handleSizeFilter} />
+            </div>
+            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>SAT Math</h4>
+                <Slider range step={10} min={200} max={800} marks={{200: '200',800: '800'}}  defaultValue={[0, 800]} onChange={e => setSat_math([e[0],e[1]])} onAfterChange={handleSATMathFilter} />
+            </div>
+            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>SAT EBRW</h4>
+                <Slider range step={10} min={200} max={800} marks={{200: '200',800: '800'}}  defaultValue={[0, 800]} onChange={e => setSat_EBRW([e[0],e[1]])} onAfterChange={handleOnSATEBRWFilter} />
+            </div>
+            <div style={{background: 'white', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>ACT Composite</h4>
+                <Slider range step={1} min={0} max={36} marks={{1: '1',36: '36'}}  defaultValue={[0, 36]} onChange={e => setact_Composite([e[0],e[1]])} onAfterChange={handleACTCOMPFilter} />
+            </div>
+            <div style={{background: 'snow', width:'100%', padding:'10px 10px 10px 10px'}}>
+                <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Cost of Attendence</h4>
+                <Slider range step={100} min={0} max={80000} marks={{0: '0$',80000: '80000$'}}  defaultValue={[0, 80000]} onChange={e => setCost_of_attendance([e[0],e[1]])} onAfterChange={handleCOSFilter} />
+            </div>
+            
+        </Sider>
         <Content style={{background:'snow',padding:'20px 20px 20px 20px'}}>
-        {/* <div className="demo-infinite-container" >
-            <InfiniteScroll
-            initialLoad={false}
-            pageStart={0}
-            hasMore={!loading && hasMore}
-            useWindow={false}
-            style={{background:'white',padding:'20px 20px 20px 20px'}}
-            >
-            <List
-                dataSource={data}
-                renderItem={item => (
-                <List.Item key={item.id}>
-                    <List.Item.Meta
-                    // title={item.name}
-                    // description={item.description}
-                    style={{ background:'white',padding:'50px 50px 50px 50px'}}
-                    />
-                    <div>Content</div>
-                </List.Item>
-                )}
-            >
-                {loading && hasMore && (
-                <div className="demo-loading-container">
-                    <Spin />
-                </div>
-                )}
-            </List>
-            </InfiniteScroll>
-        </div> */}
-        <Table columns={columns} dataSource={data}  />
+        <Table 
+            columns={mergedColumns} 
+            dataSource={data} 
+            bordered
+            title={() => 'Colleges'}
+            footer={() => ''}
+            scroll={{ x: 1300 }} 
+        />
         </Content>
       </Layout>
       <Footer>Footer</Footer>
     </Layout>
-    //   <div>
-    //       <Form
-    //         className="Search_college_form"
-    //         name="Search_College"
-    //         onFinish={handleSearchCollege}
-    //         > 
-    //         <Form.Item  name="CollegeSearchBar">
-    //             <AutoComplete
-    //                 dropdownMatchSelectWidth={"100%"}
-    //                 style={{ width: "50%" }}
-    //                 options={options}
-    //                 // onSelect={onSelect}
-    //                 filterOption={(inputValue, option) =>
-    //                     option.value.toUpperCase().includes(inputValue.toUpperCase()) 
-    //                 }
-    //             >
-    //                 <Input.Search size="large" placeholder="Enter Keywords"  />
-    //             </AutoComplete>
-    //         </Form.Item>
-    //       </Form>
-    //       <div className="demo-infinite-container">
-    //         <InfiniteScroll
-    //         initialLoad={false}
-    //         pageStart={0}
-    //         hasMore={!loading && hasMore}
-    //         useWindow={false}
-    //         >
-    //         <List
-    //             dataSource={data}
-    //             renderItem={item => (
-    //             <List.Item key={item.id}>
-    //                 <List.Item.Meta
-    //                 title={item.name}
-    //                 description={item.description}
-    //                 />
-    //                 <div>Content</div>
-    //             </List.Item>
-    //             )}
-    //         >
-    //             {loading && hasMore && (
-    //             <div className="demo-loading-container">
-    //                 <Spin />
-    //             </div>
-    //             )}
-    //         </List>
-    //         </InfiniteScroll>
-    //     </div>
-    //   </div>
+  
     );
 }
 

@@ -18,11 +18,11 @@ const { Header, Footer, Sider, Content } = Layout;
 function SearchCollege(props) {
     
     const [data, setData] = useState([]);
-    const [majors, setMajors] = useState();
+    const [majors, setMajors] = useState(["ALL"]);
     const [name, setName] = useState();
     const [mode, setMode] = useState(false);
     const [keyword, setKeyword] = useState({CollegeSearchBar:''});
-    const [states, setStates] = useState([]);
+    const [states, setStates] = useState(["ALL"]);
     const [admission_rate, setAdmission_rate] = useState([0,100]);
     const [completion_rate, setCompletion_rate] = useState([0,100]);
     const [cost_of_attendance, setCost_of_attendance] = useState([0,80000]);
@@ -31,7 +31,8 @@ function SearchCollege(props) {
     const [sat_math, setSat_math] = useState([200,800]);
     const [sat_EBRW, setSat_EBRW] = useState([200,800]);
     const [act_Composite, setact_Composite] = useState([1,36]);
-    const allstates = <Select mode="multiple" style={{ width: '100%' }}>
+    const allstates = <Select defaultValue="ALL" mode="multiple" style={{ width: '100%' }} onSelect={handleSelectBox } onDeselect={handledeSelectBox }>
+        <Option value="ALL">ALL States</Option>
         <Option value="AL">Alabama</Option>
         <Option value="AK">Alaska</Option>
         <Option value="AZ">Arizona</Option>
@@ -84,6 +85,164 @@ function SearchCollege(props) {
         <Option value="WI">Wisconsin</Option>
         <Option value="WY">Wyoming</Option>
     </Select>	;  
+
+    const allmajors = <Select defaultValue="ALL" mode="multiple" style={{ width: '100%' }} onSelect={handleMajors} onDeselect={handlededeMajors}>
+        <Option value="ALL">ALL Majors</Option>
+        <Option value="French Language and Literature">French Language and Literature</Option>
+        <Option value="African-American/Black Studies">African-American/Black Studies</Option>
+        <Option value="Adult Nursing">Adult Nursing</Option>
+        <Option value="Management Information Systems">Management Information Systems</Option>
+        <Option value="Adult Nursing">Adult Nursing</Option>
+        <Option value="Mathematics">Mathematics</Option>
+        <Option value="Applied Mathematics">Applied Mathematics</Option>
+        <Option value="Geology">Geology</Option>
+        <Option value="American/United States Studies/Civilization">American/United States Studies/Civilization</Option>
+        <Option value="Allopathic Medicine">Allopathic Medicine</Option>
+        <Option value="Mechanical Engineering">Mechanical Engineering</Option>
+        <Option value="Neonatal Nursing">Neonatal Nursing</Option>
+        <Option value="German Language and Literature">German Language and Literature</Option>
+        <Option value="Anthropology">Anthropology</Option>
+        <Option value="Molecular Physiology">Molecular Physiology</Option>
+        <Option value="Fine Arts">Fine Arts</Option>
+        <Option value="Mathematics">Mathematics</Option>
+        <Option value="Applied Mathematics">Applied Mathematics</Option>
+        <Option value="Applied Mathematics">Applied Mathematics</Option>
+        <Option value="Comparative Literature">Comparative Literature</Option>
+        <Option value="Music">Music</Option>
+        <Option value="Health Sciences">Health Sciences</Option>
+        <Option value="Biophysics">Biophysics</Option>
+        <Option value="Art History">Art History</Option>
+        <Option value="Criticism and Conservation">Criticism and Conservation</Option>
+        <Option value="Computer Science">Computer Science</Option>
+        <Option value="Mathematics Education">Mathematics Education</Option>
+        <Option value="History">History</Option>
+        <Option value="Cognitive Sciences">Cognitive Sciences</Option>
+        <Option value="Art">Art</Option>
+        <Option value="Nurse Midwifery">Nurse Midwifery</Option>
+        <Option value="Mechanical Engineering">Mechanical Engineering</Option>
+        <Option value="Human Computer Interaction">Human Computer Interaction</Option>
+        <Option value="Comparative Literature">Comparative Literature</Option>
+        <Option value="Cultural Studies">Cultural Studies</Option>
+        <Option value="Nursing">Nursing</Option>
+        <Option value="Music">Music</Option>
+        <Option value="Information Science/Studies">Information Science/Studies</Option>
+        <Option value="Asian Studies/Civilization">Asian Studies/Civilization</Option>
+        <Option value="Economics">Economics</Option>
+        <Option value="Occupational Therapy">Occupational Therapy</Option>
+        <Option value="Nurse Midwifery">Nurse Midwifery</Option>
+        <Option value="Computer Science">Computer Science</Option>
+        <Option value="Astronomy">Astronomy</Option>
+        <Option value="Educational Leadership and Administration">Educational Leadership and Administration</Option>
+        <Option value="Italian Language and Literature">Italian Language and Literature</Option>
+        <Option value="Cultural Studies">Cultural Studies</Option>
+        <Option value="Athletic Training">Athletic Training</Option>
+        <Option value="Educational Media">Educational Media</Option>
+        <Option value="Physical Therapy">Physical Therapy</Option>
+        <Option value="Nursing">Nursing</Option>
+        <Option value="Journalism">Journalism</Option>
+        <Option value="Economics">Economics</Option>
+        <Option value="Atmospheric Sciences and Meteorology">Atmospheric Sciences and Meteorology</Option>
+        <Option value="English">English</Option>
+        <Option value="Occupational Therapy">Occupational Therapy</Option>
+        <Option value="Linguistics">Linguistics</Option>
+        <Option value="English">English</Option>
+        <Option value="Physician Assistant Studies">Physician Assistant Studies</Option>
+        <Option value="English Education">English Education</Option>
+        <Option value="Physical Education">Physical Education</Option>
+        <Option value="Marine Biology and Biological Oceanography">Marine Biology and Biological Oceanography</Option>
+        <Option value="Biochemistry">Biochemistry</Option>
+        <Option value="Physics">Physics</Option>
+        <Option value="English as a Second Language">English as a Second Language</Option>
+        <Option value="Physical Therapy">Physical Therapy</Option>
+        <Option value="English Education">English Education</Option>
+        <Option value="Bioengineering and Biomedical Engineering">Bioengineering and Biomedical Engineering</Option>
+        <Option value="Physiology">Physiology</Option>
+        <Option value="Environmental Management and Policy">Environmental Management and Policy</Option>
+        <Option value="Mathematics">Mathematics</Option>
+        <Option value="Family Nurse Practitioner Studies">Family Nurse Practitioner Studies</Option>
+        <Option value="Biological and Physical Sciences">Biological and Physical Sciences</Option>
+        <Option value="Psychology">Psychology</Option>
+        <Option value="Physician Assistant Studies">Physician Assistant Studies</Option>
+        <Option value="Mechanical Engineering">Mechanical Engineering</Option>
+        <Option value="Geosciences">Geosciences</Option>
+        <Option value="Biology/Biological Sciences">Biology/Biological Sciences</Option>
+        <Option value="Family Nurse Practitioner Studies">Family Nurse Practitioner Studies</Option>
+        <Option value="Physics">Physics</Option>
+        <Option value="Multi-/Interdisciplinary Studies">Multi-/Interdisciplinary Studies</Option>
+        <Option value="Other">Other</Option>
+        <Option value="Gerontological Nursing">Gerontological Nursing</Option>
+        <Option value="Rehabilitation Sciences">Rehabilitation Sciences</Option>
+        <Option value="Foreign Languages Education">Foreign Languages Education</Option>
+        <Option value="Psychology--">Psychology--</Option>
+        <Option value="Music">Music</Option>
+        <Option value="Business Administration and Management">Business Administration and Management</Option>
+        <Option value="Science Education">Science Education</Option>
+        <Option value="French">French</Option>
+        <Option value="Rehabilitation Sciences">Rehabilitation Sciences</Option>
+        <Option value="Health Informatics">Health Informatics</Option>
+        <Option value="Chemical and Biomolecular Engineering">Chemical and Biomolecular Engineering</Option>
+        <Option value="Social Work">Social Work</Option>
+        <Option value="Geosciences">Geosciences</Option>
+        <Option value="Pharmacology">Pharmacology</Option>
+        <Option value="Health Services Management and Hospital Administration">Health Services Management and Hospital Administration</Option>
+        <Option value="Chemistry">Chemistry</Option>
+        <Option value="Software Engineering">Software Engineering</Option>
+        <Option value="Romance Languages">Romance Languages</Option>
+        <Option value="Philosophy">Philosophy</Option>
+        <Option value="Linguistics">Linguistics</Option>
+        <Option value="Chemistry">Chemistry</Option>
+        <Option value="Other">Other</Option>
+        <Option value="Gerontological Nursing">Gerontological Nursing</Option>
+        <Option value="Science Education">Science Education</Option>
+        <Option value="Physical Sciences">Physical Sciences</Option>
+        <Option value="Other">Other</Option>
+        <Option value="Management Information Systems">Management Information Systems</Option>
+        <Option value="Statistics">Statistics</Option>
+        <Option value="Health Informatics">Health Informatics</Option>
+        <Option value="Social Sciences Education">Social Sciences Education</Option>
+        <Option value="Physics">Physics</Option>
+        <Option value="Civil Engineering">Civil Engineering</Option>
+        <Option value="Women's Health Nursing">Women's Health Nursing</Option>
+        <Option value="Health Services Management and Hospital Administration">Health Services Management and Hospital Administration</Option>
+        <Option value="Social Work">Social Work</Option>
+        <Option value="Maternal and Child/Neonatal Nursing">Maternal and Child/Neonatal Nursing</Option>
+        <Option value="Clinical">Clinical</Option>
+        <Option value="Higher Education">Higher Education</Option>
+        <Option value="Political Science and Government">Political Science and Government</Option>
+        <Option value="Comparative Literature">Comparative Literature</Option>
+        <Option value="Software Engineering">Software Engineering</Option>
+        <Option value="Human Resources Management">Human Resources Management</Option>
+        <Option value="Polysomnography">Polysomnography</Option>
+        <Option value="Computer and Information Sciences">Computer and Information Sciences</Option>
+        <Option value="Statistics">Statistics</Option>
+        <Option value="Liberal Studies">Liberal Studies</Option>
+        <Option value="Psychology">Psychology</Option>
+        <Option value="Drama and Dramatics">Drama and Dramatics</Option>
+        <Option value="Theatre Arts">Theatre Arts</Option>
+        <Option value="Theater">Theater</Option>
+        <Option value="Linguistics">Linguistics</Option>
+        <Option value="Registered Nursing">Registered Nursing</Option>
+        <Option value="Ecology">Ecology</Option>
+        <Option value="Women's Health Nursing">Women's Health Nursing</Option>
+        <Option value="Religion/Religious Studies">Religion/Religious Studies</Option>
+        <Option value="Economics">Economics</Option>
+        <Option value="Respiratory Care Therapy">Respiratory Care Therapy</Option>
+        <Option value="Therapist">Therapist</Option>
+        <Option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering</Option>
+        <Option value="Social Work">Social Work</Option>
+        <Option value="Engineering">Engineering</Option>
+        <Option value="Sociology">Sociology</Option>
+        <Option value="English Language and Literature">English Language and Literature</Option>
+        <Option value="Architecture">Architecture</Option>
+        <Option value="Spanish Language and Literature">Spanish Language and Literature</Option>
+        <Option value="Environmental Design">Environmental Design</Option>
+        <Option value="Sustainability Studies">Sustainability Studies</Option>
+        <Option value="Environmental Studies">Environmental Studies</Option>
+        <Option value="Women's Studies">Women's Studies</Option>
+        <Option value="European Studies">European Studies</Option>
+        <Option value="Earth Science">Earth Science</Option>
+        <Option value="Civilization">Civilization</Option>
+    </Select>;
 
     const [options, setOptions] = useState([
         { value : "American University"},
@@ -258,16 +417,17 @@ function SearchCollege(props) {
             width:200
         },
         {
-            title: 'Majors',
-            dataIndex: 'majors',
-            width:2000
-        },
-        {
             title: 'Cost of attendance',
             dataIndex: 'cost_of_attendance',
             width:200,
             sorter: (a, b) => a.cost_of_attendance - b.cost_of_attendance,
         },
+        {
+            title: 'Majors',
+            dataIndex: 'majors',
+            width:2000
+        },
+        
       ];
 
       const mergedColumns = columns.map(col => {
@@ -334,6 +494,7 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
+            states: states
           });
         setData(res.data.colleges);
         setMode(!mode);
@@ -400,6 +561,107 @@ function SearchCollege(props) {
         if(keyword !=null){
             await handleSearchCollege(keyword);
         }
+    }
+
+    async function handleSelectBox(event){
+        states.push(event);
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states
+          });
+        setData(res.data.colleges);
+      
+        notification.open({
+            message:states,
+            duration:2.5  
+          });
+    }
+    async function handledeSelectBox(event){
+        states.splice(states.indexOf(event), 1);
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states
+          });
+        setData(res.data.colleges);
+        
+        notification.open({
+            message:states,
+            duration:2.5  
+          });
+    }
+    async function handleMajors(event){
+        majors.push(event);
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states
+        });
+        setData(res.data.colleges);
+      
+        notification.open({
+            message:majors,
+            duration:2.5  
+          });
+    }
+    async function handlededeMajors(event){
+        majors.splice(majors.indexOf(event), 1);
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states
+          });
+        setData(res.data.colleges);
+        
+        notification.open({
+            message:majors,
+            duration:2.5  
+          });
     }
 
 
@@ -471,19 +733,25 @@ function SearchCollege(props) {
                 <h4 style={{background: 'white', width:'100%', padding:'0 0 0 0px'}}>States</h4>
                 {allstates}
             </div>
+            <div style={{background: 'snow', width:'100%', padding:'5px 10px 5px 10px'}}>
+                <h4 style={{background: 'snow', width:'100%', padding:'0 0 0 0px'}}>Majors</h4>
+                {allmajors}
+            </div>
+
 
             
         </Sider>
-        <Content style={{background:'snow',padding:'20px 20px 20px 20px'}}>
+        <Content style={{background:'snow',padding:'20px 20px 20px 20px', height:"800px"}}>
         <Table 
             columns={mergedColumns} 
             dataSource={data} 
             bordered
-            title={() => <div>  Search Mode:     <Switch checkedChildren="Lax" unCheckedChildren="Strict" defaultChecked  onChange={handleSearchCollege2}/>                                          </div>}
-            footer={() => !props.Student.residence_state?<div>Your didn't enter a state!</div>:<div>Your current state is in {props.Student.residence_state}. </div>}
+            title={() => <div>  Search Mode:     <Switch checkedChildren="Lax" unCheckedChildren="Strict" defaultChecked  onChange={handleSearchCollege2}/> </div>}
+            footer={() => !props.Student.residence_state?<div>Your didn't enter a state!</div>:<div>Your current state is in <strong>{props.Student.residence_state}</strong>. Cost of attendence is automatically computed for you.</div>}
             scroll={{ x: 240 , y: 700}} 
             pagination={10}
             rowCount={7}
+            style ={{height:"100%"}}
         />
         </Content>
       </Layout>

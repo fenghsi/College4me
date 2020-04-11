@@ -310,11 +310,30 @@ router.post('/deleteApplication',async function(req, res, next) {
 
 router.post('/searchColleges',async function(req, res, next) {
     // const properties = await Property.find({ price: { $gte:req.query.priceMin, $lte: req.query.priceMax } });
+    //const states_modif = req.body.states[1]==null?req.body.states[0]:req.body.states[0].push(req.body.states[1]);
     let colleges = await Colleges.find({}).lean();
     const originData = [];
-    console.log(req.body.mode?"on":"off");
+    //console.log(req.body.mode?"on":"off");
+    // console.log(states_modif[0]);
+    // console.log(states_modif[1]);
+    // // console.log(states_modif[2]);
+    // const states = req.body.states;
     const mapping =colleges.map(async (college, index)=>{
         //check conditions
+        let isMajors = req.body.majors.includes("ALL")?true:false;
+        const mapping2 =req.body.majors.map(async (major, index)=>{
+            const mapping3 =college.majors.map(async (dbmajor, i)=>{
+                if(dbmajor.includes(major)){
+                    console.log(dbmajor);
+                    console.log(major);
+                    isMajors = true;
+                }
+            });
+            await Promise.all(mapping3);
+        });
+        await Promise.all(mapping2);
+
+        const isStates =req.body.states.includes("ALL")? true :req.body.states.includes(college.state);
         const mode =!req.body.mode;
         const ranking =req.body.ranking[0]<=college.ranking & college.ranking<=req.body.ranking[1];
         const admission_rate = (college.admission_rate==="Not reported"|college.admission_rate===undefined|college.admission_rate===null|college.admission_rate==='NULL')?mode:req.body.admission_rate[0]<=college.admission_rate & college.admission_rate<= req.body.admission_rate[1];
@@ -326,11 +345,11 @@ router.post('/searchColleges',async function(req, res, next) {
         const keyword = (req.body.keyword===''|req.body.keyword===null| req.body.keyword===undefined|req.body.keyword==='all')?true:(college.name.toLowerCase()).includes((req.body.keyword).toLowerCase());
         const inoutstate = college.state===req.body.inoutstate? true:false;
         const cost_of_attendance = (college.cost_of_attendance===undefined |college.cost_of_attendance===null )?(null):(inoutstate? college.cost_of_attendance[0]:(college.cost_of_attendance.length==2?college.cost_of_attendance[1]:college.cost_of_attendance[0])).replace(",", "");
-        
         const check_cost_of_attendance = cost_of_attendance==null?mode:(req.body.cost_of_attendance[0]<=cost_of_attendance & cost_of_attendance<= req.body.cost_of_attendance[1]);
-        // console.log(req.body.cost_of_attendance[0]);
+
+
         // console.log(req.body.cost_of_attendance[1]);
-        if(ranking  &size &admission_rate&completion_rate&sat_EBRW &sat_math&act_Composite &keyword & check_cost_of_attendance){
+        if(ranking  &size &admission_rate&completion_rate&sat_EBRW &sat_math&act_Composite &keyword & check_cost_of_attendance & isStates&isMajors){
             //console.log(req.body.ranking[0]<=college.ranking<=req.body.ranking[1]);
             originData.push({
                 key:index,
@@ -348,7 +367,7 @@ router.post('/searchColleges',async function(req, res, next) {
                 range_avg_SAT_math: college.range_avg_SAT_math=="Not reported"?'':college.range_avg_SAT_math,
                 range_avg_SAT_EBRW: college.range_avg_SAT_EBRW=="Not reported"?'':college.range_avg_SAT_EBRW,
                 range_avg_ACT: college.range_avg_ACT=="Not reported"?'':college.range_avg_ACT,
-                majors:college.majors,  
+                majors:college.majors.toString(),  
                 cost_of_attendance:cost_of_attendance
             })
         }

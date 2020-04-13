@@ -370,7 +370,7 @@ function SearchCollege(props) {
             width:100
         },
         {
-            title: 'Control',
+            title: 'Insititution type',
             dataIndex: 'control',
             width:200
         },
@@ -459,10 +459,10 @@ function SearchCollege(props) {
             states: states
           });
         setData(res.data.colleges);
-        notification.open({
-            message: "Search succesfully",
-            duration:2.5  
-          });
+        // notification.open({
+        //     message: "Search succesfully",
+        //     duration:2.5  
+        //   });
     }
     async function handleSearchCollege2(event) {
         const res = await axios.post('/searchColleges', {
@@ -483,10 +483,10 @@ function SearchCollege(props) {
           });
         setData(res.data.colleges);
         setMode(!mode);
-        notification.open({
-            message: "Search succesfully",
-            duration:2.5  
-          });
+        // notification.open({
+        //     message: "Search succesfully",
+        //     duration:2.5  
+        //   });
     }
 
     async function handleAdmissionFilter(event){
@@ -568,10 +568,10 @@ function SearchCollege(props) {
           });
         setData(res.data.colleges);
       
-        notification.open({
-            message:states,
-            duration:2.5  
-          });
+        // notification.open({
+        //     message:states,
+        //     duration:2.5  
+        //   });
     }
     async function handledeSelectBox(event){
         states.splice(states.indexOf(event), 1);
@@ -593,10 +593,10 @@ function SearchCollege(props) {
           });
         setData(res.data.colleges);
         
-        notification.open({
-            message:states,
-            duration:2.5  
-          });
+        // notification.open({
+        //     message:states,
+        //     duration:2.5  
+        //   });
     }
     async function handleMajors(event){
         majors.push(event);
@@ -618,10 +618,10 @@ function SearchCollege(props) {
         });
         setData(res.data.colleges);
       
-        notification.open({
-            message:majors,
-            duration:2.5  
-          });
+        // notification.open({
+        //     message:majors,
+        //     duration:2.5  
+        //   });
     }
     async function handlededeMajors(event){
         majors.splice(majors.indexOf(event), 1);
@@ -643,10 +643,10 @@ function SearchCollege(props) {
           });
         setData(res.data.colleges);
         
-        notification.open({
-            message:majors,
-            duration:2.5  
-          });
+        // notification.open({
+        //     message:majors,
+        //     duration:2.5  
+        //   });
     }
 
 

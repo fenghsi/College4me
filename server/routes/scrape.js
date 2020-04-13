@@ -14,6 +14,8 @@ const collegeTxtUrl = 'colleges.txt';
 const StudentsUrl = 'students.csv';
 const ApplicationsUrl = 'applications.csv';
 const actCollegeDataUrl = 'https://www.collegedata.com/';
+const nicheURL = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/niche/';
+const HighSchool = require('../models/highshools');
 
 
 //Import all the colloges in colleges.txt(Only name)
@@ -315,6 +317,358 @@ router.post('/unmarkQuestionable',async function(req, res, next) {
         applications: originData
     });
 });
+
+//6.3 Scrape High School Info from Niche.com (Find Similar High School)
+router.post('/scrape_hs_niche_info', async function(req, res, next) {
+    //for each NEW high school (name, city, state) entry, scrape niche.com information
+    let hs_name = req.body.high_school_name;
+    let hs_city = req.body.high_school_city;
+    let hs_state = req.body.high_school_state;
+
+    if(hs_name == undefined || hs_name == "" || hs_name == null || hs_city == undefined || hs_city == "" || hs_city == null|| hs_state == undefined || hs_state == ""|| hs_state == null){
+        return res.json({
+            status: "not found",
+        });
+    }
+    let school_name = hs_name.replace(/\'/g,"").replace(/\.?\s+/g, '-').toLowerCase();
+    let school_city = hs_city.replace(/\s+/g, '-').toLowerCase();
+    let school_state = hs_state.toLowerCase();
+
+    let url = nicheURL + school_name + "-" + school_city + "-" + school_state + "/";
+
+    let scrape_school = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
+    // If the high school is already known to the system, no need to scrape information again
+    if(scrape_school != null){
+        return res.json({
+            status: "existed",
+        });;
+    }
+    // const niche = await axios.get(url);
+    let academic_url = url + "academics/";
+    let niche_academic = null;
+    let niche = null;
+    
+    try{
+        niche = await axios.get(url);
+        niche_academic = await axios.get(academic_url);
+        // niche = await axios.get(url,{
+        //     headers: {
+        //          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
+        //        }
+        //     });
+        // niche_academic = await axios.get(academic_url,{
+        //     headers: {
+        //          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
+        //        }
+        //     });
+    }
+    catch(err){
+        return res.json({
+                    status: "err",
+                });
+    }
+
+    scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state);
+    return res.json({
+        status: "ok",
+    });
+
+
+});
+
+
+
+//Helper - scraping Niche.com Information for a specific high school with given name, city, and state
+async function scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state) {
+    
+    const html = niche.data;
+    const contents = cheerio.load(html);
+
+    const academic_html = niche_academic.data;
+    const acad_contents = cheerio.load(academic_html);
+
+    // if(contents("ordered__list__bucket").text() == "")
+
+    // Scrape the Niche Rating information
+    let rating = contents("li.ordered__list__bucket__item");
+    let rate_len = rating.length;
+    let rate_map = {};
+
+    for (let i = 0; i < rate_len; i++){
+        let rating_label = contents("li.ordered__list__bucket__item div.profile-grade__label").eq(i).text();
+        let rating_grade = contents("li.ordered__list__bucket__item div.niche__grade").eq(i).text();
+        rate_map[rating_label] = rating_grade;
+    }
+
+    // Scrape the detail address, website address, and phone number
+    let addr = contents("address.profile__address--compact").text() == "" ? "Unavailable" : contents("address.profile__address--compact").text();
+    // Adding comma between street and city
+    addr = addr.replace(/([^A-Z\s\-])([A-Z])/g, '$1, $2');
+
+    let website = contents("a.profile__website__link").text() == "" ? "Unavailable" : contents("a.profile__website__link").text();
+    let phone = contents("div.fact-with-icon__content").eq(1).text();
+    
+    // Scrape the school overview description
+    let overview = contents("div.blank__bucket span.bare-value").text();
+
+//    console.log(acad_contents("ul.popular-entities-list li.popular-entities-list-item").eq(1).text());
+    
+    // Scrape graduation rate, AP exams
+    let grade_map = {}
+    let grade_list = acad_contents("div.blank__bucket div.scalar");
+    let grade_len = grade_list.length;
+    for(let i = 0; i < grade_len; i++){
+        grade_label = acad_contents("div.blank__bucket div.scalar div.scalar__label span").eq(i).text();
+        grade_score = acad_contents("div.blank__bucket div.scalar div.scalar__value").eq(i).text();
+        if(grade_label == "Average SAT" || grade_label == "Average ACT"){
+            continue;
+        }
+        grade_map[grade_label] = grade_score;
+        
+    }
+
+    // Scrape list of popular colleges students attend
+    let popular_schools = acad_contents("h6.popular-entity__name a.popular-entity-link");
+    let pl = popular_schools.length;
+    let college_list = [];
+    for(let i = 0; i < pl; i++){
+        college_list.push(popular_schools.eq(i).text());
+    }
+
+    // Getting the overall score from Niche.com
+    var overall_grade = contents(".niche__grade").first().text();
+    overall_grade = convert_overall_grade_percent(overall_grade);
+    var standard_test_score = null;
+
+    // Getting Standardized Tests (SAT and ACT) from Niche.com
+    var list_of_grades = contents("div.scalar--three");
+    var length_of_grades = list_of_grades.length;
+    var sat_descrip = null;
+    var act_descrip = null;
+    for(let i = 0; i < length_of_grades; i++){
+        
+        if(list_of_grades.eq(i).find("div.scalar__label span").text() == "Average SAT"){
+            sat_descrip = list_of_grades.eq(i);
+        }
+        if(list_of_grades.eq(i).find("div.scalar__label span").text() == "Average ACT"){
+            act_descrip = list_of_grades.eq(i);
+        }
+    }
+
+    var sat_score = parseInt(sat_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
+    var act_score = parseInt(act_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
+    let mean_sat = isNaN(sat_score)? -1 : sat_score;
+    let mean_act = isNaN(act_score)? -1 : act_score;
+
+    // If both average sat and average act is given, take the one with higher responses
+    if(!isNaN(sat_score) && !isNaN(act_score)){
+        // Record the number of responses of SAT and ACT
+        var num_SAT = parseInt(sat_descrip.find("div.scalar__value div.scalar-response-count").text().replace(/\,?/g, ""), 10);
+        var num_ACT = parseInt(act_descrip.find("div.scalar__value div.scalar-response-count").text().replace(/\,?/g, ""), 10);
+
+        // Record the SAT Average and ACT Average in percentile
+        sat_score = convert_to_percentile(sat_score, "SAT");
+        act_score = convert_to_percentile(act_score, "ACT");
+
+        // Use the score that has more number of responses
+        standard_test_score = num_SAT > num_ACT ? sat_score : act_score;
+    }
+    // If both information are unavailable, use the national sat average (1000/1600 = 62.5%)
+    else if(isNaN(sat_score) && isNaN(act_score)){
+        standard_test_score = 62.5;
+    }
+    else if(isNaN(sat_score)){
+        act_score = parseInt(act_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
+        standard_test_score = convert_to_percentile(act_score, "ACT");
+        
+    }
+    else if(isNaN(act_score)){
+        sat_score = parseInt(sat_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
+        standard_test_score = convert_to_percentile(sat_score, "SAT");
+        
+    }
+
+
+    await HighSchool.create(
+        {
+            name: hs_name,
+            city: hs_city,
+            state: hs_state,
+            niche_grade: overall_grade,
+            niche_test: standard_test_score,
+            detail_addr: addr,
+            web_url: website,
+            tel: phone,
+            avg_sat: mean_sat,
+            avg_act: mean_act,
+            description: overview,
+            stats: grade_map,
+            ratings: rate_map,
+            popular_colleges: college_list
+        }
+    );
+
+}
+
+// Find Similar High School - Need Change!!!
+router.post('/find_similar_high_school', async function(req, res, next) {
+
+    let hs_info = req.body.keyword;
+    hs_info = hs_info.split(", ")
+    let hs_name = hs_info[0];
+    let hs_city = hs_info[1];
+    let hs_state = hs_info[2];
+
+
+// async function find_similar_high_school(hs_name, hs_city, hs_state){
+    let searched_school = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
+    if(searched_school == null){
+        return res.json({
+            status: "non-exist",
+        });
+    }
+
+    let searched_hs_score = searched_school.hs_score;
+    
+    console.log("Finding Similar High School for ", searched_school.name, "with hs_score =", searched_hs_score, "......");
+    let lower_bound = searched_hs_score - 5;
+    let upper_bound = searched_hs_score + 5;
+    // List of High School with hs_score 5 points away from searched_hs_score, excluding the searched_school.
+    let similar_hs_list = await HighSchool.find({hs_score: {$lte:upper_bound, $gte:lower_bound}, name:{$ne:hs_name}});
+    
+    
+    // Need Change - Display the result to the front end
+    for(hs of similar_hs_list){
+        console.log(hs.name, "-", hs.hs_score);
+    }
+    
+    //let similar_hs_list = await HighSchool.find({hs_score: {$lte: searched_hs_score+5}, hs_score: {$gte: searched_hs_score-5}})
+});
+
+
+// This function computes the high school score and stores the result into the database
+router.post('/compute_hs_score', async function(req, res, next) {
+    let hs_name = req.body.high_school_name;
+    let hs_city = req.body.high_school_city;
+    let hs_state = req.body.high_school_state;
+
+
+    // Get the high school by hs_id and get the niche_grade and niche_test for computation
+    let highschool = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
+    if(highschool == null){
+        return res.json({
+            status: "err",
+        });
+    }
+    let niche_grade = highschool.niche_grade;
+    let niche_test = highschool.niche_test;
+
+    // Get c4me test average for this high school's students
+    let c4me_test = 0;
+    let c4me_response = 0;
+    let hs_students = await Student.find({"high_school_name":hs_name, "high_school_city":hs_city, "high_school_state":hs_state});
+    
+    for(i of hs_students){
+        let studentSAT = convert_to_percentile((i.SAT_math!=null&i.SAT_EBRW!=null)? (i.SAT_EBRW+i.SAT_math):null, "SAT");
+        let studentACT = convert_to_percentile(i.ACT_composite!=null?i.ACT_composite:null,"ACT");
+        let student_test = 0;
+        if(studentSAT!=null & studentACT!=null){
+            student_test = studentSAT > studentACT ? studentSAT : studentACT;
+            c4me_response += 1;
+            c4me_test += student_test;
+
+        }
+        else if(studentSAT!=null){
+            student_test = studentSAT;
+            c4me_response += 1;
+            c4me_test += student_test;
+        }
+        else if(studentACT!=null){
+            student_test = studentACT;
+            c4me_response += 1;
+            c4me_test += student_test;
+        }
+     }
+    // If the number of SAT/ACT responses for this high school is less than 15, use Niche's test data
+    if (c4me_response < 15){
+        c4me_test = niche_test;
+    }
+    else{
+        c4me_test = c4me_test / c4me_response;
+    }
+
+    let avg_college_rank = 0;
+    let num_student = 0;
+    // Get the average college ranking of the high schools students accepted college.
+    // If the student is admitted to multiple college, take the highest ranking.
+    // If the student did not get accepted to any college (missing info), default = 1000000 (10 pts for ranking)
+    for(s of hs_students){
+       let highest_rank = 1000000;
+       let application = await Applications.find({"userid":s.username, "status":"accepted"});
+       for(a of application){
+           let college = await College.findOne({"name":a.college});
+           ranking = parseInt(college.ranking);
+           // Higher ranking = Lower number
+           if(ranking < highest_rank){
+               highest_rank = ranking;
+           }
+       }
+       avg_college_rank += convert_ranking_percent(highest_rank);
+       num_student += 1;
+   }
+   // No student attends this high school - Won't happen since the school won't be scraped (Just for ending gracefully while testing)
+   if(num_student == 0){
+       //Default point = 10
+       avg_college_rank = 10;
+   }
+   else{
+       avg_college_rank = avg_college_rank / num_student;
+   }
+
+   // After getting all necessary scores, compute the final score and store into the High School Table
+   let final_score = niche_grade * 0.4 + niche_test * 0.25 + c4me_test * 0.25 + avg_college_rank * 0.1;
+
+   await HighSchool.updateOne({"name":hs_name, "city":hs_city, "state":hs_state}, 
+    {   
+        $set: {hs_score:final_score}
+    });
+
+    return res.json({
+        status: "ok",
+    });
+
+
+});
+
+
+// Helper Functions for Converting Scores
+function convert_ranking_percent(ranking){
+    if(ranking <= 50){ return 100; }
+    else if(ranking <= 100){ return 80; }
+    else if(ranking <= 150){ return 60; }
+    else if(ranking <= 200){ return 40; }
+    else if(ranking <= 250){ return 20; }
+    // Any ranking lower than 250 (including no ranking (1000000), receives 10 points by default)
+    else{ return 10; }
+
+}
+
+function convert_overall_grade_percent(overall_grade){
+    if(overall_grade == "A+"){ return 100; }
+    else if(overall_grade == "A"){ return 96; }
+    else if(overall_grade == "A-"){ return 92; }
+    else if(overall_grade == "B+"){ return 89; }
+    else if(overall_grade == "B"){ return 86; }
+    else if(overall_grade == "B-"){ return 82; }
+    else if(overall_grade == "C+"){ return 79; }
+    else if(overall_grade == "C"){ return 76; }
+    else if(overall_grade == "C-"){ return 72; }
+    else if(overall_grade == "D+"){ return 69; }
+    else if(overall_grade == "D"){ return 66; }
+    else if(overall_grade == "D-"){ return 60; }
+    else{ return 50; }
+}
+
 
 //helpers
 

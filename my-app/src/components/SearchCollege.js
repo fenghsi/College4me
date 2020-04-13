@@ -92,7 +92,6 @@ function SearchCollege(props) {
         <Option value="African-American/Black Studies">African-American/Black Studies</Option>
         <Option value="Adult Nursing">Adult Nursing</Option>
         <Option value="Management Information Systems">Management Information Systems</Option>
-        <Option value="Adult Nursing">Adult Nursing</Option>
         <Option value="Mathematics">Mathematics</Option>
         <Option value="Applied Mathematics">Applied Mathematics</Option>
         <Option value="Geology">Geology</Option>
@@ -104,9 +103,6 @@ function SearchCollege(props) {
         <Option value="Anthropology">Anthropology</Option>
         <Option value="Molecular Physiology">Molecular Physiology</Option>
         <Option value="Fine Arts">Fine Arts</Option>
-        <Option value="Mathematics">Mathematics</Option>
-        <Option value="Applied Mathematics">Applied Mathematics</Option>
-        <Option value="Applied Mathematics">Applied Mathematics</Option>
         <Option value="Comparative Literature">Comparative Literature</Option>
         <Option value="Music">Music</Option>
         <Option value="Health Sciences">Health Sciences</Option>
@@ -114,7 +110,6 @@ function SearchCollege(props) {
         <Option value="Art History">Art History</Option>
         <Option value="Criticism and Conservation">Criticism and Conservation</Option>
         <Option value="Computer Science">Computer Science</Option>
-        <Option value="Mathematics Education">Mathematics Education</Option>
         <Option value="History">History</Option>
         <Option value="Cognitive Sciences">Cognitive Sciences</Option>
         <Option value="Art">Art</Option>
@@ -145,16 +140,13 @@ function SearchCollege(props) {
         <Option value="English">English</Option>
         <Option value="Occupational Therapy">Occupational Therapy</Option>
         <Option value="Linguistics">Linguistics</Option>
-        <Option value="English">English</Option>
         <Option value="Physician Assistant Studies">Physician Assistant Studies</Option>
-        <Option value="English Education">English Education</Option>
         <Option value="Physical Education">Physical Education</Option>
         <Option value="Marine Biology and Biological Oceanography">Marine Biology and Biological Oceanography</Option>
         <Option value="Biochemistry">Biochemistry</Option>
         <Option value="Physics">Physics</Option>
         <Option value="English as a Second Language">English as a Second Language</Option>
         <Option value="Physical Therapy">Physical Therapy</Option>
-        <Option value="English Education">English Education</Option>
         <Option value="Bioengineering and Biomedical Engineering">Bioengineering and Biomedical Engineering</Option>
         <Option value="Physiology">Physiology</Option>
         <Option value="Environmental Management and Policy">Environmental Management and Policy</Option>
@@ -166,12 +158,9 @@ function SearchCollege(props) {
         <Option value="Mechanical Engineering">Mechanical Engineering</Option>
         <Option value="Geosciences">Geosciences</Option>
         <Option value="Biology/Biological Sciences">Biology/Biological Sciences</Option>
-        <Option value="Family Nurse Practitioner Studies">Family Nurse Practitioner Studies</Option>
         <Option value="Physics">Physics</Option>
         <Option value="Multi-/Interdisciplinary Studies">Multi-/Interdisciplinary Studies</Option>
-        <Option value="Other">Other</Option>
         <Option value="Gerontological Nursing">Gerontological Nursing</Option>
-        <Option value="Rehabilitation Sciences">Rehabilitation Sciences</Option>
         <Option value="Foreign Languages Education">Foreign Languages Education</Option>
         <Option value="Psychology--">Psychology--</Option>
         <Option value="Music">Music</Option>
@@ -190,8 +179,6 @@ function SearchCollege(props) {
         <Option value="Romance Languages">Romance Languages</Option>
         <Option value="Philosophy">Philosophy</Option>
         <Option value="Linguistics">Linguistics</Option>
-        <Option value="Chemistry">Chemistry</Option>
-        <Option value="Other">Other</Option>
         <Option value="Gerontological Nursing">Gerontological Nursing</Option>
         <Option value="Science Education">Science Education</Option>
         <Option value="Physical Sciences">Physical Sciences</Option>
@@ -232,7 +219,6 @@ function SearchCollege(props) {
         <Option value="Social Work">Social Work</Option>
         <Option value="Engineering">Engineering</Option>
         <Option value="Sociology">Sociology</Option>
-        <Option value="English Language and Literature">English Language and Literature</Option>
         <Option value="Architecture">Architecture</Option>
         <Option value="Spanish Language and Literature">Spanish Language and Literature</Option>
         <Option value="Environmental Design">Environmental Design</Option>
@@ -353,8 +339,7 @@ function SearchCollege(props) {
           dataIndex: 'name',
           fixed:"left",
           width:200,
-          sorter: (a, b) => a.name.length - b.name.length,
-          sortDirections: ['descend'],
+          sorter: (a, b) => a.name.localeCompare(b.name),
         },
         {
           title: 'Ranking',

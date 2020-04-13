@@ -129,6 +129,24 @@ function App() {
           major_1: event.FirstMajor,
           major_2: event.SecondMajor,
         });
+        const res2 = await axios.post('/scrape_hs_niche_info', {
+          high_school_name:event.HighSchool,
+          high_school_city: event.HighSchoolCity,
+          high_school_state: event.HighSchoolState
+        });
+
+        if(res2.data.status == "err"){
+          notification.open({
+            message: "Could not found high school! Name, city, or state is incorrect!" ,
+            duration:2.5 
+          });
+        }
+
+        await axios.post('/compute_hs_score', {
+          high_school_name:event.HighSchool,
+          high_school_city: event.HighSchoolCity,
+          high_school_state: event.HighSchoolState
+        });
         setStudent(res.data.student);
         history.push('/profile');
         notification.open({
@@ -151,6 +169,11 @@ function App() {
           userid: Student.userid,
           SAT_EBRW:event.SATEBRW,
           SAT_math:event.SATMath
+        });
+        await axios.post('/compute_hs_score', {
+          high_school_name:event.HighSchool,
+          high_school_city: event.HighSchoolCity,
+          high_school_state: event.HighSchoolState
         });
         setStudent(res.data.student);
         const res2 = await axios.post('/getApplications', { 
@@ -207,6 +230,11 @@ function App() {
           ACT_math: event.ACTMath,
           ACT_science:event.ACTScience,
           ACT_composite:(event.ACTEnglish!=null&event.ACTReading!=null&event.ACTMath!=null&event.ACTScience!=null)?Math.round((event.ACTEnglish+event.ACTReading+event.ACTMath+event.ACTScience)/4):null,
+        });
+        await axios.post('/compute_hs_score', {
+          high_school_name:event.HighSchool,
+          high_school_city: event.HighSchoolCity,
+          high_school_state: event.HighSchoolState
         });
         setStudent(res.data.student);
         const res2 = await axios.post('/getApplications', { 
@@ -270,6 +298,11 @@ function App() {
         });
       }
       else{
+        await axios.post('/compute_hs_score', {
+          high_school_name:Student.high_school_name,
+          high_school_city: Student.high_school_city,
+          high_school_state: Student.high_school_state
+        });
         notification.open({
           message: "Successfully Added "+event.college,
           duration:2.5 

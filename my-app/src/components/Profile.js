@@ -281,6 +281,11 @@ function Profile(props) {
       }
       else{
         props.setApplications(res.data.applications);
+        await axios.post('/compute_hs_score', {
+          high_school_name:props.Student.high_school_name,
+          high_school_city: props.Student.high_school_city,
+          high_school_state: props.Student.high_school_state
+        });
         notification.open({
           message: "Successfully Delete an Application" ,
           //description: res.data.applications[].college,
@@ -317,6 +322,11 @@ function Profile(props) {
             college: item.college,
             newcollege: row.college,
             newstatus: row.status
+          });
+          await axios.post('/compute_hs_score', {
+            high_school_name:props.Student.high_school_name,
+            high_school_city: props.Student.high_school_city,
+            high_school_state: props.Student.high_school_state
           });
             notification.open({
             message: "Successfully Edit an Application" ,

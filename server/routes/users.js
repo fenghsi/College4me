@@ -306,8 +306,8 @@ router.post('/deleteApplication',async function(req, res, next) {
         status: "ok"
     });
 });
-
-
+//mark
+//6.3 Search College
 router.post('/searchColleges',async function(req, res, next) {
     // const properties = await Property.find({ price: { $gte:req.query.priceMin, $lte: req.query.priceMax } });
     //const states_modif = req.body.states[1]==null?req.body.states[0]:req.body.states[0].push(req.body.states[1]);
@@ -350,7 +350,16 @@ router.post('/searchColleges',async function(req, res, next) {
 
         // console.log(req.body.cost_of_attendance[1]);
         if(ranking  &size &admission_rate&completion_rate&sat_EBRW &sat_math&act_Composite &keyword & check_cost_of_attendance & isStates&isMajors){
-            //console.log(req.body.ranking[0]<=college.ranking<=req.body.ranking[1]);
+            let rscore = null;
+            if(req.body.recommander){
+                //6.4 Write ur Algorithm here
+                console.log("Compute Recom");
+                rscore =0;
+            }
+            else{
+                console.log("Not Compute")
+            }
+
             originData.push({
                 key:index,
                 name:college.name, 
@@ -368,7 +377,8 @@ router.post('/searchColleges',async function(req, res, next) {
                 range_avg_SAT_EBRW: college.range_avg_SAT_EBRW=="Not reported"?'':college.range_avg_SAT_EBRW,
                 range_avg_ACT: college.range_avg_ACT=="Not reported"?'':college.range_avg_ACT,
                 majors:college.majors.toString(),  
-                cost_of_attendance:cost_of_attendance
+                cost_of_attendance:cost_of_attendance,
+                recommander:rscore
             })
         }
     });

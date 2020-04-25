@@ -32,7 +32,7 @@ router.post('/import_Colleges', async function(req, res, next) {
         await college.save();
     }
 });
-
+//Yuxin
 //7.1 Scrape college rankings.  Scrape WSJ/THE 2020 rankings of all colleges in colleges.txt.
 router.post('/scrape_college_ranking', async function(req, res, next) {
     const result = await axios.get(WSJUrl);
@@ -43,7 +43,7 @@ router.post('/scrape_college_ranking', async function(req, res, next) {
         });
     }
 });
-
+//Mengdong
 //7.2 Import College Scorecard data file.  Import information about all colleges in colleges.txt.
 router.post('/import_college_scorecard', async function(req, res, next) {
     csv().fromFile(CollegeScoreCardUrl).then(async function(CSjson){ 
@@ -87,8 +87,8 @@ router.post('/import_college_scorecard', async function(req, res, next) {
         });
    })
 });
+//kyounga
 //7.3 Scrape collegedata.com
-
 router.post('/scrape_college_data', async function(req, res, next) {
     const fileStr = fs.createReadStream(collegeTxtUrl);
     const rl = readline.createInterface({
@@ -107,13 +107,145 @@ router.post('/scrape_college_data', async function(req, res, next) {
         await scrapeEachCollegeData(colDataUrl, col);
     }
 });
+//helper for 7.3
+async function scrapeEachCollegeData(url, cname) {
+    // This function scrape one college info from CollegeData.com
+    const collegeData = await axios.get(url);
+    const html = collegeData.data;
+    const contents = cheerio.load(html);
+
+    await contents('#profile-overview').find('.dl-split-sm').each(async function(){
+        let lis = await contents(this).html(); //whole html
+        let items = lis.split('\n');
+        let caseIdent = -1;
+        for(let e of items){
+            let noSpaceElem = e.trim();
+            if (caseIdent == -1) {
+                if (noSpaceElem == '<dt>Cost of Attendance</dt>') {    
+                    caseIdent = 0;
+                } else if (noSpaceElem == '<dt>Students Graduating Within 4 Years</dt>') {
+                    caseIdent = 1;
+                } else if (noSpaceElem == '<dt>SAT Math</dt>') {
+                    caseIdent = 2;
+                } else if (noSpaceElem == '<dt>SAT EBRW</dt>') {
+                    caseIdent = 3;
+                } else if (noSpaceElem == '<dt>ACT Composite</dt>') {
+                    caseIdent = 4;
+                }
+            }
+            else if (caseIdent == 0) { //cost of attendance
+                var list = noSpaceElem.split('<br>');
+                for (var i = 0; i < list.length; i ++) {
+                    var cost = list[i].match(/(\d+\,)?\d+/);
+                    if (!(cost === null)) {
+                        console.log("cost: " + cost[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $push: {cost_of_attendance: cost[0]}}
+                        )
+                    }
+                }
+                caseIdent = -1;
+            }
+            else if (caseIdent == 1) { //completion rate
+                var comRate = noSpaceElem.match(/\d+(\.\d+)?%/g);
+                if (!(comRate === null)) {
+                    console.log('complRate: ' + comRate[0]);
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {completion_rate: comRate[0]}}
+                    )
+                } else {
+                    var trimmed = noSpaceElem.replace(/<dd>*/, '').replace(/<\/dd>/, '');
+                    console.log('complRate: ' + trimmed)
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {completion_rate: trimmed}}
+                    )
+                }
+                caseIdent = -1;
+            }
+            else if (caseIdent == 2) { //SAT Math
+                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
+                    var range = noSpaceElem.match(/\d+-\d+/);
+                    if (!(range === null)) {
+                        console.log('SAT_Math: ' + range[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_math: range[0]}}
+                        )
+                    } else {
+                        console.log('SAT_Math: ' + noSpaceElem);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_math: noSpaceElem}}
+                        )
+                    }
+                }
+                else if (noSpaceElem == '</dd>') {
+                    caseIdent = -1;
+                }
+            }
+            else if (caseIdent == 3) { //SAT EBRW
+                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
+                    var rangeEBRW = noSpaceElem.match(/\d+-\d+/);
+                    if (!(rangeEBRW === null)) {
+                        console.log('SAT_EBRW: ' + rangeEBRW[0]);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_EBRW: rangeEBRW[0]}}
+                        )
+                    } else {
+                        console.log('SAT_EBRW: ' + noSpaceElem);
+                        await College.updateOne(
+                            {name:cname},
+                            { $set: {range_avg_SAT_EBRW: noSpaceElem}}
+                        )
+                    }
+                }
+                else if (noSpaceElem == '</dd>') {
+                    caseIdent = -1;
+                }
+            }
+            else if (caseIdent == 4) { //ACT Comp
+                var listACT = noSpaceElem.split('<br>');
+                var rangeACT = ''
+                if (listACT.length == 1) {
+                    rangeACT = listACT[0].match(/\d+-\d+/);
+                } else { //two elem
+                    rangeACT = listACT[1].match(/\d+-\d+/);
+                }
+                if (!(rangeACT === null)) {
+                    console.log('ACT_Comp: ' + rangeACT[0]);
+                    await College.updateOne(
+                        {name:cname},
+                        { $set: {range_avg_ACT: rangeACT[0]}}
+                    )
+                }
+                caseIdent = -1;
+            }
+        };
+    });
+    const majs = await contents('#profile-academics').find('.col-sm-6').each(async function(){
+        let majors = await contents(this).find('.list--nice').text().split('\n');
+        for(let e of majors){
+            let major = e.trim();
+            if (!(major.localeCompare('') == 0)) {
+                await College.updateOne(
+                    {name:cname},
+                    { $push: {majors: major}}
+                )
+            }
+        };
+    });
+}
 
 //7.4 Delete all student profiles
 router.post('/delete_all_student_profiles', async function(req, res, next) {
     await Student.deleteMany({accountType:"student"}).lean();
 });
 
-
+// Mengdong
 //7.5 Import student profile dataset. Application
 router.post('/import_student_profile_dataset_Application', async function(req, res, next) {
     csv().fromFile(ApplicationsUrl).then(async function(CSjson){ 
@@ -209,11 +341,11 @@ router.post('/import_student_profile_dataset_Student', async function(req, res, 
         });
     });
 });
-
+//mark
 //7.6 Review Questionable
 router.post('/getQuestionable', async function(req, res, next) {
     let students = await Student.find({}).lean();
-    let result = [];
+    let result = [];// for each student with applications
     const mapping =students.map(async (student, index)=>{
         let applications = await Applications.find({userid:student.userid, status: "accepted"}).lean();
         const originData = [];
@@ -318,7 +450,7 @@ router.post('/unmarkQuestionable',async function(req, res, next) {
     });
 });
 
-//6.3 Scrape High School Info from Niche.com (Find Similar High School)
+//6.5 Scrape High School Info from Niche.com (Find Similar High School) -- yuxin
 router.post('/scrape_hs_niche_info', async function(req, res, next) {
     //for each NEW high school (name, city, state) entry, scrape niche.com information
     let hs_name = req.body.high_school_name;
@@ -475,7 +607,7 @@ async function scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_s
     }
     // If both information are unavailable, use the national sat average (1000/1600 = 62.5%)
     else if(isNaN(sat_score) && isNaN(act_score)){
-        standard_test_score = 62.5;
+        standard_test_score = 62.5;//?? put letter
     }
     else if(isNaN(sat_score)){
         act_score = parseInt(act_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
@@ -684,140 +816,10 @@ async function updateCollege_from_Scorecard(cname, college) {
     });
 }
 
-async function scrapeEachCollegeData(url, cname) {
-    // This function scrape one college info from CollegeData.com
-    const collegeData = await axios.get(url);
-    const html = collegeData.data;
-    const contents = cheerio.load(html);
-
-    await contents('#profile-overview').find('.dl-split-sm').each(async function(){
-        let lis = await contents(this).html(); //whole html
-        let items = lis.split('\n');
-        let caseIdent = -1;
-        for(let e of items){
-            let noSpaceElem = e.trim();
-            if (caseIdent == -1) {
-                if (noSpaceElem == '<dt>Cost of Attendance</dt>') {    
-                    caseIdent = 0;
-                } else if (noSpaceElem == '<dt>Students Graduating Within 4 Years</dt>') {
-                    caseIdent = 1;
-                } else if (noSpaceElem == '<dt>SAT Math</dt>') {
-                    caseIdent = 2;
-                } else if (noSpaceElem == '<dt>SAT EBRW</dt>') {
-                    caseIdent = 3;
-                } else if (noSpaceElem == '<dt>ACT Composite</dt>') {
-                    caseIdent = 4;
-                }
-            }
-            else if (caseIdent == 0) { //cost of attendance
-                var list = noSpaceElem.split('<br>');
-                for (var i = 0; i < list.length; i ++) {
-                    var cost = list[i].match(/(\d+\,)?\d+/);
-                    if (!(cost === null)) {
-                        console.log("cost: " + cost[0]);
-                        await College.updateOne(
-                            {name:cname},
-                            { $push: {cost_of_attendance: cost[0]}}
-                        )
-                    }
-                }
-                caseIdent = -1;
-            }
-            else if (caseIdent == 1) { //completion rate
-                var comRate = noSpaceElem.match(/\d+(\.\d+)?%/g);
-                if (!(comRate === null)) {
-                    console.log('complRate: ' + comRate[0]);
-                    await College.updateOne(
-                        {name:cname},
-                        { $set: {completion_rate: comRate[0]}}
-                    )
-                } else {
-                    var trimmed = noSpaceElem.replace(/<dd>*/, '').replace(/<\/dd>/, '');
-                    console.log('complRate: ' + trimmed)
-                    await College.updateOne(
-                        {name:cname},
-                        { $set: {completion_rate: trimmed}}
-                    )
-                }
-                caseIdent = -1;
-            }
-            else if (caseIdent == 2) { //SAT Math
-                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
-                    var range = noSpaceElem.match(/\d+-\d+/);
-                    if (!(range === null)) {
-                        console.log('SAT_Math: ' + range[0]);
-                        await College.updateOne(
-                            {name:cname},
-                            { $set: {range_avg_SAT_math: range[0]}}
-                        )
-                    } else {
-                        console.log('SAT_Math: ' + noSpaceElem);
-                        await College.updateOne(
-                            {name:cname},
-                            { $set: {range_avg_SAT_math: noSpaceElem}}
-                        )
-                    }
-                }
-                else if (noSpaceElem == '</dd>') {
-                    caseIdent = -1;
-                }
-            }
-            else if (caseIdent == 3) { //SAT EBRW
-                if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
-                    var rangeEBRW = noSpaceElem.match(/\d+-\d+/);
-                    if (!(rangeEBRW === null)) {
-                        console.log('SAT_EBRW: ' + rangeEBRW[0]);
-                        await College.updateOne(
-                            {name:cname},
-                            { $set: {range_avg_SAT_EBRW: rangeEBRW[0]}}
-                        )
-                    } else {
-                        console.log('SAT_EBRW: ' + noSpaceElem);
-                        await College.updateOne(
-                            {name:cname},
-                            { $set: {range_avg_SAT_EBRW: noSpaceElem}}
-                        )
-                    }
-                }
-                else if (noSpaceElem == '</dd>') {
-                    caseIdent = -1;
-                }
-            }
-            else if (caseIdent == 4) { //ACT Comp
-                var listACT = noSpaceElem.split('<br>');
-                var rangeACT = ''
-                if (listACT.length == 1) {
-                    rangeACT = listACT[0].match(/\d+-\d+/);
-                } else { //two elem
-                    rangeACT = listACT[1].match(/\d+-\d+/);
-                }
-                if (!(rangeACT === null)) {
-                    console.log('ACT_Comp: ' + rangeACT[0]);
-                    await College.updateOne(
-                        {name:cname},
-                        { $set: {range_avg_ACT: rangeACT[0]}}
-                    )
-                }
-                caseIdent = -1;
-            }
-        };
-    });
-    const majs = await contents('#profile-academics').find('.col-sm-6').each(async function(){
-        let majors = await contents(this).find('.list--nice').text().split('\n');
-        for(let e of majors){
-            let major = e.trim();
-            if (!(major.localeCompare('') == 0)) {
-                await College.updateOne(
-                    {name:cname},
-                    { $push: {majors: major}}
-                )
-            }
-        };
-    });
-}
 
 
 
+//6.2 compute questionable --Kyounga
 function compute_Questionable(college, student) {
     
     let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");

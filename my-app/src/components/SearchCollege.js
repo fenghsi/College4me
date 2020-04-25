@@ -31,6 +31,7 @@ function SearchCollege(props) {
     const [sat_math, setSat_math] = useState([200,800]);
     const [sat_EBRW, setSat_EBRW] = useState([200,800]);
     const [act_Composite, setact_Composite] = useState([1,36]);
+    const [recommander, setRecommander] = useState(false);
     const allstates = <Select defaultValue="ALL" mode="multiple" style={{ width: '100%' }} onSelect={handleSelectBox } onDeselect={handledeSelectBox }>
         <Option value="ALL">ALL States</Option>
         <Option value="AL">Alabama</Option>
@@ -410,7 +411,15 @@ function SearchCollege(props) {
         {
             title: 'Majors',
             dataIndex: 'majors',
-            width:2000
+            width:2500
+        },
+        {
+            title: 'Recommandation',
+            dataIndex: 'recommander',
+            width:150,
+            fixed:"right",
+            sorter: (a, b) => a.recommander - b.recommander,
+
         },
         
       ];
@@ -456,7 +465,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
           });
         setData(res.data.colleges);
         // notification.open({
@@ -479,7 +489,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
           });
         setData(res.data.colleges);
         setMode(!mode);
@@ -564,7 +575,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
           });
         setData(res.data.colleges);
       
@@ -589,7 +601,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
           });
         setData(res.data.colleges);
         
@@ -614,7 +627,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
         });
         setData(res.data.colleges);
       
@@ -639,7 +653,8 @@ function SearchCollege(props) {
             sat_math:sat_math,
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
-            states: states
+            states: states,
+            recommander: recommander
           });
         setData(res.data.colleges);
         
@@ -648,6 +663,36 @@ function SearchCollege(props) {
         //     duration:2.5  
         //   });
     }
+
+    async function handledRecommander(event){
+        
+       
+        const res = await axios.post('/searchColleges', {
+            keyword: keyword.CollegeSearchBar,
+            inoutstate: props.Student.residence_state,
+            mode: mode,
+            admission_rate:admission_rate,
+            completion_rate:completion_rate,
+            cost_of_attendance:cost_of_attendance,
+            majors:majors,
+            name:name,
+            ranking:ranking,
+            size:size,
+            sat_math:sat_math,
+            sat_EBRW:sat_EBRW,
+            act_Composite:act_Composite,
+            states: states,
+            recommander: !recommander
+          });
+        setData(res.data.colleges);
+        setRecommander(!recommander);
+        
+        // notification.open({
+        //     message:majors,
+        //     duration:2.5  
+        //   });
+    }
+
 
 
     return (
@@ -731,7 +776,7 @@ function SearchCollege(props) {
             columns={mergedColumns} 
             dataSource={data} 
             bordered
-            title={() => <div>  Search Mode:     <Switch checkedChildren="Lax" unCheckedChildren="Strict" defaultChecked  onChange={handleSearchCollege2}/> </div>}
+            title={() => <div>  Search Mode:     <Switch checkedChildren="Lax" unCheckedChildren="Strict" defaultChecked  onChange={handleSearchCollege2}/>  <Button type="primary" style={{float:"right"}} onClick={handledRecommander} danger>{recommander?"Cancel Recommandation":"Compute Recommandation"}</Button> </div>}
             footer={() => !props.Student.residence_state?<div>Your didn't enter a state!</div>:<div>Your current state is in <strong>{props.Student.residence_state}</strong>. Cost of attendence is automatically computed for you.</div>}
             scroll={{ x: 240 , y: 700}} 
             pagination={10}

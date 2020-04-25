@@ -606,9 +606,9 @@ async function scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_s
         standard_test_score = num_SAT > num_ACT ? sat_score : act_score;
     }
     // If both information are unavailable, use the national sat average (1000/1600 = 62.5%)
-    else if(isNaN(sat_score) && isNaN(act_score)){
-        standard_test_score = 62.5;//?? put letter
-    }
+    // else if(isNaN(sat_score) && isNaN(act_score)){
+    //     standard_test_score = 62.5;//?? put letter
+    // }
     else if(isNaN(sat_score)){
         act_score = parseInt(act_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
         standard_test_score = convert_to_percentile(act_score, "ACT");

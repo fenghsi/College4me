@@ -10,13 +10,14 @@ import { Table } from 'antd';
 import { Slider } from 'antd';
 import { Switch } from 'antd';
 import { Select } from 'antd';
+import { Link } from "react-router-dom";
 const { Option } = Select;
 const { Header, Footer, Sider, Content } = Layout;
 
 
 
 function SearchCollege(props) {
-    
+    const location = useLocation();
     const [data, setData] = useState([]);
     const [majors, setMajors] = useState(["ALL"]);
     const [name, setName] = useState();
@@ -341,6 +342,18 @@ function SearchCollege(props) {
           fixed:"left",
           width:200,
           sorter: (a, b) => a.name.localeCompare(b.name),
+        },
+        {
+            title: 'App Track',
+            dataIndex: 'operation',
+            width:100,
+            fixed:"left",
+            render: (_, record) => {
+              return  (
+                 <Link  to={location.pathname+"/"+record.name} record={record} >Track</Link>
+            
+              );
+            },
         },
         {
           title: 'Ranking',

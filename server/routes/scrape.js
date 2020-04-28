@@ -679,9 +679,9 @@ router.post('/find_similar_high_school', async function(req, res, next) {
 
     let hs_info = req.body.keyword;
     hs_info = hs_info.split(", ")
-    let hs_name = hs_info[0].toLowerCase();
-    let hs_city = req.body.hsCity.toLowerCase();
-    let hs_state = req.body.hsState.toLowerCase();
+    let hs_name = hs_info[0].toLowerCase().trim();
+    let hs_city = req.body.hsCity.toLowerCase().trim();
+    let hs_state = req.body.hsState.toLowerCase().trim();
     // let hs_name = hs_info[0]==undefined?'':hs_info[0].toLowerCase();
     // let hs_city = hs_info[1].toLowerCase()==undefined?hs_info[1].toLowerCase():req.body.hsCity.toLowerCase();
     // let hs_state = hs_info[2].toLowerCase()==undefined?hs_info[2].toLowerCase():req.body.hsState.toLowerCase();
@@ -719,7 +719,7 @@ router.post('/find_similar_high_school', async function(req, res, next) {
             name:college.name, 
             city: college.city,
             state: college.state,
-            hs_score: 100 -Math.abs(college.hs_score-searched_school.hs_score),//for similarity score
+            hs_score: (100 -Math.abs(college.hs_score-searched_school.hs_score)).toFixed(2),//for similarity score
             niche_grade: college.niche_grade,
             niche_test: college.niche_test,
             detail_addr: college.detail_addr,
@@ -746,9 +746,9 @@ router.post('/find_similar_high_school', async function(req, res, next) {
 
 // This function computes the high school score and stores the result into the database
 router.post('/compute_hs_score', async function(req, res, next) {
-    let hs_name = req.body.high_school_name.toLowerCase();
-    let hs_city = req.body.high_school_city.toLowerCase();;
-    let hs_state = req.body.high_school_state.toLowerCase();;
+    let hs_name = req.body.high_school_name==undefined?undefined:req.body.high_school_name.toLowerCase();
+    let hs_city = req.body.high_school_city==undefined?undefined:req.body.high_school_city.toLowerCase();;
+    let hs_state = req.body.high_school_state==undefined?undefined:req.body.high_school_state.toLowerCase();;
 
     console.log(hs_name);
     console.log(hs_city);

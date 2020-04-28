@@ -116,6 +116,8 @@ function Profile(props) {
                     <Option value="pending">pending</Option>
                     <Option value="wait-list">wait-list</Option>
                     <Option value="rejected">rejected</Option>
+                    <Option value="deferred">deferred</Option>
+                    <Option value="withdrawn">withdrawn</Option>
                     </Select>;
     const appcolleges =<Select >
     <Option value ="American University">American University</Option>

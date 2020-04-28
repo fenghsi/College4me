@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import SignUpForm from './components/user/SignUpForm';
 import SignInForm from './components/user/SignInForm';
+import Application_Tracker_Filter from './components/Application_Tracker_Filter'
 import Reviews_Questionable from './components/admin/Review_Questionable';
 import FindSimilarHighSchool from './components/FindSimilarHighSchool';
 import SearchCollege from './components/SearchCollege';
@@ -367,6 +368,7 @@ function App() {
                            />
                         <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
                         <Route exact path="/SearchCollege" render={() => (<SearchCollege Student={Student} />)} />
+                        <Route path="/SearchCollege/:id" render={() => (<Application_Tracker_Filter Student={Student} />)} />
                       </React.Fragment>
                   }
                   {!user &&

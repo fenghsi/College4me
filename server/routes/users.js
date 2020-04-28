@@ -155,9 +155,9 @@ router.post('/editscoresat',async function(req, res, next) {
     //update application questionable since edit the score
     const mapping =applications.map(async (app, index)=>{
         await Applications.updateOne({userid: app.userid, college: app.college}, 
-            {   
-                questionable: null
-            });
+        {   
+            questionable: null
+        });
     });
     await Promise.all(mapping);
 

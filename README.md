@@ -56,3 +56,8 @@ npm i csvtojson
 
 //for front end
 npm install react-infinite-scroller
+//new to install
+sudo npm install --save react-apexcharts apexcharts
+sudo npm install react-easy-chart
+npm i react-google-charts
+npm install react-plotly.js plotly.js

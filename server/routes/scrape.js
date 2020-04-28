@@ -87,7 +87,6 @@ router.post('/import_college_scorecard', async function(req, res, next) {
         });
    })
 });
-//kyounga
 //7.3 Scrape collegedata.com
 router.post('/scrape_college_data', async function(req, res, next) {
     const fileStr = fs.createReadStream(collegeTxtUrl);
@@ -103,16 +102,59 @@ router.post('/scrape_college_data', async function(req, res, next) {
             extension = extension.replace(/The-/, '');
             console.log(extension);
         }
-        const colDataUrl = actCollegeDataUrl + 'College/' + extension;
-        await scrapeEachCollegeData(colDataUrl, col);
+        const colDataUrl = actCollegeDataUrl + 'college/' + extension;
+        const majUrl = colDataUrl + '/?tab=profile-academics-tab';
+        console.log(majUrl)
+        try {
+            await Promise.all([scrapeEachCollegeData(colDataUrl, col), scrapeMajors(majUrl, col)]);
+        }
+        catch (err) {
+            return res.json({
+                status: "err",
+            });
+        }
     }
 });
-//helper for 7.3
+
+//helper functions for 7.3
+async function scrapeMajors(majUrl, cname) {
+    const majorsData = await axios.get(majUrl);
+    const majHtml = majorsData.data
+    const contents2 = cheerio.load(majHtml);
+    await contents2('#profile-tabContent').find('.row').first().each(async function(){ //.find('.hr--tight.hr--narrow.hr--dark').find('.row')
+        let html = '';
+        try {
+            let tryhtml = await contents2(this).html(); //whole html
+            html = tryhtml;
+        }
+        catch(err) {
+            next(err);
+        }
+        //console.log(cname + ': ' + html);
+        // let html = await contents2(this).html(); //whole html
+        let lines = html.split('\n');
+        for(let e of lines){
+            let noSpaceElem = e.trim();
+            var trimmed = noSpaceElem.replace(/<li>*/, '').replace(/<\/li>/, '');
+            if (trimmed.substring(0, 1) !== '<') {
+                console.log(trimmed);
+                if (!(trimmed.localeCompare('') == 0)) {
+                    await College.updateOne(
+                        {name:cname},
+                        { $push: {majors: trimmed}}
+                    )
+                }
+            }
+        }
+    });
+}
+
 async function scrapeEachCollegeData(url, cname) {
     // This function scrape one college info from CollegeData.com
     const collegeData = await axios.get(url);
     const html = collegeData.data;
     const contents = cheerio.load(html);
+    //console.log("contents:\n" + contents)
 
     await contents('#profile-overview').find('.dl-split-sm').each(async function(){
         let lis = await contents(this).html(); //whole html
@@ -120,6 +162,7 @@ async function scrapeEachCollegeData(url, cname) {
         let caseIdent = -1;
         for(let e of items){
             let noSpaceElem = e.trim();
+            //console.log(noSpaceElem)
             if (caseIdent == -1) {
                 if (noSpaceElem == '<dt>Cost of Attendance</dt>') {    
                     caseIdent = 0;
@@ -138,7 +181,7 @@ async function scrapeEachCollegeData(url, cname) {
                 for (var i = 0; i < list.length; i ++) {
                     var cost = list[i].match(/(\d+\,)?\d+/);
                     if (!(cost === null)) {
-                        console.log("cost: " + cost[0]);
+                        //console.log("cost: " + cost[0]);
                         await College.updateOne(
                             {name:cname},
                             { $push: {cost_of_attendance: cost[0]}}
@@ -150,14 +193,14 @@ async function scrapeEachCollegeData(url, cname) {
             else if (caseIdent == 1) { //completion rate
                 var comRate = noSpaceElem.match(/\d+(\.\d+)?%/g);
                 if (!(comRate === null)) {
-                    console.log('complRate: ' + comRate[0]);
+                    //console.log('complRate: ' + comRate[0]);
                     await College.updateOne(
                         {name:cname},
                         { $set: {completion_rate: comRate[0]}}
                     )
                 } else {
                     var trimmed = noSpaceElem.replace(/<dd>*/, '').replace(/<\/dd>/, '');
-                    console.log('complRate: ' + trimmed)
+                    //console.log('complRate: ' + trimmed)
                     await College.updateOne(
                         {name:cname},
                         { $set: {completion_rate: trimmed}}
@@ -169,13 +212,13 @@ async function scrapeEachCollegeData(url, cname) {
                 if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
                     var range = noSpaceElem.match(/\d+-\d+/);
                     if (!(range === null)) {
-                        console.log('SAT_Math: ' + range[0]);
+                        //console.log('SAT_Math: ' + range[0]);
                         await College.updateOne(
                             {name:cname},
                             { $set: {range_avg_SAT_math: range[0]}}
                         )
                     } else {
-                        console.log('SAT_Math: ' + noSpaceElem);
+                        //console.log('SAT_Math: ' + noSpaceElem);
                         await College.updateOne(
                             {name:cname},
                             { $set: {range_avg_SAT_math: noSpaceElem}}
@@ -190,13 +233,13 @@ async function scrapeEachCollegeData(url, cname) {
                 if (noSpaceElem != '<dd>' && noSpaceElem != '</dd>') {
                     var rangeEBRW = noSpaceElem.match(/\d+-\d+/);
                     if (!(rangeEBRW === null)) {
-                        console.log('SAT_EBRW: ' + rangeEBRW[0]);
+                        //console.log('SAT_EBRW: ' + rangeEBRW[0]);
                         await College.updateOne(
                             {name:cname},
                             { $set: {range_avg_SAT_EBRW: rangeEBRW[0]}}
                         )
                     } else {
-                        console.log('SAT_EBRW: ' + noSpaceElem);
+                        //console.log('SAT_EBRW: ' + noSpaceElem);
                         await College.updateOne(
                             {name:cname},
                             { $set: {range_avg_SAT_EBRW: noSpaceElem}}
@@ -216,7 +259,7 @@ async function scrapeEachCollegeData(url, cname) {
                     rangeACT = listACT[1].match(/\d+-\d+/);
                 }
                 if (!(rangeACT === null)) {
-                    console.log('ACT_Comp: ' + rangeACT[0]);
+                    //console.log('ACT_Comp: ' + rangeACT[0]);
                     await College.updateOne(
                         {name:cname},
                         { $set: {range_avg_ACT: rangeACT[0]}}
@@ -226,19 +269,8 @@ async function scrapeEachCollegeData(url, cname) {
             }
         };
     });
-    const majs = await contents('#profile-academics').find('.col-sm-6').each(async function(){
-        let majors = await contents(this).find('.list--nice').text().split('\n');
-        for(let e of majors){
-            let major = e.trim();
-            if (!(major.localeCompare('') == 0)) {
-                await College.updateOne(
-                    {name:cname},
-                    { $push: {majors: major}}
-                )
-            }
-        };
-    });
 }
+
 
 //7.4 Delete all student profiles
 router.post('/delete_all_student_profiles', async function(req, res, next) {
@@ -468,7 +500,7 @@ router.post('/scrape_hs_niche_info', async function(req, res, next) {
 
     let url = nicheURL + school_name + "-" + school_city + "-" + school_state + "/";
 
-    let scrape_school = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
+    let scrape_school = await HighSchool.findOne({"name":hs_name.toLowerCase(), "city":hs_city.toLowerCase(), "state":hs_state.toLowerCase()});
     // If the high school is already known to the system, no need to scrape information again
     if(scrape_school != null){
         return res.json({
@@ -500,7 +532,7 @@ router.post('/scrape_hs_niche_info', async function(req, res, next) {
                 });
     }
 
-    scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state);
+    scrape_each_hs_info(niche, niche_academic, hs_name.toLowerCase(), hs_city.toLowerCase(), hs_state.toLowerCase());
     return res.json({
         status: "ok",
     });
@@ -623,9 +655,9 @@ async function scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_s
 
     await HighSchool.create(
         {
-            name: hs_name,
-            city: hs_city,
-            state: hs_state,
+            name: hs_name.toLowerCase(),
+            city: hs_city.toLowerCase(),
+            state: hs_state.toLowerCase(),
             niche_grade: overall_grade,
             niche_test: standard_test_score,
             detail_addr: addr,
@@ -647,14 +679,20 @@ router.post('/find_similar_high_school', async function(req, res, next) {
 
     let hs_info = req.body.keyword;
     hs_info = hs_info.split(", ")
-    let hs_name = hs_info[0];
-    let hs_city = hs_info[1];
-    let hs_state = hs_info[2];
-
+    let hs_name = hs_info[0].toLowerCase();
+    let hs_city = req.body.hsCity.toLowerCase();
+    let hs_state = req.body.hsState.toLowerCase();
+    // let hs_name = hs_info[0]==undefined?'':hs_info[0].toLowerCase();
+    // let hs_city = hs_info[1].toLowerCase()==undefined?hs_info[1].toLowerCase():req.body.hsCity.toLowerCase();
+    // let hs_state = hs_info[2].toLowerCase()==undefined?hs_info[2].toLowerCase():req.body.hsState.toLowerCase();
+    // console.log(hs_name);
+    // console.log(hs_city);
+    // console.log(hs_state);
 
 // async function find_similar_high_school(hs_name, hs_city, hs_state){
     let searched_school = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
     if(searched_school == null){
+        console.log("????")
         return res.json({
             status: "non-exist",
         });
@@ -663,31 +701,63 @@ router.post('/find_similar_high_school', async function(req, res, next) {
     let searched_hs_score = searched_school.hs_score;
     
     console.log("Finding Similar High School for ", searched_school.name, "with hs_score =", searched_hs_score, "......");
-    let lower_bound = searched_hs_score - 5;
-    let upper_bound = searched_hs_score + 5;
-    // List of High School with hs_score 5 points away from searched_hs_score, excluding the searched_school.
+    let lower_bound = searched_hs_score - 3;
+    let upper_bound = searched_hs_score + 3;
+    // List of High School with hs_score 3 points away from searched_hs_score, excluding the searched_school.
     let similar_hs_list = await HighSchool.find({hs_score: {$lte:upper_bound, $gte:lower_bound}, name:{$ne:hs_name}});
     
-    
+    const originData = [];
     // Need Change - Display the result to the front end
     for(hs of similar_hs_list){
         console.log(hs.name, "-", hs.hs_score);
     }
     
+
+    const mapping =similar_hs_list.map(async (college, index)=>{
+        originData.push({
+            key:index,
+            name:college.name, 
+            city: college.city,
+            state: college.state,
+            hs_score: 100 -Math.abs(college.hs_score-searched_school.hs_score),//for similarity score
+            niche_grade: college.niche_grade,
+            niche_test: college.niche_test,
+            detail_addr: college.detail_addr,
+            web_url:college.web_url,
+            tel: college.tel,
+            avg_sat: college.avg_sat,
+            avg_act: college.avg_act,
+            description: college.description,
+            stats: JSON.stringify(college.stats).split('"').join('').replace('{','').replace('}','').split(',').join(",\t\n"),
+            ratings: JSON.stringify(college.ratings).split('"').join('').replace('{','').replace('}','').split(',').join(",\t\n"),
+            popular_colleges: college.popular_colleges.toString(),
+        })
+    });
+
+    await Promise.all(mapping);
+
+
+    return res.json({
+        highschools: originData
+    });
     //let similar_hs_list = await HighSchool.find({hs_score: {$lte: searched_hs_score+5}, hs_score: {$gte: searched_hs_score-5}})
 });
 
 
 // This function computes the high school score and stores the result into the database
 router.post('/compute_hs_score', async function(req, res, next) {
-    let hs_name = req.body.high_school_name;
-    let hs_city = req.body.high_school_city;
-    let hs_state = req.body.high_school_state;
+    let hs_name = req.body.high_school_name.toLowerCase();
+    let hs_city = req.body.high_school_city.toLowerCase();;
+    let hs_state = req.body.high_school_state.toLowerCase();;
 
+    console.log(hs_name);
+    console.log(hs_city);
+    console.log(hs_state);
 
     // Get the high school by hs_id and get the niche_grade and niche_test for computation
     let highschool = await HighSchool.findOne({"name":hs_name, "city":hs_city, "state":hs_state});
     if(highschool == null){
+        console.log("dcdadd???");
         return res.json({
             status: "err",
         });

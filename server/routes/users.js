@@ -322,14 +322,16 @@ router.post('/searchColleges',async function(req, res, next) {
         //check conditions
         let isMajors = req.body.majors.includes("ALL")?true:false;
         const mapping2 =req.body.majors.map(async (major, index)=>{
-            const mapping3 =college.majors.map(async (dbmajor, i)=>{
-                if(dbmajor.includes(major)){
-                    console.log(dbmajor);
-                    console.log(major);
-                    isMajors = true;
-                }
-            });
-            await Promise.all(mapping3);
+            if(college.majors!=undefined){
+                const mapping3 = college.majors.map(async (dbmajor, i)=>{
+                    if(dbmajor.includes(major)){
+                        console.log(dbmajor);
+                        console.log(major);
+                        isMajors = true;
+                    }
+                });
+                await Promise.all(mapping3);
+            }
         });
         await Promise.all(mapping2);
 

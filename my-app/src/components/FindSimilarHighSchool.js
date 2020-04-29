@@ -350,7 +350,6 @@ function FindSimilarHighSchool(props) {
       <Layout>
       <Header >
       <Form
-        className="Find_Similar_HS_Form"
         name="Find_High_School"
         onFinish={handleFindHS}
         style={{margin:'10px 10px 10px 10px'} }

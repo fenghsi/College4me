@@ -254,16 +254,17 @@ function Application_Tracker_Filter(props) {
             filter: event.TrackerFilter,
             class: event.TrackerClass.format('YYYY'),
             highSchool: event.TrackerHighschool,
+            college:location.pathname.replace("/searchcollege/","")
         
         });
     }
 
-    const listLink =
-        <Link ng-show="buttonCont.isClicked" className='Tracker_Link' to={location.pathname+"/Link"}>
-            <Button className='Tracker_Button'>List of Student Profiles</Button>
-        </Link>
+    // const listLink =
+    //     <Link ng-show="buttonCont.isClicked" className='Tracker_Link' to={location.pathname+"/Link"}>
+    //         <Button className='Tracker_Button'>List of Student Profiles</Button>
+    //     </Link>
 
-        const scatterLink = <Button className='Tracker_Button'>Scatterplot of Application Status</Button>
+    //     const scatterLink = <Button className='Tracker_Button'>Scatterplot of Application Status</Button>
         
 
     // const scatterLink =
@@ -367,7 +368,10 @@ function Application_Tracker_Filter(props) {
         <table>
             <Row>
                 <Col style={{position: 'relative', margin: '15px', padding: '10px 10px 10px 10px'}} xs={12} sm={6} md={8} lg={8} xl={10}>
-                    <Title style={{ width: '400px'}}>Application Tracker</Title>
+                <Title style={{ width: '420px'}}>Application Tracker</Title>
+                <br></br>
+                <h2>{location.pathname.replace("/searchcollege/","")}</h2>
+                <br></br>
                     <Form
                         className="Application_Tracker"
                         name="Application_Tracker_Filter"

@@ -79,7 +79,7 @@ function Profile(props) {
     <Option value="WV">West Virginia</Option>
     <Option value="WI">Wisconsin</Option>
     <Option value="WY">Wyoming</Option>
-  </Select>	;  
+  </Select> ;  
     //////////////////state
 
     //////////////////////class of graduation
@@ -478,26 +478,37 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           SecondMajor: props.Student.major_2, 
                           prefix: '86',
                         }}
-                        >   <Title>Basic Info</Title>
-                            <Form.Item label="Username" name="username" rules={[ {required: true},]}>
+
+                        > <Title className = "title_profile">Basic Information</Title>
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="Username" name="username" rules={[ {required: true},]}>
                               <Input disabled={props.DisableBasic}/> 
                             </Form.Item>
-                            <Form.Item label="Residence State" name="ResidenceState">{allstates}</Form.Item>
-                            <Form.Item label="High School" name="HighSchool"><Input disabled={props.DisableBasic} /></Form.Item>
-                            <Form.Item label="High School City" name="HighSchoolCity"><Input disabled={props.DisableBasic}/></Form.Item>
-                            <Form.Item label="High School State" name="HighSchoolState">{allstates}</Form.Item>
-                            <Form.Item label="College Class" name="CollegeClass">{classyear}</Form.Item>
-                            <Form.Item label="First Major" name="FirstMajor"><Input disabled={props.DisableBasic}/></Form.Item>
-                            <Form.Item label="Second Major" name="SecondMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+
+                            <Form.Item style  = {{margin: '0 480px', marginTop: 7}} label="Residence State" name="ResidenceState">{allstates}</Form.Item>
+                            
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School" name="HighSchool"><Input disabled={props.DisableBasic} /></Form.Item>
+                            
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School City" name="HighSchoolCity"><Input disabled={props.DisableBasic}/></Form.Item>
+                            
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School State" name="HighSchoolState">{allstates}</Form.Item>
+                          
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="College Class" name="CollegeClass">{classyear}</Form.Item>
+                           
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="First Major" name="FirstMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="Second Major" name="SecondMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            
                             <Form.Item >
-                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />}  >
+                              <Button style = {{margin: '0 880px', marginTop: 16 }} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />}  >
                                 {props.saveOreditBasic}
                               </Button>
+
                            </Form.Item>
                         </Form>
                     </TabPane>
-                    <TabPane className="profile_tabpane" tab="Scores & Grades" key="2">
 
+                    
+                    <TabPane className="profile_tabpane" tab="Scores & Grades" key="2">
                       <Form
                           className="Edit_basic_info"
                           name="profile_score_school"
@@ -509,11 +520,13 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                             NumAPPassed: props.Student.num_AP_passed,
                             prefix: '86',
                           }}>
-                          <Title>School</Title>
-                          <Form.Item label="GPA" name="GPA">{GPA_scores_sb}</Form.Item>
-                        <Form.Item label="Num AP Passed" name="NumAPPassed">{Num_ap_pass}</Form.Item>
+
+                          <Title className = "title_profile">Scores and Grades</Title>
+                          <Title style = {{margin: '0 480px'}} class = "subtitleOfGradePage">School</Title>
+                          <Form.Item style = {{margin: '0 500px'}} label="GPA" name="GPA">{GPA_scores_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="Num AP Passed" name="NumAPPassed">{Num_ap_pass}</Form.Item>
                           <Form.Item >
-                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                                {props.saveOreditScoreSchool}
                               </Button>
                           </Form.Item>
@@ -529,11 +542,11 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                             SATMath: props.Student.SAT_math,
                             prefix: '86',
                           }}>
-                          <Title>SAT</Title>
-                          <Form.Item label="SAT EBRW" name="SATEBRW">{SAT_brew_and_math_sb}</Form.Item>
-                          <Form.Item label="SAT Math" name="SATMath">{SAT_brew_and_math_sb}</Form.Item>
+                          <Title style = {{margin: '0 480px'}} class = "subtitleOfGradePage">SAT</Title>
+                          <Form.Item style = {{margin: '0 500px'}} style = {{margin: '0 500px'}} label="SAT EBRW" name="SATEBRW">{SAT_brew_and_math_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Math" name="SATMath">{SAT_brew_and_math_sb}</Form.Item>
                           <Form.Item >
-                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                               {props.saveOreditScoreSAT}
                               </Button>
                           </Form.Item>
@@ -552,14 +565,14 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                             ACTComposite: props.Student.ACT_composite,
                             prefix: '86',
                           }}>
-                          <Title>ACT</Title>
-                          <Form.Item label="ACT English" name="ACTEnglish">{ACT_sb}</Form.Item>
-                          <Form.Item label="ACT Reading" name="ACTReading">{ACT_sb}</Form.Item>
-                          <Form.Item label="ACT Math" name="ACTMath">{ACT_sb}</Form.Item>
-                          <Form.Item label="ACT Science" name="ACTScience">{ACT_sb}</Form.Item>
-                        <Form.Item label="ACT Composite" name="ACTComposite">{props.Student.ACT_composite}</Form.Item>
+                          <Title style = {{margin: '0 480px'}} class = "subtitleOfGradePage">ACT</Title>
+                          <Form.Item style = {{margin: '0 500px'}} label="ACT English" name="ACTEnglish">{ACT_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="ACT Reading" name="ACTReading">{ACT_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="ACT Math" name="ACTMath">{ACT_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="ACT Science" name="ACTScience">{ACT_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="ACT Composite" name="ACTComposite">{props.Student.ACT_composite}</Form.Item>
                           <Form.Item >
-                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                               {props.saveOreditScoreACT}
                               </Button>
                           </Form.Item>
@@ -582,24 +595,27 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                             SATPhysics: props.Student.SAT_physics,
                             prefix: '86',
                           }}>
-                          <Title>SAT Subject Test</Title>
-                        <Form.Item label="SAT Literature" name="SATLiterature">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT US Hist" name="SATUSHist">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT World Hist" name="SATWorldHist">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Math I" name="SATMathI">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Math II" name="SATMathII">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Eco Bio" name="SATEcoBio">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Mol Bio" name="SATMolBio">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Chemistry" name="SATChemistry">{SAT_sub_sb}</Form.Item>
-                          <Form.Item label="SAT Physics" name="SATPhysics">{SAT_sub_sb}</Form.Item>
+                          <Title style = {{margin: '0 480px'}} class = "subtitleOfGradePage">SAT Subject Test</Title>
+                  
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Literature" name="SATLiterature">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT US Hist" name="SATUSHist">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT World Hist" name="SATWorldHist">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Math I" name="SATMathI">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Math II" name="SATMathII">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Eco Bio" name="SATEcoBio">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Mol Bio" name="SATMolBio">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Chemistry" name="SATChemistry">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px'}} label="SAT Physics" name="SATPhysics">{SAT_sub_sb}</Form.Item>
                           <Form.Item >
-                              <Button type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                                 {props.saveOreditScoreSATSub}
                               </Button>
                           </Form.Item>
                       </Form>
+
                     </TabPane>
                     <TabPane className="profile_tabpane" tab="Applications" key="3">
+                    <Title className = "title_profile">Applications</Title>
                     <Form form={form} component={false} >
                       <Table
                         components={{
@@ -623,10 +639,10 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                         onFinish={props.handleAddNewApp}
                         onFinishFailed={onFinishFailed}
                     >
-                      <Form.Item label="College" name="college"  rules={[ {required: true},]} style={{ width:500 }}>{appcolleges }</Form.Item>
-                      <Form.Item label="Status" name="status"  rules={[ {required: true},]} style={{ width:500 }}>{appStatus}</Form.Item>
+                      <Form.Item label="College" name="college"  rules={[ {required: true},]} style={{margin: '0 50px', width:500 }}>{appcolleges }</Form.Item>
+                      <Form.Item label="Status" name="status"  rules={[ {required: true},]} style={{margin: '0 50px', width:500 }}>{appStatus}</Form.Item>
                       <Form.Item >
-                        <Button type="primary" htmlType="submit" shape="round" style={{ marginTop: 16 }}>
+                        <Button type="primary" htmlType="submit" shape="round" style={{margin: '0 400px', marginTop: 16 }}>
                           Add an Application
                         </Button> 
                       </Form.Item>

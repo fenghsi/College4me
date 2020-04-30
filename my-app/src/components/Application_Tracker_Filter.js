@@ -23,7 +23,8 @@ const { TabPane } = Tabs;
 
 function Application_Tracker_Filter(props) {
     const location = useLocation();
-    
+    const coll = location.pathname.split("/");
+    const cname = coll[coll.length-1];
     
     const options12 = { 
         chart: {
@@ -279,17 +280,17 @@ function Application_Tracker_Filter(props) {
         </Checkbox.Group>;
 
     async function handleTrackFilter(event) {
-        // notification.open({
-        //     message: event.TrackerHighschool[0], // + event.TrackerClass + event.TrackerClass.format('YYYY') + event.TrackerHighschool + event.TrackerStatus,
-        //     duration:2.5 
-        // });
-        //setShowButton(true);
+        notification.open({
+            message: cname, // + event.TrackerClass + event.TrackerClass.format('YYYY') + event.TrackerHighschool + event.TrackerStatus,
+            duration:2.5 
+        });
+        //utton(true);
 
-        const res = await axios.post('/searchColleges/'+location.pathname.replace("/searchcollege/",""), {
+        const res = await axios.post('/searchColleges/'+cname, {
             filter: event.TrackerFilter,
             class: [event.TrackerClass[0].format('YYYY'),event.TrackerClass[1].format('YYYY')],
             highSchool: event.TrackerHighschool,
-            college:location.pathname.replace("/searchcollege/",""),
+            college:cname,
             status : event.TrackerStatus
         });
         setStudentList(res.data.studentList);

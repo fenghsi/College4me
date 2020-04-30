@@ -286,12 +286,19 @@ router.post('/import_student_profile_dataset_Application', async function(req, r
             let applicationCollege = await application.college;
             let FileApplication = await Applications.findOne({userid:applicationUserid, college:applicationCollege}).lean();
             if (FileApplication == null){
-                const newApplication = new Applications({
-                    userid: application.userid,
-                    college: application.college,
-                    status: application.status,
-                });
-                await newApplication.save();
+                let student = await Student.findOne({userid:applicationUserid}).lean();
+                let college = await College.findOne({name:applicationCollege }).lean();
+                console.log(college);
+                console.log(student);
+                
+                if(student && college){
+                    const newApplication = new Applications({
+                        userid: application.userid,
+                        college: application.college,
+                        status: application.status,
+                    });
+                    await newApplication.save();
+                }
             }else{
                 await Applications.update({userid:applicationUserid, college:applicationCollege},{status: application.status})
             }
@@ -494,7 +501,7 @@ router.post('/scrape_hs_niche_info', async function(req, res, next) {
             status: "not found",
         });
     }
-    let school_name = hs_name.replace(/\'/g,"").replace(/\.?\s+/g, '-').toLowerCase();
+    let school_name = hs_name.replace(/\'/g, "").replace(/\.?\s+/g, '-').replace("\.", "").toLowerCase();
     let school_city = hs_city.replace(/\s+/g, '-').toLowerCase();
     let school_state = hs_state.toLowerCase();
 
@@ -638,9 +645,9 @@ async function scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_s
         standard_test_score = num_SAT > num_ACT ? sat_score : act_score;
     }
     // If both information are unavailable, use the national sat average (1000/1600 = 62.5%)
-    // else if(isNaN(sat_score) && isNaN(act_score)){
-    //     standard_test_score = 62.5;//?? put letter
-    // }
+    else if(isNaN(sat_score) && isNaN(act_score)){
+        standard_test_score = 62.5;//?? put letter
+    }
     else if(isNaN(sat_score)){
         act_score = parseInt(act_descrip.find("div.scalar__value").clone().children().remove().end().text(), 10);
         standard_test_score = convert_to_percentile(act_score, "ACT");

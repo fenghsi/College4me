@@ -414,7 +414,8 @@ router.post('/searchColleges/:id',async function(req, res, next){
     const SATScatterplot = [];
     const ACTScatterplot = [];
     const WeightScatterplot =[];
-  //  console.log(college);
+//    console.log(classes[0]);
+//    console.log(classes[1]);
    // console.log(college1);
    // console.log(applications);
     
@@ -430,7 +431,7 @@ router.post('/searchColleges/:id',async function(req, res, next){
             // console.log((highSchool.includes("All High Schools")|highSchool.includes(hs)|hs_lax));
             // console.log((classes==student.college_class|student.college_class==null|student.college_class==undefined));
             // console.log("dada");
-            if(status.includes(app.status) && (highSchool.includes("All High Schools")|highSchool.includes(hs)|hs_lax) && (classes==student.college_class|student.college_class==null|student.college_class==undefined)){
+            if(status.includes(app.status) && (highSchool.includes("All High Schools")|highSchool.includes(hs)|hs_lax) && ((classes[0]<=student.college_class && student.college_class<=classes[1])|student.college_class==null|student.college_class==undefined)){
                // console.log(student.userid);
                 if(app.status=="accepted"){
                     if(compute_Questionable(college1,student)=="No" | app.questionable=="No"){

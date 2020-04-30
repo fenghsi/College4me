@@ -11,6 +11,8 @@ import { notification } from 'antd';
 import axios from 'axios';
 import ReactApexChart from "react-apexcharts";
 
+
+const{RangePicker} =DatePicker;
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
@@ -117,10 +119,11 @@ function Application_Tracker_Filter(props) {
         return current && current.valueOf() < Date.now(); //Date.now()
     }
 
-    const datePickerYear = <DatePicker picker="year"
-        style={{width:172}}
-        disabledDate={disabledDate}
-        />; //defaultValue={moment(2020, 'YYYY')}
+ 
+    const datePickerYear = <RangePicker picker="year"
+    style={{width:172}}
+    disabledDate={disabledDate}
+    />; //defaultValue={moment(2020, 'YYYY')}
 
         
 
@@ -284,7 +287,7 @@ function Application_Tracker_Filter(props) {
 
         const res = await axios.post('/searchColleges/'+location.pathname.replace("/searchcollege/",""), {
             filter: event.TrackerFilter,
-            class: event.TrackerClass.format('YYYY'),
+            class: [event.TrackerClass[0].format('YYYY'),event.TrackerClass[1].format('YYYY')],
             highSchool: event.TrackerHighschool,
             college:location.pathname.replace("/searchcollege/",""),
             status : event.TrackerStatus

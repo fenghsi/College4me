@@ -40,7 +40,10 @@ const studentSchema = new Schema({
     SAT_chemistry: Number,
     SAT_physics: Number,
     num_AP_passed: Number,
-    hidden_score: Number,
+    hidden_score: {
+        type: Number,
+        default: 66.125
+    },
     accountType: {
         type: String,
         required: true

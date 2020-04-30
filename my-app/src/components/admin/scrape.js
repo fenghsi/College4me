@@ -59,6 +59,28 @@ function Scrape(props) {
         });
         
     }
+    async function handleComputeImportHSScore(event){
+        event.preventDefault();
+        notification.open({
+            message: "compute_imported_hs_score",
+            duration:2.5 
+        });
+        const scrapedata1 = await axios.post('/compute_imported_hs_score', {
+           
+        });
+    }
+
+    async function handleComputeImportStudentScore(event){
+        event.preventDefault();
+        notification.open({
+            message: "compute_imported_student_score",
+            duration:2.5 
+        });
+        await axios.post('/compute_imported_student_score', {
+           
+        });
+    }
+
     async function handleImportApplications(event){
         event.preventDefault();
         notification.open({
@@ -113,6 +135,17 @@ function Scrape(props) {
                     <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Import Student profiles</button>
             </form>
             <br></br>
+            7.5.1A
+            <form onSubmit={handleComputeImportHSScore}>
+                    <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Compute Imported Student High School Score</button>
+            </form>
+            <br></br>
+            7.5.1B
+            <form onSubmit={handleComputeImportStudentScore}>
+                    <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Compute Imported Student Score</button>
+            </form>
+            <br></br>
+
             7.5.2
             <form onSubmit={handleImportApplications}>
                     <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Import Applications</button>

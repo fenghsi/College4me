@@ -13,6 +13,7 @@ import SearchCollege from './components/SearchCollege';
 import Scrape from './components/admin/scrape';
 import QuestionableByid from './components/admin/QuestionableById';
 import UserdisplaybyId from './components/UserdisplaybyId';
+import RecommanderStudentsByCol from './components/RecommanderStudentsByCol';
 import { notification } from 'antd';
 import { Select} from 'antd';
 const { Option } = Select;
@@ -149,6 +150,11 @@ function App() {
           high_school_city: event.HighSchoolCity,
           high_school_state: event.HighSchoolState
         });
+        //yuxin
+        await axios.post('/compute_student_score',{
+          student_id:Student.userid
+        });
+
         setStudent(res.data.student);
         history.push('/profile');
         notification.open({
@@ -177,6 +183,11 @@ function App() {
           high_school_city: event.HighSchoolCity,
           high_school_state: event.HighSchoolState
         });
+        //yuxin
+        await axios.post('/compute_student_score',{
+          student_id:Student.userid
+        });
+
         setStudent(res.data.student);
         const res2 = await axios.post('/getApplications', { 
           username:Student.userid,
@@ -205,6 +216,11 @@ function App() {
           GPA: event.GPA,
           num_AP_passed: event.NumAPPassed
         });
+        //yuxin
+        await axios.post('/compute_student_score',{
+          student_id:Student.userid
+        });
+
         setStudent(res.data.student);
         history.push('/profile');
         notification.open({
@@ -238,6 +254,11 @@ function App() {
           high_school_city: event.HighSchoolCity,
           high_school_state: event.HighSchoolState
         });
+        //yuxin
+        await axios.post('/compute_student_score',{
+          student_id:Student.userid
+        });
+
         setStudent(res.data.student);
         const res2 = await axios.post('/getApplications', { 
           username:Student.userid,
@@ -368,9 +389,11 @@ function App() {
                               />)} 
                            />
                         <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
-                        <Route exact path="/SearchCollege" render={() => (<SearchCollege Student={Student} />)} />
-                        <Route path="/SearchCollege/:id" render={() => (<Application_Tracker_Filter Student={Student} />)} />
+                        <Route exact path="/searchcollege" render={() => (<SearchCollege Student={Student} />)} />
+                        <Route path="/searchcollege/:id" render={() => (<Application_Tracker_Filter Student={Student} />)} />
                         <Route exact path="/users/:id" render={() => (<UserdisplaybyId/>)} />
+                        <Route exact path="/recommander/:id" render={() => (<RecommanderStudentsByCol Student={Student} />)} />
+                        
                       </React.Fragment>
                   }
                   {!user &&

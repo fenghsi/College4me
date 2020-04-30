@@ -307,23 +307,23 @@ router.post('/import_student_profile_dataset_Application', async function(req, r
     });
 });  
 
-//7.5 Import student profile dataset. Student
-router.post('/import_student_profile_dataset_Student', async function(req, res, next) {
-    csv().fromFile(StudentsUrl).then(async function(CSjson){ 
-        CSjson.forEach(async function(student) {
-            let Filestudent = await Student.findOne({userid:student.userid}).lean();
-            if (Filestudent == null){
+//7.5 Import student profile dataset. Student       // Add scrape_ high school and compute hs score
+router.post('/import_student_profile_dataset_Student', async function (req, res, next) {
+    csv().fromFile(StudentsUrl).then(async function (CSjson) {
+        CSjson.forEach(async function (student) {
+            let Filestudent = await Student.findOne({ userid: student.userid }).lean();
+            if (Filestudent == null) {
                 const newStudent = new Student({
                     userid: student.userid,
                     username: student.userid,
                     password: student.password,
                     residence_state: student.residence_state,
                     high_school_name: student.high_school_name,
-                    high_school_city : student.high_school_city,
-                    high_school_state : student.high_school_state,
+                    high_school_city: student.high_school_city,
+                    high_school_state: student.high_school_state,
                     GPA: student.GPA,
                     college_class: student.college_class,
-                    major_1: student.major_1 ,
+                    major_1: student.major_1,
                     major_2: student.major_2,
                     SAT_math: student.SAT_math,
                     SAT_EBRW: student.SAT_EBRW,
@@ -345,17 +345,19 @@ router.post('/import_student_profile_dataset_Student', async function(req, res, 
                     accountType: "student"
                 });
                 await newStudent.save();
-            }else{
-                await Student.updateOne({userid:student.userid},
-                    {   username: student.userid,
+                await import_scrape_hs_niche(student.high_school_name, student.high_school_city, student.high_school_state);
+            } else {
+                await Student.updateOne({ userid: student.userid },
+                    {
+                        username: student.userid,
                         password: student.password,
                         residence_state: student.residence_state,
                         high_school_name: student.high_school_name,
-                        high_school_city : student.high_school_city,
-                        high_school_state : student.high_school_state,
+                        high_school_city: student.high_school_city,
+                        high_school_state: student.high_school_state,
                         GPA: student.GPA,
                         college_class: student.college_class,
-                        major_1: student.major_1 ,
+                        major_1: student.major_1,
                         major_2: student.major_2,
                         SAT_math: student.SAT_math,
                         SAT_EBRW: student.SAT_EBRW,
@@ -375,8 +377,10 @@ router.post('/import_student_profile_dataset_Student', async function(req, res, 
                         SAT_physics: student.SAT_physics,
                         num_AP_passed: student.num_AP_passed,
                         accountType: "student"
-                })
-            }      
+                    })
+                await import_scrape_hs_niche(student.high_school_name, student.high_school_city, student.high_school_state);
+
+            }
         });
     });
 });
@@ -814,14 +818,16 @@ router.post('/compute_hs_score', async function(req, res, next) {
     for(s of hs_students){
        let highest_rank = 1000000;
        let application = await Applications.find({"userid":s.username, "status":"accepted"});
-       for(a of application){
-           let college = await College.findOne({"name":a.college});
-           ranking = parseInt(college.ranking);
-           // Higher ranking = Lower number
-           if(ranking < highest_rank){
-               highest_rank = ranking;
-           }
-       }
+       for (a of application) {
+            let college = await College.findOne({ "name": a.college });
+            if (college != null) {
+                ranking = parseInt(college.ranking);
+                // Higher ranking = Lower number
+                if (ranking < highest_rank) {
+                    highest_rank = ranking;
+                }
+            }
+        }
        avg_college_rank += convert_ranking_percent(highest_rank);
        num_student += 1;
    }
@@ -848,6 +854,179 @@ router.post('/compute_hs_score', async function(req, res, next) {
 
 
 });
+
+
+// Added
+router.post('/compute_imported_hs_score', async function (req, res, next) {
+    csv().fromFile(StudentsUrl).then(async function (CSjson) {
+        CSjson.forEach(async function (student) {
+            let Filestudent = await Student.findOne({ userid: student.userid }).lean();
+            if (Filestudent != null) {
+                let hs_name = Filestudent.high_school_name;
+                let hs_city = Filestudent.high_school_city;
+                let hs_state = Filestudent.high_school_state;
+                // Get the high school by hs_id and get the niche_grade and niche_test for computation
+                let highschool = null;
+                if (hs_name != undefined && hs_name != "" && hs_name != null && hs_city != undefined && hs_city != "" && hs_city != null && hs_state != undefined && hs_state != "" && hs_state != null) {
+                    highschool = await HighSchool.findOne({ "name": Filestudent.high_school_name.toLowerCase(), "city": Filestudent.high_school_city.toLowerCase(), "state": Filestudent.high_school_state.toLowerCase() });
+                }
+                if (highschool != null) {
+                    let niche_grade = highschool.niche_grade;
+                    let niche_test = highschool.niche_test;
+                    // Get c4me test average for this high school's students
+                    let c4me_test = 0;
+                    let c4me_response = 0;
+                    let hs_students = await Student.find({ "high_school_name": hs_name, "high_school_city": hs_city, "high_school_state": hs_state });
+                    for (i of hs_students) {
+                        let studentSAT = convert_to_percentile((i.SAT_math != null & i.SAT_EBRW != null) ? (i.SAT_EBRW + i.SAT_math) : null, "SAT");
+                        let studentACT = convert_to_percentile(i.ACT_composite != null ? i.ACT_composite : null, "ACT");
+                        let student_test = 0;
+                        if (studentSAT != null & studentACT != null) {
+                            student_test = studentSAT > studentACT ? studentSAT : studentACT;
+                            c4me_response += 1;
+                            c4me_test += student_test;
+                        }
+                        else if (studentSAT != null) {
+                            student_test = studentSAT;
+                            c4me_response += 1;
+                            c4me_test += student_test;
+                        }
+                        else if (studentACT != null) {
+                            student_test = studentACT;
+                            c4me_response += 1;
+                            c4me_test += student_test;
+                        }
+                    }
+                    // If the number of SAT/ACT responses for this high school is less than 15, use Niche's test data
+                    if (c4me_response < 15) { c4me_test = niche_test; }
+                    else { c4me_test = c4me_test / c4me_response; }
+                    let avg_college_rank = 0;
+                    let num_student = 0;
+                    // Get the average college ranking of the high schools students accepted college.
+                    // If the student is admitted to multiple college, take the highest ranking.
+                    // If the student did not get accepted to any college (missing info), default = 1000000 (10 pts for ranking)
+                    for (s of hs_students) {
+                        let highest_rank = 1000000;
+                        let application = await Applications.find({ "userid": s.username, "status": "accepted" });
+                        for (a of application) {
+                            let college = await College.findOne({ "name": a.college });
+                            if (college != null) {
+                                ranking = parseInt(college.ranking);
+                                // Higher ranking = Lower number
+                                if (ranking < highest_rank) {
+                                    highest_rank = ranking;
+                                }
+                            }
+
+                        }
+                        avg_college_rank += convert_ranking_percent(highest_rank);
+                        num_student += 1;
+                    }
+                    // No student attends this high school - Won't happen since the school won't be scraped (Just for ending gracefully while testing)
+                    if (num_student == 0) {
+                        //Default point = 10
+                        avg_college_rank = 10;
+                    }
+                    else {
+                        avg_college_rank = avg_college_rank / num_student;
+                    }
+                    // After getting all necessary scores, compute the final score and store into the High School Table
+                    let final_score = niche_grade * 0.4 + niche_test * 0.25 + c4me_test * 0.25 + avg_college_rank * 0.1;
+                    await HighSchool.updateOne({ "name": hs_name.toLowerCase(), "city": hs_city.toLowerCase(), "state": hs_state.toLowerCase() },
+                        {
+                            $set: { hs_score: final_score }
+                        });
+                }
+            }
+        });
+    });
+});
+
+
+///2
+router.post('/compute_imported_student_score', async function (req, res, next) {
+    csv().fromFile(StudentsUrl).then(async function (CSjson) {
+        CSjson.forEach(async function (student) {
+            let Filestudent = await Student.findOne({ userid: student.userid }).lean();
+            if (Filestudent != null) {
+                let hs_name = Filestudent.high_school_name;
+                let hs_city = Filestudent.high_school_city;
+                let hs_state = Filestudent.high_school_state;
+                // Default hs_score = 65 if the student did not enter a highschool in the profile, or the high school is not found on niche.
+                let hs_score = 65;
+                // If hs_name, city, or state information is not present, then no high school score is present in database.
+                let no_hs_score = hs_name == undefined || hs_name == "" || hs_name == null || hs_city == undefined || hs_city == "" || hs_city == null || hs_state == undefined || hs_state == "" || hs_state == null;
+                let highschool = null;
+                if (!no_hs_score) {
+                    highschool = await HighSchool.findOne({ name: hs_name, city: hs_city, state: hs_state });
+                    // If the student's high school is found on niche.com, then hs_score is present.
+                    if (highschool != null) {
+                        hs_score = highschool.hs_score;
+                    }
+                }
+                // If gpa is not found in profile, then student's GPA is by default (2.8/4,0) 70% (national core course average gpa). 
+                // Else, convert student's GPA to a percentile
+                let gpa = Filestudent.GPA == undefined ? 70 : convert_to_percentile(Filestudent.GPA, 'GPA');
+                // If no standardized test score is available, default = 62.5% (1000/1600)
+                let std_test = 62.5;
+             
+                let sat = (Filestudent.SAT_math != undefined && Filestudent.SAT_EBRW != undefined) ? Filestudent.SAT_math + Filestudent.SAT_EBRW : null;
+                let act = Filestudent.ACT_composite != undefined ? Filestudent.ACT_composite : null;
+                if (sat != null && act != null) { // If both SAT and ACT info are present, take the higher one
+                    std_test = convert_to_percentile(sat, 'SAT') > convert_to_percentile(act, 'ACT') ? convert_to_percentile(sat, 'SAT') : convert_to_percentile(act, 'ACT');
+                }
+                else if (sat != null) {
+                    std_test = convert_to_percentile(sat, 'SAT');
+                }
+                else if (act != null) {
+                    std_test = convert_to_percentile(sat, 'ACT');
+                }
+
+                if(hs_score == undefined || hs_score == null || hs_score == ""){
+                    hs_score = 65;
+                }
+                let quality_score = 0.45 * gpa + 0.45 * std_test + 0.10 * hs_score;
+                await Student.updateOne({ userid: student.userid },{
+                        $set: { hidden_score: quality_score }
+                });
+            }
+        });
+    });
+});
+//3
+async function import_scrape_hs_niche(hs_name, hs_city, hs_state) {
+    //for each NEW high school (name, city, state) entry, scrape niche.com information
+    let has_name = (hs_name != undefined && hs_name != "" && hs_name != null);
+    let has_city = (hs_city != undefined && hs_city != "" && hs_city != null);
+    let has_hs_state = (hs_state != undefined && hs_state != "" && hs_state != null);
+
+    if (has_name && has_city && has_hs_state) {
+        let school_name = hs_name.replace(/\'/g, "").replace(/\.?\s+/g, '-').replace("\.", "").toLowerCase();
+        let school_city = hs_city.replace(/\s+/g, '-').toLowerCase();
+        let school_state = hs_state.toLowerCase();
+
+        let url = nicheURL + school_name + "-" + school_city + "-" + school_state + "/";
+
+        let scrape_school = await HighSchool.findOne({ "name": hs_name.toLowerCase(), "city": hs_city.toLowerCase(), "state": hs_state.toLowerCase() });
+        // If the high school is already known to the system, no need to scrape information again
+        if (scrape_school == null) {
+            // const niche = await axios.get(url);
+            let academic_url = url + "academics/";
+            let niche_academic = null;
+            let niche = null;
+            try {
+                niche = await axios.get(url);
+                niche_academic = await axios.get(academic_url);
+                scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state);
+            }
+            catch (err) {
+                console.log("Unable to find high school", url);
+            }
+        }
+    }
+}
+
+
 
 
 // Helper Functions for Converting Scores

@@ -9,8 +9,8 @@ import { Layout } from 'antd';
 import { Table } from 'antd';
 import { Slider } from 'antd';
 import { Switch } from 'antd';
-import { Select } from 'antd';
 import { Link } from "react-router-dom";
+import { Select } from 'antd';
 const { Option } = Select;
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -432,6 +432,11 @@ function SearchCollege(props) {
             width:150,
             fixed:"right",
             sorter: (a, b) => a.recommander - b.recommander,
+            render: (_, record) => {
+                return  (
+                   <Link  to={"/recommander/"+record.name} recordname={record.name} data ={data}  >{record.recommander}</Link>
+                );
+              },
 
         },
         
@@ -479,8 +484,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
           });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
         // notification.open({
         //     message: "Search succesfully",
@@ -503,8 +512,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
           });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
         setMode(!mode);
         // notification.open({
@@ -589,8 +602,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
           });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
       
         // notification.open({
@@ -615,8 +632,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
           });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
         
         // notification.open({
@@ -641,8 +662,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
         });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
       
         // notification.open({
@@ -667,8 +692,12 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: recommander
+            recommander: recommander,
+            student_id: props.Student.userid
           });
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
         
         // notification.open({
@@ -695,15 +724,23 @@ function SearchCollege(props) {
             sat_EBRW:sat_EBRW,
             act_Composite:act_Composite,
             states: states,
-            recommander: !recommander
+            recommander: !recommander,
+            student_id: props.Student.userid
           });
+        
+        if(res.data.status == "info_required"){
+            notification.open({
+              message: "Insufficient Information to Compute Recommendation Score" ,
+              description: "Please go to your profile and enter your residence state, SAT/ACT score, and first major to use compute recommendation functionality",
+              duration:2.5 
+            });
+        }
+        res.data.colleges.sort((a, b) => (a.recommander > b.recommander) ? -1 : 1);
+        for(let r of res.data.colleges){
+            r.recommander = r.recommander == -1 ? "Unavailable" : r.recommander;
+        }
         setData(res.data.colleges);
         setRecommander(!recommander);
-        
-        // notification.open({
-        //     message:majors,
-        //     duration:2.5  
-        //   });
     }
 
 

@@ -27,7 +27,7 @@ function Profile(props) {
     };
     
     //////all state
-    const allstates = <Select disabled={props.DisableBasic}>
+    const allstates = <Select  style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}>
     <Option value="AL">Alabama</Option>
     <Option value="AK">Alaska</Option>
     <Option value="AZ">Arizona</Option>
@@ -89,7 +89,7 @@ function Profile(props) {
     for (let i = n; i < n+18; i++) {
       classyears.push(<Option value={i}>{i}</Option>);
     }
-    const classyear =<Select disabled={props.DisableBasic}>{classyears}</Select>;
+    const classyear =<Select style={{width:340, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}>{classyears}</Select>;
     /////////////////////
 
     //////////////////////GPA num ap and SAT score select boxes
@@ -97,13 +97,13 @@ function Profile(props) {
     for (let i = 0.0; i <= 4.0; i+=0.1) {
       GPA_scores_sbs.push(<Option value={i.toFixed(1)}>{i.toFixed(1)}</Option>);
     }
-    const GPA_scores_sb =<Select disabled={props.DisableScoreSchool}>{GPA_scores_sbs}</Select>;
+    const GPA_scores_sb =<Select  style={{width:355, padding: "0 0 5px 10px"}} disabled={props.DisableScoreSchool}>{GPA_scores_sbs}</Select>;
 
     const Num_ap_passes =[];
     for (let i = 0; i <= 100; i++) {
       Num_ap_passes.push(<Option value={i}>{i}</Option>);
     }
-    const Num_ap_pass =<Select disabled={props.DisableScoreSchool}>{Num_ap_passes}</Select>;
+    const Num_ap_pass =<Select style={{width:280, padding: "0 0 5px 10px"}} disabled={props.DisableScoreSchool}>{Num_ap_passes}</Select>;
     /////////////////////
 
 
@@ -111,7 +111,7 @@ function Profile(props) {
 
     const [form] = Form.useForm();
     const [editingKey, setEditingKey] = useState('');
-    const appStatus = <Select>
+    const appStatus = <Select style={{width:417, padding: "0 0 5px 10px"}}>
                     <Option value="accepted">accepted</Option>
                     <Option value="pending">pending</Option>
                     <Option value="wait-list">wait-list</Option>
@@ -119,7 +119,7 @@ function Profile(props) {
                     <Option value="deferred">deferred</Option>
                     <Option value="withdrawn">withdrawn</Option>
                     </Select>;
-    const appcolleges =<Select >
+    const appcolleges =<Select style={{width:410, padding: "0 0 5px 10px"}}>
     <Option value ="American University">American University</Option>
     <Option value ="Barnard College">Barnard College</Option>
     <Option value ="Berry College">Berry College</Option>
@@ -436,13 +436,13 @@ const SAT_brew_and_math_sbs = [];
 for (let i = 200; i <= 800; i+=10) {
   SAT_brew_and_math_sbs.push(<Option value={i}>{i}</Option>);
 }
-const SAT_brew_and_math_sb =<Select  disabled={props.DisableScoreSAT}>{SAT_brew_and_math_sbs}</Select>;
+const SAT_brew_and_math_sb =<Select style={{width:320, padding: "5px 0 5px 10px"}} disabled={props.DisableScoreSAT}>{SAT_brew_and_math_sbs}</Select>;
 
 const ACT_sbs = [];
 for (let i = 1; i <= 36; i++) {
   ACT_sbs.push(<Option value={i}>{i}</Option>);
 }
-const ACT_sb =<Select  disabled={props.DisableScoreACT}>{ACT_sbs}</Select>;
+const ACT_sb =<Select style={{width:320}} disabled={props.DisableScoreACT}>{ACT_sbs}</Select>;
 
 
 
@@ -450,7 +450,7 @@ const SAT_sub_sbs = [];
 for (let i = 500; i <= 800; i+=10) {
   SAT_sub_sbs.push(<Option value={i}>{i}</Option>);
 }
-const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Select>;
+const SAT_sub_sb =<Select style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Select>;
 
 
 
@@ -481,25 +481,25 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
 
                         > <Title className = "title_profile">Basic Information</Title>
                             <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="Username" name="username" rules={[ {required: true},]}>
-                              <Input disabled={props.DisableBasic}/> 
+                              <Input style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}/> 
                             </Form.Item>
 
                             <Form.Item style  = {{margin: '0 480px', marginTop: 7}} label="Residence State" name="ResidenceState">{allstates}</Form.Item>
                             
-                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School" name="HighSchool"><Input disabled={props.DisableBasic} /></Form.Item>
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School" name="HighSchool"><Input style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic} /></Form.Item>
                             
-                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School City" name="HighSchoolCity"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School City" name="HighSchoolCity"><Input style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}/></Form.Item>
                             
                             <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="High School State" name="HighSchoolState">{allstates}</Form.Item>
                           
                             <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="College Class" name="CollegeClass">{classyear}</Form.Item>
                            
-                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="First Major" name="FirstMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="First Major" name="FirstMajor"><Input style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}/></Form.Item>
                             
-                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="Second Major" name="SecondMajor"><Input disabled={props.DisableBasic}/></Form.Item>
+                            <Form.Item style = {{margin: '0 480px', marginTop: 7}} label="Second Major" name="SecondMajor"><Input style={{width:320, padding: "0 0 5px 10px"}} disabled={props.DisableBasic}/></Form.Item>
                             
                             <Form.Item >
-                              <Button style = {{margin: '0 880px', marginTop: 16 }} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />}  >
+                              <Button style = {{margin: '0 880px', marginTop: 30 }} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />}  >
                                 {props.saveOreditBasic}
                               </Button>
 
@@ -526,7 +526,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           <Form.Item style = {{margin: '0 500px'}} label="GPA" name="GPA">{GPA_scores_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="Num AP Passed" name="NumAPPassed">{Num_ap_pass}</Form.Item>
                           <Form.Item >
-                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px', marginTop: 30}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                                {props.saveOreditScoreSchool}
                               </Button>
                           </Form.Item>
@@ -546,7 +546,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           <Form.Item style = {{margin: '0 500px'}} style = {{margin: '0 500px'}} label="SAT EBRW" name="SATEBRW">{SAT_brew_and_math_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="SAT Math" name="SATMath">{SAT_brew_and_math_sb}</Form.Item>
                           <Form.Item >
-                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px', marginTop:30 }} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                               {props.saveOreditScoreSAT}
                               </Button>
                           </Form.Item>
@@ -572,7 +572,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           <Form.Item style = {{margin: '0 500px'}} label="ACT Science" name="ACTScience">{ACT_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="ACT Composite" name="ACTComposite">{props.Student.ACT_composite}</Form.Item>
                           <Form.Item >
-                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px', marginTop: 30}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                               {props.saveOreditScoreACT}
                               </Button>
                           </Form.Item>
@@ -597,7 +597,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           }}>
                           <Title style = {{margin: '0 480px'}} class = "subtitleOfGradePage">SAT Subject Test</Title>
                   
-                          <Form.Item style = {{margin: '0 500px'}} label="SAT Literature" name="SATLiterature">{SAT_sub_sb}</Form.Item>
+                          <Form.Item style = {{margin: '0 500px', padding:"0 0 0 0px"}} label="SAT Literature" name="SATLiterature">{SAT_sub_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="SAT US Hist" name="SATUSHist">{SAT_sub_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="SAT World Hist" name="SATWorldHist">{SAT_sub_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="SAT Math I" name="SATMathI">{SAT_sub_sb}</Form.Item>
@@ -607,7 +607,7 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                           <Form.Item style = {{margin: '0 500px'}} label="SAT Chemistry" name="SATChemistry">{SAT_sub_sb}</Form.Item>
                           <Form.Item style = {{margin: '0 500px'}} label="SAT Physics" name="SATPhysics">{SAT_sub_sb}</Form.Item>
                           <Form.Item >
-                              <Button style = {{margin: '0 850px'}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
+                              <Button style = {{margin: '0 850px', marginTop: 30}} type="primary" htmlType="submit" shape="round" icon={<EditOutlined />} >
                                 {props.saveOreditScoreSATSub}
                               </Button>
                           </Form.Item>
@@ -639,10 +639,10 @@ const SAT_sub_sb =<Select disabled={props.DisableScoreSATSub}>{SAT_sub_sbs}</Sel
                         onFinish={props.handleAddNewApp}
                         onFinishFailed={onFinishFailed}
                     >
-                      <Form.Item label="College" name="college"  rules={[ {required: true},]} style={{margin: '0 50px', width:500 }}>{appcolleges }</Form.Item>
-                      <Form.Item label="Status" name="status"  rules={[ {required: true},]} style={{margin: '0 50px', width:500 }}>{appStatus}</Form.Item>
+                      <Form.Item label="College" name="college"  rules={[ {required: true},]} style={{margin: '0 460px', width:500 }}>{appcolleges }</Form.Item>
+                      <Form.Item label="Status" name="status"  rules={[ {required: true},]} style={{margin: '0 460px', width:500 }}>{appStatus}</Form.Item>
                       <Form.Item >
-                        <Button type="primary" htmlType="submit" shape="round" style={{margin: '0 400px', marginTop: 16 }}>
+                        <Button type="primary" htmlType="submit" shape="round" style={{margin: '0 642px', marginTop: 16 }}>
                           Add an Application
                         </Button> 
                       </Form.Item>

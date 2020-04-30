@@ -411,13 +411,24 @@ router.post('/searchColleges/:id',async function(req, res, next){
     let applications =  await Applications.find({college:college}).lean();
     let college1  = await Colleges.findOne({name:college}).lean();
     const studentList = [];
-    const SATScatterplot = [];
-    const ACTScatterplot = [];
-    const WeightScatterplot =[];
+    // const SATScatterplot = [];
+    // const ACTScatterplot = [];
+    // const WeightScatterplot =[];
 //    console.log(classes[0]);
 //    console.log(classes[1]);
    // console.log(college1);
    // console.log(applications);
+   const SATScatterplot_accepted = [];
+   const SATScatterplot_denied = [];
+   const SATScatterplot_other = [];
+
+   const ACTScatterplot_accepted = [];
+   const ACTScatterplot_denied = [];
+   const ACTScatterplot_other = [];
+
+   const WeightScatterplot_accepted = [];
+   const WeightScatterplot_denied = [];
+   const WeightScatterplot_other = [];
     
     const mapping =applications.map(async (app, index)=>{
         let student = await Student.findOne({userid: app.userid}).lean();
@@ -437,28 +448,37 @@ router.post('/searchColleges/:id',async function(req, res, next){
                     if(compute_Questionable(college1,student)=="No" | app.questionable=="No"){
                       
                         if(student.GPA && student.SAT_EBRW && student.SAT_math){
-                            SATScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,student.SAT_EBRW +student.SAT_math],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                SATScatterplot_accepted.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
+                            else if (app.status == "rejected"){
+                                SATScatterplot_denied.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
+                            else{
+                                SATScatterplot_other.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
                         }
                         if(student.GPA && student.ACT_composite){
-                            ACTScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,student.ACT_composite],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                ACTScatterplot_accepted.push([student.GPA,student.ACT_composite]);
+                            }
+                            else if (app.status == "rejected"){
+                                ACTScatterplot_denied.push([student.GPA,student.ACT_composite]);
+                            }
+                            else{
+                                ACTScatterplot_other.push([student.GPA,student.ACT_composite]);
+                            }
                         }
                         if(student.GPA){
-                            WeightScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,convert_Weighted(student)],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                WeightScatterplot_accepted.push([student.GPA,convert_Weighted(student)]);
+                            }
+                            else if (app.status == "rejected"){
+                                WeightScatterplot_denied.push([student.GPA,convert_Weighted(student)]);
+                            }
+                            else{
+                                WeightScatterplot_other.push([student.GPA,convert_Weighted(student)]);
+                            }
                         }
                         //console.log("????dadaacp");
                         studentList.push({
@@ -473,28 +493,37 @@ router.post('/searchColleges/:id',async function(req, res, next){
                 }
                 else{
                     if(student.GPA && student.SAT_EBRW && student.SAT_math){
-                        SATScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,student.SAT_EBRW +student.SAT_math],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            SATScatterplot_accepted.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
+                        else if (app.status == "rejected"){
+                            SATScatterplot_denied.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
+                        else{
+                            SATScatterplot_other.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
                     }
                     if(student.GPA && student.ACT_composite){
-                        ACTScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,student.ACT_composite],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            ACTScatterplot_accepted.push([student.GPA,student.ACT_composite]);
+                        }
+                        else if (app.status == "rejected"){
+                            ACTScatterplot_denied.push([student.GPA,student.ACT_composite]);
+                        }
+                        else{
+                            ACTScatterplot_other.push([student.GPA,student.ACT_composite]);
+                        }
                     }
                     if(student.GPA){
-                        WeightScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,convert_Weighted(student)],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            WeightScatterplot_accepted.push([student.GPA,convert_Weighted(student)]);
+                        }
+                        else if (app.status == "rejected"){
+                            WeightScatterplot_denied.push([student.GPA,convert_Weighted(student)]);
+                        }
+                        else{
+                            WeightScatterplot_other.push([student.GPA,convert_Weighted(student)]);
+                        }
                     }
                     studentList.push({
                         userid: student.userid,
@@ -512,28 +541,37 @@ router.post('/searchColleges/:id',async function(req, res, next){
                 if(app.status=="accepted"){
                     if(compute_Questionable(college,student)=="No" | app.questionable=="No"){
                         if(student.GPA && student.SAT_EBRW && student.SAT_math){
-                            SATScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,student.SAT_EBRW +student.SAT_math],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                SATScatterplot_accepted.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
+                            else if (app.status == "rejected"){
+                                SATScatterplot_denied.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
+                            else{
+                                SATScatterplot_other.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                            }
                         }
                         if(student.GPA && student.ACT_composite){
-                            ACTScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,student.ACT_composite],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                ACTScatterplot_accepted.push([student.GPA,student.ACT_composite]);
+                            }
+                            else if (app.status == "rejected"){
+                                ACTScatterplot_denied.push([student.GPA,student.ACT_composite]);
+                            }
+                            else{
+                                ACTScatterplot_other.push([student.GPA,student.ACT_composite]);
+                            }
                         }
                         if(student.GPA){
-                            WeightScatterplot.push({
-                                name: app.status,
-                                data: [
-                                    [student.GPA,convert_Weighted(student)],
-                                ]}
-                            );
+                            if(app.status == "accepted"){
+                                WeightScatterplot_accepted.push([student.GPA,convert_Weighted(student)]);
+                            }
+                            else if (app.status == "rejected"){
+                                WeightScatterplot_denied.push([student.GPA,convert_Weighted(student)]);
+                            }
+                            else{
+                                WeightScatterplot_other.push([student.GPA,convert_Weighted(student)]);
+                            }
                         }
                         studentList.push({
                             userid: student.userid,
@@ -547,28 +585,37 @@ router.post('/searchColleges/:id',async function(req, res, next){
                 }
                 else{
                     if(student.GPA && student.SAT_EBRW && student.SAT_math){
-                        SATScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,student.SAT_EBRW +student.SAT_math],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            SATScatterplot_accepted.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
+                        else if (app.status == "rejected"){
+                            SATScatterplot_denied.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
+                        else{
+                            SATScatterplot_other.push([student.GPA,student.SAT_EBRW +student.SAT_math]);
+                        }
                     }
                     if(student.GPA && student.ACT_composite){
-                        ACTScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,student.ACT_composite],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            ACTScatterplot_accepted.push([student.GPA,student.ACT_composite]);
+                        }
+                        else if (app.status == "rejected"){
+                            ACTScatterplot_denied.push([student.GPA,student.ACT_composite]);
+                        }
+                        else{
+                            ACTScatterplot_other.push([student.GPA,student.ACT_composite]);
+                        }
                     }
                     if(student.GPA){
-                        WeightScatterplot.push({
-                            name: app.status,
-                            data: [
-                                [student.GPA,convert_Weighted(student)],
-                            ]}
-                        );
+                        if(app.status == "accepted"){
+                            WeightScatterplot_accepted.push([student.GPA,convert_Weighted(student)]);
+                        }
+                        else if (app.status == "rejected"){
+                            WeightScatterplot_denied.push([student.GPA,convert_Weighted(student)]);
+                        }
+                        else{
+                            WeightScatterplot_other.push([student.GPA,convert_Weighted(student)]);
+                        }
                     }
                     studentList.push({
                         userid: student.userid,
@@ -584,12 +631,12 @@ router.post('/searchColleges/:id',async function(req, res, next){
     });
     
     await Promise.all(mapping);
-
+    
     return res.json({
         studentList: studentList,
-        SATScatterplot : SATScatterplot,
-        ACTScatterplot : ACTScatterplot,
-        WeightScatterplot: WeightScatterplot
+        SATScatterplot :[{name:"accepted",data:SATScatterplot_accepted},{name:"denied",data:SATScatterplot_denied},{name:"others",data:SATScatterplot_other} ],
+        ACTScatterplot : [{name:"accepted",data:ACTScatterplot_accepted},{name:"denied",data:ACTScatterplot_denied},{name:"others",data:ACTScatterplot_other} ],
+        WeightScatterplot: [{name:"accepted",data:WeightScatterplot_accepted},{name:"denied",data:WeightScatterplot_denied},{name:"others",data:WeightScatterplot_other} ]
     });
 
 });

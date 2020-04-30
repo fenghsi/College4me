@@ -390,11 +390,217 @@ router.post('/searchColleges',async function(req, res, next) {
     });
 
 });
+router.get('/users/:id',async function(req, res, next){
+    let student = await Student.findOne({userid:req.params.id }).lean();
+    return res.json({
+        student: student
+    });
+});
+///by id
+router.post('/searchColleges/:id',async function(req, res, next){
+    // filter: event.TrackerFilter,
+    // class: event.TrackerClass.format('YYYY'),
+    // highSchool: event.TrackerHighschool,
+    // college:location.pathname.replace("/searchcollege/","")
+    const filter = req.body.filter;
+    const classes = req.body.class;
+    const highSchool = req.body.highSchool;// a list
+    const college = req.body.college;
+    const status = req.body.status;// a list
+    //filter out applications that goes to this college
+    let applications =  await Applications.find({college:college}).lean();
+    let college1  = await Colleges.findOne({name:college}).lean();
+    const studentList = [];
+    const SATScatterplot = [];
+    const ACTScatterplot = [];
+    const WeightScatterplot =[];
+  //  console.log(college);
+   // console.log(college1);
+   // console.log(applications);
+    
+    const mapping =applications.map(async (app, index)=>{
+        let student = await Student.findOne({userid: app.userid}).lean();
+        const hs = student.high_school_name+", "+student.high_school_city+", "+student.high_school_state;
+        const hs_lax = (student.high_school_name==undefined|student.high_school_city==undefined|student.high_school_state==undefined)? true: false;
+        if(filter=="lax" && student){
+           // console.log(student.userid);
+            //check whether it matches the filter
+            // console.log(student.userid);
+            // console.log(status.includes(app.status));
+            // console.log((highSchool.includes("All High Schools")|highSchool.includes(hs)|hs_lax));
+            // console.log((classes==student.college_class|student.college_class==null|student.college_class==undefined));
+            // console.log("dada");
+            if(status.includes(app.status) && (highSchool.includes("All High Schools")|highSchool.includes(hs)|hs_lax) && (classes==student.college_class|student.college_class==null|student.college_class==undefined)){
+               // console.log(student.userid);
+                if(app.status=="accepted"){
+                    if(compute_Questionable(college1,student)=="No" | app.questionable=="No"){
+                      
+                        if(student.GPA && student.SAT_EBRW && student.SAT_math){
+                            SATScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,student.SAT_EBRW +student.SAT_math],
+                                ]}
+                            );
+                        }
+                        if(student.GPA && student.ACT_composite){
+                            ACTScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,student.ACT_composite],
+                                ]}
+                            );
+                        }
+                        if(student.GPA){
+                            WeightScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,convert_Weighted(student)],
+                                ]}
+                            );
+                        }
+                        //console.log("????dadaacp");
+                        studentList.push({
+                            userid: student.userid,
+                            GPA: student.GPA,
+                            SAT_math: student.SAT_math,
+                            SAT_EBRW: student.SAT_EBRW,
+                            ACT_composite: student.ACT_composite,
+                            status: app.status
+                        });
+                    }
+                }
+                else{
+                    if(student.GPA && student.SAT_EBRW && student.SAT_math){
+                        SATScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,student.SAT_EBRW +student.SAT_math],
+                            ]}
+                        );
+                    }
+                    if(student.GPA && student.ACT_composite){
+                        ACTScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,student.ACT_composite],
+                            ]}
+                        );
+                    }
+                    if(student.GPA){
+                        WeightScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,convert_Weighted(student)],
+                            ]}
+                        );
+                    }
+                    studentList.push({
+                        userid: student.userid,
+                        GPA: student.GPA,
+                        SAT_math: student.SAT_math,
+                        SAT_EBRW: student.SAT_EBRW,
+                        ACT_composite: student.ACT_composite,
+                        status: app.status
+                    });
+                }
+            }
+        }
+        else{//strict
+            if(status.includes(app.status) && (highSchool.includes("All High Schools")|highSchool.includes(hs)) && (classes==student.college_class)){
+                if(app.status=="accepted"){
+                    if(compute_Questionable(college,student)=="No" | app.questionable=="No"){
+                        if(student.GPA && student.SAT_EBRW && student.SAT_math){
+                            SATScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,student.SAT_EBRW +student.SAT_math],
+                                ]}
+                            );
+                        }
+                        if(student.GPA && student.ACT_composite){
+                            ACTScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,student.ACT_composite],
+                                ]}
+                            );
+                        }
+                        if(student.GPA){
+                            WeightScatterplot.push({
+                                name: app.status,
+                                data: [
+                                    [student.GPA,convert_Weighted(student)],
+                                ]}
+                            );
+                        }
+                        studentList.push({
+                            userid: student.userid,
+                            GPA: student.GPA,
+                            SAT_math: student.SAT_math,
+                            SAT_EBRW: student.SAT_EBRW,
+                            ACT_composite: student.ACT_composite,
+                            status: app.status
+                        });
+                    }
+                }
+                else{
+                    if(student.GPA && student.SAT_EBRW && student.SAT_math){
+                        SATScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,student.SAT_EBRW +student.SAT_math],
+                            ]}
+                        );
+                    }
+                    if(student.GPA && student.ACT_composite){
+                        ACTScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,student.ACT_composite],
+                            ]}
+                        );
+                    }
+                    if(student.GPA){
+                        WeightScatterplot.push({
+                            name: app.status,
+                            data: [
+                                [student.GPA,convert_Weighted(student)],
+                            ]}
+                        );
+                    }
+                    studentList.push({
+                        userid: student.userid,
+                        GPA: student.GPA,
+                        SAT_math: student.SAT_math,
+                        SAT_EBRW: student.SAT_EBRW,
+                        ACT_composite: student.ACT_composite,
+                        status: app.status
+                    });
+                }
+            }
+        }
+    });
+    
+    await Promise.all(mapping);
+
+    return res.json({
+        studentList: studentList,
+        SATScatterplot : SATScatterplot,
+        ACTScatterplot : ACTScatterplot,
+        WeightScatterplot: WeightScatterplot
+    });
+
+});
 
 
 
 function compute_Questionable(college, student) {
      
+    if(college ==null){
+        return null;
+    }
+
     let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
     let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
     let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");
@@ -428,6 +634,55 @@ function convert_to_percentile(score, type){
        return score/4*100;
     }
 }    
+
+function convert_Weighted(student){
+    let count = 0;
+    let score = 0;
+    if(student.SAT_literature){
+        score+= (student.SAT_literature/800 *0.05);
+        count++;
+    }
+    if(student.SAT_US_hist){
+        score+= (student.SAT_US_hist/800 *0.05);
+        count++;
+    }
+    if(student.SAT_world_hist){
+        score+= (student.SAT_world_hist/800 *0.05);
+        count++;
+    }
+    if(student.SAT_math_I){
+        score+= (student.SAT_math_I/800 *0.05);
+        count++;
+    }
+    if(student.SAT_math_II){
+        score+= (student.SAT_math_II/800 *0.05);
+        count++;
+    }
+    if(student.SAT_eco_bio){
+        score+= (student.SAT_eco_bio/800 *0.05);
+        count++;
+    }
+    if(student.SAT_mol_bio){
+        score+= (student.SAT_mol_bio/800 *0.05);
+        count++;
+    }
+    if(student.SAT_chemistry){
+        score+= (student.SAT_chemistry/800 *0.05);
+        count++;
+    }
+    if(student.SAT_physics){
+        score+= (student.SAT_physics/800 *0.05);
+        count++;
+    }
+    console.log(count);
+    if(student.SAT_EBRW && student.SAT_math){
+        score+=(1-count*0.05)*((student.SAT_EBRW +student.SAT_math)/1600);
+    }
+    else if(student.ACT_composite  ){
+        score+=(1-count*0.05)*(student.ACT_composite/36);
+    }
+    return score*100;
+}  
 
 
 module.exports = router;

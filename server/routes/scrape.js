@@ -891,23 +891,27 @@ async function updateCollege_from_Scorecard(cname, college) {
 
 //6.2 compute questionable --Kyounga
 function compute_Questionable(college, student) {
-    
-    let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
-    let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
-    let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");
-    let studentACT = convert_to_percentile(student.ACT_composite!=null?student.ACT_composite:null,"ACT");
-    
-    if(studentSAT!=null & studentACT!=null){
-        return (studentSAT>studentACT?(collegeAvgSAT-10>studentSAT):(collegeAvgAct-10>studentACT))?"Yes":"No";
-    }
-    else if(studentSAT!=null){
-        return (studentSAT<collegeAvgSAT-10)?"Yes":"No";
-    }
-    else if(studentACT!=null){
-        return (studentACT<collegeAvgAct-10)?"Yes":"No";
+    if(college ==null){
+        return null;
     }
     else{
-        return null;
+        let collegeAvgSAT = convert_to_percentile(college.avg_SAT,"SAT");
+        let collegeAvgAct = convert_to_percentile(college.avg_ACT,"ACT");
+        let studentSAT = convert_to_percentile((student.SAT_math!=null&student.SAT_EBRW!=null)? (student.SAT_EBRW+student.SAT_math):null, "SAT");
+        let studentACT = convert_to_percentile(student.ACT_composite!=null?student.ACT_composite:null,"ACT");
+        
+        if(studentSAT!=null & studentACT!=null){
+            return (studentSAT>studentACT?(collegeAvgSAT-10>studentSAT):(collegeAvgAct-10>studentACT))?"Yes":"No";
+        }
+        else if(studentSAT!=null){
+            return (studentSAT<collegeAvgSAT-10)?"Yes":"No";
+        }
+        else if(studentACT!=null){
+            return (studentACT<collegeAvgAct-10)?"Yes":"No";
+        }
+        else{
+            return null;
+        }
     }
 }
 

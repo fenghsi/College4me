@@ -22,26 +22,7 @@ const { TabPane } = Tabs;
 function Application_Tracker_Filter(props) {
     const location = useLocation();
     
-    const series12= [
-    {
-        name: "Accepted",
-        data: [
-            [3.9,1400],
-        ]
-        },
-      {
-        name: "Reject",
-        data: [
-            [3.1,1100],
-        ]
-      },
-      {
-        name: "Others",
-        data: [
-            [3.5,1300],
-        ]
-      }
-    ];
+    
     const options12 = { 
         chart: {
           height: 450,
@@ -67,8 +48,62 @@ function Application_Tracker_Filter(props) {
           //min: 400, 
         }
     };
-    const [series1, setSeries1] = useState(series12);
+    const options22 = { 
+        chart: {
+          height: 450,
+          type: 'scatter',
+          zoom: {
+            enabled: false,
+            type: 'xy'
+          }
+        },
+        xaxis: {
+          tickAmount: 10,
+          labels: {
+            formatter: function(val) {
+              return parseFloat(val).toFixed(1)
+            }
+          },
+          max: 4.0,
+          //min: 0.0, 
+        },
+        yaxis: {
+          tickAmount: 10,
+          max: 36,
+          //min: 400, 
+        }
+    };
+    const options23 = { 
+        chart: {
+          height: 450,
+          type: 'scatter',
+          zoom: {
+            enabled: false,
+            type: 'xy'
+          }
+        },
+        xaxis: {
+          tickAmount: 10,
+          labels: {
+            formatter: function(val) {
+              return parseFloat(val).toFixed(1)
+            }
+          },
+          max: 4.0,
+          //min: 0.0, 
+        },
+        yaxis: {
+          tickAmount: 10,
+          max: 100,
+          //min: 400, 
+        }
+    };
+    const [series1, setSeries1] = useState([]);
+    const [series2, setSeries2] = useState([]);
+    const [series3, setSeries3] = useState([]);
     const [options1, setOptions1] = useState(options12);
+    const [options2, setOptions2] = useState(options22);
+    const [options3, setOptions3] = useState(options23);
     const [studentList, setStudentList] = useState([]);
     
     const selectFilter = <Select style={{ width: 123 }}>>
@@ -206,10 +241,7 @@ function Application_Tracker_Filter(props) {
             showSearch
             style={{ width: 400 }}
             placeholder="Select a highschool"
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
+            
             options={options}
             >
         </Select>;
@@ -219,44 +251,49 @@ function Application_Tracker_Filter(props) {
             style={{ width: 500 }}>
             <Row>
                 <Col style={{width:150}}>
-                    <Checkbox value="Accepted">Accepted</Checkbox>
+                    <Checkbox value="accepted">Accepted</Checkbox>
                 </Col>
                 <Col style={{width:150}}>
-                    <Checkbox value="Denied">Denied</Checkbox>
-                </Col>
-            </Row>
-            <Row>
-                <Col style={{width:150}}>
-                    <Checkbox value="Wait-listed">Wait-listed</Checkbox>
-                </Col>
-                <Col style={{width:150}}>
-                    <Checkbox value="Pending">Pending</Checkbox>
+                    <Checkbox value="rejected">Denied</Checkbox>
                 </Col>
             </Row>
             <Row>
                 <Col style={{width:150}}>
-                    <Checkbox value="Deferred">Deferred</Checkbox>
+                    <Checkbox value="wait-list">Wait-list</Checkbox>
                 </Col>
                 <Col style={{width:150}}>
-                    <Checkbox value="Withdrawn">Withdrawn</Checkbox>
+                    <Checkbox value="pending">Pending</Checkbox>
+                </Col>
+            </Row>
+            <Row>
+                <Col style={{width:150}}>
+                    <Checkbox value="deferred">Deferred</Checkbox>
+                </Col>
+                <Col style={{width:150}}>
+                    <Checkbox value="withdrawn">Withdrawn</Checkbox>
                 </Col>
             </Row>
         </Checkbox.Group>;
 
     async function handleTrackFilter(event) {
         // notification.open({
-        //     message: event.TrackerClass.format('YYYY'), // + event.TrackerClass + event.TrackerClass.format('YYYY') + event.TrackerHighschool + event.TrackerStatus,
+        //     message: event.TrackerHighschool[0], // + event.TrackerClass + event.TrackerClass.format('YYYY') + event.TrackerHighschool + event.TrackerStatus,
         //     duration:2.5 
         // });
         //setShowButton(true);
 
-        const res = await axios.post('/searchColleges', {
+        const res = await axios.post('/searchColleges/'+location.pathname.replace("/searchcollege/",""), {
             filter: event.TrackerFilter,
             class: event.TrackerClass.format('YYYY'),
             highSchool: event.TrackerHighschool,
-            college:location.pathname.replace("/searchcollege/","")
-        
+            college:location.pathname.replace("/searchcollege/",""),
+            status : event.TrackerStatus
         });
+        setStudentList(res.data.studentList);
+        setSeries1(res.data.SATScatterplot);
+        setSeries2(res.data.ACTScatterplot);
+        setSeries3(res.data.WeightScatterplot);
+
     }
 
     // const listLink =
@@ -306,10 +343,15 @@ function Application_Tracker_Filter(props) {
 
     const columns = [
         {
-            title: 'Username',
-            dataIndex: 'username',
+            title: 'Userid',
+            dataIndex: 'userid',
             fixed:"left",
             width:200,
+            render: (_, record) => {
+                return  (
+                   <Link  to={"/users/"+record.userid} record={record} >{record.userid}</Link>
+                );
+              },
             //sorter: (a, b) => a.name.localeCompare(b.name),
         },
         {
@@ -332,7 +374,7 @@ function Application_Tracker_Filter(props) {
         },
         {
             title: 'ACT Composite',
-            dataIndex: 'usernACT_compositeame',
+            dataIndex: 'ACT_composite',
             width:200,
             //sorter: (a, b) => a.name.localeCompare(b.name),
         },
@@ -431,8 +473,16 @@ function Application_Tracker_Filter(props) {
                                 style ={{height:"100%"}}
                             />
                         </TabPane>
-                        <TabPane tab="Scatterplot" key="2">
+                        <TabPane tab="Scatterplot SAT" key="2">
                             <ReactApexChart options={options1} series={series1} type="scatter" height={350} />
+    
+                        </TabPane>
+                        <TabPane tab="Scatterplot ACT" key="3">
+                            <ReactApexChart options={options2} series={series2} type="scatter" height={350} />
+    
+                        </TabPane>
+                        <TabPane tab="Standard Test Score" key="4">
+                            <ReactApexChart options={options3} series={series3} type="scatter" height={350} />
     
                         </TabPane>
                     </Tabs>

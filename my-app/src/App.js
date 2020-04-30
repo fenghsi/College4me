@@ -12,6 +12,7 @@ import FindSimilarHighSchool from './components/FindSimilarHighSchool';
 import SearchCollege from './components/SearchCollege';
 import Scrape from './components/admin/scrape';
 import QuestionableByid from './components/admin/QuestionableById';
+import UserdisplaybyId from './components/UserdisplaybyId';
 import { notification } from 'antd';
 import { Select} from 'antd';
 const { Option } = Select;
@@ -369,6 +370,7 @@ function App() {
                         <Route exact path="/searchhighschool" render={() => (<FindSimilarHighSchool/>)} />
                         <Route exact path="/SearchCollege" render={() => (<SearchCollege Student={Student} />)} />
                         <Route path="/SearchCollege/:id" render={() => (<Application_Tracker_Filter Student={Student} />)} />
+                        <Route exact path="/users/:id" render={() => (<UserdisplaybyId/>)} />
                       </React.Fragment>
                   }
                   {!user &&

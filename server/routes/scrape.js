@@ -9,11 +9,11 @@ const csv=require("csvtojson");
 const Student = require('../models/student');
 const Applications = require('../models/applications');
 const WSJUrl = "http://allv22.all.cs.stonybrook.edu/~stoller/cse416/WSJ_THE/united_states_rankings_2020_limit0_25839923f8b1714cf54659d4e4af6c3b.json";
-const CollegeScoreCardUrl = '../../../../desktop/CollegScoreCard.csv';
+const CollegeScoreCardUrl = 'CollegScoreCard.csv';
 const collegeTxtUrl = 'colleges.txt';
 const StudentsUrl = 'c4me-10-student.csv';
 const ApplicationsUrl = 'application-test.csv';
-const actCollegeDataUrl = 'https://www.collegedata.com/';
+//const actCollegeDataUrl = 'https://www.collegedata.com/';
 const nicheURL = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/niche/';
 const mirrorCollegeDataUrl = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/collegedata/';
 const HighSchool = require('../models/highshools');
@@ -103,8 +103,8 @@ router.post('/scrape_college_data', async function(req, res, next) {
             extension = extension.replace(/The-/, '');
             console.log(extension);
         }
-        const colDataUrl = actCollegeDataUrl + 'college/' + extension;
-        const majUrl = colDataUrl + '/?tab=profile-academics-tab';
+        //const colDataUrl = actCollegeDataUrl + 'college/' + extension;
+        //const majUrl = colDataUrl + '/?tab=profile-academics-tab';
         const mirrDataUrl = mirrorCollegeDataUrl + extension;
         console.log(mirrDataUrl)
         try {

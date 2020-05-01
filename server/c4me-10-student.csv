@@ -1,0 +1,1021 @@
+userid, password,residence_state, high_school_name, high_school_city, high_school_state,GPA, college_class,major_1,major_2, SAT_math, SAT_EBRW, ACT_English, ACT_math, ACT_reading, ACT_science, ACT_composite, SAT_literature, SAT_US_hist, SAT_world_hist, SAT_math_I, SAT_math_II, SAT_eco_bio, SAT_mol_bio, SAT_chemistry, SAT_physics,num_AP_passed
+test1,pass1,CA,Academic Magnet High School,North Charleston,SC,2.56,2026,Bioengineering and Biomedical Engineering,Music,670,230,17,10,12,1,10,600,800,270,430,410,370,510,250,280,10
+test2,pass2,MD,Academic Magnet High School,North Charleston,SC,1.88,2028,Respiratory Care Therapy/Therapist,Design and Applied Arts,530,420,12,16,3,14,11,350,410,650,780,720,540,750,440,210,2
+test3,pass3,MN,Academic Magnet High School,North Charleston,SC,3.54,2024,Art Teacher Education,Geology/Earth Science,300,740,3,20,15,30,17,500,370,250,710,410,380,790,720,470,0
+test4,pass4,MA,Academic Magnet High School,North Charleston,SC,2.73,2028,Atmospheric Sciences and Meteorology,Mechanical Engineering,770,280,21,11,12,20,16,720,240,660,310,210,570,530,570,620,4
+test5,pass5,IL,Academic Magnet High School,North Charleston,SC,1.07,2022,Pharmacology,Drawing,380,650,31,32,7,9,20,790,440,240,550,640,270,310,460,740,10
+test6,pass6,AZ,Academic Magnet High School,North Charleston,SC,3.31,2020,Religion/Religious Studies,Visual and Performing Arts,640,530,18,25,9,4,14,490,430,400,700,580,500,550,220,510,5
+test7,pass7,VA,Academic Magnet High School,North Charleston,SC,0.94,2025,Sustainability Studies,Social Work,450,500,11,8,5,17,10,800,430,240,380,290,570,730,400,630,7
+test8,pass8,MI,Academic Magnet High School,North Charleston,SC,1.67,2024,Journalism,Economics,310,590,5,15,31,32,21,430,420,410,600,590,550,500,600,550,3
+test9,pass9,IL,Academic Magnet High School,North Charleston,SC,2.85,2024,Music,Music,360,550,3,7,27,29,16,760,560,220,510,320,390,280,310,780,7
+test10,pass10,AZ,Academic Magnet High School,North Charleston,SC,2.18,2025,Economics,Human Computer Interaction,750,720,19,15,17,13,16,290,620,740,600,510,780,280,640,290,9
+test11,pass11,ID,Academy for Information Technology,Scotch Plains,NJ,0.03,2025,Architecture and Related Services,Graphic Communications,530,780,16,34,1,13,16,760,450,270,220,370,700,570,780,620,8
+test12,pass12,IN,Academy for Information Technology,Scotch Plains,NJ,3.22,2020,Multi-/Interdisciplinary Studies,Sustainability Studies,470,510,2,26,25,23,19,600,480,300,480,300,600,780,460,730,9
+test13,pass13,NH,Academy for Information Technology,Scotch Plains,NJ,2.06,2027,Psychology,Art/Art Studies,600,740,33,18,16,5,18,480,390,290,510,240,790,560,490,420,7
+test14,pass14,NM,Academy for Information Technology,Scotch Plains,NJ,3.55,2024,Biological and Physical Sciences,Ecology,280,310,4,5,22,25,14,720,300,320,260,530,250,250,600,450,9
+test15,pass15,NE,Academy for Information Technology,Scotch Plains,NJ,2.06,2027,Biochemistry,Fine/Studio Arts,280,640,27,13,16,5,15,490,390,480,320,520,500,500,790,470,0
+test16,pass16,WA,Academy for Information Technology,Scotch Plains,NJ,3.95,2021,Architecture and Related Services,Electrical and Electronics Engineering,200,790,33,6,22,3,16,390,280,480,760,620,720,210,310,590,0
+test17,pass17,CT,Academy for Information Technology,Scotch Plains,NJ,1.91,2028,Fine Arts and Art Studies,Clinical Laboratory Science/Medical Technology/Technologist,220,450,18,22,33,30,26,700,730,290,260,290,350,670,570,620,8
+test18,pass18,WV,Academy for Information Technology,Scotch Plains,NJ,2.78,2028,Engineering,Registered Nursing/Registered Nurse,200,550,21,16,32,10,20,600,670,510,280,680,480,450,330,430,1
+test19,pass19,SD,Academy for Information Technology,Scotch Plains,NJ,1.41,2021,Creative Writing,Atmospheric Sciences and Meteorology,680,740,16,27,36,5,21,790,620,730,550,310,250,200,230,730,1
+test20,pass20,ME,Academy for Information Technology,Scotch Plains,NJ,1.29,2026,Fine/Studio Arts,Art/Art Studies,360,200,9,31,14,7,15,350,690,270,490,450,230,660,650,360,4
+test21,pass21,KY,Alpharetta High School,Alpharetta,GA,0.53,2028,Political Science and Government,Design and Visual Communications,240,540,30,10,13,12,16,430,220,390,270,270,260,370,540,680,1
+test22,pass22,PA,Alpharetta High School,Alpharetta,GA,0.67,2023,Sculpture,Physical Sciences,560,780,2,19,15,28,16,220,460,430,490,630,750,780,770,430,5
+test23,pass23,KY,Alpharetta High School,Alpharetta,GA,0.99,2024,Sculpture,Social Work,450,260,20,34,24,7,21,270,610,610,390,460,780,230,250,490,7
+test24,pass24,PA,Alpharetta High School,Alpharetta,GA,2.3,2028,Digital Communication and Media/Multimedia,Creative Writing,460,430,1,22,9,19,13,240,480,690,570,600,530,740,770,680,7
+test25,pass25,OH,Alpharetta High School,Alpharetta,GA,1.47,2025,Design and Visual Communications,American/United States Studies/Civilization,340,750,8,16,16,17,14,700,440,630,640,320,250,800,460,270,10
+test26,pass26,RI,Alpharetta High School,Alpharetta,GA,3.24,2024,Computer Graphics,Fine Arts and Art Studies,570,660,7,1,22,19,12,260,760,410,760,210,750,640,480,690,1
+test27,pass27,VT,Alpharetta High School,Alpharetta,GA,0.92,2020,Visual and Performing Arts,Economics,300,570,3,34,7,24,17,290,670,580,680,240,320,500,320,390,0
+test28,pass28,HI,Alpharetta High School,Alpharetta,GA,2.39,2026,Visual and Performing Arts,Architecture and Related Services,550,760,1,13,24,19,14,770,660,730,470,570,220,440,250,430,7
+test29,pass29,IL,Alpharetta High School,Alpharetta,GA,0.55,2023,Registered Nursing/Registered Nurse,Music,520,200,32,23,27,2,21,440,300,750,480,480,740,600,290,420,1
+test30,pass30,OK,Alpharetta High School,Alpharetta,GA,1.98,2027,Computer Graphics,Art Teacher Education,630,520,2,26,13,30,18,790,500,340,350,730,360,500,330,250,1
+test31,pass31,OK,Arcadia High School,Arcadia,OH,2.78,2024,Religion/Religious Studies,Photography,430,220,15,29,34,36,28,730,500,450,530,400,660,220,480,440,0
+test32,pass32,CA,Arcadia High School,Arcadia,OH,1.55,2028,Digital Communication and Media/Multimedia,Business Administration and Management,420,360,1,35,23,23,20,690,760,580,670,470,760,340,700,660,2
+test33,pass33,MI,Arcadia High School,Arcadia,OH,3.43,2028,Anthropology,Fine/Studio Arts,210,580,21,16,18,27,20,650,770,270,360,450,740,300,730,330,7
+test34,pass34,MD,Arcadia High School,Arcadia,OH,3.66,2020,Business Administration and Management,Visual and Performing Arts,540,430,24,35,19,5,21,410,700,280,670,280,620,710,710,610,10
+test35,pass35,MN,Arcadia High School,Arcadia,OH,3.28,2026,Polysomnography,Fine Arts and Art Studies,240,560,21,32,2,35,22,690,330,620,240,660,450,230,350,690,6
+test36,pass36,NM,Arcadia High School,Arcadia,OH,3.41,2020,Interior Architecture,Respiratory Care Therapy/Therapist,630,520,20,11,2,2,9,780,550,400,430,310,630,350,500,340,4
+test37,pass37,ND,Arcadia High School,Arcadia,OH,1.98,2021,Political Science and Government,Civil Engineering,630,450,20,21,2,18,15,400,510,220,420,510,380,390,310,360,1
+test38,pass38,OH,Arcadia High School,Arcadia,OH,0.59,2024,Graphic Design,Architecture and Related Services,510,330,3,18,17,35,18,450,460,650,700,410,440,230,420,220,5
+test39,pass39,DE,Arcadia High School,Arcadia,OH,3.32,2025,Astronomy,French Language and Literature,300,530,26,8,33,7,18,250,550,500,550,790,450,760,590,320,2
+test40,pass40,AR,Arcadia High School,Arcadia,OH,3.07,2024,Sculpture,Women&apos;s Studies,220,500,25,28,8,32,23,500,500,500,710,210,520,760,270,590,0
+test41,pass41,PA,Aragon High School,San Mateo,CA,3.47,2022,Business Administration and Management,Art/Art Studies,750,710,6,21,23,21,18,440,290,770,510,730,470,620,700,560,2
+test42,pass42,MO,Aragon High School,San Mateo,CA,2.27,2023,Physical Sciences,Multi-/Interdisciplinary Studies,690,440,17,7,23,8,14,200,560,260,540,520,400,680,450,630,2
+test43,pass43,IN,Aragon High School,San Mateo,CA,2.68,2027,Interior Architecture,German Language and Literature,730,400,26,11,33,3,18,510,640,640,720,580,410,360,370,350,6
+test44,pass44,HI,Aragon High School,San Mateo,CA,2.23,2022,English Language and Literature,Asian Studies/Civilization,480,360,14,15,36,28,23,440,410,340,640,590,270,630,620,570,6
+test45,pass45,SC,Aragon High School,San Mateo,CA,0.33,2025,Photography,Sustainability Studies,440,380,28,11,16,13,17,660,500,510,370,800,320,540,670,740,9
+test46,pass46,HI,Aragon High School,San Mateo,CA,2.38,2024,Spanish Language and Literature,Linguistics,610,690,3,23,13,16,14,740,780,260,640,690,480,780,230,510,0
+test47,pass47,MT,Aragon High School,San Mateo,CA,1.67,2023,Film/Video and Photographic Arts,Environmental Studies,480,390,2,34,17,29,20,580,300,580,530,450,610,550,420,280,7
+test48,pass48,IN,Aragon High School,San Mateo,CA,2.58,2022,Electrical and Electronics Engineering,Biology/Biological Sciences,650,310,8,19,5,17,12,240,610,270,450,770,310,800,460,660,6
+test49,pass49,MO,Aragon High School,San Mateo,CA,0.52,2028,Biology/Biological Sciences,Sociology,510,610,19,19,25,34,24,710,270,550,720,320,660,700,530,690,9
+test50,pass50,NE,Aragon High School,San Mateo,CA,1.64,2028,Clinical Laboratory Science/Medical Technology/Technologist,Printmaking,330,690,30,21,5,35,23,710,300,610,270,700,690,420,340,720,6
+test51,pass51,CO,Arizona College Prep Erie Campus,Chandler,AZ,1.57,2023,Information Science/Studies,Creative Writing,270,350,15,3,16,10,11,480,530,760,550,320,340,430,560,280,8
+test52,pass52,MS,Arizona College Prep Erie Campus,Chandler,AZ,1.73,2020,Athletic Training/Trainer,Mathematics,480,620,26,27,35,12,25,510,270,420,720,580,410,620,250,480,3
+test53,pass53,KS,Arizona College Prep Erie Campus,Chandler,AZ,2.71,2022,Photography,Italian Language and Literature,780,530,31,20,33,36,30,360,760,230,590,670,330,640,680,300,3
+test54,pass54,VT,Arizona College Prep Erie Campus,Chandler,AZ,0.68,2023,Drawing,Physical Sciences,520,320,34,18,5,2,15,310,250,640,690,210,460,300,790,280,8
+test55,pass55,WI,Arizona College Prep Erie Campus,Chandler,AZ,2.4,2021,Cinematography and Film/Video Production,Physics,660,520,11,7,4,7,7,330,270,500,560,690,300,600,300,360,8
+test56,pass56,SD,Arizona College Prep Erie Campus,Chandler,AZ,1.07,2022,Social Work,Asian Studies/Civilization,340,580,11,24,19,2,14,700,680,440,390,270,680,490,500,290,2
+test57,pass57,RI,Arizona College Prep Erie Campus,Chandler,AZ,2.84,2022,Music,Art Teacher Education,210,460,5,18,34,31,22,580,350,360,560,590,440,350,310,620,4
+test58,pass58,ID,Arizona College Prep Erie Campus,Chandler,AZ,1.05,2023,Printmaking,Biology/Biological Sciences,780,210,30,8,35,28,25,260,610,330,530,340,800,560,200,760,2
+test59,pass59,KS,Arizona College Prep Erie Campus,Chandler,AZ,1.8,2020,Clinical Laboratory Science/Medical Technology/Technologist,Environmental Studies,300,460,8,14,29,3,14,790,540,490,320,200,460,200,220,440,5
+test60,pass60,NV,Arizona College Prep Erie Campus,Chandler,AZ,2.47,2021,Journalism,Computer and Information Sciences,310,590,3,11,30,8,13,280,580,340,770,220,500,390,640,550,7
+test61,pass61,NJ,Ashley Ridge High School,Summerville,SC,1.67,2022,Art/Art Studies,Intermedia/Multimedia,650,540,20,4,25,15,16,390,550,600,340,320,570,220,770,790,4
+test62,pass62,KY,Ashley Ridge High School,Summerville,SC,0.71,2023,Spanish Language and Literature,Human Computer Interaction,600,460,21,24,33,22,25,440,430,690,510,320,450,640,580,450,8
+test63,pass63,FL,Ashley Ridge High School,Summerville,SC,3.23,2024,Clinical Laboratory Science/Medical Technology/Technologist,Biology/Biological Sciences,590,240,2,8,30,26,16,570,310,350,280,690,290,320,400,750,0
+test64,pass64,MO,Ashley Ridge High School,Summerville,SC,0.81,2025,Engineering,Applied Mathematics,230,790,36,20,6,29,23,770,670,640,230,300,650,620,240,240,5
+test65,pass65,CT,Ashley Ridge High School,Summerville,SC,0.88,2027,German Language and Literature,Respiratory Care Therapy/Therapist,540,650,32,1,27,25,21,300,680,540,750,200,770,600,570,670,2
+test66,pass66,NJ,Ashley Ridge High School,Summerville,SC,1.46,2026,Film/Cinema/Video Studies,Electrical and Electronics Engineering,660,290,25,6,13,14,14,750,360,320,340,330,720,580,590,670,9
+test67,pass67,NH,Ashley Ridge High School,Summerville,SC,2.96,2024,Music,Biological and Physical Sciences,590,580,6,24,19,35,21,690,760,320,580,410,420,260,240,700,4
+test68,pass68,SD,Ashley Ridge High School,Summerville,SC,0.76,2028,Psychology,Religion/Religious Studies,200,590,2,32,25,14,18,410,580,560,650,800,420,650,740,470,5
+test69,pass69,NJ,Ashley Ridge High School,Summerville,SC,3.32,2028,Drama and Dramatics/Theatre Arts,Sustainability Studies,540,370,5,26,7,27,16,240,340,670,690,640,620,350,510,790,6
+test70,pass70,CO,Ashley Ridge High School,Summerville,SC,0.78,2026,Health Services/Allied Health/Health Sciences,Biochemistry,480,790,13,33,28,9,21,480,680,360,260,680,770,730,380,320,3
+test71,pass71,AL,Baccalaureate School for Global Education,Long Island City,NY,2.79,2028,Mathematics,History,520,470,11,24,33,29,24,310,540,230,710,790,610,300,300,440,8
+test72,pass72,TX,Baccalaureate School for Global Education,Long Island City,NY,3.89,2022,Clinical Laboratory Science/Medical Technology/Technologist,Philosophy,280,340,4,21,19,19,16,370,380,480,210,620,520,710,660,600,5
+test73,pass73,NC,Baccalaureate School for Global Education,Long Island City,NY,3.15,2021,German Language and Literature,Painting,450,390,20,13,15,3,13,200,540,360,310,460,440,480,270,240,6
+test74,pass74,MD,Baccalaureate School for Global Education,Long Island City,NY,1.46,2025,Sculpture,Information Science/Studies,540,630,26,18,5,27,19,780,570,760,360,560,220,320,620,720,9
+test75,pass75,WY,Baccalaureate School for Global Education,Long Island City,NY,0.34,2024,Graphic Communications,French Language and Literature,630,710,21,30,1,34,22,780,520,390,740,290,510,470,230,780,5
+test76,pass76,OR,Baccalaureate School for Global Education,Long Island City,NY,0.83,2024,Women&apos;s Studies,Social Work,690,220,20,29,21,31,25,480,620,700,280,550,330,370,280,310,1
+test77,pass77,OR,Baccalaureate School for Global Education,Long Island City,NY,3.12,2023,Applied Mathematics,Physics,710,390,12,10,24,18,16,280,400,280,660,520,640,770,420,410,6
+test78,pass78,NY,Baccalaureate School for Global Education,Long Island City,NY,1.03,2028,Spanish Language and Literature,Athletic Training/Trainer,500,260,34,2,28,35,25,400,390,690,540,690,580,410,370,620,6
+test79,pass79,AK,Baccalaureate School for Global Education,Long Island City,NY,2.64,2025,Linguistics,Printmaking,270,630,10,6,24,19,15,230,750,610,700,600,450,590,690,260,9
+test80,pass80,ND,Baccalaureate School for Global Education,Long Island City,NY,0.46,2028,Linguistics,Multi-/Interdisciplinary Studies,270,530,13,29,7,32,20,600,680,420,650,430,560,660,540,390,10
+test81,pass81,WV,Bard High School Early College,New York,NY,3.08,2028,Chemical and Biomolecular Engineering,Sculpture,740,260,28,24,8,36,24,350,600,590,760,450,450,460,680,280,3
+test82,pass82,VA,Bard High School Early College,New York,NY,1.41,2028,Drawing,Design and Applied Arts,480,470,16,28,36,12,23,400,800,690,320,410,220,660,250,750,1
+test83,pass83,CA,Bard High School Early College,New York,NY,0.77,2028,Cinematography and Film/Video Production,Art Teacher Education,330,710,27,10,26,16,20,420,540,250,420,740,610,630,780,710,2
+test84,pass84,SD,Bard High School Early College,New York,NY,2.56,2025,History,Registered Nursing/Registered Nurse,600,710,25,12,13,9,15,530,450,610,770,380,510,320,670,590,9
+test85,pass85,MS,Bard High School Early College,New York,NY,0.67,2024,Women&apos;s Studies,Social Work,670,520,20,25,33,9,22,570,660,360,230,200,310,280,350,780,6
+test86,pass86,SC,Bard High School Early College,New York,NY,3.44,2026,Health Services/Allied Health/Health Sciences,German Language and Literature,730,610,19,25,27,16,22,640,290,270,600,360,530,630,580,210,9
+test87,pass87,VT,Bard High School Early College,New York,NY,1,2024,Social Work,Information Science/Studies,530,250,26,31,27,30,28,610,230,640,590,780,420,290,370,610,1
+test88,pass88,LA,Bard High School Early College,New York,NY,1.98,2028,Anthropology,Comparative Literature,300,710,34,27,4,4,17,660,730,710,240,260,560,720,500,690,1
+test89,pass89,LA,Bard High School Early College,New York,NY,0.34,2028,Environmental Studies,Human Computer Interaction,530,490,23,26,14,19,20,380,730,740,540,440,320,680,250,730,10
+test90,pass90,AK,Bard High School Early College,New York,NY,2.84,2026,Ceramic Arts and Ceramics,Political Science and Government,550,450,15,33,32,12,23,450,500,560,200,360,260,500,290,210,9
+test91,pass91,VT,BASIS Flagstaff,Flagstaff,AZ,3.01,2027,Graphic Design,Graphic Design,540,690,36,3,18,13,18,450,400,300,590,520,750,530,580,410,7
+test92,pass92,TX,BASIS Flagstaff,Flagstaff,AZ,0.07,2027,Political Science and Government,Environmental Design/Architecture,720,240,20,3,25,19,17,290,490,320,330,650,530,260,720,570,10
+test93,pass93,SC,BASIS Flagstaff,Flagstaff,AZ,2.83,2022,Cinematography and Film/Video Production,Physical Sciences,250,270,25,4,18,17,16,690,300,700,220,610,620,560,800,570,0
+test94,pass94,NC,BASIS Flagstaff,Flagstaff,AZ,3.66,2021,Computer and Information Sciences,Fashion/Apparel Design,500,770,31,32,1,29,23,520,800,500,420,250,210,230,740,200,6
+test95,pass95,WV,BASIS Flagstaff,Flagstaff,AZ,1.7,2028,Music,Intermedia/Multimedia,720,740,7,13,16,1,9,630,580,430,300,750,450,500,290,800,1
+test96,pass96,NH,BASIS Flagstaff,Flagstaff,AZ,3.66,2022,European Studies/Civilization,English Language and Literature,570,480,5,36,7,20,17,520,510,270,690,780,800,300,270,760,3
+test97,pass97,MD,BASIS Flagstaff,Flagstaff,AZ,2.57,2024,Architecture and Related Services,American/United States Studies/Civilization,590,770,15,1,35,5,14,750,460,700,720,290,410,560,600,630,3
+test98,pass98,IL,BASIS Flagstaff,Flagstaff,AZ,2.49,2020,Printmaking,Graphic Communications,690,540,29,13,20,32,24,360,690,340,290,360,520,490,740,460,4
+test99,pass99,ND,BASIS Flagstaff,Flagstaff,AZ,3.03,2022,Graphic Design,Health Services/Allied Health/Health Sciences,530,500,4,32,31,4,18,630,420,600,420,520,570,650,460,240,4
+test100,pass100,TX,BASIS Flagstaff,Flagstaff,AZ,3.82,2028,Religion/Religious Studies,Mechanical Engineering,330,320,23,25,19,35,26,550,720,380,510,560,400,320,400,670,8
+test101,pass101,IN,BASIS Tucson North,Tucson,AZ,3.05,2021,Creative Writing,Multi-/Interdisciplinary Studies,320,480,5,16,28,12,15,590,210,310,440,700,490,780,750,430,6
+test102,pass102,LA,BASIS Tucson North,Tucson,AZ,3.23,2024,Polysomnography,Health Services/Allied Health/Health Sciences,270,370,21,21,33,20,24,200,300,410,720,650,720,230,630,710,9
+test103,pass103,CT,BASIS Tucson North,Tucson,AZ,2.64,2023,Computer Graphics,Photography,420,480,18,11,32,17,20,570,600,470,240,590,350,580,400,600,1
+test104,pass104,ID,BASIS Tucson North,Tucson,AZ,0.87,2024,Sustainability Studies,Music,450,490,15,21,14,35,21,550,510,670,660,450,290,220,540,420,2
+test105,pass105,OR,BASIS Tucson North,Tucson,AZ,2.33,2022,Business Administration and Management,Multi-/Interdisciplinary Studies,430,680,36,11,7,33,22,600,510,600,750,360,760,790,230,280,4
+test106,pass106,IN,BASIS Tucson North,Tucson,AZ,0.43,2020,Physics,Metal and Jewelry Arts,730,570,28,2,31,13,18,700,260,490,690,660,650,310,340,450,8
+test107,pass107,MN,BASIS Tucson North,Tucson,AZ,0.66,2020,German Language and Literature,Design and Applied Arts,690,450,29,18,32,6,21,650,200,280,500,470,780,330,250,550,10
+test108,pass108,AZ,BASIS Tucson North,Tucson,AZ,0.2,2020,Visual and Performing Arts,Electrical and Electronics Engineering,450,730,15,4,11,25,14,570,320,270,360,710,630,580,450,530,0
+test109,pass109,VT,BASIS Tucson North,Tucson,AZ,2.75,2020,Philosophy,Computer Graphics,290,470,22,9,28,21,20,380,410,590,340,460,800,570,490,590,9
+test110,pass110,MD,BASIS Tucson North,Tucson,AZ,2.7,2020,Interior Architecture,Music,400,420,29,25,19,16,22,580,550,620,380,560,500,240,280,450,0
+test111,pass111,MA,Bayless Senior High School,St Louis,MO,1.12,2021,Interior Architecture,Fashion/Apparel Design,360,470,2,1,7,12,6,390,200,340,710,410,700,420,650,420,8
+test112,pass112,OH,Bayless Senior High School,St Louis,MO,2.13,2024,Athletic Training/Trainer,Information Science/Studies,510,440,18,20,21,6,16,230,670,750,680,790,410,510,750,790,1
+test113,pass113,TN,Bayless Senior High School,St Louis,MO,2.49,2027,Physics,Sculpture,450,330,5,31,21,19,19,610,780,780,750,580,620,760,320,320,8
+test114,pass114,NY,Bayless Senior High School,St Louis,MO,3.52,2025,American/United States Studies/Civilization,Fashion/Apparel Design,650,730,36,9,7,29,20,530,520,230,780,280,230,390,530,750,7
+test115,pass115,ID,Bayless Senior High School,St Louis,MO,2.92,2023,German Language and Literature,Biochemistry,360,600,7,35,35,34,28,480,490,490,780,750,620,510,710,250,9
+test116,pass116,MD,Bayless Senior High School,St Louis,MO,0.15,2020,Painting,Electrical and Electronics Engineering,780,450,6,36,26,3,18,310,260,480,770,690,380,370,480,610,5
+test117,pass117,IA,Bayless Senior High School,St Louis,MO,2.19,2021,Art Teacher Education,European Studies/Civilization,320,730,10,2,21,16,12,590,230,250,740,260,740,280,360,710,4
+test118,pass118,WI,Bayless Senior High School,St Louis,MO,1.8,2022,Human Computer Interaction,Economics,760,470,1,11,21,4,9,650,800,670,210,390,730,710,680,800,7
+test119,pass119,ID,Bayless Senior High School,St Louis,MO,0.95,2022,Information Science/Studies,Athletic Training/Trainer,680,390,31,10,27,29,24,740,410,420,640,300,520,370,440,770,4
+test120,pass120,FL,Bayless Senior High School,St Louis,MO,3.49,2022,Computer Graphics,Journalism,340,540,9,11,11,33,16,770,700,650,300,710,800,460,680,340,8
+test121,pass121,AR,Bellevue High School,Bellevue,WA,1.3,2028,Drawing,Interior Architecture,300,730,8,6,24,6,11,470,550,330,590,660,450,580,720,540,8
+test122,pass122,OH,Bellevue High School,Bellevue,WA,3.7,2027,Drawing,Political Science and Government,520,740,6,29,11,31,19,500,790,650,390,690,430,340,630,630,1
+test123,pass123,AR,Bellevue High School,Bellevue,WA,2.97,2020,Electrical and Electronics Engineering,European Studies/Civilization,480,450,17,16,34,21,22,770,750,370,470,570,280,510,450,250,4
+test124,pass124,AL,Bellevue High School,Bellevue,WA,1.05,2027,Environmental Design/Architecture,Physics,200,530,36,22,36,10,26,480,760,500,780,590,400,330,230,730,3
+test125,pass125,AZ,Bellevue High School,Bellevue,WA,3.4,2022,Political Science and Government,Biology/Biological Sciences,390,730,30,19,12,36,24,500,370,340,730,450,230,210,740,360,1
+test126,pass126,AL,Bellevue High School,Bellevue,WA,0.31,2023,Bioengineering and Biomedical Engineering,Drama and Dramatics/Theatre Arts,420,330,32,16,1,33,20,350,560,740,770,560,550,740,310,360,2
+test127,pass127,KS,Bellevue High School,Bellevue,WA,0.15,2021,Computer and Information Sciences,Registered Nursing/Registered Nurse,700,200,3,11,10,5,7,690,350,770,470,780,450,660,620,790,0
+test128,pass128,MT,Bellevue High School,Bellevue,WA,1.19,2020,Environmental Studies,Drama and Dramatics/Theatre Arts,720,680,27,9,6,24,16,220,580,470,270,550,340,670,410,730,10
+test129,pass129,WY,Bellevue High School,Bellevue,WA,2.96,2026,Architecture and Related Services,Art/Art Studies,720,710,8,10,11,10,10,220,260,270,700,370,530,530,320,540,3
+test130,pass130,MD,Bellevue High School,Bellevue,WA,3.61,2023,Illustration,Business Administration and Management,260,460,33,2,31,4,18,710,780,660,230,250,650,710,790,350,5
+test131,pass131,SD,Blair High School,Pasadena,CA,0.5,2023,Women&apos;s Studies,Ecology,610,300,25,22,2,33,20,220,640,360,460,220,770,790,480,660,9
+test132,pass132,WI,Blair High School,Pasadena,CA,1.22,2024,Art Teacher Education,Architecture and Related Services,430,500,19,34,8,9,18,280,700,300,470,430,610,350,670,270,3
+test133,pass133,GA,Blair High School,Pasadena,CA,0.73,2026,Art/Art Studies,Comparative Literature,800,300,29,1,15,22,17,420,450,450,490,660,250,580,240,230,9
+test134,pass134,NM,Blair High School,Pasadena,CA,2.52,2020,Printmaking,Painting,290,630,10,9,23,21,16,540,640,280,600,330,460,630,630,510,4
+test135,pass135,IL,Blair High School,Pasadena,CA,1.65,2028,Civil Engineering,Computer and Information Sciences,700,310,11,25,2,25,16,570,580,540,400,700,600,450,250,540,7
+test136,pass136,VA,Blair High School,Pasadena,CA,2.28,2023,Atmospheric Sciences and Meteorology,Biological and Physical Sciences,700,710,21,23,24,17,21,400,760,550,740,310,670,620,430,260,3
+test137,pass137,AK,Blair High School,Pasadena,CA,3.61,2023,Italian Language and Literature,Film/Cinema/Video Studies,580,600,18,14,4,18,14,440,760,460,800,220,400,300,670,530,9
+test138,pass138,NC,Blair High School,Pasadena,CA,2.37,2025,Linguistics,Environmental Design/Architecture,440,490,2,24,24,11,15,300,350,640,720,670,460,790,630,200,7
+test139,pass139,MO,Blair High School,Pasadena,CA,2.5,2024,Painting,Biological and Physical Sciences,320,570,28,28,27,9,23,610,440,600,800,320,480,410,600,330,9
+test140,pass140,CO,Blair High School,Pasadena,CA,3.26,2024,Art/Art Studies,Creative Writing,300,760,35,2,30,19,22,560,390,390,650,740,200,740,670,470,2
+test141,pass141,ND,Blue Valley North High School,Overland Park,KS,3.81,2025,Drama and Dramatics/Theatre Arts,Fine/Studio Arts,740,440,15,17,7,3,10,470,710,550,580,580,440,360,670,720,6
+test142,pass142,IN,Blue Valley North High School,Overland Park,KS,3.42,2022,Interior Architecture,Environmental Design/Architecture,790,490,26,12,6,20,16,540,750,390,470,670,340,310,440,260,10
+test143,pass143,MA,Blue Valley North High School,Overland Park,KS,0.24,2021,Graphic Communications,Psychology,570,760,28,34,29,35,32,680,360,700,670,630,740,410,250,370,7
+test144,pass144,NE,Blue Valley North High School,Overland Park,KS,3.38,2026,Multi-/Interdisciplinary Studies,Civil Engineering,620,440,1,4,35,17,14,420,240,340,520,340,200,510,360,280,2
+test145,pass145,KS,Blue Valley North High School,Overland Park,KS,0.17,2022,Multi-/Interdisciplinary Studies,Italian Language and Literature,680,340,6,2,12,25,11,740,780,440,600,640,680,730,330,720,2
+test146,pass146,MN,Blue Valley North High School,Overland Park,KS,2.57,2021,Cinematography and Film/Video Production,Psychology,480,650,13,22,12,21,17,430,730,490,290,720,540,350,210,780,10
+test147,pass147,CA,Blue Valley North High School,Overland Park,KS,0.4,2023,Political Science and Government,History,620,240,18,35,11,5,17,390,650,240,270,660,800,220,450,590,2
+test148,pass148,WI,Blue Valley North High School,Overland Park,KS,2.75,2026,Drawing,German Language and Literature,460,560,6,36,27,18,22,250,780,270,210,770,340,660,260,780,4
+test149,pass149,OR,Blue Valley North High School,Overland Park,KS,3.48,2020,Geology/Earth Science,Physics,480,520,20,30,19,17,22,690,250,700,510,520,600,560,780,330,6
+test150,pass150,IL,Blue Valley North High School,Overland Park,KS,0.24,2028,Sociology,English Language and Literature,220,520,2,6,12,22,10,350,420,560,500,340,240,730,740,750,6
+test151,pass151,KY,Brighton High School,Rochester,NY,1.29,2025,Information Science/Studies,American/United States Studies/Civilization,390,640,35,25,10,26,24,790,450,360,550,660,270,530,740,500,6
+test152,pass152,WI,Brighton High School,Rochester,NY,3.4,2021,Human Computer Interaction,Printmaking,450,310,1,31,7,26,16,270,790,290,410,400,400,400,320,790,10
+test153,pass153,NC,Brighton High School,Rochester,NY,3.53,2028,Respiratory Care Therapy/Therapist,Mathematics,490,240,22,22,11,6,15,520,650,360,360,210,260,620,580,590,4
+test154,pass154,CO,Brighton High School,Rochester,NY,2.33,2020,Graphic Design,Intermedia/Multimedia,360,690,36,18,11,25,22,490,380,410,470,250,210,710,690,710,8
+test155,pass155,IL,Brighton High School,Rochester,NY,3.32,2026,Ecology,Anthropology,620,520,29,34,19,17,25,220,800,720,630,390,240,560,750,510,1
+test156,pass156,AL,Brighton High School,Rochester,NY,1.23,2023,Sustainability Studies,Sustainability Studies,250,790,25,6,24,36,23,590,200,660,490,770,580,290,400,770,6
+test157,pass157,NM,Brighton High School,Rochester,NY,1.57,2025,Design and Visual Communications,Atmospheric Sciences and Meteorology,490,610,30,14,2,30,19,460,280,720,520,370,560,220,630,750,5
+test158,pass158,IL,Brighton High School,Rochester,NY,2.23,2026,Clinical Laboratory Science/Medical Technology/Technologist,Registered Nursing/Registered Nurse,440,700,10,32,27,12,20,440,220,280,610,230,800,380,710,680,8
+test159,pass159,WA,Brighton High School,Rochester,NY,3,2028,Psychology,Fine Arts and Art Studies,450,550,29,21,19,30,25,490,220,290,570,460,210,200,540,450,6
+test160,pass160,VT,Brighton High School,Rochester,NY,3.45,2026,Bioengineering and Biomedical Engineering,History,760,400,33,26,10,36,26,330,300,770,620,330,710,750,520,390,5
+test161,pass161,ND,Brooklyn Technical High School,Brooklyn,NY,1.42,2026,Art/Art Studies,Painting,280,300,21,29,18,31,25,620,250,420,710,610,300,800,720,310,2
+test162,pass162,UT,Brooklyn Technical High School,Brooklyn,NY,3.06,2021,Film/Video and Photographic Arts,Pharmacology,540,800,25,16,9,9,15,520,710,460,340,700,530,580,720,250,0
+test163,pass163,SC,Brooklyn Technical High School,Brooklyn,NY,1.06,2025,Computer Graphics,Women&apos;s Studies,220,590,36,17,25,28,26,600,770,500,440,590,730,670,510,460,5
+test164,pass164,IL,Brooklyn Technical High School,Brooklyn,NY,1.81,2028,Ecology,Art/Art Studies,640,200,28,34,35,35,33,710,200,720,550,760,480,270,780,520,1
+test165,pass165,NV,Brooklyn Technical High School,Brooklyn,NY,0.45,2021,Engineering,Art Teacher Education,540,200,8,14,28,14,16,360,260,630,720,550,320,580,720,610,2
+test166,pass166,IL,Brooklyn Technical High School,Brooklyn,NY,3.99,2027,Economics,Electrical and Electronics Engineering,710,370,20,32,3,22,19,790,230,730,460,300,430,340,330,270,9
+test167,pass167,MD,Brooklyn Technical High School,Brooklyn,NY,0.21,2027,Registered Nursing/Registered Nurse,Asian Studies/Civilization,690,680,22,33,31,3,22,520,580,380,200,780,370,640,390,510,1
+test168,pass168,TN,Brooklyn Technical High School,Brooklyn,NY,3.2,2025,Asian Studies/Civilization,English Language and Literature,710,260,28,8,14,3,13,510,360,410,750,210,800,450,740,230,1
+test169,pass169,IN,Brooklyn Technical High School,Brooklyn,NY,3.63,2023,Film/Video and Photographic Arts,Computer Graphics,530,450,27,24,29,19,25,380,310,490,310,590,790,370,680,400,3
+test170,pass170,OK,Brooklyn Technical High School,Brooklyn,NY,1.27,2027,Chemical and Biomolecular Engineering,Women&apos;s Studies,510,220,10,12,6,24,13,370,530,460,560,490,580,710,710,490,4
+test171,pass171,NV,Campolindo High School,Moraga,CA,1.88,2025,Printmaking,Sustainability Studies,790,300,25,18,7,6,14,780,700,720,590,640,460,570,220,730,8
+test172,pass172,TN,Campolindo High School,Moraga,CA,0.56,2028,Ceramic Arts and Ceramics,Asian Studies/Civilization,450,420,36,13,11,17,19,220,690,460,720,390,410,230,540,790,8
+test173,pass173,WV,Campolindo High School,Moraga,CA,3.13,2023,Women&apos;s Studies,Digital Communication and Media/Multimedia,270,480,30,23,24,19,24,760,800,610,450,470,700,200,630,240,0
+test174,pass174,MS,Campolindo High School,Moraga,CA,0.54,2020,Bioengineering and Biomedical Engineering,Photography,370,680,36,18,14,9,19,530,280,470,490,750,710,550,210,800,1
+test175,pass175,WI,Campolindo High School,Moraga,CA,1.99,2022,Fine Arts and Art Studies,Drawing,700,720,36,14,22,3,19,300,490,430,530,640,340,570,200,660,4
+test176,pass176,OK,Campolindo High School,Moraga,CA,3.24,2023,Astronomy,Social Work,680,780,4,17,23,2,12,380,200,400,200,520,240,650,270,490,4
+test177,pass177,MO,Campolindo High School,Moraga,CA,3.84,2028,Environmental Studies,Sustainability Studies,380,800,22,35,29,30,29,480,480,710,760,610,220,440,450,740,0
+test178,pass178,RI,Campolindo High School,Moraga,CA,3.91,2028,Photography,American/United States Studies/Civilization,380,750,8,1,31,25,16,720,400,240,750,330,420,560,710,240,10
+test179,pass179,AZ,Campolindo High School,Moraga,CA,1.21,2023,Film/Video and Photographic Arts,Political Science and Government,530,280,22,12,22,23,20,290,490,450,600,210,670,490,780,500,0
+test180,pass180,MO,Campolindo High School,Moraga,CA,1.67,2020,Women&apos;s Studies,Intermedia/Multimedia,630,660,6,29,12,6,13,720,350,740,690,200,610,330,270,230,8
+test181,pass181,KS,Canyon Crest Academy,San Diego,CA,1.46,2028,Chemistry,Business Administration and Management,670,790,11,17,30,17,19,620,720,680,530,730,600,270,270,620,1
+test182,pass182,NY,Canyon Crest Academy,San Diego,CA,1.53,2027,Political Science and Government,Chemical and Biomolecular Engineering,200,200,35,23,1,35,24,360,630,290,560,670,310,750,740,520,10
+test183,pass183,VA,Canyon Crest Academy,San Diego,CA,3.8,2020,Visual and Performing Arts,European Studies/Civilization,290,610,7,22,28,19,19,590,740,230,440,650,610,390,380,520,8
+test184,pass184,NV,Canyon Crest Academy,San Diego,CA,3.37,2022,Comparative Literature,Graphic Design,320,490,21,33,16,1,18,730,530,780,670,460,750,480,680,790,6
+test185,pass185,ID,Canyon Crest Academy,San Diego,CA,3.83,2025,Environmental Studies,European Studies/Civilization,540,480,36,36,32,17,30,450,360,480,480,660,560,680,650,410,3
+test186,pass186,NM,Canyon Crest Academy,San Diego,CA,2.09,2023,Italian Language and Literature,Painting,390,770,16,33,19,33,25,760,460,460,780,610,720,710,650,500,4
+test187,pass187,NE,Canyon Crest Academy,San Diego,CA,2.18,2027,Art/Art Studies,Environmental Studies,720,380,17,32,34,35,30,800,530,420,740,610,740,500,320,320,5
+test188,pass188,LA,Canyon Crest Academy,San Diego,CA,3.31,2020,Civil Engineering,Ecology,440,740,3,19,36,20,20,480,460,320,640,710,540,790,250,460,1
+test189,pass189,MD,Canyon Crest Academy,San Diego,CA,1.63,2025,Respiratory Care Therapy/Therapist,Philosophy,380,430,24,12,5,6,12,520,590,630,280,770,770,450,490,630,0
+test190,pass190,TX,Canyon Crest Academy,San Diego,CA,1.26,2025,Italian Language and Literature,Geology/Earth Science,230,760,12,34,10,9,16,240,780,770,800,200,570,320,670,290,1
+test191,pass191,NJ,Carrboro High School,Carrboro,NC,0.89,2026,Comparative Literature,German Language and Literature,660,610,35,20,11,9,19,560,490,500,610,610,750,530,510,210,1
+test192,pass192,MD,Carrboro High School,Carrboro,NC,3.98,2026,Multi-/Interdisciplinary Studies,Chemical and Biomolecular Engineering,760,380,17,2,28,2,12,610,720,420,700,690,390,470,760,270,10
+test193,pass193,CO,Carrboro High School,Carrboro,NC,0.26,2022,Graphic Design,Design and Visual Communications,440,680,22,21,22,19,21,470,240,690,340,750,210,760,410,330,0
+test194,pass194,LA,Carrboro High School,Carrboro,NC,2.53,2026,Ecology,Environmental Studies,760,240,12,33,10,5,15,530,500,650,210,540,560,230,260,410,6
+test195,pass195,CA,Carrboro High School,Carrboro,NC,3.72,2022,Drama and Dramatics/Theatre Arts,Psychology,550,400,10,32,27,29,24,770,240,350,370,700,380,500,220,700,6
+test196,pass196,WV,Carrboro High School,Carrboro,NC,0.46,2020,Multi-/Interdisciplinary Studies,Painting,280,330,26,2,17,14,15,370,250,610,550,650,600,750,320,730,4
+test197,pass197,ME,Carrboro High School,Carrboro,NC,1.76,2027,Computer and Information Sciences,Architecture and Related Services,590,660,5,11,5,32,13,420,690,660,520,220,570,760,690,250,9
+test198,pass198,KY,Carrboro High School,Carrboro,NC,1.64,2027,Chemical and Biomolecular Engineering,European Studies/Civilization,710,380,23,6,29,6,16,700,800,340,250,480,330,700,540,210,6
+test199,pass199,IL,Carrboro High School,Carrboro,NC,3.05,2021,Chemistry,Environmental Studies,220,640,3,32,4,6,11,780,270,310,800,290,800,690,790,570,10
+test200,pass200,OH,Carrboro High School,Carrboro,NC,3.05,2020,Fine Arts and Art Studies,Graphic Design,250,690,6,4,8,31,12,510,640,710,470,730,200,570,590,700,2
+test201,pass201,RI,Carroll Senior High School,Southlake,TX,1.05,2020,Music,Sculpture,400,720,16,5,23,18,16,640,760,230,620,400,720,450,540,460,10
+test202,pass202,AR,Carroll Senior High School,Southlake,TX,0.75,2028,Computer and Information Sciences,Athletic Training/Trainer,630,520,12,23,8,32,19,360,220,570,260,510,560,240,630,280,8
+test203,pass203,MI,Carroll Senior High School,Southlake,TX,0.09,2023,Fine Arts and Art Studies,Cinematography and Film/Video Production,730,310,17,20,32,36,26,510,630,680,220,720,670,690,570,620,9
+test204,pass204,KY,Carroll Senior High School,Southlake,TX,3.66,2020,Art/Art Studies,Economics,700,720,16,26,10,1,13,610,730,230,480,730,460,540,420,570,8
+test205,pass205,LA,Carroll Senior High School,Southlake,TX,1.18,2024,Drama and Dramatics/Theatre Arts,Political Science and Government,270,340,11,5,28,8,13,380,540,790,370,740,600,730,410,570,6
+test206,pass206,CA,Carroll Senior High School,Southlake,TX,2.77,2025,Clinical Laboratory Science/Medical Technology/Technologist,Human Computer Interaction,490,800,24,8,33,12,19,460,570,200,670,540,800,470,490,670,5
+test207,pass207,CA,Carroll Senior High School,Southlake,TX,0.66,2027,Italian Language and Literature,Multi-/Interdisciplinary Studies,680,500,8,9,14,3,8,420,310,600,520,510,720,420,510,800,7
+test208,pass208,GA,Carroll Senior High School,Southlake,TX,2.55,2027,Electrical and Electronics Engineering,European Studies/Civilization,680,440,3,4,13,36,14,560,690,280,790,560,660,790,280,650,2
+test209,pass209,SD,Carroll Senior High School,Southlake,TX,0.03,2020,Intermedia/Multimedia,Ecology,500,420,2,35,5,7,12,550,570,350,760,730,490,480,550,790,10
+test210,pass210,AZ,Carroll Senior High School,Southlake,TX,2.04,2028,Philosophy,Religion/Religious Studies,800,550,30,22,16,21,22,540,710,620,490,740,770,530,450,560,2
+test211,pass211,KS,Cedar Key High School,Cedar Key,FL,2.04,2027,Environmental Studies,Computer and Information Sciences,380,600,17,30,31,21,25,520,760,300,560,430,650,310,470,750,5
+test212,pass212,WV,Cedar Key High School,Cedar Key,FL,2.39,2026,Physical Sciences,Painting,590,420,28,10,18,1,14,460,650,780,730,630,580,250,580,330,2
+test213,pass213,FL,Cedar Key High School,Cedar Key,FL,3.65,2023,Health Services/Allied Health/Health Sciences,Graphic Design,600,300,4,17,10,11,10,430,780,490,800,730,330,240,650,560,0
+test214,pass214,OK,Cedar Key High School,Cedar Key,FL,1.97,2022,Business Administration and Management,Sculpture,590,520,34,25,35,28,30,360,280,550,700,250,430,590,250,740,8
+test215,pass215,MI,Cedar Key High School,Cedar Key,FL,1.71,2021,Photography,Business Administration and Management,220,440,10,25,9,35,20,770,670,230,420,670,220,790,330,340,4
+test216,pass216,NM,Cedar Key High School,Cedar Key,FL,0.34,2028,African-American/Black Studies,Health Services/Allied Health/Health Sciences,500,570,7,1,1,29,10,620,800,640,670,530,690,470,360,680,0
+test217,pass217,KS,Cedar Key High School,Cedar Key,FL,0.81,2022,Women&apos;s Studies,Social Work,390,290,25,23,2,13,16,280,710,570,720,590,370,280,330,440,9
+test218,pass218,GA,Cedar Key High School,Cedar Key,FL,2.12,2026,Electrical and Electronics Engineering,Printmaking,520,770,33,22,22,24,25,350,280,530,780,640,530,350,380,760,2
+test219,pass219,CT,Cedar Key High School,Cedar Key,FL,1.03,2027,Comparative Literature,Computer and Information Sciences,430,390,23,8,32,29,23,780,450,600,490,580,460,790,710,230,7
+test220,pass220,IA,Cedar Key High School,Cedar Key,FL,1.52,2020,Creative Writing,Engineering,620,310,7,29,23,6,16,300,670,440,750,430,220,750,620,650,5
+test221,pass221,CO,Clements High School,Sugar Land,TX,2.87,2020,Environmental Design/Architecture,Drama and Dramatics/Theatre Arts,540,380,36,5,13,22,19,310,520,590,400,330,600,700,360,280,4
+test222,pass222,IL,Clements High School,Sugar Land,TX,2.91,2021,Spanish Language and Literature,Drawing,220,430,15,30,20,19,21,210,440,790,620,460,780,690,470,570,5
+test223,pass223,OH,Clements High School,Sugar Land,TX,2.96,2020,Drawing,European Studies/Civilization,590,270,13,9,24,6,13,540,360,530,670,650,610,380,220,800,0
+test224,pass224,MO,Clements High School,Sugar Land,TX,3.97,2028,English Language and Literature,Information Science/Studies,220,550,28,14,13,20,19,200,320,490,590,260,780,450,610,750,6
+test225,pass225,NV,Clements High School,Sugar Land,TX,0.67,2026,Ecology,Anthropology,590,380,20,23,22,34,25,780,340,520,350,440,500,520,490,350,6
+test226,pass226,CO,Clements High School,Sugar Land,TX,3.24,2028,Biochemistry,Religion/Religious Studies,660,400,27,10,34,29,25,490,770,580,490,560,620,310,480,390,5
+test227,pass227,SD,Clements High School,Sugar Land,TX,1.14,2021,Art Teacher Education,Art/Art Studies,270,530,17,8,35,26,22,670,720,680,800,540,780,630,620,200,4
+test228,pass228,MI,Clements High School,Sugar Land,TX,3.25,2022,Atmospheric Sciences and Meteorology,Photography,460,320,2,19,6,31,14,770,280,710,500,420,780,400,460,510,7
+test229,pass229,NJ,Clements High School,Sugar Land,TX,1.41,2021,Biology/Biological Sciences,Mechanical Engineering,330,490,13,27,24,18,20,390,410,670,580,380,520,520,350,690,9
+test230,pass230,HI,Clements High School,Sugar Land,TX,2.31,2021,Metal and Jewelry Arts,Linguistics,290,480,4,19,22,30,19,340,490,670,250,530,690,340,250,510,4
+test231,pass231,SC,Columbia River High School,Vancouver,WA,3.55,2020,Chemistry,Linguistics,540,200,6,14,9,19,12,650,710,550,690,800,480,320,610,650,7
+test232,pass232,MS,Columbia River High School,Vancouver,WA,1.95,2027,Environmental Studies,Chemical and Biomolecular Engineering,750,500,21,4,34,27,22,440,360,250,620,800,610,470,360,690,6
+test233,pass233,PA,Columbia River High School,Vancouver,WA,3.68,2026,Social Work,Linguistics,660,790,19,32,9,12,18,640,480,210,670,250,790,260,370,380,5
+test234,pass234,KS,Columbia River High School,Vancouver,WA,0.42,2026,Biology/Biological Sciences,Biochemistry,750,480,28,26,13,13,20,270,800,210,240,310,420,560,480,300,5
+test235,pass235,PA,Columbia River High School,Vancouver,WA,1.14,2023,Environmental Studies,Bioengineering and Biomedical Engineering,200,430,6,36,19,1,16,460,200,500,460,290,630,260,350,770,10
+test236,pass236,LA,Columbia River High School,Vancouver,WA,3.79,2022,Applied Mathematics,European Studies/Civilization,350,770,24,25,22,26,24,370,610,610,790,560,260,730,260,560,9
+test237,pass237,VA,Columbia River High School,Vancouver,WA,1.48,2025,Astronomy,Film/Cinema/Video Studies,310,360,24,29,20,11,21,780,530,490,450,770,530,650,270,350,1
+test238,pass238,TN,Columbia River High School,Vancouver,WA,1.38,2023,Fine Arts and Art Studies,Environmental Design/Architecture,270,770,12,7,1,18,10,550,220,680,570,410,520,320,290,630,4
+test239,pass239,GA,Columbia River High School,Vancouver,WA,2.81,2021,Italian Language and Literature,Athletic Training/Trainer,230,660,17,8,27,10,16,790,710,610,250,230,630,490,270,380,4
+test240,pass240,TN,Columbia River High School,Vancouver,WA,2.29,2023,Interior Architecture,Ceramic Arts and Ceramics,590,560,5,10,34,11,15,720,370,400,480,280,250,610,290,780,0
+test241,pass241,CT,Columbus High School,Columbus,GA,2.46,2020,Sculpture,Film/Video and Photographic Arts,660,480,33,23,12,28,24,230,790,200,440,570,520,380,370,340,2
+test242,pass242,UT,Columbus High School,Columbus,GA,3.99,2025,Multi-/Interdisciplinary Studies,Drama and Dramatics/Theatre Arts,680,490,23,2,27,26,20,510,790,460,340,630,540,670,490,310,2
+test243,pass243,ME,Columbus High School,Columbus,GA,1.33,2024,Italian Language and Literature,German Language and Literature,750,280,1,25,3,35,16,400,360,350,290,480,710,540,380,240,4
+test244,pass244,OH,Columbus High School,Columbus,GA,3.29,2028,Intermedia/Multimedia,Visual and Performing Arts,310,470,1,29,26,4,15,450,700,440,790,490,500,780,540,300,0
+test245,pass245,NH,Columbus High School,Columbus,GA,3.2,2020,Chemistry,Social Work,210,650,29,20,7,12,17,720,610,740,690,260,310,680,390,350,7
+test246,pass246,ME,Columbus High School,Columbus,GA,1.92,2025,Film/Cinema/Video Studies,Computer and Information Sciences,750,610,1,1,10,34,12,640,450,720,590,210,300,790,560,480,7
+test247,pass247,NJ,Columbus High School,Columbus,GA,1.08,2020,Polysomnography,Astronomy,350,210,7,23,29,2,15,740,360,630,470,460,230,630,300,420,5
+test248,pass248,VA,Columbus High School,Columbus,GA,2.12,2023,Polysomnography,Psychology,770,490,22,36,13,32,26,600,550,350,210,660,380,220,640,400,2
+test249,pass249,NM,Columbus High School,Columbus,GA,2.06,2021,Architecture and Related Services,Multi-/Interdisciplinary Studies,580,270,1,6,33,15,14,720,540,380,450,720,450,660,640,510,10
+test250,pass250,CO,Columbus High School,Columbus,GA,1.33,2025,Philosophy,Information Science/Studies,260,730,11,10,16,5,10,440,590,210,240,390,620,360,520,230,8
+test251,pass251,GA,Commack High School,Commack,NY,1.49,2026,Design and Applied Arts,Clinical Laboratory Science/Medical Technology/Technologist,310,300,6,20,15,13,14,730,640,520,640,730,580,760,520,520,1
+test252,pass252,NM,Commack High School,Commack,NY,2.46,2020,Design and Visual Communications,Sculpture,470,660,33,22,10,23,22,340,220,430,550,740,400,530,520,200,1
+test253,pass253,ME,Commack High School,Commack,NY,1.91,2025,Journalism,Sculpture,550,620,7,24,7,12,12,670,690,230,360,250,490,780,680,520,1
+test254,pass254,MS,Commack High School,Commack,NY,2.21,2020,Ecology,Digital Communication and Media/Multimedia,670,210,26,33,9,23,23,220,670,610,390,740,580,760,370,450,10
+test255,pass255,MN,Commack High School,Commack,NY,3.29,2025,Art/Art Studies,Graphic Design,540,720,18,33,7,36,24,350,670,690,310,610,370,280,800,320,8
+test256,pass256,WI,Commack High School,Commack,NY,0.85,2020,Polysomnography,Anthropology,280,320,7,5,20,16,12,650,670,540,340,780,420,300,740,650,2
+test257,pass257,AL,Commack High School,Commack,NY,0.91,2023,Intermedia/Multimedia,Comparative Literature,760,670,33,26,5,8,18,590,520,650,740,380,360,410,280,790,10
+test258,pass258,SC,Commack High School,Commack,NY,3.25,2022,Intermedia/Multimedia,Environmental Studies,410,440,26,16,26,36,26,200,420,300,670,560,690,760,260,590,1
+test259,pass259,KS,Commack High School,Commack,NY,3.46,2021,Political Science and Government,Applied Mathematics,440,260,10,12,10,11,11,440,220,460,390,770,560,760,470,760,9
+test260,pass260,OH,Commack High School,Commack,NY,0.74,2028,Spanish Language and Literature,Italian Language and Literature,790,590,34,5,31,11,20,500,630,220,390,730,290,320,370,690,0
+test261,pass261,HI,Concord Carlisle High School,Concord,MA,2.75,2028,Art Teacher Education,Multi-/Interdisciplinary Studies,570,590,6,27,34,1,17,780,740,580,780,450,480,410,680,340,8
+test262,pass262,UT,Concord Carlisle High School,Concord,MA,2.34,2024,Physical Sciences,Photography,420,360,6,20,14,29,17,610,570,200,740,230,530,560,470,280,3
+test263,pass263,HI,Concord Carlisle High School,Concord,MA,0.97,2021,Physics,Linguistics,670,600,28,18,19,6,18,280,760,210,230,590,380,280,380,760,7
+test264,pass264,MA,Concord Carlisle High School,Concord,MA,3.27,2022,Philosophy,Bioengineering and Biomedical Engineering,480,610,14,4,26,16,15,380,380,770,350,330,300,740,320,320,6
+test265,pass265,CT,Concord Carlisle High School,Concord,MA,2.04,2022,Sculpture,Psychology,340,570,32,14,18,11,19,230,440,450,770,760,260,240,200,680,3
+test266,pass266,DE,Concord Carlisle High School,Concord,MA,3.35,2021,Digital Communication and Media/Multimedia,Art/Art Studies,620,750,19,26,4,30,20,380,600,710,710,720,760,200,680,440,6
+test267,pass267,NC,Concord Carlisle High School,Concord,MA,1.74,2023,German Language and Literature,Art Teacher Education,380,530,21,25,18,26,22,400,800,770,570,270,400,790,300,420,0
+test268,pass268,WV,Concord Carlisle High School,Concord,MA,3.72,2028,Metal and Jewelry Arts,Metal and Jewelry Arts,440,310,19,13,4,16,13,550,770,790,280,730,210,760,540,310,1
+test269,pass269,LA,Concord Carlisle High School,Concord,MA,1.53,2027,Environmental Design/Architecture,History,400,800,34,34,1,10,20,470,650,720,330,430,720,640,610,330,1
+test270,pass270,TX,Concord Carlisle High School,Concord,MA,3.37,2020,Photography,Pharmacology,440,370,15,1,26,3,11,500,400,270,790,600,440,210,210,420,6
+test271,pass271,AK,Coppell High School,Coppell,TX,3.48,2026,Biochemistry,Biological and Physical Sciences,360,790,17,20,13,11,15,680,450,730,600,620,710,340,300,620,0
+test272,pass272,NJ,Coppell High School,Coppell,TX,0.43,2028,Chemical and Biomolecular Engineering,German Language and Literature,230,510,4,7,4,3,4,600,720,610,730,510,210,720,610,360,3
+test273,pass273,NY,Coppell High School,Coppell,TX,2.08,2028,Metal and Jewelry Arts,Journalism,280,530,28,13,18,15,18,480,300,400,540,430,200,600,350,520,1
+test274,pass274,MO,Coppell High School,Coppell,TX,1.84,2023,Mechanical Engineering,Physical Sciences,760,210,15,30,24,16,21,720,250,210,370,420,590,680,770,700,1
+test275,pass275,WI,Coppell High School,Coppell,TX,0.75,2028,Registered Nursing/Registered Nurse,Music,240,460,32,8,6,18,16,270,670,200,630,430,540,420,700,710,1
+test276,pass276,WI,Coppell High School,Coppell,TX,0.2,2026,Chemical and Biomolecular Engineering,Journalism,320,490,33,3,2,14,13,370,240,690,530,400,230,230,480,590,9
+test277,pass277,NH,Coppell High School,Coppell,TX,3.99,2024,Chemical and Biomolecular Engineering,Engineering,570,260,1,17,10,34,16,320,700,690,230,670,540,200,390,780,4
+test278,pass278,MT,Coppell High School,Coppell,TX,2.66,2028,Mathematics,Chemical and Biomolecular Engineering,800,450,7,7,5,5,6,720,590,300,220,630,450,430,460,230,10
+test279,pass279,MD,Coppell High School,Coppell,TX,3.26,2026,Music,Human Computer Interaction,680,300,21,8,22,3,14,510,560,340,380,530,600,290,710,280,2
+test280,pass280,NM,Coppell High School,Coppell,TX,2.36,2025,Social Work,Biology/Biological Sciences,570,710,8,26,12,36,20,750,760,530,750,470,230,250,530,200,0
+test281,pass281,VA,Crystal Lake Central High School,Crystal Lake,IL,3.28,2020,Drama and Dramatics/Theatre Arts,Digital Communication and Media/Multimedia,800,400,36,10,19,20,21,380,520,210,310,490,520,790,310,660,5
+test282,pass282,AK,Crystal Lake Central High School,Crystal Lake,IL,2.6,2025,Drawing,Computer and Information Sciences,340,740,15,21,3,32,18,370,800,420,200,420,690,210,320,750,7
+test283,pass283,GA,Crystal Lake Central High School,Crystal Lake,IL,0.71,2024,Visual and Performing Arts,Design and Applied Arts,740,390,17,1,26,17,15,600,450,640,740,220,780,630,260,550,6
+test284,pass284,FL,Crystal Lake Central High School,Crystal Lake,IL,3.09,2020,Ceramic Arts and Ceramics,Mathematics,730,760,34,26,32,35,32,380,380,750,450,670,350,450,780,390,10
+test285,pass285,MT,Crystal Lake Central High School,Crystal Lake,IL,1.75,2021,Polysomnography,Architecture and Related Services,320,490,26,13,13,18,18,290,790,710,760,480,680,490,460,520,2
+test286,pass286,KY,Crystal Lake Central High School,Crystal Lake,IL,1.68,2028,Music,Fine/Studio Arts,360,620,2,32,15,4,13,670,680,540,530,660,330,360,720,600,3
+test287,pass287,KS,Crystal Lake Central High School,Crystal Lake,IL,3.7,2028,Bioengineering and Biomedical Engineering,African-American/Black Studies,570,390,32,9,2,6,12,730,620,460,460,310,640,770,280,590,4
+test288,pass288,NJ,Crystal Lake Central High School,Crystal Lake,IL,1.41,2026,Biological and Physical Sciences,Health Services/Allied Health/Health Sciences,730,250,9,1,7,17,8,670,610,740,510,340,750,380,790,640,9
+test289,pass289,MS,Crystal Lake Central High School,Crystal Lake,IL,1.51,2025,Respiratory Care Therapy/Therapist,Registered Nursing/Registered Nurse,250,520,27,14,5,32,20,610,480,490,600,210,670,640,250,530,3
+test290,pass290,WA,Crystal Lake Central High School,Crystal Lake,IL,3.18,2028,Music,Fine Arts and Art Studies,240,650,4,20,5,5,8,240,240,260,580,750,290,510,290,430,5
+test291,pass291,ID,Dougherty Valley High School,San Ramon,CA,2.18,2024,Women&apos;s Studies,Pharmacology,590,340,16,2,27,21,16,720,710,440,570,360,540,480,740,220,5
+test292,pass292,AZ,Dougherty Valley High School,San Ramon,CA,1.98,2028,Art/Art Studies,Biological and Physical Sciences,600,280,33,26,15,1,19,550,340,270,790,730,690,550,710,390,9
+test293,pass293,WV,Dougherty Valley High School,San Ramon,CA,2.64,2020,Mechanical Engineering,Ecology,800,390,8,1,4,25,10,450,470,690,640,520,680,490,460,660,9
+test294,pass294,OK,Dougherty Valley High School,San Ramon,CA,3.45,2025,Marine Biology and Biological Oceanography,Psychology,730,330,3,34,21,33,23,580,210,730,230,780,710,580,450,330,5
+test295,pass295,KS,Dougherty Valley High School,San Ramon,CA,3.81,2022,Physics,Registered Nursing/Registered Nurse,650,630,28,3,25,18,18,750,700,400,320,550,590,440,430,220,3
+test296,pass296,HI,Dougherty Valley High School,San Ramon,CA,0.23,2026,Drawing,Clinical Laboratory Science/Medical Technology/Technologist,610,330,12,18,19,10,15,660,720,780,790,780,500,580,680,670,1
+test297,pass297,KS,Dougherty Valley High School,San Ramon,CA,0.76,2022,Fashion/Apparel Design,Multi-/Interdisciplinary Studies,230,560,19,26,7,13,16,690,610,660,730,230,750,750,490,340,4
+test298,pass298,AK,Dougherty Valley High School,San Ramon,CA,2.65,2020,Economics,Asian Studies/Civilization,240,690,13,24,22,22,20,390,540,210,320,730,550,650,460,530,9
+test299,pass299,MA,Dougherty Valley High School,San Ramon,CA,1.23,2025,Drawing,Fine Arts and Art Studies,580,270,29,29,26,8,23,320,610,370,570,320,530,220,280,670,0
+test300,pass300,IL,Dougherty Valley High School,San Ramon,CA,1.57,2020,American/United States Studies/Civilization,Chemistry,440,280,11,8,30,12,15,720,670,570,240,680,640,490,600,590,6
+test301,pass301,GA,Eagan Senior High School,Eagan,MN,2.94,2024,European Studies/Civilization,Physical Sciences,260,480,30,11,32,23,24,510,610,310,560,800,300,400,560,710,6
+test302,pass302,WA,Eagan Senior High School,Eagan,MN,3.32,2026,Digital Communication and Media/Multimedia,Sustainability Studies,700,340,9,33,7,22,18,440,680,200,390,690,250,750,300,750,3
+test303,pass303,KY,Eagan Senior High School,Eagan,MN,2.97,2025,Sustainability Studies,Graphic Communications,740,410,30,7,5,20,16,440,770,670,520,250,770,700,350,750,10
+test304,pass304,UT,Eagan Senior High School,Eagan,MN,3.16,2023,Linguistics,Pharmacology,400,210,33,16,20,20,22,260,440,690,220,300,390,230,500,470,1
+test305,pass305,KS,Eagan Senior High School,Eagan,MN,3,2028,Philosophy,Comparative Literature,730,360,33,28,2,33,24,610,420,430,670,410,710,380,610,270,2
+test306,pass306,NM,Eagan Senior High School,Eagan,MN,0.62,2024,Bioengineering and Biomedical Engineering,German Language and Literature,480,420,4,13,34,34,21,440,750,490,690,750,790,490,620,340,7
+test307,pass307,MN,Eagan Senior High School,Eagan,MN,0.44,2020,Spanish Language and Literature,Multi-/Interdisciplinary Studies,360,350,22,27,28,35,28,310,260,250,220,470,390,370,770,790,10
+test308,pass308,VA,Eagan Senior High School,Eagan,MN,0.43,2028,Visual and Performing Arts,Electrical and Electronics Engineering,360,360,31,15,35,16,24,320,410,580,660,340,490,530,580,770,7
+test309,pass309,ID,Eagan Senior High School,Eagan,MN,3.06,2023,Electrical and Electronics Engineering,Economics,430,460,2,34,6,27,17,790,320,310,230,320,410,630,260,670,4
+test310,pass310,WY,Eagan Senior High School,Eagan,MN,1.43,2022,Atmospheric Sciences and Meteorology,Sustainability Studies,210,240,29,25,35,21,28,770,730,700,530,530,470,540,800,510,4
+test311,pass311,OK,East Chapel Hill High School,Chapel Hill,NC,0.41,2023,Social Work,American/United States Studies/Civilization,450,570,26,26,14,4,18,690,440,470,340,660,640,720,800,680,0
+test312,pass312,ND,East Chapel Hill High School,Chapel Hill,NC,1.83,2020,Ceramic Arts and Ceramics,Digital Communication and Media/Multimedia,790,270,13,3,14,16,12,540,640,560,320,770,760,690,760,250,7
+test313,pass313,NC,East Chapel Hill High School,Chapel Hill,NC,3.23,2022,Electrical and Electronics Engineering,Graphic Communications,760,390,35,34,14,2,21,380,440,720,260,250,600,330,750,570,0
+test314,pass314,AL,East Chapel Hill High School,Chapel Hill,NC,3.44,2021,Design and Visual Communications,Printmaking,210,500,2,4,6,1,3,710,780,650,300,270,700,740,760,360,2
+test315,pass315,UT,East Chapel Hill High School,Chapel Hill,NC,2.07,2022,Biochemistry,Information Science/Studies,560,800,7,24,28,32,23,340,520,210,200,670,290,250,260,320,6
+test316,pass316,AZ,East Chapel Hill High School,Chapel Hill,NC,3.15,2026,Architecture and Related Services,Psychology,550,740,18,14,29,8,17,490,610,750,550,300,530,310,800,360,10
+test317,pass317,OR,East Chapel Hill High School,Chapel Hill,NC,0.36,2024,Film/Cinema/Video Studies,Music,630,290,14,6,1,20,10,680,740,260,310,590,560,410,650,540,4
+test318,pass318,CO,East Chapel Hill High School,Chapel Hill,NC,1.61,2022,Illustration,Geology/Earth Science,450,560,15,21,2,2,10,670,480,390,520,720,320,400,490,300,8
+test319,pass319,MN,East Chapel Hill High School,Chapel Hill,NC,0.11,2022,European Studies/Civilization,Photography,460,710,24,36,27,23,28,420,650,210,500,220,570,330,780,680,6
+test320,pass320,WV,East Chapel Hill High School,Chapel Hill,NC,3.74,2027,Athletic Training/Trainer,Physical Sciences,510,460,19,13,23,33,22,430,550,320,700,320,480,420,360,700,1
+test321,pass321,NJ,Elsik High School,Houston,TX,1.41,2026,Art/Art Studies,Applied Mathematics,480,220,30,35,28,12,26,250,330,550,680,500,530,650,340,230,8
+test322,pass322,MT,Elsik High School,Houston,TX,2.51,2024,Psychology,Physics,430,430,16,8,8,21,13,780,250,560,490,420,210,200,800,510,2
+test323,pass323,NE,Elsik High School,Houston,TX,3.33,2025,Women&apos;s Studies,Business Administration and Management,320,600,5,3,26,25,15,460,550,760,630,640,590,690,700,720,4
+test324,pass324,WY,Elsik High School,Houston,TX,2.1,2021,Linguistics,French Language and Literature,440,330,10,32,7,5,14,470,530,750,270,280,740,530,460,450,6
+test325,pass325,IN,Elsik High School,Houston,TX,3.22,2024,Design and Applied Arts,Physical Sciences,210,530,27,6,12,32,19,540,370,700,520,300,370,470,590,610,8
+test326,pass326,ND,Elsik High School,Houston,TX,2.13,2026,Music,Health Services/Allied Health/Health Sciences,660,690,36,31,26,18,28,400,210,300,340,540,670,300,220,700,7
+test327,pass327,MO,Elsik High School,Houston,TX,3.26,2027,Photography,Ceramic Arts and Ceramics,500,640,10,4,28,31,18,320,800,720,420,380,270,280,390,710,0
+test328,pass328,ND,Elsik High School,Houston,TX,0.7,2025,Computer and Information Sciences,Biological and Physical Sciences,340,670,6,26,9,12,13,590,510,710,730,790,260,430,220,460,8
+test329,pass329,AZ,Elsik High School,Houston,TX,0.66,2025,Environmental Studies,Psychology,250,460,6,21,32,34,23,790,310,320,260,700,650,550,440,230,0
+test330,pass330,WV,Elsik High School,Houston,TX,1.39,2022,Clinical Laboratory Science/Medical Technology/Technologist,Economics,270,540,25,25,7,19,19,480,290,720,700,220,340,780,680,480,6
+test331,pass331,ND,Fairfield High School,Fairfield,TX,3.51,2028,Linguistics,Computer and Information Sciences,300,700,31,7,25,29,23,400,360,300,530,370,660,520,710,600,9
+test332,pass332,NC,Fairfield High School,Fairfield,TX,2.55,2021,Cinematography and Film/Video Production,Ecology,490,590,14,26,27,18,21,330,710,290,300,340,740,230,690,610,5
+test333,pass333,LA,Fairfield High School,Fairfield,TX,1.51,2023,American/United States Studies/Civilization,Fine/Studio Arts,610,490,33,36,6,2,19,600,370,330,740,750,580,540,350,230,0
+test334,pass334,CT,Fairfield High School,Fairfield,TX,0.16,2023,Fine/Studio Arts,Astronomy,410,250,15,19,23,10,17,760,410,310,570,220,240,680,740,700,1
+test335,pass335,TX,Fairfield High School,Fairfield,TX,3.22,2024,European Studies/Civilization,Italian Language and Literature,550,670,25,4,19,9,14,220,320,290,530,700,670,770,560,290,7
+test336,pass336,VA,Fairfield High School,Fairfield,TX,3.18,2024,Civil Engineering,Mechanical Engineering,600,530,25,31,24,2,20,490,270,480,350,220,670,230,360,370,3
+test337,pass337,DE,Fairfield High School,Fairfield,TX,3.76,2025,Journalism,Graphic Communications,720,480,11,7,12,25,14,630,220,700,670,600,460,600,480,490,9
+test338,pass338,KS,Fairfield High School,Fairfield,TX,3.41,2024,Psychology,Geology/Earth Science,220,540,32,3,24,17,19,280,610,510,420,410,430,610,290,570,0
+test339,pass339,AK,Fairfield High School,Fairfield,TX,2.67,2025,Social Work,Sociology,660,500,29,14,27,3,18,300,290,540,690,340,580,730,710,720,8
+test340,pass340,RI,Fairfield High School,Fairfield,TX,3.15,2022,Printmaking,History,350,250,21,28,3,19,18,640,200,730,430,630,610,240,580,370,5
+test341,pass341,AR,Fairview High School,Boulder,CO,0.52,2028,History,Film/Cinema/Video Studies,470,530,8,16,31,23,20,780,570,550,700,400,610,510,370,290,10
+test342,pass342,DE,Fairview High School,Boulder,CO,3.36,2027,African-American/Black Studies,Linguistics,340,700,27,27,24,25,26,430,460,560,260,760,710,450,640,250,9
+test343,pass343,CT,Fairview High School,Boulder,CO,3.38,2023,Visual and Performing Arts,Philosophy,250,540,9,19,25,4,14,430,780,520,440,700,320,530,490,800,3
+test344,pass344,HI,Fairview High School,Boulder,CO,3.91,2027,Economics,Graphic Communications,270,340,27,2,23,26,20,300,260,220,700,310,610,680,280,730,10
+test345,pass345,CT,Fairview High School,Boulder,CO,1.28,2027,Physics,Illustration,760,660,32,28,33,31,31,200,370,220,430,400,300,360,390,730,6
+test346,pass346,MI,Fairview High School,Boulder,CO,0.82,2020,French Language and Literature,Journalism,290,770,15,18,31,16,20,430,580,540,620,770,690,380,230,490,9
+test347,pass347,MO,Fairview High School,Boulder,CO,3.63,2028,European Studies/Civilization,Business Administration and Management,700,780,30,19,32,25,26,620,470,220,240,270,330,470,780,310,0
+test348,pass348,UT,Fairview High School,Boulder,CO,3.56,2025,Biological and Physical Sciences,Printmaking,240,290,11,15,29,6,15,330,250,640,220,530,660,680,600,550,1
+test349,pass349,ID,Fairview High School,Boulder,CO,3.77,2022,Computer and Information Sciences,Economics,260,350,12,36,8,15,18,770,620,500,380,490,800,320,540,490,1
+test350,pass350,MI,Fairview High School,Boulder,CO,3.2,2020,Information Science/Studies,Visual and Performing Arts,390,640,27,30,14,30,25,210,420,590,690,680,200,710,500,230,8
+test351,pass351,DE,Flowery Branch High School,Flowery Branch,GA,1.16,2025,Illustration,Ecology,360,650,27,10,27,4,17,660,670,290,780,790,460,280,300,400,6
+test352,pass352,ND,Flowery Branch High School,Flowery Branch,GA,3.05,2024,Art/Art Studies,Religion/Religious Studies,540,250,36,36,3,14,22,480,390,460,350,340,550,300,480,690,1
+test353,pass353,NV,Flowery Branch High School,Flowery Branch,GA,1.4,2028,Fashion/Apparel Design,Geology/Earth Science,370,500,3,16,4,6,7,550,800,230,490,420,440,500,410,220,0
+test354,pass354,OK,Flowery Branch High School,Flowery Branch,GA,1.66,2023,Geology/Earth Science,Pharmacology,660,740,20,3,8,6,9,630,630,740,630,660,750,470,200,420,2
+test355,pass355,CT,Flowery Branch High School,Flowery Branch,GA,1.84,2023,Registered Nursing/Registered Nurse,Civil Engineering,470,220,4,12,16,5,9,410,320,240,210,450,200,650,780,480,10
+test356,pass356,MT,Flowery Branch High School,Flowery Branch,GA,1.48,2025,Art/Art Studies,Spanish Language and Literature,320,480,7,17,27,35,22,710,500,430,430,640,660,450,580,740,9
+test357,pass357,MI,Flowery Branch High School,Flowery Branch,GA,1.01,2023,Cinematography and Film/Video Production,Fine Arts and Art Studies,600,250,29,29,7,35,25,770,300,300,580,500,410,610,630,660,0
+test358,pass358,KY,Flowery Branch High School,Flowery Branch,GA,3.91,2020,Fashion/Apparel Design,Art/Art Studies,650,780,29,15,14,4,16,310,480,590,210,260,610,300,630,570,6
+test359,pass359,OK,Flowery Branch High School,Flowery Branch,GA,1.06,2020,Sculpture,Engineering,700,620,24,18,1,28,18,350,270,730,210,410,470,520,260,330,7
+test360,pass360,FL,Flowery Branch High School,Flowery Branch,GA,2.38,2023,Business Administration and Management,Visual and Performing Arts,200,740,10,26,25,13,18,660,230,780,400,750,250,390,510,320,4
+test361,pass361,AZ,Fox Chapel Area High School,Pittsburgh,PA,0.1,2020,Applied Mathematics,Graphic Design,340,450,24,24,6,3,14,630,730,650,260,380,710,550,420,600,2
+test362,pass362,OH,Fox Chapel Area High School,Pittsburgh,PA,3.04,2025,Ecology,Comparative Literature,500,730,26,3,32,9,18,730,240,780,530,730,480,620,210,290,3
+test363,pass363,NH,Fox Chapel Area High School,Pittsburgh,PA,1.41,2020,Visual and Performing Arts,English Language and Literature,700,640,16,10,12,20,14,700,240,750,690,230,440,220,230,610,8
+test364,pass364,IA,Fox Chapel Area High School,Pittsburgh,PA,0.18,2020,Mathematics,Drama and Dramatics/Theatre Arts,260,290,2,5,6,32,11,380,430,750,790,600,480,580,250,240,0
+test365,pass365,TX,Fox Chapel Area High School,Pittsburgh,PA,1.89,2023,Sustainability Studies,Polysomnography,630,420,15,15,2,36,17,260,670,460,740,430,320,740,210,480,5
+test366,pass366,ID,Fox Chapel Area High School,Pittsburgh,PA,1.66,2028,Multi-/Interdisciplinary Studies,Physics,770,780,24,25,26,23,24,790,350,680,520,540,350,740,560,260,2
+test367,pass367,NJ,Fox Chapel Area High School,Pittsburgh,PA,1.81,2026,Art/Art Studies,Sociology,780,330,32,15,10,35,23,640,390,430,800,350,690,350,520,660,2
+test368,pass368,NH,Fox Chapel Area High School,Pittsburgh,PA,2.88,2026,Mathematics,History,470,320,12,18,15,1,12,720,610,350,630,440,240,630,590,600,7
+test369,pass369,UT,Fox Chapel Area High School,Pittsburgh,PA,1.12,2021,Digital Communication and Media/Multimedia,Spanish Language and Literature,630,660,15,3,25,3,12,270,440,370,250,440,250,660,750,230,6
+test370,pass370,NE,Fox Chapel Area High School,Pittsburgh,PA,2.95,2026,Pharmacology,African-American/Black Studies,500,210,12,16,34,7,17,400,630,650,520,700,800,300,740,650,6
+test371,pass371,WA,Glenbrook South High School,Glenview,IL,3.63,2028,Design and Visual Communications,Design and Visual Communications,340,200,14,1,35,16,16,540,780,250,220,430,280,420,510,740,0
+test372,pass372,IA,Glenbrook South High School,Glenview,IL,0.09,2023,Pharmacology,Cinematography and Film/Video Production,270,360,10,14,21,23,17,240,270,490,800,240,240,210,360,580,5
+test373,pass373,SD,Glenbrook South High School,Glenview,IL,1.81,2022,English Language and Literature,Physical Sciences,500,380,26,3,26,8,16,620,470,670,400,510,580,620,640,510,5
+test374,pass374,ME,Glenbrook South High School,Glenview,IL,2.64,2025,Geology/Earth Science,Art/Art Studies,560,240,11,22,5,2,10,660,570,720,520,290,670,600,500,740,5
+test375,pass375,UT,Glenbrook South High School,Glenview,IL,3.18,2020,Electrical and Electronics Engineering,Music,320,540,9,35,12,8,16,490,790,610,670,500,240,460,600,800,0
+test376,pass376,AZ,Glenbrook South High School,Glenview,IL,0.94,2027,Architecture and Related Services,Visual and Performing Arts,640,650,21,30,36,2,22,520,210,720,510,220,360,470,590,250,0
+test377,pass377,TX,Glenbrook South High School,Glenview,IL,3.66,2023,Painting,Chemistry,420,300,23,15,25,24,22,430,400,300,550,630,290,440,710,440,0
+test378,pass378,SD,Glenbrook South High School,Glenview,IL,0.91,2023,Civil Engineering,Physical Sciences,440,480,32,27,10,4,18,290,640,420,670,340,520,800,440,730,3
+test379,pass379,NE,Glenbrook South High School,Glenview,IL,3.73,2020,Engineering,Chemical and Biomolecular Engineering,330,410,28,12,19,23,20,470,610,730,800,640,270,390,470,470,9
+test380,pass380,KY,Glenbrook South High School,Glenview,IL,1.91,2028,Music,Biological and Physical Sciences,220,620,34,3,25,16,20,270,270,360,730,420,670,550,490,450,0
+test381,pass381,OK,Goffstown High School,Goffstown,NH,1.58,2028,Sculpture,Art/Art Studies,530,330,27,11,34,22,24,760,620,380,200,540,460,330,580,440,6
+test382,pass382,NE,Goffstown High School,Goffstown,NH,1.47,2027,Physical Sciences,Civil Engineering,210,350,16,19,2,6,11,500,530,370,250,330,690,360,240,650,7
+test383,pass383,NH,Goffstown High School,Goffstown,NH,3.71,2027,Sculpture,English Language and Literature,550,590,32,24,13,20,22,400,750,260,250,700,730,260,600,460,6
+test384,pass384,CA,Goffstown High School,Goffstown,NH,0.33,2021,Comparative Literature,Cinematography and Film/Video Production,790,500,9,19,33,26,22,470,460,580,790,620,370,350,580,780,7
+test385,pass385,ND,Goffstown High School,Goffstown,NH,1.36,2028,Computer and Information Sciences,American/United States Studies/Civilization,410,440,10,9,8,10,9,280,790,770,710,740,310,770,800,360,5
+test386,pass386,PA,Goffstown High School,Goffstown,NH,1.01,2025,Photography,Physics,460,700,18,7,25,10,15,470,770,350,610,260,460,600,610,300,9
+test387,pass387,OK,Goffstown High School,Goffstown,NH,2.8,2023,Computer Graphics,French Language and Literature,750,340,18,35,10,29,23,310,720,210,790,670,480,280,270,280,3
+test388,pass388,FL,Goffstown High School,Goffstown,NH,0.91,2028,Linguistics,Health Services/Allied Health/Health Sciences,470,290,25,5,17,35,20,730,220,680,550,280,540,660,730,750,4
+test389,pass389,OK,Goffstown High School,Goffstown,NH,3.53,2022,Human Computer Interaction,Creative Writing,800,560,28,33,20,34,29,620,590,490,570,220,650,650,550,240,4
+test390,pass390,DE,Goffstown High School,Goffstown,NH,3.86,2028,Italian Language and Literature,French Language and Literature,250,540,13,20,14,30,19,650,590,240,660,550,670,760,630,210,2
+test391,pass391,NE,Granada Hills Charter High School,Granada Hills,CA,3.67,2024,Art/Art Studies,Computer and Information Sciences,250,490,5,34,19,8,16,650,280,330,710,510,390,790,440,390,2
+test392,pass392,MT,Granada Hills Charter High School,Granada Hills,CA,0.35,2023,Chemical and Biomolecular Engineering,German Language and Literature,770,710,11,23,4,20,14,610,350,230,260,340,200,540,430,320,7
+test393,pass393,NH,Granada Hills Charter High School,Granada Hills,CA,1.66,2027,Metal and Jewelry Arts,Painting,380,320,10,24,36,12,20,800,260,240,520,440,670,440,500,730,3
+test394,pass394,AK,Granada Hills Charter High School,Granada Hills,CA,3.75,2025,Chemical and Biomolecular Engineering,Interior Architecture,700,460,16,16,31,29,23,310,460,580,500,210,770,220,700,320,5
+test395,pass395,DE,Granada Hills Charter High School,Granada Hills,CA,1.98,2020,Mathematics,Journalism,490,340,29,17,8,17,18,630,490,780,300,200,580,560,240,560,10
+test396,pass396,OR,Granada Hills Charter High School,Granada Hills,CA,3.5,2022,Biological and Physical Sciences,Registered Nursing/Registered Nurse,590,490,14,9,20,8,13,520,680,750,730,650,400,500,670,720,8
+test397,pass397,ND,Granada Hills Charter High School,Granada Hills,CA,2.45,2028,African-American/Black Studies,Italian Language and Literature,540,470,15,32,36,6,22,230,260,700,600,260,200,210,510,770,6
+test398,pass398,OR,Granada Hills Charter High School,Granada Hills,CA,1.89,2023,Film/Video and Photographic Arts,Journalism,320,360,22,31,21,34,27,650,320,250,460,460,530,430,540,620,10
+test399,pass399,ME,Granada Hills Charter High School,Granada Hills,CA,1.34,2021,Philosophy,Graphic Design,260,510,31,18,22,31,26,650,230,210,460,280,270,350,240,570,6
+test400,pass400,WI,Granada Hills Charter High School,Granada Hills,CA,1.17,2026,Fine Arts and Art Studies,Religion/Religious Studies,270,730,5,5,17,32,15,420,280,600,460,760,750,510,730,230,8
+test401,pass401,NM,Haas Hall Academy,Fayetteville,AR,3.11,2024,Anthropology,Music,790,270,1,17,1,13,8,480,460,500,710,370,500,700,650,700,8
+test402,pass402,NC,Haas Hall Academy,Fayetteville,AR,0.16,2024,Drawing,Biology/Biological Sciences,720,580,1,8,13,27,12,800,540,740,330,290,420,240,780,530,1
+test403,pass403,NE,Haas Hall Academy,Fayetteville,AR,0.73,2028,Painting,European Studies/Civilization,490,750,29,20,6,35,22,320,730,730,650,540,530,600,400,380,6
+test404,pass404,MI,Haas Hall Academy,Fayetteville,AR,1.23,2028,Photography,Visual and Performing Arts,720,530,10,32,20,36,24,310,800,550,280,310,200,560,670,480,2
+test405,pass405,IA,Haas Hall Academy,Fayetteville,AR,2.98,2025,Chemistry,Interior Architecture,530,580,36,12,32,33,28,290,360,370,580,700,560,400,320,240,0
+test406,pass406,NJ,Haas Hall Academy,Fayetteville,AR,1.77,2022,Women&apos;s Studies,Human Computer Interaction,760,460,3,15,9,32,15,720,270,410,730,310,200,230,800,310,10
+test407,pass407,LA,Haas Hall Academy,Fayetteville,AR,2.64,2026,Spanish Language and Literature,Computer and Information Sciences,570,600,26,2,27,36,23,250,260,460,200,460,640,620,350,560,2
+test408,pass408,MT,Haas Hall Academy,Fayetteville,AR,2.26,2023,Comparative Literature,Music,730,260,24,36,1,13,18,460,430,500,420,260,350,640,380,740,1
+test409,pass409,GA,Haas Hall Academy,Fayetteville,AR,1.63,2026,African-American/Black Studies,History,300,600,12,5,23,27,17,470,390,320,430,410,660,360,650,370,10
+test410,pass410,RI,Haas Hall Academy,Fayetteville,AR,1.61,2021,Linguistics,Business Administration and Management,740,540,13,11,17,27,17,490,350,240,550,630,380,410,350,580,8
+test411,pass411,IL,Hanover High School,Hanover,NH,2.04,2024,Graphic Design,Athletic Training/Trainer,740,480,12,4,5,8,7,790,320,630,200,350,740,660,560,260,5
+test412,pass412,TX,Hanover High School,Hanover,NH,2.41,2023,Comparative Literature,Fashion/Apparel Design,740,690,11,7,28,2,12,230,270,380,380,770,270,720,420,650,1
+test413,pass413,CT,Hanover High School,Hanover,NH,3.58,2024,Atmospheric Sciences and Meteorology,History,380,630,15,10,30,28,21,780,440,200,670,720,760,790,410,390,5
+test414,pass414,DE,Hanover High School,Hanover,NH,3.57,2020,Creative Writing,German Language and Literature,770,430,10,22,7,27,16,540,260,730,790,300,760,740,260,780,0
+test415,pass415,CT,Hanover High School,Hanover,NH,0.36,2028,Comparative Literature,Electrical and Electronics Engineering,210,580,8,27,31,25,23,670,740,520,670,680,440,380,550,340,1
+test416,pass416,OH,Hanover High School,Hanover,NH,0.77,2028,Printmaking,Drama and Dramatics/Theatre Arts,490,800,9,16,20,30,19,540,340,330,760,350,580,550,790,220,9
+test417,pass417,WV,Hanover High School,Hanover,NH,0.34,2024,Philosophy,Social Work,450,600,29,3,36,36,26,640,550,690,210,540,600,280,230,700,8
+test418,pass418,OR,Hanover High School,Hanover,NH,0.31,2027,Ecology,Visual and Performing Arts,250,540,25,5,11,28,17,370,750,220,220,240,460,270,400,730,8
+test419,pass419,HI,Hanover High School,Hanover,NH,2.06,2026,Illustration,Interior Architecture,410,420,5,31,4,31,18,690,310,440,440,360,780,350,680,390,0
+test420,pass420,AK,Hanover High School,Hanover,NH,1.95,2024,Social Work,German Language and Literature,450,320,5,6,11,13,9,590,380,340,780,620,470,730,370,690,6
+test421,pass421,AL,Health Careers High School,San Antonio,TX,0.13,2026,Drawing,Information Science/Studies,430,640,35,23,23,9,22,660,230,440,600,360,530,640,590,510,5
+test422,pass422,OR,Health Careers High School,San Antonio,TX,3.28,2028,Fine Arts and Art Studies,Psychology,610,370,4,28,26,21,20,790,390,400,500,480,360,440,290,750,6
+test423,pass423,NH,Health Careers High School,San Antonio,TX,2.96,2020,Pharmacology,Clinical Laboratory Science/Medical Technology/Technologist,370,530,21,1,23,2,12,210,230,650,720,680,610,780,630,540,8
+test424,pass424,AL,Health Careers High School,San Antonio,TX,3.24,2022,Biological and Physical Sciences,Business Administration and Management,320,500,20,27,34,4,21,430,580,210,270,370,420,600,700,300,6
+test425,pass425,MS,Health Careers High School,San Antonio,TX,3.35,2021,Atmospheric Sciences and Meteorology,Linguistics,750,520,6,30,19,21,19,420,340,550,470,500,760,730,280,380,1
+test426,pass426,MS,Health Careers High School,San Antonio,TX,2.24,2021,Respiratory Care Therapy/Therapist,Digital Communication and Media/Multimedia,560,540,10,19,13,31,18,630,230,290,590,800,230,600,620,380,10
+test427,pass427,AK,Health Careers High School,San Antonio,TX,2.18,2024,Chemical and Biomolecular Engineering,Marine Biology and Biological Oceanography,400,470,26,2,28,25,20,510,570,740,370,290,530,500,700,360,6
+test428,pass428,DE,Health Careers High School,San Antonio,TX,0.32,2023,Ecology,Economics,800,200,8,15,26,26,19,490,370,360,520,460,560,740,260,520,0
+test429,pass429,MT,Health Careers High School,San Antonio,TX,1.75,2027,Asian Studies/Civilization,Electrical and Electronics Engineering,520,290,16,16,7,15,14,510,580,790,400,470,370,430,630,370,5
+test430,pass430,NY,Health Careers High School,San Antonio,TX,3.3,2028,Cinematography and Film/Video Production,Information Science/Studies,740,770,31,1,12,31,19,220,500,680,330,730,630,440,240,500,10
+test431,pass431,KY,Highland Park High School,Highland Park,IL,1.18,2021,Social Work,Visual and Performing Arts,440,390,35,16,8,13,18,210,620,660,580,380,200,390,700,530,1
+test432,pass432,ND,Highland Park High School,Highland Park,IL,1.59,2026,Visual and Performing Arts,Design and Visual Communications,550,220,13,25,2,34,18,420,480,570,230,680,390,500,460,310,6
+test433,pass433,RI,Highland Park High School,Highland Park,IL,3.41,2027,Multi-/Interdisciplinary Studies,Anthropology,760,290,17,4,6,4,8,230,640,760,300,740,610,590,300,470,9
+test434,pass434,WV,Highland Park High School,Highland Park,IL,0.6,2027,Film/Cinema/Video Studies,Engineering,500,270,10,28,14,30,20,520,440,260,200,600,460,340,230,720,10
+test435,pass435,AZ,Highland Park High School,Highland Park,IL,1.45,2022,Sociology,Ecology,350,340,13,23,11,7,14,430,300,230,560,220,330,320,510,510,1
+test436,pass436,OR,Highland Park High School,Highland Park,IL,3.97,2020,Physical Sciences,English Language and Literature,540,270,20,2,24,26,18,660,360,640,750,400,760,400,760,460,5
+test437,pass437,VT,Highland Park High School,Highland Park,IL,0.81,2025,Pharmacology,Civil Engineering,770,410,27,19,32,21,25,600,620,210,500,740,530,730,480,690,5
+test438,pass438,AR,Highland Park High School,Highland Park,IL,0.34,2023,Multi-/Interdisciplinary Studies,Mechanical Engineering,640,370,15,13,17,5,12,680,650,320,420,300,680,520,560,650,5
+test439,pass439,MT,Highland Park High School,Highland Park,IL,0.37,2021,Illustration,Biological and Physical Sciences,340,590,33,24,9,23,22,470,640,360,630,600,460,640,400,430,7
+test440,pass440,NE,Highland Park High School,Highland Park,IL,1.78,2027,Sustainability Studies,Film/Cinema/Video Studies,710,250,6,35,26,20,22,210,490,320,790,740,670,450,680,730,0
+test441,pass441,NV,Hinsdale Central High School,Hinsdale,IL,1.05,2028,American/United States Studies/Civilization,Digital Communication and Media/Multimedia,290,630,34,24,31,3,23,800,620,590,320,270,320,540,560,540,3
+test442,pass442,CT,Hinsdale Central High School,Hinsdale,IL,0.36,2020,Printmaking,Athletic Training/Trainer,380,260,28,22,35,27,28,330,770,370,570,330,240,750,260,530,4
+test443,pass443,NC,Hinsdale Central High School,Hinsdale,IL,1.52,2025,Graphic Communications,Astronomy,670,330,34,2,35,20,23,410,610,220,630,340,660,720,710,700,6
+test444,pass444,NH,Hinsdale Central High School,Hinsdale,IL,1.5,2027,Registered Nursing/Registered Nurse,Geology/Earth Science,780,490,6,17,7,15,11,320,260,620,240,300,310,570,310,710,0
+test445,pass445,SD,Hinsdale Central High School,Hinsdale,IL,0.48,2027,Cinematography and Film/Video Production,Photography,780,540,31,15,10,16,18,670,560,540,690,460,510,600,410,620,5
+test446,pass446,WA,Hinsdale Central High School,Hinsdale,IL,2.01,2027,Human Computer Interaction,Interior Architecture,440,450,13,2,13,34,16,760,520,780,780,740,490,350,210,580,0
+test447,pass447,TX,Hinsdale Central High School,Hinsdale,IL,1.21,2024,Astronomy,Fine Arts and Art Studies,310,320,24,11,33,23,23,620,570,430,740,620,390,680,310,260,7
+test448,pass448,PA,Hinsdale Central High School,Hinsdale,IL,0.03,2025,Human Computer Interaction,Environmental Studies,270,320,8,20,25,36,22,470,370,320,410,570,570,490,270,520,5
+test449,pass449,OK,Hinsdale Central High School,Hinsdale,IL,2.87,2020,Sociology,Printmaking,410,800,31,23,7,35,24,650,310,580,740,430,750,540,690,300,10
+test450,pass450,UT,Hinsdale Central High School,Hinsdale,IL,1.9,2021,American/United States Studies/Civilization,English Language and Literature,740,280,8,29,19,4,15,430,590,510,230,590,290,730,400,700,10
+test451,pass451,MS,Hopkinton High School,Hopkinton,MA,0.08,2026,Social Work,Electrical and Electronics Engineering,210,640,19,27,20,32,24,270,420,560,740,750,800,310,370,410,4
+test452,pass452,DE,Hopkinton High School,Hopkinton,MA,2.74,2025,Ceramic Arts and Ceramics,Polysomnography,650,370,19,17,24,7,17,680,640,300,390,640,340,730,280,280,8
+test453,pass453,MI,Hopkinton High School,Hopkinton,MA,1.35,2028,Clinical Laboratory Science/Medical Technology/Technologist,English Language and Literature,750,660,18,10,15,19,16,460,580,690,720,450,800,240,230,640,6
+test454,pass454,NH,Hopkinton High School,Hopkinton,MA,0.89,2024,Respiratory Care Therapy/Therapist,Psychology,230,370,24,25,2,28,20,400,710,280,350,690,760,680,700,320,4
+test455,pass455,OK,Hopkinton High School,Hopkinton,MA,1.45,2020,Ceramic Arts and Ceramics,Design and Applied Arts,410,400,6,18,7,22,13,400,640,340,560,700,330,640,450,780,1
+test456,pass456,UT,Hopkinton High School,Hopkinton,MA,0.38,2024,Atmospheric Sciences and Meteorology,Computer and Information Sciences,740,780,25,6,1,21,13,460,570,270,580,510,740,370,420,230,3
+test457,pass457,KY,Hopkinton High School,Hopkinton,MA,1.18,2024,Polysomnography,Chemical and Biomolecular Engineering,470,330,36,2,12,22,18,650,540,540,300,690,440,220,630,450,8
+test458,pass458,HI,Hopkinton High School,Hopkinton,MA,0.11,2024,African-American/Black Studies,Painting,260,350,9,14,19,35,19,490,370,780,420,790,610,780,250,760,7
+test459,pass459,WI,Hopkinton High School,Hopkinton,MA,3.77,2021,Multi-/Interdisciplinary Studies,French Language and Literature,570,530,19,21,7,13,15,470,270,780,390,560,370,520,450,270,2
+test460,pass460,DE,Hopkinton High School,Hopkinton,MA,1.69,2024,Clinical Laboratory Science/Medical Technology/Technologist,Architecture and Related Services,250,400,29,27,20,34,28,230,560,300,770,310,760,800,660,520,10
+test461,pass461,VT,Huron High School,Ann Arbor,MI,2.88,2021,Multi-/Interdisciplinary Studies,Mathematics,710,580,34,12,28,18,23,330,340,700,390,430,600,410,230,540,9
+test462,pass462,AZ,Huron High School,Ann Arbor,MI,2.53,2021,Chemistry,Engineering,280,480,6,9,1,20,9,590,710,620,640,590,690,570,250,500,5
+test463,pass463,PA,Huron High School,Ann Arbor,MI,3.68,2023,Linguistics,Fine/Studio Arts,300,420,36,12,30,18,24,760,690,640,230,530,580,300,650,750,4
+test464,pass464,NH,Huron High School,Ann Arbor,MI,2.68,2028,Fashion/Apparel Design,Health Services/Allied Health/Health Sciences,730,630,30,15,23,34,26,260,430,270,700,650,800,540,440,350,2
+test465,pass465,VA,Huron High School,Ann Arbor,MI,2.58,2025,Biology/Biological Sciences,Anthropology,340,380,6,6,18,12,10,660,340,550,620,220,490,740,720,200,5
+test466,pass466,DE,Huron High School,Ann Arbor,MI,1.26,2026,Art Teacher Education,Multi-/Interdisciplinary Studies,570,580,3,19,6,16,11,560,430,470,510,690,720,660,240,270,2
+test467,pass467,WY,Huron High School,Ann Arbor,MI,1.2,2028,Electrical and Electronics Engineering,Chemistry,340,560,14,11,36,6,17,270,510,700,650,280,200,560,720,460,0
+test468,pass468,WI,Huron High School,Ann Arbor,MI,3.76,2020,Human Computer Interaction,Bioengineering and Biomedical Engineering,320,750,33,15,15,11,18,280,430,320,220,370,620,720,220,750,5
+test469,pass469,RI,Huron High School,Ann Arbor,MI,1.92,2021,Film/Video and Photographic Arts,Respiratory Care Therapy/Therapist,600,480,25,16,14,2,14,410,770,610,290,680,200,620,780,230,6
+test470,pass470,WV,Huron High School,Ann Arbor,MI,3.26,2021,Linguistics,Physical Sciences,420,350,13,16,11,28,17,460,240,490,490,300,490,740,650,220,1
+test471,pass471,IN,Illinois Mathematics and Science Academy,Aurora,IL,3.22,2021,Printmaking,Fashion/Apparel Design,240,230,23,8,33,18,20,350,200,560,710,230,490,450,400,490,9
+test472,pass472,WV,Illinois Mathematics and Science Academy,Aurora,IL,1.89,2021,Illustration,Registered Nursing/Registered Nurse,250,740,19,4,33,36,23,720,360,420,470,210,690,410,760,330,4
+test473,pass473,WI,Illinois Mathematics and Science Academy,Aurora,IL,0.97,2027,French Language and Literature,Atmospheric Sciences and Meteorology,550,650,30,13,19,8,18,530,710,790,460,500,390,780,250,440,2
+test474,pass474,CT,Illinois Mathematics and Science Academy,Aurora,IL,1.56,2020,Cinematography and Film/Video Production,Drama and Dramatics/Theatre Arts,330,440,22,9,3,35,17,430,700,790,260,380,680,640,470,800,1
+test475,pass475,NV,Illinois Mathematics and Science Academy,Aurora,IL,0.19,2021,Athletic Training/Trainer,English Language and Literature,200,250,22,7,26,22,19,610,430,220,310,280,650,380,340,550,6
+test476,pass476,TX,Illinois Mathematics and Science Academy,Aurora,IL,3.52,2027,English Language and Literature,Pharmacology,230,260,12,28,34,35,27,430,690,230,540,310,370,340,380,690,2
+test477,pass477,PA,Illinois Mathematics and Science Academy,Aurora,IL,3.6,2026,American/United States Studies/Civilization,African-American/Black Studies,350,440,25,3,10,27,16,480,260,350,710,490,580,490,460,550,2
+test478,pass478,KS,Illinois Mathematics and Science Academy,Aurora,IL,3.9,2023,Painting,Physics,700,790,26,19,23,36,26,650,320,570,360,390,800,680,610,300,7
+test479,pass479,ME,Illinois Mathematics and Science Academy,Aurora,IL,3.35,2025,Anthropology,Information Science/Studies,700,760,35,36,8,1,20,370,330,330,450,520,360,630,670,570,9
+test480,pass480,GA,Illinois Mathematics and Science Academy,Aurora,IL,3.41,2024,Visual and Performing Arts,English Language and Literature,600,500,14,1,17,15,12,640,560,360,500,800,300,250,760,460,10
+test481,pass481,HI,International Academy,Bloomfield Hills,MI,3.09,2022,Atmospheric Sciences and Meteorology,Film/Video and Photographic Arts,670,210,19,35,3,22,20,690,440,640,590,740,680,240,570,730,7
+test482,pass482,NE,International Academy,Bloomfield Hills,MI,0.16,2023,Anthropology,Design and Applied Arts,490,640,36,14,28,25,26,430,410,520,250,400,500,350,330,320,6
+test483,pass483,IN,International Academy,Bloomfield Hills,MI,2.91,2022,German Language and Literature,Anthropology,770,690,26,2,12,8,12,490,260,800,290,540,650,470,680,570,6
+test484,pass484,IA,International Academy,Bloomfield Hills,MI,3.45,2024,Metal and Jewelry Arts,European Studies/Civilization,570,200,28,12,27,32,25,200,350,480,260,250,300,620,330,730,5
+test485,pass485,CA,International Academy,Bloomfield Hills,MI,2.31,2026,History,History,620,210,1,10,9,21,10,400,200,570,620,590,570,380,480,250,2
+test486,pass486,DE,International Academy,Bloomfield Hills,MI,3.09,2027,Design and Applied Arts,Computer Graphics,570,230,28,36,23,8,24,610,530,760,740,210,520,720,640,760,1
+test487,pass487,NY,International Academy,Bloomfield Hills,MI,0.16,2025,Interior Architecture,Religion/Religious Studies,590,730,26,29,24,14,23,720,400,340,430,480,400,300,600,380,10
+test488,pass488,KS,International Academy,Bloomfield Hills,MI,0.18,2025,Mathematics,Human Computer Interaction,280,300,31,29,16,12,22,340,420,260,790,370,610,270,760,370,9
+test489,pass489,NH,International Academy,Bloomfield Hills,MI,1.76,2021,Visual and Performing Arts,Social Work,470,620,19,29,7,33,22,600,650,400,320,410,390,800,250,520,8
+test490,pass490,ND,International Academy,Bloomfield Hills,MI,3.99,2024,Business Administration and Management,Music,520,430,6,3,5,31,11,670,680,440,270,270,600,720,260,570,3
+test491,pass491,LA,Island Trees High School,Levittown,NY,0.28,2020,Environmental Design/Architecture,Engineering,330,700,11,3,36,8,14,340,510,320,760,550,450,620,740,320,6
+test492,pass492,AK,Island Trees High School,Levittown,NY,3.04,2026,Chemical and Biomolecular Engineering,Human Computer Interaction,360,390,26,3,9,29,17,520,520,480,210,710,260,790,730,220,4
+test493,pass493,ME,Island Trees High School,Levittown,NY,2.61,2027,Sustainability Studies,Fine Arts and Art Studies,420,760,23,18,7,18,16,690,800,570,610,480,480,570,680,420,7
+test494,pass494,FL,Island Trees High School,Levittown,NY,0.8,2022,Interior Architecture,Interior Architecture,500,200,29,31,32,1,23,580,650,580,530,630,580,740,670,350,10
+test495,pass495,OR,Island Trees High School,Levittown,NY,0.37,2020,Drawing,Photography,230,440,33,7,15,29,21,240,220,800,530,630,410,340,760,370,4
+test496,pass496,GA,Island Trees High School,Levittown,NY,0.1,2024,Human Computer Interaction,Linguistics,220,540,11,10,3,10,8,290,320,400,240,270,770,730,750,280,0
+test497,pass497,MA,Island Trees High School,Levittown,NY,2.51,2026,Design and Applied Arts,Civil Engineering,370,490,14,15,1,8,10,640,280,770,730,300,340,300,580,730,5
+test498,pass498,NM,Island Trees High School,Levittown,NY,0.07,2023,Business Administration and Management,Astronomy,690,430,34,16,4,31,21,430,720,430,240,480,600,610,330,660,3
+test499,pass499,RI,Island Trees High School,Levittown,NY,2.35,2026,Art Teacher Education,Clinical Laboratory Science/Medical Technology/Technologist,490,700,35,35,32,14,29,680,590,580,270,660,770,420,380,220,5
+test500,pass500,SD,Island Trees High School,Levittown,NY,1.33,2026,Engineering,Geology/Earth Science,350,310,10,16,18,27,18,230,310,420,760,550,290,790,650,550,7
+test501,pass501,IL,James Madison High School,Vienna,VA,3.85,2028,Visual and Performing Arts,Geology/Earth Science,380,280,14,36,26,12,22,480,330,520,490,490,580,520,260,250,0
+test502,pass502,OR,James Madison High School,Vienna,VA,1.34,2024,Pharmacology,Ecology,350,660,21,23,12,28,21,680,400,400,340,620,380,300,600,630,7
+test503,pass503,VA,James Madison High School,Vienna,VA,1.77,2020,Journalism,Architecture and Related Services,640,300,29,29,13,13,21,600,350,400,380,210,760,490,580,610,8
+test504,pass504,MO,James Madison High School,Vienna,VA,3.66,2022,Electrical and Electronics Engineering,Metal and Jewelry Arts,450,600,24,20,34,23,25,680,370,270,620,350,780,590,700,420,0
+test505,pass505,AL,James Madison High School,Vienna,VA,2.53,2025,Graphic Design,Mechanical Engineering,460,490,4,14,25,20,16,560,410,500,430,460,350,430,380,390,10
+test506,pass506,AZ,James Madison High School,Vienna,VA,1.52,2025,Civil Engineering,English Language and Literature,720,420,22,27,32,7,22,660,700,570,590,320,530,260,620,560,4
+test507,pass507,NM,James Madison High School,Vienna,VA,0.87,2020,Visual and Performing Arts,African-American/Black Studies,380,780,19,22,20,30,23,690,750,440,320,360,360,240,800,670,6
+test508,pass508,NY,James Madison High School,Vienna,VA,2.08,2024,Social Work,Graphic Communications,330,300,16,19,8,5,12,680,760,280,600,360,770,270,260,290,9
+test509,pass509,OK,James Madison High School,Vienna,VA,2.78,2028,Art/Art Studies,Information Science/Studies,780,590,11,8,28,1,12,410,780,250,480,410,380,600,350,520,10
+test510,pass510,IN,James Madison High School,Vienna,VA,2.45,2022,Painting,Bioengineering and Biomedical Engineering,350,740,9,13,26,36,21,700,490,430,300,800,650,470,610,350,1
+test511,pass511,WI,J.P. Stevens High School,Edison,NJ,3.48,2026,Visual and Performing Arts,Drawing,640,800,22,25,32,18,24,480,330,730,250,630,640,450,690,630,2
+test512,pass512,WI,J.P. Stevens High School,Edison,NJ,2.05,2022,European Studies/Civilization,Bioengineering and Biomedical Engineering,610,730,29,16,35,5,21,260,330,700,740,350,310,460,660,780,7
+test513,pass513,RI,J.P. Stevens High School,Edison,NJ,3.9,2028,Drawing,Political Science and Government,640,320,13,7,17,36,18,250,740,530,400,750,440,240,790,670,5
+test514,pass514,KS,J.P. Stevens High School,Edison,NJ,0.13,2027,Intermedia/Multimedia,Marine Biology and Biological Oceanography,230,660,17,15,5,25,16,480,560,200,780,310,440,380,500,440,10
+test515,pass515,CO,J.P. Stevens High School,Edison,NJ,3.44,2024,German Language and Literature,Physics,630,260,24,36,20,15,24,760,470,680,610,330,260,420,350,260,1
+test516,pass516,MI,J.P. Stevens High School,Edison,NJ,1.95,2027,Art/Art Studies,Environmental Studies,480,240,26,36,36,4,26,400,620,570,560,200,650,600,530,430,5
+test517,pass517,CO,J.P. Stevens High School,Edison,NJ,1.43,2020,Information Science/Studies,Business Administration and Management,500,610,16,2,34,23,19,700,710,450,600,660,770,430,560,280,1
+test518,pass518,CT,J.P. Stevens High School,Edison,NJ,2.26,2023,Visual and Performing Arts,Environmental Studies,730,730,36,1,16,33,22,450,330,200,540,240,710,290,330,330,0
+test519,pass519,ID,J.P. Stevens High School,Edison,NJ,3.3,2027,German Language and Literature,Graphic Design,460,730,24,23,14,29,22,390,310,690,640,790,230,260,720,410,10
+test520,pass520,MO,J.P. Stevens High School,Edison,NJ,0.61,2028,Computer and Information Sciences,Marine Biology and Biological Oceanography,580,420,17,17,32,20,22,200,420,740,480,230,540,390,770,660,6
+test521,pass521,HI,Lake City High School,Lake City,MI,3.21,2026,Marine Biology and Biological Oceanography,Journalism,410,800,25,15,32,34,26,690,530,710,570,790,530,570,800,410,6
+test522,pass522,OK,Lake City High School,Lake City,MI,3.46,2028,Respiratory Care Therapy/Therapist,Fine/Studio Arts,680,520,34,33,16,21,26,310,400,750,270,670,760,630,630,480,8
+test523,pass523,HI,Lake City High School,Lake City,MI,1.47,2027,Computer Graphics,Music,300,370,13,17,27,8,16,370,480,310,550,360,500,450,700,370,4
+test524,pass524,TN,Lake City High School,Lake City,MI,3.12,2025,Physical Sciences,Intermedia/Multimedia,740,280,30,22,29,12,23,230,730,620,490,290,370,390,260,530,7
+test525,pass525,NJ,Lake City High School,Lake City,MI,2.79,2026,Engineering,African-American/Black Studies,370,440,33,19,3,36,23,270,600,430,720,270,370,280,250,220,9
+test526,pass526,AZ,Lake City High School,Lake City,MI,1.09,2025,Biology/Biological Sciences,Linguistics,750,760,19,18,5,1,11,230,390,630,360,570,750,580,740,540,6
+test527,pass527,NY,Lake City High School,Lake City,MI,0.45,2025,Women&apos;s Studies,Ecology,490,590,19,25,17,24,21,640,300,370,680,500,750,430,260,540,7
+test528,pass528,MO,Lake City High School,Lake City,MI,0.56,2020,Graphic Communications,Music,290,800,15,31,14,25,21,360,450,600,650,690,350,430,710,300,2
+test529,pass529,MA,Lake City High School,Lake City,MI,0.4,2022,Spanish Language and Literature,Mathematics,280,660,8,4,18,13,11,610,200,730,510,730,500,710,260,460,9
+test530,pass530,MI,Lake City High School,Lake City,MI,1.96,2023,Music,Ceramic Arts and Ceramics,350,660,13,18,31,31,23,350,290,800,620,380,410,450,310,440,5
+test531,pass531,VT,Lawrence Free State High School,Lawrence,KS,1.44,2021,Environmental Design/Architecture,Design and Visual Communications,460,800,2,33,4,9,12,600,360,750,500,560,400,610,500,480,4
+test532,pass532,AR,Lawrence Free State High School,Lawrence,KS,2.23,2027,Photography,Chemistry,310,290,11,30,30,32,26,470,600,700,780,380,480,690,360,470,9
+test533,pass533,SD,Lawrence Free State High School,Lawrence,KS,2.4,2021,Psychology,Film/Video and Photographic Arts,560,770,22,34,1,29,22,470,780,500,210,440,410,260,710,450,5
+test534,pass534,FL,Lawrence Free State High School,Lawrence,KS,2.04,2024,Ecology,Architecture and Related Services,500,770,12,32,27,16,22,710,580,730,660,310,460,320,720,280,9
+test535,pass535,WY,Lawrence Free State High School,Lawrence,KS,2.88,2022,Philosophy,Computer and Information Sciences,590,370,34,9,21,29,23,590,690,580,420,380,460,620,230,670,4
+test536,pass536,IA,Lawrence Free State High School,Lawrence,KS,3.1,2023,Fine Arts and Art Studies,Visual and Performing Arts,470,310,11,14,16,13,14,370,590,390,610,340,640,610,530,240,8
+test537,pass537,HI,Lawrence Free State High School,Lawrence,KS,3.29,2023,Fine Arts and Art Studies,Clinical Laboratory Science/Medical Technology/Technologist,520,610,24,10,2,25,15,550,600,540,370,210,430,220,800,300,6
+test538,pass538,NM,Lawrence Free State High School,Lawrence,KS,3.22,2028,Political Science and Government,Ceramic Arts and Ceramics,760,740,19,7,25,28,20,400,220,230,580,480,790,340,390,410,1
+test539,pass539,NJ,Lawrence Free State High School,Lawrence,KS,2.25,2020,Economics,Respiratory Care Therapy/Therapist,240,300,5,31,18,18,18,410,720,460,520,200,230,490,610,210,6
+test540,pass540,RI,Lawrence Free State High School,Lawrence,KS,1.57,2026,Comparative Literature,Sculpture,750,590,23,12,24,3,16,650,200,480,440,600,750,270,800,780,4
+test541,pass541,TX,Lexington High School,Lexington,MA,0.27,2027,Intermedia/Multimedia,Illustration,650,360,18,3,1,6,7,280,620,340,610,350,710,600,610,370,0
+test542,pass542,MT,Lexington High School,Lexington,MA,2.49,2028,Mathematics,Astronomy,210,570,4,27,20,2,13,670,240,600,710,730,590,800,730,220,2
+test543,pass543,ID,Lexington High School,Lexington,MA,2.72,2027,Ecology,Sustainability Studies,510,440,18,18,24,34,24,700,270,620,770,370,640,400,510,350,1
+test544,pass544,NY,Lexington High School,Lexington,MA,3.19,2021,Fine Arts and Art Studies,Photography,630,530,25,3,11,31,18,680,570,240,460,480,600,460,230,610,9
+test545,pass545,CA,Lexington High School,Lexington,MA,3.87,2023,Engineering,Visual and Performing Arts,200,570,5,24,21,19,17,650,220,790,300,800,670,290,740,270,4
+test546,pass546,NC,Lexington High School,Lexington,MA,1.29,2025,Drama and Dramatics/Theatre Arts,French Language and Literature,710,600,2,6,21,18,12,520,430,680,330,740,640,220,760,770,7
+test547,pass547,VT,Lexington High School,Lexington,MA,1.03,2026,Architecture and Related Services,Art/Art Studies,460,200,24,14,35,34,27,250,200,210,440,690,750,450,270,530,5
+test548,pass548,VT,Lexington High School,Lexington,MA,3.7,2024,Sustainability Studies,Physics,460,390,25,27,33,23,27,770,500,390,220,270,640,390,370,330,8
+test549,pass549,AL,Lexington High School,Lexington,MA,1.79,2024,Chemistry,Ceramic Arts and Ceramics,500,660,18,26,35,19,24,610,400,680,580,420,440,380,750,230,7
+test550,pass550,HI,Lexington High School,Lexington,MA,2.28,2025,Illustration,Intermedia/Multimedia,290,570,3,4,3,9,5,370,360,470,670,250,630,370,430,570,6
+test551,pass551,NY,Libertyville High School,Libertyville,IL,0.61,2028,Design and Applied Arts,Spanish Language and Literature,510,290,25,27,15,21,22,750,240,750,570,620,470,570,760,660,0
+test552,pass552,CA,Libertyville High School,Libertyville,IL,1.32,2025,European Studies/Civilization,Graphic Communications,450,730,10,22,33,34,25,780,350,570,560,500,300,200,400,260,10
+test553,pass553,MA,Libertyville High School,Libertyville,IL,3.66,2022,African-American/Black Studies,German Language and Literature,630,620,35,5,36,6,20,320,680,610,550,610,630,260,590,230,7
+test554,pass554,MA,Libertyville High School,Libertyville,IL,0.38,2022,Atmospheric Sciences and Meteorology,Music,540,570,22,7,35,13,19,630,470,510,330,300,680,710,310,550,0
+test555,pass555,IL,Libertyville High School,Libertyville,IL,0.19,2024,Art/Art Studies,Music,310,310,26,28,34,28,29,400,570,510,310,400,460,410,310,310,1
+test556,pass556,MO,Libertyville High School,Libertyville,IL,1.64,2028,Registered Nursing/Registered Nurse,Film/Video and Photographic Arts,260,750,21,3,8,19,13,610,420,800,600,420,490,250,420,310,3
+test557,pass557,MD,Libertyville High School,Libertyville,IL,2.95,2028,Atmospheric Sciences and Meteorology,Graphic Design,570,650,28,12,3,21,16,750,380,600,660,520,730,790,780,770,10
+test558,pass558,OK,Libertyville High School,Libertyville,IL,1.73,2024,Metal and Jewelry Arts,Athletic Training/Trainer,240,650,35,26,2,32,24,790,530,540,630,570,640,320,260,760,9
+test559,pass559,NV,Libertyville High School,Libertyville,IL,1.29,2028,Bioengineering and Biomedical Engineering,European Studies/Civilization,500,550,5,17,3,30,14,360,770,580,360,340,230,340,790,520,9
+test560,pass560,IN,Libertyville High School,Libertyville,IL,0.91,2023,Social Work,Engineering,550,510,25,8,20,30,21,770,470,330,680,650,700,670,290,730,3
+test561,pass561,TN,Lovejoy High School,Lucas,TX,3.9,2022,Music,American/United States Studies/Civilization,760,520,27,35,31,4,24,420,610,310,500,330,290,230,400,450,10
+test562,pass562,ND,Lovejoy High School,Lucas,TX,0.43,2026,Respiratory Care Therapy/Therapist,Marine Biology and Biological Oceanography,200,400,7,7,1,10,6,750,650,570,460,530,300,680,520,380,3
+test563,pass563,TN,Lovejoy High School,Lucas,TX,1.57,2022,Engineering,Design and Visual Communications,600,700,18,1,7,8,8,470,690,370,230,280,540,380,450,630,3
+test564,pass564,MD,Lovejoy High School,Lucas,TX,3.96,2024,Health Services/Allied Health/Health Sciences,Chemistry,600,410,19,16,10,30,19,400,280,360,710,320,750,530,710,730,4
+test565,pass565,KY,Lovejoy High School,Lucas,TX,1.35,2026,Design and Applied Arts,Computer Graphics,440,270,10,19,12,8,12,400,450,570,770,470,250,330,460,530,4
+test566,pass566,WY,Lovejoy High School,Lucas,TX,3.83,2026,Polysomnography,Physics,530,350,21,2,15,31,17,600,280,230,770,410,730,760,320,430,0
+test567,pass567,AL,Lovejoy High School,Lucas,TX,1.76,2025,Art/Art Studies,Architecture and Related Services,280,680,34,13,8,6,15,700,560,800,230,680,560,330,420,480,1
+test568,pass568,ME,Lovejoy High School,Lucas,TX,1.31,2025,Psychology,Architecture and Related Services,220,340,11,24,13,25,18,370,200,270,600,520,740,240,500,520,1
+test569,pass569,MT,Lovejoy High School,Lucas,TX,1.09,2025,Anthropology,Electrical and Electronics Engineering,360,240,15,33,17,22,22,590,350,520,480,710,450,710,660,600,3
+test570,pass570,NC,Lovejoy High School,Lucas,TX,3.98,2028,Sustainability Studies,American/United States Studies/Civilization,540,490,17,6,9,14,12,680,610,240,630,670,400,270,480,590,7
+test571,pass571,NM,Madeira High School,Cincinnati,OH,2.66,2023,Sociology,African-American/Black Studies,410,610,15,1,3,32,13,800,670,770,270,610,340,700,410,740,4
+test572,pass572,DE,Madeira High School,Cincinnati,OH,3.3,2028,Philosophy,Environmental Design/Architecture,800,690,21,21,27,1,18,440,290,230,760,700,650,380,280,700,5
+test573,pass573,ID,Madeira High School,Cincinnati,OH,1.65,2023,History,Biochemistry,280,790,28,29,16,7,20,790,370,790,420,250,430,330,540,750,6
+test574,pass574,NM,Madeira High School,Cincinnati,OH,3.27,2022,Polysomnography,Philosophy,270,230,13,13,14,18,14,390,430,480,340,270,730,400,710,800,2
+test575,pass575,ID,Madeira High School,Cincinnati,OH,3.39,2026,Religion/Religious Studies,Athletic Training/Trainer,650,770,20,20,5,21,16,290,660,220,370,420,270,720,520,570,1
+test576,pass576,MS,Madeira High School,Cincinnati,OH,0.02,2024,Art/Art Studies,Architecture and Related Services,640,730,14,35,18,29,24,370,330,530,340,720,270,580,610,410,10
+test577,pass577,GA,Madeira High School,Cincinnati,OH,3.95,2026,Clinical Laboratory Science/Medical Technology/Technologist,Painting,450,300,19,35,25,28,27,660,250,770,740,320,320,800,200,490,9
+test578,pass578,NJ,Madeira High School,Cincinnati,OH,2.59,2022,Ecology,Sustainability Studies,740,530,26,32,19,21,24,280,230,300,210,640,280,250,590,320,7
+test579,pass579,OR,Madeira High School,Cincinnati,OH,1.42,2028,Bioengineering and Biomedical Engineering,Environmental Design/Architecture,350,690,5,31,8,12,14,490,710,690,440,770,510,720,240,700,4
+test580,pass580,NY,Madeira High School,Cincinnati,OH,0.03,2028,Drawing,Printmaking,270,300,12,16,5,34,17,610,490,670,540,260,540,470,470,500,9
+test581,pass581,AZ,Mamaroneck High School,Mamaroneck,NY,1.21,2024,Fashion/Apparel Design,Film/Video and Photographic Arts,800,780,15,35,13,33,24,380,470,630,670,580,750,770,490,530,2
+test582,pass582,AK,Mamaroneck High School,Mamaroneck,NY,0.48,2022,Drama and Dramatics/Theatre Arts,Visual and Performing Arts,730,370,19,22,27,1,17,500,390,370,260,780,750,600,590,370,9
+test583,pass583,NY,Mamaroneck High School,Mamaroneck,NY,3.25,2022,French Language and Literature,Chemistry,210,730,28,17,2,3,12,780,480,360,320,450,510,600,360,380,10
+test584,pass584,RI,Mamaroneck High School,Mamaroneck,NY,2.8,2021,Digital Communication and Media/Multimedia,Computer and Information Sciences,450,360,35,10,36,31,28,600,300,510,790,590,240,290,450,310,3
+test585,pass585,WI,Mamaroneck High School,Mamaroneck,NY,0.78,2026,Environmental Studies,Mechanical Engineering,690,700,23,30,12,16,20,700,540,420,660,580,690,380,250,410,0
+test586,pass586,ID,Mamaroneck High School,Mamaroneck,NY,3.34,2024,Linguistics,Film/Cinema/Video Studies,250,250,19,29,6,10,16,780,670,670,500,560,630,570,520,610,4
+test587,pass587,TN,Mamaroneck High School,Mamaroneck,NY,1.87,2024,Intermedia/Multimedia,Applied Mathematics,410,710,1,16,4,16,9,380,590,230,420,440,710,290,220,520,0
+test588,pass588,LA,Mamaroneck High School,Mamaroneck,NY,0.51,2022,Human Computer Interaction,Music,630,730,3,4,30,16,13,470,680,600,230,370,450,570,610,670,3
+test589,pass589,FL,Mamaroneck High School,Mamaroneck,NY,0.91,2028,English Language and Literature,Polysomnography,200,270,32,26,18,13,22,250,430,430,270,490,390,670,770,400,9
+test590,pass590,NY,Mamaroneck High School,Mamaroneck,NY,3.52,2020,Respiratory Care Therapy/Therapist,Pharmacology,730,650,13,28,15,24,20,260,290,640,690,420,210,270,210,530,6
+test591,pass591,CA,McLean High School,McLean,VA,2.12,2026,Graphic Communications,Interior Architecture,370,530,17,27,28,17,22,530,400,650,800,310,790,610,710,670,7
+test592,pass592,TX,McLean High School,McLean,VA,1.14,2020,Linguistics,Fashion/Apparel Design,660,220,32,24,24,7,22,300,350,400,620,540,640,740,600,480,1
+test593,pass593,TN,McLean High School,McLean,VA,1.02,2024,Music,Registered Nursing/Registered Nurse,240,320,29,23,4,4,15,450,330,480,770,530,690,590,610,630,9
+test594,pass594,NJ,McLean High School,McLean,VA,2.7,2027,Fine/Studio Arts,Illustration,650,550,15,7,4,6,8,280,270,570,430,430,300,580,410,580,3
+test595,pass595,NV,McLean High School,McLean,VA,2.91,2027,Polysomnography,Physics,450,260,3,5,7,2,4,730,750,270,310,750,800,610,640,420,1
+test596,pass596,UT,McLean High School,McLean,VA,1.24,2023,Astronomy,Italian Language and Literature,700,420,14,32,5,14,16,350,470,680,560,430,630,730,280,760,8
+test597,pass597,IL,McLean High School,McLean,VA,0.8,2024,Anthropology,Engineering,520,310,24,19,6,36,21,320,280,220,590,670,210,600,310,760,9
+test598,pass598,DE,McLean High School,McLean,VA,1.19,2025,Art Teacher Education,Art Teacher Education,240,750,20,19,32,4,19,200,280,470,750,520,330,270,410,430,7
+test599,pass599,NV,McLean High School,McLean,VA,0.19,2021,Illustration,Drama and Dramatics/Theatre Arts,590,260,17,21,26,32,24,720,620,210,720,530,390,210,450,600,1
+test600,pass600,NV,McLean High School,McLean,VA,1.86,2022,Computer and Information Sciences,Religion/Religious Studies,780,350,18,30,9,27,21,750,280,770,430,220,570,310,550,670,1
+test601,pass601,WA,Memorial High School,Houston,TX,3.71,2023,Spanish Language and Literature,Fashion/Apparel Design,710,220,12,12,18,15,14,250,230,550,310,650,220,350,590,260,4
+test602,pass602,SD,Memorial High School,Houston,TX,1.99,2024,Music,Film/Cinema/Video Studies,680,250,13,10,5,15,11,440,260,290,480,620,580,410,370,630,5
+test603,pass603,CO,Memorial High School,Houston,TX,3.53,2028,Economics,Art/Art Studies,290,510,9,12,29,25,19,440,480,260,480,730,290,510,550,290,1
+test604,pass604,FL,Memorial High School,Houston,TX,1.94,2022,Religion/Religious Studies,Environmental Studies,790,420,17,12,16,16,15,530,650,220,390,360,510,420,650,690,8
+test605,pass605,VA,Memorial High School,Houston,TX,4,2021,Athletic Training/Trainer,Sociology,460,800,21,5,3,18,12,290,320,490,400,470,210,310,330,280,0
+test606,pass606,ND,Memorial High School,Houston,TX,3.71,2020,Psychology,Cinematography and Film/Video Production,350,340,4,11,16,21,13,420,460,400,470,390,750,680,350,380,0
+test607,pass607,MN,Memorial High School,Houston,TX,1.23,2021,Engineering,Sociology,510,660,9,4,33,25,18,260,380,510,610,670,360,680,670,760,1
+test608,pass608,VT,Memorial High School,Houston,TX,2.06,2022,Clinical Laboratory Science/Medical Technology/Technologist,European Studies/Civilization,790,580,27,14,2,18,15,720,320,290,200,560,400,370,490,450,3
+test609,pass609,MT,Memorial High School,Houston,TX,2.65,2027,Astronomy,Mechanical Engineering,300,620,17,27,33,1,20,650,200,350,270,230,780,650,470,490,6
+test610,pass610,AZ,Memorial High School,Houston,TX,0.69,2027,Music,Sustainability Studies,290,580,34,16,8,27,21,580,360,690,750,550,360,330,430,340,2
+test611,pass611,MO,Mira Costa High School,Manhattan Beach,CA,1.27,2027,Comparative Literature,English Language and Literature,550,380,5,8,20,32,16,400,430,560,670,430,260,270,780,710,2
+test612,pass612,NY,Mira Costa High School,Manhattan Beach,CA,2.15,2022,Mechanical Engineering,Physics,680,470,15,16,6,12,12,490,790,390,680,740,470,750,610,390,0
+test613,pass613,OR,Mira Costa High School,Manhattan Beach,CA,1.64,2020,Design and Visual Communications,Art/Art Studies,450,630,19,17,24,20,20,420,710,600,580,360,550,450,770,590,3
+test614,pass614,KY,Mira Costa High School,Manhattan Beach,CA,1.93,2020,Illustration,Photography,640,290,31,30,32,11,26,770,660,530,510,710,460,700,240,740,7
+test615,pass615,VA,Mira Costa High School,Manhattan Beach,CA,2.55,2023,Clinical Laboratory Science/Medical Technology/Technologist,Metal and Jewelry Arts,250,610,9,25,9,20,16,740,380,630,460,270,250,570,250,450,7
+test616,pass616,AZ,Mira Costa High School,Manhattan Beach,CA,3.42,2024,Visual and Performing Arts,Visual and Performing Arts,660,660,18,25,6,2,13,750,630,340,420,490,490,470,720,470,8
+test617,pass617,NH,Mira Costa High School,Manhattan Beach,CA,3.28,2025,Art/Art Studies,Spanish Language and Literature,460,620,28,22,24,29,26,280,450,310,400,410,700,790,280,370,9
+test618,pass618,LA,Mira Costa High School,Manhattan Beach,CA,3.72,2022,Spanish Language and Literature,Chemistry,620,330,5,34,15,1,14,260,420,490,310,310,500,260,210,650,6
+test619,pass619,NV,Mira Costa High School,Manhattan Beach,CA,3.26,2020,Biochemistry,Sustainability Studies,440,540,28,35,6,6,19,590,740,510,270,580,570,750,710,750,7
+test620,pass620,UT,Mira Costa High School,Manhattan Beach,CA,2.71,2020,Sociology,Chemical and Biomolecular Engineering,370,760,18,33,15,8,18,620,340,360,290,250,360,590,230,710,5
+test621,pass621,UT,Mountain Lakes High School,Mountain Lakes,NJ,3.47,2028,Drama and Dramatics/Theatre Arts,Art/Art Studies,640,250,20,19,11,32,20,460,260,580,750,650,720,270,460,600,0
+test622,pass622,IL,Mountain Lakes High School,Mountain Lakes,NJ,3.09,2025,Atmospheric Sciences and Meteorology,Biological and Physical Sciences,360,300,5,13,29,29,19,440,340,230,500,290,360,550,350,210,8
+test623,pass623,WY,Mountain Lakes High School,Mountain Lakes,NJ,0.76,2028,Respiratory Care Therapy/Therapist,Art/Art Studies,210,360,30,9,35,23,24,250,520,550,300,640,430,720,710,290,0
+test624,pass624,TX,Mountain Lakes High School,Mountain Lakes,NJ,1.65,2028,Ecology,Design and Applied Arts,300,340,7,34,32,30,26,500,440,720,760,420,380,760,750,750,7
+test625,pass625,IA,Mountain Lakes High School,Mountain Lakes,NJ,0.17,2027,Digital Communication and Media/Multimedia,Civil Engineering,260,630,5,6,18,28,14,720,550,240,390,730,510,740,720,420,1
+test626,pass626,AL,Mountain Lakes High School,Mountain Lakes,NJ,2.87,2024,Ecology,Interior Architecture,790,520,8,8,33,5,14,330,580,450,690,490,680,340,660,410,2
+test627,pass627,MT,Mountain Lakes High School,Mountain Lakes,NJ,3.73,2021,Multi-/Interdisciplinary Studies,Physical Sciences,270,260,29,13,13,11,16,540,410,780,570,530,490,800,690,450,7
+test628,pass628,RI,Mountain Lakes High School,Mountain Lakes,NJ,1.21,2022,Engineering,Interior Architecture,720,450,31,16,20,7,18,390,660,440,290,680,590,350,550,250,5
+test629,pass629,KS,Mountain Lakes High School,Mountain Lakes,NJ,2.73,2023,Physics,Registered Nursing/Registered Nurse,690,550,17,14,28,27,22,530,800,630,240,540,210,330,490,670,3
+test630,pass630,TN,Mountain Lakes High School,Mountain Lakes,NJ,3.67,2025,Biochemistry,Printmaking,390,290,35,30,9,5,20,260,460,260,770,210,480,500,280,730,9
+test631,pass631,NM,Mt. Brook High School,Mountain Brook,AL,0.83,2024,Human Computer Interaction,Comparative Literature,410,500,14,33,22,24,23,570,330,290,740,410,380,700,640,350,8
+test632,pass632,TX,Mt. Brook High School,Mountain Brook,AL,3.71,2021,Spanish Language and Literature,Illustration,200,240,2,33,25,31,23,310,550,700,330,800,780,300,790,420,6
+test633,pass633,ME,Mt. Brook High School,Mountain Brook,AL,0.05,2025,Linguistics,Psychology,360,270,1,36,20,13,18,370,700,300,570,680,770,470,540,290,4
+test634,pass634,OK,Mt. Brook High School,Mountain Brook,AL,3.89,2028,Spanish Language and Literature,Chemistry,640,290,18,29,13,35,24,710,570,640,780,620,730,430,370,800,10
+test635,pass635,MD,Mt. Brook High School,Mountain Brook,AL,0.57,2024,Graphic Design,Civil Engineering,680,460,16,27,30,16,22,200,630,430,440,270,200,420,390,690,7
+test636,pass636,CA,Mt. Brook High School,Mountain Brook,AL,0.29,2028,Chemistry,Environmental Studies,580,440,31,26,31,36,31,340,530,500,430,550,490,770,750,320,1
+test637,pass637,MS,Mt. Brook High School,Mountain Brook,AL,0.95,2025,Physics,Biochemistry,490,450,12,8,33,5,14,390,530,330,220,690,610,220,470,390,5
+test638,pass638,WA,Mt. Brook High School,Mountain Brook,AL,2.13,2023,Psychology,Fine Arts and Art Studies,310,470,4,34,30,8,19,240,260,230,560,550,530,740,450,750,0
+test639,pass639,UT,Mt. Brook High School,Mountain Brook,AL,1.52,2025,Film/Video and Photographic Arts,Environmental Design/Architecture,410,430,22,1,26,4,13,210,660,490,500,300,470,510,550,530,9
+test640,pass640,HI,Mt. Brook High School,Mountain Brook,AL,1.73,2028,Computer and Information Sciences,German Language and Literature,730,600,30,15,8,3,14,580,300,520,650,270,800,800,670,710,1
+test641,pass641,NM,Naperville Central High School,Naperville,IL,2.48,2026,Biology/Biological Sciences,Psychology,630,510,26,23,22,22,23,410,380,780,730,250,340,790,670,740,0
+test642,pass642,OK,Naperville Central High School,Naperville,IL,2.12,2028,Art/Art Studies,Athletic Training/Trainer,790,630,3,30,33,35,25,450,500,580,290,310,480,580,640,230,0
+test643,pass643,MN,Naperville Central High School,Naperville,IL,1.52,2025,Comparative Literature,Human Computer Interaction,420,200,30,29,8,28,24,310,430,400,520,780,530,690,610,240,10
+test644,pass644,CA,Naperville Central High School,Naperville,IL,1.37,2023,Film/Cinema/Video Studies,Biology/Biological Sciences,470,640,5,8,28,9,12,310,250,510,320,460,510,410,340,590,9
+test645,pass645,IL,Naperville Central High School,Naperville,IL,3.95,2021,French Language and Literature,Polysomnography,300,310,8,15,23,22,17,520,250,550,790,250,770,300,450,710,1
+test646,pass646,KY,Naperville Central High School,Naperville,IL,0.97,2021,Ecology,Civil Engineering,450,530,25,26,5,30,22,270,650,800,610,650,570,800,640,570,1
+test647,pass647,MO,Naperville Central High School,Naperville,IL,2.94,2028,Intermedia/Multimedia,European Studies/Civilization,230,330,22,30,3,16,18,310,800,720,540,350,770,400,400,540,10
+test648,pass648,MN,Naperville Central High School,Naperville,IL,1.4,2026,Social Work,Ceramic Arts and Ceramics,210,440,14,21,12,25,18,720,320,720,460,570,380,580,490,310,3
+test649,pass649,KS,Naperville Central High School,Naperville,IL,1.03,2026,Film/Video and Photographic Arts,Sustainability Studies,540,230,23,16,31,22,23,260,240,200,550,360,640,220,270,560,7
+test650,pass650,CT,Naperville Central High School,Naperville,IL,1.27,2027,Multi-/Interdisciplinary Studies,Sociology,680,370,16,20,23,28,22,400,510,340,260,700,680,380,560,300,2
+test651,pass651,SD,Neuqua Valley High School,Naperville,IL,3.3,2023,Film/Cinema/Video Studies,Intermedia/Multimedia,550,430,8,32,30,11,20,370,540,430,350,690,210,200,420,430,9
+test652,pass652,IA,Neuqua Valley High School,Naperville,IL,1.69,2024,Polysomnography,Painting,700,780,12,26,4,19,15,590,590,560,790,710,390,580,530,490,0
+test653,pass653,NH,Neuqua Valley High School,Naperville,IL,1.21,2028,Pharmacology,Fine/Studio Arts,340,480,18,16,8,16,14,470,430,350,680,410,780,590,690,290,2
+test654,pass654,CA,Neuqua Valley High School,Naperville,IL,0.73,2023,Biology/Biological Sciences,Intermedia/Multimedia,390,760,28,32,18,7,21,210,520,680,230,230,330,580,790,550,9
+test655,pass655,MS,Neuqua Valley High School,Naperville,IL,0.51,2027,Electrical and Electronics Engineering,European Studies/Civilization,230,610,2,30,18,5,14,470,240,430,460,420,210,590,320,370,7
+test656,pass656,MN,Neuqua Valley High School,Naperville,IL,3.11,2025,Cinematography and Film/Video Production,Athletic Training/Trainer,780,470,7,1,10,2,5,580,420,440,240,710,710,590,690,230,2
+test657,pass657,OK,Neuqua Valley High School,Naperville,IL,0.82,2024,Athletic Training/Trainer,Information Science/Studies,630,280,26,25,8,17,19,480,660,590,270,310,570,580,720,670,8
+test658,pass658,SC,Neuqua Valley High School,Naperville,IL,0.11,2026,Registered Nursing/Registered Nurse,Electrical and Electronics Engineering,370,270,28,10,12,24,18,620,260,270,530,710,540,610,740,460,7
+test659,pass659,AR,Neuqua Valley High School,Naperville,IL,1.7,2023,Computer and Information Sciences,Digital Communication and Media/Multimedia,750,480,6,18,4,13,10,340,330,500,450,490,770,550,360,670,7
+test660,pass660,CT,Neuqua Valley High School,Naperville,IL,2.44,2022,Political Science and Government,Drawing,560,580,27,13,32,36,27,670,760,440,410,760,460,490,540,740,2
+test661,pass661,KS,New Trier Township High School,Winnetka,IL,3.89,2021,Intermedia/Multimedia,Business Administration and Management,760,770,32,30,23,23,27,250,340,590,520,630,640,620,250,800,3
+test662,pass662,IA,New Trier Township High School,Winnetka,IL,2.39,2027,Photography,Polysomnography,530,790,7,13,10,2,8,650,500,510,320,660,750,250,410,450,3
+test663,pass663,NJ,New Trier Township High School,Winnetka,IL,0.75,2025,Electrical and Electronics Engineering,Multi-/Interdisciplinary Studies,560,300,21,15,1,1,10,250,200,750,330,490,800,230,530,750,10
+test664,pass664,IN,New Trier Township High School,Winnetka,IL,3.45,2028,Women&apos;s Studies,Music,590,740,7,19,8,26,15,240,570,240,400,340,640,340,330,510,5
+test665,pass665,WI,New Trier Township High School,Winnetka,IL,2.89,2021,African-American/Black Studies,Linguistics,360,560,5,2,4,33,11,310,440,250,320,250,260,380,400,620,6
+test666,pass666,AZ,New Trier Township High School,Winnetka,IL,3.81,2020,Philosophy,Health Services/Allied Health/Health Sciences,240,360,36,21,25,31,28,500,730,370,590,780,720,660,690,500,4
+test667,pass667,TN,New Trier Township High School,Winnetka,IL,1.77,2028,History,Ceramic Arts and Ceramics,530,770,3,25,23,2,13,240,430,550,490,530,340,260,400,280,10
+test668,pass668,CO,New Trier Township High School,Winnetka,IL,2.07,2027,English Language and Literature,Art/Art Studies,510,500,28,35,15,22,25,400,550,490,310,730,630,300,500,690,10
+test669,pass669,PA,New Trier Township High School,Winnetka,IL,1.3,2026,Asian Studies/Civilization,Music,670,610,18,6,21,22,17,260,760,610,640,410,610,660,480,530,3
+test670,pass670,RI,New Trier Township High School,Winnetka,IL,2.64,2027,Sustainability Studies,Ecology,630,530,32,3,29,15,20,280,730,650,800,710,270,450,550,240,2
+test671,pass671,TN,Niles North High School,Skokie,IL,3.57,2021,Graphic Communications,Linguistics,320,550,16,14,2,17,12,330,370,590,750,490,620,270,530,310,1
+test672,pass672,VT,Niles North High School,Skokie,IL,0.04,2028,Physical Sciences,Athletic Training/Trainer,200,220,10,35,20,28,23,800,430,220,480,440,580,250,460,530,1
+test673,pass673,NJ,Niles North High School,Skokie,IL,3.64,2027,Intermedia/Multimedia,American/United States Studies/Civilization,670,610,14,16,6,8,11,310,720,310,550,800,700,520,600,760,0
+test674,pass674,KY,Niles North High School,Skokie,IL,2.86,2027,Journalism,Comparative Literature,690,480,30,23,34,20,27,570,670,530,230,690,580,770,530,530,0
+test675,pass675,NM,Niles North High School,Skokie,IL,1.11,2023,Human Computer Interaction,Health Services/Allied Health/Health Sciences,370,700,20,10,11,25,16,790,380,800,240,710,520,480,390,290,0
+test676,pass676,MD,Niles North High School,Skokie,IL,0.63,2028,Civil Engineering,Graphic Communications,390,310,30,13,30,31,26,510,470,760,590,630,330,230,360,520,9
+test677,pass677,VT,Niles North High School,Skokie,IL,2.47,2024,Visual and Performing Arts,Anthropology,230,290,10,25,11,15,15,580,490,730,730,580,350,260,610,480,9
+test678,pass678,UT,Niles North High School,Skokie,IL,3.57,2024,Engineering,French Language and Literature,250,450,15,20,5,27,17,580,370,430,570,310,220,480,620,360,0
+test679,pass679,AK,Niles North High School,Skokie,IL,0.22,2022,Environmental Design/Architecture,Intermedia/Multimedia,730,300,20,18,34,17,22,750,670,320,280,740,510,510,800,510,2
+test680,pass680,KS,Niles North High School,Skokie,IL,2.79,2026,Social Work,Fine Arts and Art Studies,330,710,35,15,30,34,28,220,230,240,370,580,420,600,760,200,2
+test681,pass681,PA,North Carolina School of Science and Mathematics,Durham,NC,2.49,2023,Music,Political Science and Government,290,580,25,22,2,27,19,540,670,590,260,660,700,550,570,720,6
+test682,pass682,SC,North Carolina School of Science and Mathematics,Durham,NC,0.43,2022,Fashion/Apparel Design,Clinical Laboratory Science/Medical Technology/Technologist,400,490,10,13,17,27,17,550,500,410,600,270,220,370,740,680,9
+test683,pass683,DE,North Carolina School of Science and Mathematics,Durham,NC,1,2022,Anthropology,German Language and Literature,710,260,5,20,13,22,15,530,640,410,670,630,340,520,250,750,5
+test684,pass684,GA,North Carolina School of Science and Mathematics,Durham,NC,1.17,2022,Religion/Religious Studies,Social Work,560,710,18,29,15,14,19,230,670,360,380,630,370,400,410,330,0
+test685,pass685,MA,North Carolina School of Science and Mathematics,Durham,NC,1.03,2021,Comparative Literature,Engineering,380,400,27,22,35,1,21,480,280,460,550,780,260,360,510,800,10
+test686,pass686,ID,North Carolina School of Science and Mathematics,Durham,NC,0.55,2028,Religion/Religious Studies,Fine Arts and Art Studies,560,410,21,7,8,27,16,480,320,640,730,200,300,440,360,310,0
+test687,pass687,KY,North Carolina School of Science and Mathematics,Durham,NC,2.71,2021,Sociology,Political Science and Government,640,210,6,26,30,2,16,700,490,630,310,520,420,310,790,560,3
+test688,pass688,MS,North Carolina School of Science and Mathematics,Durham,NC,3.15,2024,Sociology,Civil Engineering,670,670,28,31,14,17,22,340,780,590,700,460,330,280,430,290,2
+test689,pass689,KS,North Carolina School of Science and Mathematics,Durham,NC,0.2,2020,Fashion/Apparel Design,Atmospheric Sciences and Meteorology,440,650,34,18,27,35,28,300,330,270,760,350,390,720,610,530,4
+test690,pass690,SD,North Carolina School of Science and Mathematics,Durham,NC,3.1,2022,Clinical Laboratory Science/Medical Technology/Technologist,Sculpture,710,450,36,16,26,9,22,490,700,710,630,310,550,680,370,230,0
+test691,pass691,UT,Northside College Preparatory High School,Chicago,IL,1.25,2028,Bioengineering and Biomedical Engineering,Biology/Biological Sciences,400,350,35,20,2,29,22,730,270,280,410,220,270,300,320,750,0
+test692,pass692,FL,Northside College Preparatory High School,Chicago,IL,0.99,2026,Electrical and Electronics Engineering,Design and Applied Arts,480,300,12,18,30,7,17,770,440,220,330,620,450,420,230,670,10
+test693,pass693,WV,Northside College Preparatory High School,Chicago,IL,2.72,2026,Printmaking,Asian Studies/Civilization,270,310,9,33,14,4,15,360,340,340,430,300,360,600,730,300,7
+test694,pass694,WY,Northside College Preparatory High School,Chicago,IL,2.36,2025,Biochemistry,Linguistics,290,620,30,8,6,1,11,720,720,530,580,230,650,760,520,800,2
+test695,pass695,HI,Northside College Preparatory High School,Chicago,IL,1.45,2025,Mechanical Engineering,Physical Sciences,290,620,13,23,14,18,17,280,380,470,660,660,260,660,610,340,8
+test696,pass696,MN,Northside College Preparatory High School,Chicago,IL,3.04,2026,Visual and Performing Arts,Mechanical Engineering,560,340,33,17,16,28,24,240,660,310,690,570,470,540,660,600,0
+test697,pass697,GA,Northside College Preparatory High School,Chicago,IL,2.88,2028,Cinematography and Film/Video Production,German Language and Literature,680,240,2,1,15,34,13,200,290,780,690,650,260,320,660,570,2
+test698,pass698,MO,Northside College Preparatory High School,Chicago,IL,2.37,2027,Health Services/Allied Health/Health Sciences,Philosophy,550,570,8,22,10,13,13,270,730,610,660,420,350,510,730,600,0
+test699,pass699,NV,Northside College Preparatory High School,Chicago,IL,1.48,2027,Engineering,Linguistics,720,560,23,5,6,12,12,620,360,550,710,640,750,530,260,600,1
+test700,pass700,NC,Northside College Preparatory High School,Chicago,IL,3.93,2028,Civil Engineering,Respiratory Care Therapy/Therapist,580,610,5,32,28,13,20,760,340,500,720,700,420,420,220,450,6
+test701,pass701,ND,Oakton High School,Vienna,VA,3.02,2021,Art Teacher Education,Social Work,470,710,7,11,16,8,10,660,240,790,750,280,610,230,780,330,1
+test702,pass702,NM,Oakton High School,Vienna,VA,0.93,2023,Graphic Communications,Ecology,300,760,29,15,19,17,20,550,410,730,210,550,690,420,470,770,9
+test703,pass703,MS,Oakton High School,Vienna,VA,0.61,2021,Visual and Performing Arts,Drawing,610,490,3,31,10,16,15,210,500,480,470,510,380,360,620,680,5
+test704,pass704,TX,Oakton High School,Vienna,VA,1.38,2024,American/United States Studies/Civilization,Respiratory Care Therapy/Therapist,390,710,34,13,13,35,24,590,490,550,290,660,720,300,450,320,6
+test705,pass705,NJ,Oakton High School,Vienna,VA,3.3,2026,English Language and Literature,Graphic Design,720,200,18,3,36,36,23,290,380,290,410,380,790,200,380,500,9
+test706,pass706,NY,Oakton High School,Vienna,VA,1.96,2027,Architecture and Related Services,Metal and Jewelry Arts,770,750,29,14,15,18,19,200,630,330,720,750,390,260,470,770,2
+test707,pass707,CO,Oakton High School,Vienna,VA,1.99,2020,African-American/Black Studies,Graphic Design,650,340,21,22,16,19,20,770,270,580,200,660,240,490,320,680,4
+test708,pass708,SC,Oakton High School,Vienna,VA,2.28,2027,Environmental Design/Architecture,Athletic Training/Trainer,370,230,6,25,7,9,12,270,670,220,600,320,530,220,720,420,1
+test709,pass709,UT,Oakton High School,Vienna,VA,2.71,2028,Anthropology,Visual and Performing Arts,230,730,22,15,15,20,18,210,480,560,750,630,530,310,210,330,9
+test710,pass710,DE,Oakton High School,Vienna,VA,1.43,2028,Spanish Language and Literature,Illustration,740,300,20,13,15,25,18,550,290,550,540,490,690,710,800,480,10
+test711,pass711,ME,Otsego High School,Otsego,MI,1.31,2020,Italian Language and Literature,Psychology,800,680,4,11,26,24,16,780,460,650,310,780,250,560,250,420,3
+test712,pass712,NE,Otsego High School,Otsego,MI,3.82,2028,Business Administration and Management,Philosophy,700,520,2,27,25,27,20,540,710,200,370,500,520,560,620,410,4
+test713,pass713,KS,Otsego High School,Otsego,MI,3.43,2021,Registered Nursing/Registered Nurse,Applied Mathematics,410,230,30,36,13,10,22,540,470,650,400,650,460,320,260,580,8
+test714,pass714,NM,Otsego High School,Otsego,MI,3.44,2026,Art Teacher Education,Civil Engineering,770,530,15,20,11,20,16,320,760,670,740,480,690,780,370,710,9
+test715,pass715,WY,Otsego High School,Otsego,MI,0.72,2027,Clinical Laboratory Science/Medical Technology/Technologist,Chemistry,360,360,28,3,10,17,14,340,660,220,440,220,500,580,290,780,3
+test716,pass716,MS,Otsego High School,Otsego,MI,0.47,2027,Anthropology,Visual and Performing Arts,260,220,8,12,13,3,9,440,690,360,320,680,370,250,520,270,2
+test717,pass717,SC,Otsego High School,Otsego,MI,0.52,2025,German Language and Literature,Multi-/Interdisciplinary Studies,640,210,25,6,4,27,16,370,750,440,750,740,330,740,580,750,7
+test718,pass718,NY,Otsego High School,Otsego,MI,1.77,2027,Architecture and Related Services,Graphic Design,420,770,5,25,3,5,10,210,590,690,720,350,440,250,720,420,2
+test719,pass719,MO,Otsego High School,Otsego,MI,0.7,2023,Chemical and Biomolecular Engineering,Sculpture,480,470,7,14,9,4,8,680,490,610,310,550,240,370,760,530,2
+test720,pass720,MA,Otsego High School,Otsego,MI,3.12,2023,Anthropology,Music,450,250,16,13,6,10,11,460,610,340,620,520,620,260,480,440,3
+test721,pass721,AR,Panther Creek High School,Cary,NC,3.98,2027,Philosophy,Registered Nursing/Registered Nurse,690,750,23,9,23,7,16,270,540,470,690,520,290,540,490,620,2
+test722,pass722,NE,Panther Creek High School,Cary,NC,2.59,2028,Film/Cinema/Video Studies,Comparative Literature,410,640,29,6,28,16,20,780,800,760,320,450,660,720,630,630,8
+test723,pass723,WA,Panther Creek High School,Cary,NC,1.26,2025,Design and Applied Arts,Design and Applied Arts,680,360,16,11,7,21,14,300,330,260,720,760,740,640,800,760,3
+test724,pass724,NV,Panther Creek High School,Cary,NC,0.59,2021,Physics,Environmental Studies,790,530,32,36,19,9,24,400,280,290,390,690,580,420,540,480,3
+test725,pass725,WI,Panther Creek High School,Cary,NC,3.8,2021,Illustration,Visual and Performing Arts,480,670,22,22,35,21,25,660,460,650,250,360,340,360,720,350,1
+test726,pass726,IN,Panther Creek High School,Cary,NC,2.93,2024,Anthropology,Italian Language and Literature,420,740,4,17,32,5,14,200,620,230,450,640,300,300,540,760,5
+test727,pass727,MN,Panther Creek High School,Cary,NC,0.53,2027,Polysomnography,Mechanical Engineering,460,710,7,7,30,25,17,510,360,580,640,560,350,250,590,340,7
+test728,pass728,ME,Panther Creek High School,Cary,NC,1.46,2026,Film/Video and Photographic Arts,Art/Art Studies,550,260,26,18,4,35,21,220,630,240,230,660,270,580,490,400,9
+test729,pass729,NV,Panther Creek High School,Cary,NC,2.83,2025,Civil Engineering,Visual and Performing Arts,250,750,36,24,23,31,28,280,200,430,350,490,390,320,570,590,7
+test730,pass730,NC,Panther Creek High School,Cary,NC,3.9,2025,Computer and Information Sciences,Environmental Studies,200,340,30,9,28,33,25,250,640,360,560,520,780,690,410,340,2
+test731,pass731,HI,Parish Hill High School,Chaplin,CT,2.48,2020,European Studies/Civilization,Chemical and Biomolecular Engineering,690,430,11,11,14,26,16,240,350,310,300,530,630,370,510,220,1
+test732,pass732,FL,Parish Hill High School,Chaplin,CT,3.73,2023,Photography,Engineering,590,420,22,3,13,17,14,730,420,640,520,790,480,430,790,310,1
+test733,pass733,ID,Parish Hill High School,Chaplin,CT,3.19,2022,Social Work,Printmaking,240,360,1,28,18,6,13,330,730,540,240,270,710,360,710,480,6
+test734,pass734,MD,Parish Hill High School,Chaplin,CT,2.64,2028,Comparative Literature,Art/Art Studies,770,660,32,23,24,4,21,630,540,470,710,230,720,650,300,780,2
+test735,pass735,UT,Parish Hill High School,Chaplin,CT,0.69,2026,Atmospheric Sciences and Meteorology,Film/Video and Photographic Arts,660,260,15,28,3,15,15,590,580,670,390,330,420,530,450,670,9
+test736,pass736,WV,Parish Hill High School,Chaplin,CT,1.42,2023,African-American/Black Studies,Painting,200,300,32,10,28,34,26,620,730,230,480,670,740,380,300,200,1
+test737,pass737,OR,Parish Hill High School,Chaplin,CT,3.67,2020,Political Science and Government,Drawing,270,560,12,9,29,2,13,700,390,700,630,760,680,260,420,600,10
+test738,pass738,DE,Parish Hill High School,Chaplin,CT,3.27,2024,Environmental Studies,Multi-/Interdisciplinary Studies,280,410,5,22,33,19,20,370,710,450,710,720,280,250,530,640,4
+test739,pass739,DE,Parish Hill High School,Chaplin,CT,3.06,2026,Music,Design and Applied Arts,250,470,13,9,34,17,18,420,710,260,590,420,660,510,220,790,8
+test740,pass740,OR,Parish Hill High School,Chaplin,CT,1.64,2025,Italian Language and Literature,Intermedia/Multimedia,310,330,18,34,18,1,18,590,350,210,420,280,590,770,370,780,3
+test741,pass741,WV,Parkway Central High School,Chesterfield,MO,1.02,2026,Mechanical Engineering,Atmospheric Sciences and Meteorology,790,600,10,29,4,35,20,700,720,390,330,420,230,270,590,590,7
+test742,pass742,TN,Parkway Central High School,Chesterfield,MO,2.18,2021,Religion/Religious Studies,African-American/Black Studies,500,630,21,16,19,5,15,380,210,670,580,340,290,640,380,530,6
+test743,pass743,NC,Parkway Central High School,Chesterfield,MO,3.36,2020,Human Computer Interaction,Applied Mathematics,790,300,13,26,13,35,22,240,680,380,490,360,310,710,210,520,0
+test744,pass744,MO,Parkway Central High School,Chesterfield,MO,2.91,2020,Geology/Earth Science,Film/Video and Photographic Arts,670,660,30,11,24,35,25,450,740,260,690,530,560,660,650,390,3
+test745,pass745,AR,Parkway Central High School,Chesterfield,MO,2.18,2026,Music,African-American/Black Studies,650,750,3,8,18,14,11,580,540,480,680,750,620,280,500,250,9
+test746,pass746,KS,Parkway Central High School,Chesterfield,MO,2.76,2023,Physics,Electrical and Electronics Engineering,260,730,22,34,2,10,17,370,700,570,750,800,750,750,370,200,0
+test747,pass747,MT,Parkway Central High School,Chesterfield,MO,3.34,2022,Environmental Design/Architecture,Visual and Performing Arts,340,380,15,27,15,3,15,430,440,560,720,230,730,770,770,410,6
+test748,pass748,NE,Parkway Central High School,Chesterfield,MO,1.08,2028,Sculpture,English Language and Literature,470,330,34,10,14,27,21,210,470,240,280,660,660,490,610,360,0
+test749,pass749,NH,Parkway Central High School,Chesterfield,MO,1.48,2023,Computer and Information Sciences,Ecology,600,670,10,19,26,33,22,330,200,370,460,240,760,540,230,280,8
+test750,pass750,MD,Parkway Central High School,Chesterfield,MO,2.12,2027,Music,Religion/Religious Studies,210,730,12,1,31,36,20,210,770,610,640,350,720,410,220,700,5
+test751,pass751,MA,Pelham Memorial High School,Pelham,NY,0.47,2025,Fine/Studio Arts,Cinematography and Film/Video Production,760,250,19,15,27,27,22,780,710,560,490,250,600,670,410,570,6
+test752,pass752,CA,Pelham Memorial High School,Pelham,NY,0.99,2026,Business Administration and Management,Design and Applied Arts,680,720,34,27,4,26,23,690,280,250,520,660,470,430,470,260,8
+test753,pass753,IN,Pelham Memorial High School,Pelham,NY,0.76,2021,Graphic Communications,Chemistry,710,370,31,18,33,30,28,630,340,650,400,430,770,400,610,440,2
+test754,pass754,VT,Pelham Memorial High School,Pelham,NY,0.9,2026,Marine Biology and Biological Oceanography,Photography,560,640,36,25,6,9,19,540,790,320,330,780,490,600,740,560,7
+test755,pass755,IN,Pelham Memorial High School,Pelham,NY,2.32,2027,Business Administration and Management,Computer Graphics,280,330,9,3,32,7,13,270,310,480,410,570,590,230,630,660,6
+test756,pass756,SD,Pelham Memorial High School,Pelham,NY,3.38,2023,Design and Visual Communications,Environmental Design/Architecture,700,300,24,33,10,1,17,520,740,370,520,350,650,240,230,580,7
+test757,pass757,NH,Pelham Memorial High School,Pelham,NY,3.73,2027,Cinematography and Film/Video Production,Graphic Communications,500,230,25,12,31,13,20,770,730,290,300,640,320,280,610,770,5
+test758,pass758,WI,Pelham Memorial High School,Pelham,NY,2.8,2021,European Studies/Civilization,Architecture and Related Services,790,620,10,36,35,19,25,730,230,410,790,800,730,740,780,270,5
+test759,pass759,MT,Pelham Memorial High School,Pelham,NY,0.8,2027,Visual and Performing Arts,Architecture and Related Services,340,470,31,13,33,34,28,210,690,260,220,270,410,630,580,610,3
+test760,pass760,NE,Pelham Memorial High School,Pelham,NY,3.22,2024,Biochemistry,Health Services/Allied Health/Health Sciences,500,360,28,4,36,24,23,290,200,740,680,790,270,760,770,520,0
+test761,pass761,NE,Piedmont High School,Piedmont,CA,1.92,2025,Health Services/Allied Health/Health Sciences,Sustainability Studies,570,550,15,7,25,21,17,710,230,260,300,440,680,720,210,240,7
+test762,pass762,IA,Piedmont High School,Piedmont,CA,1.17,2026,Drama and Dramatics/Theatre Arts,Visual and Performing Arts,490,690,14,5,19,21,15,290,610,700,550,380,570,340,650,370,3
+test763,pass763,WY,Piedmont High School,Piedmont,CA,2.18,2024,Cinematography and Film/Video Production,Fine/Studio Arts,530,300,3,23,3,30,15,480,210,490,260,570,710,750,320,650,2
+test764,pass764,WY,Piedmont High School,Piedmont,CA,0.49,2024,Comparative Literature,Engineering,690,590,24,1,23,30,20,240,480,800,740,640,610,720,270,500,9
+test765,pass765,NV,Piedmont High School,Piedmont,CA,0.65,2028,Political Science and Government,Film/Video and Photographic Arts,580,610,22,2,20,9,13,790,340,360,340,620,440,460,650,220,5
+test766,pass766,PA,Piedmont High School,Piedmont,CA,3.96,2024,Film/Video and Photographic Arts,Ecology,590,550,15,27,3,3,12,560,230,750,330,660,540,590,780,490,3
+test767,pass767,OK,Piedmont High School,Piedmont,CA,3.54,2025,Chemical and Biomolecular Engineering,Information Science/Studies,280,280,6,24,4,23,14,430,200,620,270,240,800,350,620,320,0
+test768,pass768,MO,Piedmont High School,Piedmont,CA,3.83,2021,Chemical and Biomolecular Engineering,Biological and Physical Sciences,710,360,24,3,12,36,19,560,740,540,790,620,530,630,290,540,2
+test769,pass769,OK,Piedmont High School,Piedmont,CA,0.91,2023,Music,Comparative Literature,480,510,19,35,5,33,23,330,740,530,420,690,410,640,570,520,6
+test770,pass770,MT,Piedmont High School,Piedmont,CA,1.88,2021,Music,Graphic Communications,620,580,9,15,18,13,14,480,470,470,270,760,770,450,730,520,10
+test771,pass771,VA,Providence High School,Charlotte,NC,2.35,2020,Atmospheric Sciences and Meteorology,Human Computer Interaction,610,490,31,11,2,20,16,790,530,720,610,770,540,730,320,220,10
+test772,pass772,RI,Providence High School,Charlotte,NC,3.41,2024,Pharmacology,Asian Studies/Civilization,700,590,24,16,33,22,24,260,380,290,710,200,660,210,310,440,1
+test773,pass773,KS,Providence High School,Charlotte,NC,3.85,2023,Cinematography and Film/Video Production,Bioengineering and Biomedical Engineering,710,310,34,11,23,18,22,760,520,570,630,210,410,380,680,490,10
+test774,pass774,ND,Providence High School,Charlotte,NC,1.13,2025,Physics,European Studies/Civilization,590,590,9,27,13,18,17,270,220,380,450,590,610,530,290,570,2
+test775,pass775,SC,Providence High School,Charlotte,NC,0.24,2024,Geology/Earth Science,Sculpture,390,660,7,3,28,4,10,290,320,620,580,700,700,320,660,680,7
+test776,pass776,HI,Providence High School,Charlotte,NC,2.83,2023,Civil Engineering,Italian Language and Literature,590,330,6,3,9,5,6,520,620,560,280,410,210,300,680,240,9
+test777,pass777,GA,Providence High School,Charlotte,NC,4,2027,Atmospheric Sciences and Meteorology,Marine Biology and Biological Oceanography,250,470,19,34,29,28,28,690,760,350,260,630,310,280,700,360,0
+test778,pass778,AL,Providence High School,Charlotte,NC,3.57,2023,Sustainability Studies,German Language and Literature,700,380,22,5,28,2,14,220,510,300,610,510,340,450,650,730,8
+test779,pass779,GA,Providence High School,Charlotte,NC,1.15,2023,Fashion/Apparel Design,Chemistry,440,320,33,28,27,33,30,710,270,630,220,620,700,670,570,250,0
+test780,pass780,OR,Providence High School,Charlotte,NC,2.24,2022,Anthropology,Film/Cinema/Video Studies,300,330,28,25,32,12,24,220,640,200,650,300,510,510,430,580,8
+test781,pass781,UT,Radnor Senior High School,Radnor,PA,2.95,2021,Physics,Astronomy,770,410,18,8,18,15,15,240,800,510,440,630,420,280,730,680,1
+test782,pass782,WV,Radnor Senior High School,Radnor,PA,1.85,2026,Fashion/Apparel Design,Sculpture,520,350,12,16,19,11,14,670,610,690,700,540,390,780,590,360,8
+test783,pass783,CT,Radnor Senior High School,Radnor,PA,1.52,2024,Linguistics,African-American/Black Studies,320,470,20,28,13,7,17,200,710,600,760,430,260,540,250,800,9
+test784,pass784,AK,Radnor Senior High School,Radnor,PA,3.43,2024,Bioengineering and Biomedical Engineering,African-American/Black Studies,550,450,15,29,12,7,16,280,750,600,580,210,760,270,750,530,5
+test785,pass785,MT,Radnor Senior High School,Radnor,PA,1.84,2020,Art Teacher Education,African-American/Black Studies,270,440,1,27,11,17,14,430,600,730,380,750,470,750,290,430,8
+test786,pass786,LA,Radnor Senior High School,Radnor,PA,1.85,2022,Ceramic Arts and Ceramics,Creative Writing,730,640,12,25,19,8,16,390,620,510,740,680,450,230,320,470,2
+test787,pass787,MO,Radnor Senior High School,Radnor,PA,0.95,2021,Comparative Literature,African-American/Black Studies,550,410,2,11,13,3,7,520,350,690,370,600,540,610,480,570,4
+test788,pass788,AK,Radnor Senior High School,Radnor,PA,0.85,2023,Biology/Biological Sciences,Intermedia/Multimedia,430,680,3,4,9,23,10,400,540,490,680,210,260,770,420,490,9
+test789,pass789,CA,Radnor Senior High School,Radnor,PA,2.74,2023,Mathematics,Civil Engineering,280,290,35,33,8,20,24,380,660,400,800,430,600,290,260,590,3
+test790,pass790,NH,Radnor Senior High School,Radnor,PA,0.25,2023,Physics,Electrical and Electronics Engineering,620,770,15,8,25,11,15,740,800,640,290,580,280,730,290,640,1
+test791,pass791,AR,Reedy High School,Frisco,TX,3.59,2027,Visual and Performing Arts,Polysomnography,200,670,14,11,27,35,22,270,330,800,600,360,260,220,410,220,9
+test792,pass792,OH,Reedy High School,Frisco,TX,0.91,2025,Fine Arts and Art Studies,Fashion/Apparel Design,360,420,32,20,5,6,16,600,290,420,430,270,340,370,600,650,9
+test793,pass793,SD,Reedy High School,Frisco,TX,2.47,2022,Engineering,Art Teacher Education,610,770,6,1,9,35,13,800,390,410,770,260,780,340,240,200,4
+test794,pass794,OR,Reedy High School,Frisco,TX,2.91,2025,Film/Video and Photographic Arts,Drawing,720,420,15,26,34,3,20,600,450,630,500,290,320,500,510,650,10
+test795,pass795,CT,Reedy High School,Frisco,TX,3.44,2028,Cinematography and Film/Video Production,Health Services/Allied Health/Health Sciences,420,680,27,23,5,16,18,240,650,420,410,750,630,280,560,280,8
+test796,pass796,VT,Reedy High School,Frisco,TX,3.95,2023,Clinical Laboratory Science/Medical Technology/Technologist,Illustration,510,310,36,4,15,6,15,520,710,580,490,590,450,440,370,520,9
+test797,pass797,NC,Reedy High School,Frisco,TX,3.74,2022,Comparative Literature,Asian Studies/Civilization,320,620,22,20,3,33,20,620,680,310,700,290,400,540,320,660,8
+test798,pass798,OR,Reedy High School,Frisco,TX,3.74,2023,Metal and Jewelry Arts,Linguistics,680,350,13,3,31,26,18,390,780,340,700,620,450,310,690,220,8
+test799,pass799,CT,Reedy High School,Frisco,TX,0.45,2023,Music,African-American/Black Studies,240,440,34,14,35,28,28,730,500,420,510,750,420,550,500,600,9
+test800,pass800,SC,Reedy High School,Frisco,TX,2.48,2024,Astronomy,Art Teacher Education,450,280,14,6,11,32,16,440,430,280,400,450,250,410,260,250,2
+test801,pass801,NC,Richard Montgomery High School,Rockville,MD,2.94,2028,Health Services/Allied Health/Health Sciences,Marine Biology and Biological Oceanography,620,550,1,20,33,25,20,740,380,570,360,330,660,780,420,700,10
+test802,pass802,SC,Richard Montgomery High School,Rockville,MD,3.53,2028,Economics,Human Computer Interaction,290,390,16,18,1,30,16,570,210,750,540,200,510,520,730,600,8
+test803,pass803,NV,Richard Montgomery High School,Rockville,MD,1.3,2021,Printmaking,Physical Sciences,750,530,3,27,33,15,20,430,380,440,490,730,230,220,200,410,9
+test804,pass804,TN,Richard Montgomery High School,Rockville,MD,0.03,2026,Information Science/Studies,English Language and Literature,700,630,28,3,3,18,13,450,410,220,250,300,330,520,380,570,5
+test805,pass805,UT,Richard Montgomery High School,Rockville,MD,3.91,2026,Business Administration and Management,Mechanical Engineering,730,710,24,15,4,8,13,770,550,600,300,460,210,490,310,510,6
+test806,pass806,WY,Richard Montgomery High School,Rockville,MD,2.35,2022,Music,Graphic Communications,770,800,31,26,36,24,29,620,680,240,710,590,400,340,400,760,6
+test807,pass807,DE,Richard Montgomery High School,Rockville,MD,3.46,2024,Design and Visual Communications,Social Work,710,490,33,10,23,6,18,440,560,500,760,480,760,720,440,390,9
+test808,pass808,MO,Richard Montgomery High School,Rockville,MD,0.42,2025,Metal and Jewelry Arts,Chemistry,360,700,18,15,6,7,12,510,710,310,590,500,570,290,200,490,8
+test809,pass809,ID,Richard Montgomery High School,Rockville,MD,2.46,2028,Visual and Performing Arts,Ceramic Arts and Ceramics,310,760,2,12,8,12,8,440,250,700,370,460,470,710,790,610,1
+test810,pass810,KY,Richard Montgomery High School,Rockville,MD,2.15,2022,Marine Biology and Biological Oceanography,Mechanical Engineering,640,730,25,29,32,15,25,340,510,760,780,720,260,510,610,690,9
+test811,pass811,NC,Richland High School,North Richland Hills,TX,3.38,2021,English Language and Literature,Social Work,650,780,33,8,11,8,15,240,800,260,220,290,300,770,630,440,9
+test812,pass812,ME,Richland High School,North Richland Hills,TX,1.91,2026,Mechanical Engineering,Human Computer Interaction,590,500,3,11,32,24,18,320,430,280,600,210,710,570,520,760,9
+test813,pass813,AL,Richland High School,North Richland Hills,TX,3.31,2023,Visual and Performing Arts,Astronomy,250,450,22,18,34,1,19,760,620,560,370,590,590,460,340,360,5
+test814,pass814,WY,Richland High School,North Richland Hills,TX,2.84,2028,Graphic Design,Journalism,560,550,22,18,27,19,22,240,680,410,710,770,560,460,410,610,9
+test815,pass815,WI,Richland High School,North Richland Hills,TX,2.83,2022,Engineering,Digital Communication and Media/Multimedia,330,530,18,30,33,36,29,410,290,600,560,480,480,290,410,790,7
+test816,pass816,OK,Richland High School,North Richland Hills,TX,3.52,2022,Religion/Religious Studies,Human Computer Interaction,610,480,19,4,4,34,15,530,510,710,470,710,750,370,310,780,7
+test817,pass817,WA,Richland High School,North Richland Hills,TX,1.07,2025,Philosophy,Business Administration and Management,590,280,13,9,17,16,14,800,490,370,760,400,550,440,340,350,5
+test818,pass818,OK,Richland High School,North Richland Hills,TX,3.21,2025,Drawing,Biochemistry,780,770,10,18,15,5,12,300,690,560,660,470,270,220,550,440,5
+test819,pass819,SD,Richland High School,North Richland Hills,TX,3.76,2026,Fine Arts and Art Studies,Photography,260,520,20,24,25,13,20,760,650,640,750,620,570,480,350,260,7
+test820,pass820,AZ,Richland High School,North Richland Hills,TX,2.32,2025,Biology/Biological Sciences,Information Science/Studies,670,320,14,26,8,17,16,400,780,420,710,520,540,280,560,800,10
+test821,pass821,MI,Ridgewood High School,Ridgewood,NJ,2.04,2023,Creative Writing,Comparative Literature,470,530,18,7,28,11,16,610,750,520,360,570,340,420,590,280,7
+test822,pass822,KY,Ridgewood High School,Ridgewood,NJ,0.72,2027,Photography,Atmospheric Sciences and Meteorology,540,700,8,20,15,31,18,450,480,480,590,800,380,720,650,660,4
+test823,pass823,ME,Ridgewood High School,Ridgewood,NJ,3.24,2024,American/United States Studies/Civilization,Sculpture,520,720,34,20,3,32,22,440,580,580,210,290,660,230,210,670,5
+test824,pass824,MA,Ridgewood High School,Ridgewood,NJ,3.98,2022,Information Science/Studies,Metal and Jewelry Arts,530,370,4,35,2,7,12,220,760,450,660,760,560,650,540,550,2
+test825,pass825,WI,Ridgewood High School,Ridgewood,NJ,3.9,2027,Art/Art Studies,Linguistics,490,500,5,5,28,29,17,450,430,440,500,460,320,240,770,780,1
+test826,pass826,AR,Ridgewood High School,Ridgewood,NJ,2.9,2022,Marine Biology and Biological Oceanography,Political Science and Government,450,580,18,9,8,34,17,510,730,260,470,320,470,500,300,610,4
+test827,pass827,WA,Ridgewood High School,Ridgewood,NJ,0.78,2028,Computer and Information Sciences,African-American/Black Studies,650,570,24,10,36,2,18,680,750,370,320,650,540,490,250,300,4
+test828,pass828,RI,Ridgewood High School,Ridgewood,NJ,1.23,2022,Mechanical Engineering,Art/Art Studies,250,420,17,15,11,8,13,490,630,550,400,550,780,660,270,300,7
+test829,pass829,NC,Ridgewood High School,Ridgewood,NJ,0.37,2026,Applied Mathematics,Graphic Communications,710,660,36,13,3,8,15,470,780,490,650,680,340,340,390,580,9
+test830,pass830,CO,Ridgewood High School,Ridgewood,NJ,2.05,2024,European Studies/Civilization,Psychology,670,730,3,9,31,3,12,670,300,760,340,520,440,370,650,560,7
+test831,pass831,MO,Riverside STEM Academy,Riverside,CA,1.59,2027,Printmaking,Astronomy,600,200,5,14,18,1,10,730,610,630,440,360,210,450,530,790,9
+test832,pass832,GA,Riverside STEM Academy,Riverside,CA,3.12,2026,Art Teacher Education,Psychology,270,570,23,34,28,17,26,780,380,550,400,800,520,590,430,770,3
+test833,pass833,WY,Riverside STEM Academy,Riverside,CA,3.67,2024,Clinical Laboratory Science/Medical Technology/Technologist,Art/Art Studies,660,620,16,4,27,9,14,550,490,760,270,410,380,760,460,260,6
+test834,pass834,NV,Riverside STEM Academy,Riverside,CA,1.99,2022,Social Work,Film/Video and Photographic Arts,800,800,9,15,28,35,22,350,340,360,380,740,250,610,490,680,7
+test835,pass835,MS,Riverside STEM Academy,Riverside,CA,3.89,2026,Religion/Religious Studies,American/United States Studies/Civilization,730,560,18,3,2,24,12,320,480,510,700,200,700,650,540,480,5
+test836,pass836,AZ,Riverside STEM Academy,Riverside,CA,0.29,2020,Music,Asian Studies/Civilization,530,240,14,11,1,15,10,550,210,420,310,560,450,720,600,260,7
+test837,pass837,TN,Riverside STEM Academy,Riverside,CA,2.62,2026,Ecology,Registered Nursing/Registered Nurse,580,520,9,2,29,25,16,580,680,380,290,740,240,510,580,570,9
+test838,pass838,PA,Riverside STEM Academy,Riverside,CA,0.06,2021,Physical Sciences,Health Services/Allied Health/Health Sciences,770,700,28,2,32,16,20,550,570,480,270,200,800,410,640,430,5
+test839,pass839,ME,Riverside STEM Academy,Riverside,CA,1.67,2027,Geology/Earth Science,Printmaking,480,610,19,4,24,4,13,350,330,720,550,560,520,630,430,200,8
+test840,pass840,VT,Riverside STEM Academy,Riverside,CA,0.88,2022,Geology/Earth Science,Painting,640,750,16,21,11,31,20,510,480,490,390,580,440,590,700,270,7
+test841,pass841,MS,Santa Monica High School,Santa Monica,CA,0.69,2021,European Studies/Civilization,American/United States Studies/Civilization,430,430,12,20,12,18,16,610,570,800,580,790,700,720,680,410,1
+test842,pass842,OK,Santa Monica High School,Santa Monica,CA,3.4,2023,Fine Arts and Art Studies,Art/Art Studies,420,200,22,11,14,18,16,440,500,550,260,720,470,460,390,290,1
+test843,pass843,CO,Santa Monica High School,Santa Monica,CA,3.49,2028,Comparative Literature,Women&apos;s Studies,430,610,10,4,27,4,11,270,420,430,490,270,300,550,770,760,4
+test844,pass844,RI,Santa Monica High School,Santa Monica,CA,1.46,2020,Graphic Communications,Ceramic Arts and Ceramics,370,540,29,7,17,33,22,630,780,640,780,290,310,370,750,750,3
+test845,pass845,AK,Santa Monica High School,Santa Monica,CA,0.17,2021,Music,Athletic Training/Trainer,690,490,36,20,17,10,21,650,430,220,550,440,500,800,610,770,5
+test846,pass846,GA,Santa Monica High School,Santa Monica,CA,0.23,2022,German Language and Literature,Fine/Studio Arts,790,620,23,11,10,13,14,250,620,510,300,460,260,570,230,440,8
+test847,pass847,IL,Santa Monica High School,Santa Monica,CA,2.65,2023,Business Administration and Management,European Studies/Civilization,570,280,35,10,15,1,15,560,520,550,250,550,450,220,290,280,6
+test848,pass848,KY,Santa Monica High School,Santa Monica,CA,0.96,2024,Photography,Mechanical Engineering,270,570,21,34,4,33,23,360,290,210,800,660,480,250,510,500,10
+test849,pass849,MS,Santa Monica High School,Santa Monica,CA,2.6,2021,Mechanical Engineering,Fine/Studio Arts,210,720,29,14,14,14,18,710,680,450,370,630,210,790,270,570,0
+test850,pass850,IA,Santa Monica High School,Santa Monica,CA,2.95,2025,Respiratory Care Therapy/Therapist,Asian Studies/Civilization,790,260,1,32,14,27,18,450,620,690,680,630,410,570,580,540,7
+test851,pass851,MD,South Pointe High School,Rock Hill,SC,3.1,2025,Political Science and Government,Human Computer Interaction,800,330,16,10,33,28,22,490,210,340,230,720,450,450,280,420,4
+test852,pass852,GA,South Pointe High School,Rock Hill,SC,2.42,2023,Mechanical Engineering,Music,390,680,32,24,28,1,21,460,680,380,570,800,640,760,200,610,4
+test853,pass853,NV,South Pointe High School,Rock Hill,SC,3.6,2028,Interior Architecture,Film/Cinema/Video Studies,240,500,5,12,34,25,19,290,370,720,800,770,370,470,480,490,8
+test854,pass854,MA,South Pointe High School,Rock Hill,SC,2,2022,Anthropology,Computer Graphics,610,530,10,4,35,5,14,700,460,760,490,210,520,520,290,630,9
+test855,pass855,SD,South Pointe High School,Rock Hill,SC,1.05,2028,Design and Visual Communications,Political Science and Government,430,260,7,22,17,1,12,700,430,280,350,660,340,230,720,480,2
+test856,pass856,KY,South Pointe High School,Rock Hill,SC,1.31,2027,Political Science and Government,Drawing,640,350,28,5,9,6,12,510,250,380,680,770,550,790,540,270,0
+test857,pass857,WV,South Pointe High School,Rock Hill,SC,3.95,2020,Comparative Literature,Sculpture,340,800,33,12,12,19,19,440,740,540,610,700,430,280,800,290,10
+test858,pass858,VT,South Pointe High School,Rock Hill,SC,0.24,2022,Music,Printmaking,560,650,36,28,4,21,22,540,380,350,500,280,210,440,390,600,8
+test859,pass859,ND,South Pointe High School,Rock Hill,SC,3.1,2026,Sculpture,Photography,600,780,28,14,13,30,21,470,740,370,790,440,680,260,290,260,9
+test860,pass860,WY,South Pointe High School,Rock Hill,SC,3.65,2025,Design and Visual Communications,German Language and Literature,390,470,13,21,16,20,18,530,690,200,540,460,390,260,210,250,5
+test861,pass861,VT,South Side High School,Rockville Centre,NY,1.78,2021,Mathematics,Art/Art Studies,390,210,24,29,19,20,23,740,690,470,740,370,590,360,200,540,9
+test862,pass862,NV,South Side High School,Rockville Centre,NY,0.56,2024,Film/Video and Photographic Arts,Chemistry,300,520,5,2,29,33,17,540,460,800,270,400,730,600,540,210,3
+test863,pass863,AZ,South Side High School,Rockville Centre,NY,3.11,2024,Psychology,Italian Language and Literature,690,430,14,24,25,1,16,770,490,580,420,490,270,560,280,670,1
+test864,pass864,MO,South Side High School,Rockville Centre,NY,0.59,2024,Psychology,Clinical Laboratory Science/Medical Technology/Technologist,290,300,16,21,25,27,22,380,410,510,290,580,230,310,280,450,0
+test865,pass865,ID,South Side High School,Rockville Centre,NY,1.81,2028,Environmental Design/Architecture,Political Science and Government,420,710,25,11,18,33,22,610,340,580,210,370,750,370,760,550,5
+test866,pass866,NV,South Side High School,Rockville Centre,NY,2.19,2028,Printmaking,Religion/Religious Studies,250,210,31,20,4,28,21,400,520,580,760,340,600,610,420,720,8
+test867,pass867,OH,South Side High School,Rockville Centre,NY,1.45,2028,Women&apos;s Studies,Mathematics,570,800,31,4,30,13,20,690,320,240,710,570,340,330,520,730,4
+test868,pass868,DE,South Side High School,Rockville Centre,NY,0.03,2026,Clinical Laboratory Science/Medical Technology/Technologist,Electrical and Electronics Engineering,540,320,8,2,29,12,13,480,200,570,600,300,760,610,650,750,0
+test869,pass869,MS,South Side High School,Rockville Centre,NY,0.75,2021,Ecology,Chemistry,500,550,6,27,14,19,16,690,320,590,440,270,400,620,200,780,1
+test870,pass870,IN,South Side High School,Rockville Centre,NY,1.78,2025,Italian Language and Literature,Biological and Physical Sciences,540,650,35,10,25,33,26,530,360,320,780,670,250,750,470,690,7
+test871,pass871,AK,Staten Island Technical High School,Staten Island,NY,1.94,2021,Biochemistry,Environmental Design/Architecture,530,730,26,20,1,9,14,410,270,770,400,680,250,640,490,530,9
+test872,pass872,WV,Staten Island Technical High School,Staten Island,NY,1.63,2023,Spanish Language and Literature,Chemistry,590,290,20,27,14,20,20,710,490,460,650,260,290,750,780,560,8
+test873,pass873,ID,Staten Island Technical High School,Staten Island,NY,3.3,2024,Painting,German Language and Literature,210,290,30,28,19,2,20,490,580,540,510,530,770,470,570,800,9
+test874,pass874,AK,Staten Island Technical High School,Staten Island,NY,2.87,2026,Comparative Literature,Religion/Religious Studies,610,630,30,22,9,27,22,770,480,530,220,780,200,520,350,490,3
+test875,pass875,DE,Staten Island Technical High School,Staten Island,NY,2.1,2026,Clinical Laboratory Science/Medical Technology/Technologist,Psychology,490,600,10,31,36,12,22,430,620,210,570,780,570,570,340,670,3
+test876,pass876,UT,Staten Island Technical High School,Staten Island,NY,1.23,2023,Polysomnography,Art Teacher Education,300,330,30,27,10,11,20,720,540,290,250,750,410,330,630,440,1
+test877,pass877,IN,Staten Island Technical High School,Staten Island,NY,3.32,2027,Physics,Graphic Design,700,480,34,23,27,21,26,210,360,630,220,250,220,800,390,610,6
+test878,pass878,ND,Staten Island Technical High School,Staten Island,NY,0.55,2025,French Language and Literature,Painting,310,370,12,32,19,24,22,500,450,270,570,230,450,430,660,490,9
+test879,pass879,WA,Staten Island Technical High School,Staten Island,NY,2.15,2024,Physics,Film/Cinema/Video Studies,720,290,16,6,23,9,14,700,780,440,710,420,570,300,760,200,9
+test880,pass880,CA,Staten Island Technical High School,Staten Island,NY,1.89,2027,Mathematics,Registered Nursing/Registered Nurse,500,650,7,4,17,27,14,360,700,250,710,330,440,460,690,450,3
+test881,pass881,NE,Sterling High School,Somerdale,NJ,1.45,2022,Painting,Mechanical Engineering,470,520,22,12,20,11,16,760,470,800,370,430,780,310,580,490,6
+test882,pass882,ID,Sterling High School,Somerdale,NJ,3.65,2021,Computer and Information Sciences,Visual and Performing Arts,390,740,17,12,4,23,14,670,470,620,480,800,430,500,420,700,9
+test883,pass883,LA,Sterling High School,Somerdale,NJ,1.79,2025,Ecology,Film/Video and Photographic Arts,300,440,22,18,6,5,13,500,240,660,720,490,660,780,720,590,7
+test884,pass884,SD,Sterling High School,Somerdale,NJ,1.67,2022,Social Work,Design and Visual Communications,320,300,33,19,9,35,24,730,390,800,420,610,500,740,670,620,8
+test885,pass885,MS,Sterling High School,Somerdale,NJ,1.24,2027,Design and Applied Arts,Comparative Literature,760,650,35,26,11,13,21,450,310,610,600,480,360,520,560,450,3
+test886,pass886,NH,Sterling High School,Somerdale,NJ,3.32,2022,Atmospheric Sciences and Meteorology,Human Computer Interaction,250,800,16,35,36,5,23,580,570,210,780,220,300,510,410,560,3
+test887,pass887,NV,Sterling High School,Somerdale,NJ,0.89,2027,Visual and Performing Arts,Biology/Biological Sciences,320,660,2,19,28,17,16,540,540,340,770,540,370,280,300,340,0
+test888,pass888,ND,Sterling High School,Somerdale,NJ,2.08,2028,Cinematography and Film/Video Production,Intermedia/Multimedia,300,630,15,14,17,24,18,580,380,390,740,420,600,430,490,700,5
+test889,pass889,NC,Sterling High School,Somerdale,NJ,0.58,2028,Ecology,Journalism,470,490,23,13,21,18,19,210,610,760,410,430,650,350,250,750,7
+test890,pass890,IL,Sterling High School,Somerdale,NJ,0.22,2026,Respiratory Care Therapy/Therapist,Chemical and Biomolecular Engineering,720,440,11,25,14,2,13,430,510,400,250,230,740,650,400,210,0
+test891,pass891,OH,Stone Bridge High School,Ashburn,VA,1.29,2021,Bioengineering and Biomedical Engineering,Computer Graphics,580,640,11,35,1,22,17,800,510,360,590,290,480,200,520,230,5
+test892,pass892,KY,Stone Bridge High School,Ashburn,VA,3.59,2024,Drama and Dramatics/Theatre Arts,Respiratory Care Therapy/Therapist,300,740,36,32,11,22,25,230,790,580,780,230,370,610,370,650,9
+test893,pass893,RI,Stone Bridge High School,Ashburn,VA,1.44,2021,Film/Cinema/Video Studies,Multi-/Interdisciplinary Studies,740,640,36,20,5,11,18,680,400,570,260,730,530,680,690,720,9
+test894,pass894,MT,Stone Bridge High School,Ashburn,VA,2.68,2026,Film/Cinema/Video Studies,Music,450,230,15,32,7,4,14,580,620,200,470,270,330,560,230,480,3
+test895,pass895,KS,Stone Bridge High School,Ashburn,VA,0.15,2022,Linguistics,Fine/Studio Arts,270,580,1,20,36,28,21,650,670,390,330,240,520,630,510,660,2
+test896,pass896,NC,Stone Bridge High School,Ashburn,VA,0.38,2026,Drama and Dramatics/Theatre Arts,Computer and Information Sciences,200,220,4,14,9,24,13,380,320,710,330,390,710,280,370,710,2
+test897,pass897,NE,Stone Bridge High School,Ashburn,VA,0.96,2024,French Language and Literature,Physical Sciences,790,560,34,13,6,36,22,230,430,570,660,570,360,430,220,210,7
+test898,pass898,GA,Stone Bridge High School,Ashburn,VA,1.49,2020,Ceramic Arts and Ceramics,Sustainability Studies,690,240,35,25,18,9,22,800,420,470,350,270,410,720,360,690,10
+test899,pass899,CA,Stone Bridge High School,Ashburn,VA,2.94,2021,Design and Visual Communications,Photography,650,540,23,28,18,9,20,310,680,560,610,440,310,310,520,530,6
+test900,pass900,KS,Stone Bridge High School,Ashburn,VA,0.63,2022,Religion/Religious Studies,Fashion/Apparel Design,490,630,36,12,23,21,23,660,300,370,800,500,660,320,580,720,7
+test901,pass901,NY,Sutton High School,Sutton,MA,3.27,2025,Sustainability Studies,Pharmacology,480,670,15,29,14,15,18,630,490,560,220,300,270,490,590,330,5
+test902,pass902,MA,Sutton High School,Sutton,MA,2.92,2022,Chemistry,Engineering,340,630,3,28,4,11,12,560,630,590,730,610,790,530,220,600,8
+test903,pass903,SD,Sutton High School,Sutton,MA,0.65,2020,Graphic Design,Athletic Training/Trainer,290,740,27,36,27,2,23,410,510,380,580,750,580,560,340,680,3
+test904,pass904,CA,Sutton High School,Sutton,MA,0.52,2027,Music,English Language and Literature,490,440,33,31,1,21,22,310,690,800,430,360,580,750,440,270,7
+test905,pass905,KY,Sutton High School,Sutton,MA,2.69,2027,Mathematics,Environmental Design/Architecture,410,630,8,27,19,8,16,730,760,730,350,450,300,600,430,470,10
+test906,pass906,WA,Sutton High School,Sutton,MA,3.88,2024,Applied Mathematics,Drawing,670,570,17,7,29,36,22,290,460,420,680,690,300,660,670,510,6
+test907,pass907,HI,Sutton High School,Sutton,MA,3.23,2025,Health Services/Allied Health/Health Sciences,Sustainability Studies,670,300,22,17,29,1,17,700,350,520,240,590,680,620,200,360,9
+test908,pass908,MA,Sutton High School,Sutton,MA,3.96,2026,Biochemistry,Political Science and Government,650,650,31,9,13,10,16,460,750,200,370,360,540,730,580,260,10
+test909,pass909,LA,Sutton High School,Sutton,MA,2.41,2026,Film/Cinema/Video Studies,Psychology,520,300,26,20,16,5,17,550,690,550,350,630,240,630,650,670,0
+test910,pass910,MT,Sutton High School,Sutton,MA,0.73,2020,Drama and Dramatics/Theatre Arts,Graphic Communications,460,720,30,7,15,5,14,620,620,610,340,720,660,340,500,250,3
+test911,pass911,NJ,The Gatton Academy,Bowling Green,KY,3.25,2021,Spanish Language and Literature,Economics,550,560,21,6,22,11,15,400,230,320,320,760,740,330,210,460,6
+test912,pass912,UT,The Gatton Academy,Bowling Green,KY,2.64,2027,Design and Applied Arts,Film/Video and Photographic Arts,370,260,2,31,20,4,14,620,320,700,660,470,500,420,600,300,4
+test913,pass913,WI,The Gatton Academy,Bowling Green,KY,2.77,2023,Design and Applied Arts,Geology/Earth Science,500,470,28,36,28,8,25,440,740,630,610,470,740,440,450,660,2
+test914,pass914,OR,The Gatton Academy,Bowling Green,KY,1.94,2022,Linguistics,Photography,270,230,33,35,16,35,30,720,650,630,280,710,310,730,430,400,10
+test915,pass915,AR,The Gatton Academy,Bowling Green,KY,1.74,2025,African-American/Black Studies,Registered Nursing/Registered Nurse,310,790,17,25,26,8,19,300,370,250,650,730,750,710,320,290,3
+test916,pass916,CA,The Gatton Academy,Bowling Green,KY,2.2,2025,Environmental Studies,Design and Visual Communications,430,260,16,9,19,35,20,760,440,650,650,720,640,540,380,620,4
+test917,pass917,IL,The Gatton Academy,Bowling Green,KY,2.54,2027,English Language and Literature,Polysomnography,540,400,30,35,33,25,31,520,570,400,560,210,410,750,650,680,10
+test918,pass918,WY,The Gatton Academy,Bowling Green,KY,2.96,2028,Chemistry,Philosophy,400,460,1,30,16,2,12,350,280,290,740,740,470,320,470,210,1
+test919,pass919,UT,The Gatton Academy,Bowling Green,KY,0.9,2028,Business Administration and Management,Sociology,310,600,30,8,28,3,17,530,290,650,230,220,590,590,240,540,1
+test920,pass920,RI,The Gatton Academy,Bowling Green,KY,3.29,2024,Art Teacher Education,Digital Communication and Media/Multimedia,740,620,6,35,16,4,15,620,440,600,240,510,220,690,320,550,3
+test921,pass921,NY,The Mississippi School for Mathematics and Science,Columbus,MS,2.18,2027,Drama and Dramatics/Theatre Arts,Italian Language and Literature,660,370,22,13,7,11,13,250,520,340,780,300,570,360,640,680,7
+test922,pass922,WV,The Mississippi School for Mathematics and Science,Columbus,MS,0.53,2024,Creative Writing,Philosophy,550,290,19,35,19,14,22,430,770,720,770,280,230,430,780,280,6
+test923,pass923,IL,The Mississippi School for Mathematics and Science,Columbus,MS,1.23,2026,Geology/Earth Science,Visual and Performing Arts,390,600,21,6,29,36,23,720,200,440,610,240,560,730,800,600,7
+test924,pass924,FL,The Mississippi School for Mathematics and Science,Columbus,MS,3.1,2020,Art Teacher Education,Chemical and Biomolecular Engineering,400,590,21,21,6,28,19,350,520,250,270,420,320,310,270,420,5
+test925,pass925,RI,The Mississippi School for Mathematics and Science,Columbus,MS,3.88,2023,Italian Language and Literature,Clinical Laboratory Science/Medical Technology/Technologist,600,720,26,28,5,11,18,670,410,720,310,220,240,450,590,550,3
+test926,pass926,NM,The Mississippi School for Mathematics and Science,Columbus,MS,1.58,2025,Italian Language and Literature,Business Administration and Management,560,250,5,19,34,36,24,780,440,650,300,560,520,470,750,200,10
+test927,pass927,UT,The Mississippi School for Mathematics and Science,Columbus,MS,2.9,2022,Art/Art Studies,Linguistics,590,370,29,12,29,3,18,760,360,670,280,690,510,640,260,470,6
+test928,pass928,ID,The Mississippi School for Mathematics and Science,Columbus,MS,1.37,2027,Physics,Visual and Performing Arts,710,520,18,7,23,5,13,720,480,610,280,410,660,570,790,770,0
+test929,pass929,DE,The Mississippi School for Mathematics and Science,Columbus,MS,3.01,2027,Computer Graphics,Fine Arts and Art Studies,390,600,30,33,22,7,23,590,270,450,520,570,330,650,410,340,1
+test930,pass930,OR,The Mississippi School for Mathematics and Science,Columbus,MS,3.73,2022,Environmental Design/Architecture,Sustainability Studies,470,300,24,7,11,23,16,620,550,640,650,730,770,630,640,240,1
+test931,pass931,MO,University High School,Normal,IL,0.17,2025,Ecology,Design and Visual Communications,750,660,14,3,4,17,10,330,490,400,230,210,580,290,760,800,1
+test932,pass932,MN,University High School,Normal,IL,1.59,2020,Drawing,Drama and Dramatics/Theatre Arts,200,300,14,5,9,11,10,720,610,710,750,310,580,400,690,460,10
+test933,pass933,LA,University High School,Normal,IL,0.25,2027,Photography,Creative Writing,300,500,20,12,31,33,24,400,720,570,590,440,500,340,750,690,3
+test934,pass934,IN,University High School,Normal,IL,1.87,2028,Visual and Performing Arts,Religion/Religious Studies,490,500,18,14,14,24,18,410,680,760,550,390,520,740,370,270,4
+test935,pass935,VT,University High School,Normal,IL,2.29,2026,Physics,Chemical and Biomolecular Engineering,290,280,5,27,13,3,12,290,300,410,570,660,540,590,440,650,10
+test936,pass936,WI,University High School,Normal,IL,0.93,2025,Human Computer Interaction,Registered Nursing/Registered Nurse,770,300,36,11,4,14,16,400,740,580,750,710,340,790,630,570,1
+test937,pass937,MN,University High School,Normal,IL,1.78,2023,Multi-/Interdisciplinary Studies,German Language and Literature,450,600,36,16,17,31,25,660,800,690,530,750,440,770,380,770,2
+test938,pass938,AR,University High School,Normal,IL,2.2,2022,Visual and Performing Arts,Interior Architecture,280,790,16,14,24,14,17,490,460,320,210,750,470,230,590,510,9
+test939,pass939,KY,University High School,Normal,IL,0.38,2028,Applied Mathematics,Computer and Information Sciences,320,660,11,21,7,17,14,550,400,270,730,470,240,440,590,290,2
+test940,pass940,GA,University High School,Normal,IL,2.84,2026,Sustainability Studies,Clinical Laboratory Science/Medical Technology/Technologist,210,240,13,14,19,19,16,790,600,640,250,800,580,580,650,780,3
+test941,pass941,AL,Volcano Vista High School,Albuquerque,NM,1.72,2020,Comparative Literature,Environmental Studies,220,200,10,25,25,8,17,800,710,480,650,260,760,780,720,270,0
+test942,pass942,CO,Volcano Vista High School,Albuquerque,NM,0.94,2026,Photography,Computer Graphics,710,660,29,17,23,9,20,210,560,770,680,380,630,310,340,770,4
+test943,pass943,TN,Volcano Vista High School,Albuquerque,NM,2.91,2021,Fine/Studio Arts,Astronomy,770,240,9,7,35,11,16,440,370,540,800,510,640,740,290,340,7
+test944,pass944,AR,Volcano Vista High School,Albuquerque,NM,2.44,2021,Information Science/Studies,French Language and Literature,250,580,6,14,8,2,8,730,260,470,680,380,290,230,600,430,8
+test945,pass945,WY,Volcano Vista High School,Albuquerque,NM,1.13,2024,Chemical and Biomolecular Engineering,Engineering,440,640,25,8,35,13,20,780,250,550,540,270,780,330,460,710,5
+test946,pass946,OK,Volcano Vista High School,Albuquerque,NM,0.54,2028,Biochemistry,Environmental Studies,690,480,14,17,8,34,18,600,590,260,610,780,240,400,760,290,7
+test947,pass947,CT,Volcano Vista High School,Albuquerque,NM,0.15,2024,Ecology,Computer and Information Sciences,740,760,29,10,22,11,18,540,400,570,280,750,610,680,500,220,3
+test948,pass948,KY,Volcano Vista High School,Albuquerque,NM,3.91,2028,Environmental Studies,Biological and Physical Sciences,570,510,18,8,8,24,14,440,660,700,400,630,700,630,490,210,1
+test949,pass949,HI,Volcano Vista High School,Albuquerque,NM,3.66,2026,Drama and Dramatics/Theatre Arts,Architecture and Related Services,490,290,30,31,24,11,24,570,220,240,600,460,200,370,270,440,10
+test950,pass950,MN,Volcano Vista High School,Albuquerque,NM,0.75,2025,Digital Communication and Media/Multimedia,Polysomnography,240,800,16,3,17,25,15,430,310,800,660,630,730,760,420,400,8
+test951,pass951,AZ,Walton High School,Marietta,GA,2.73,2024,Italian Language and Literature,Art/Art Studies,320,570,19,23,8,11,15,790,560,280,670,360,570,360,630,560,3
+test952,pass952,NJ,Walton High School,Marietta,GA,3.68,2028,Geology/Earth Science,Atmospheric Sciences and Meteorology,710,610,8,22,31,22,21,530,550,330,740,740,270,210,210,310,5
+test953,pass953,OR,Walton High School,Marietta,GA,0,2024,Interior Architecture,American/United States Studies/Civilization,610,490,30,24,2,34,22,520,410,510,460,560,660,410,640,290,1
+test954,pass954,WY,Walton High School,Marietta,GA,2.81,2023,Cinematography and Film/Video Production,Ecology,760,500,6,14,11,8,10,370,360,460,660,250,460,600,720,800,2
+test955,pass955,NJ,Walton High School,Marietta,GA,1.39,2028,Astronomy,Religion/Religious Studies,680,500,19,12,22,26,20,470,740,730,300,310,660,600,760,400,2
+test956,pass956,ME,Walton High School,Marietta,GA,0.02,2020,Music,Philosophy,750,680,22,1,1,8,8,440,560,290,440,620,620,590,420,210,4
+test957,pass957,IA,Walton High School,Marietta,GA,3.46,2021,Visual and Performing Arts,Chemistry,560,630,27,13,25,1,16,580,500,620,450,400,250,770,590,500,9
+test958,pass958,AL,Walton High School,Marietta,GA,2.11,2026,Ceramic Arts and Ceramics,Painting,640,570,10,14,36,9,17,440,770,720,710,690,670,370,640,660,7
+test959,pass959,OR,Walton High School,Marietta,GA,1.27,2028,Graphic Design,Computer and Information Sciences,200,500,28,28,17,6,20,350,330,430,310,730,410,350,710,580,3
+test960,pass960,MT,Walton High School,Marietta,GA,3.94,2028,Economics,Biology/Biological Sciences,510,290,3,17,19,20,15,350,250,430,510,220,390,530,240,350,8
+test961,pass961,MN,Waubonsie Valley High School,Aurora,IL,0.06,2025,Geology/Earth Science,Sculpture,700,340,8,23,14,6,13,780,750,210,210,280,550,420,510,490,1
+test962,pass962,ME,Waubonsie Valley High School,Aurora,IL,1.17,2024,Photography,Art Teacher Education,660,500,9,22,18,24,18,680,320,530,320,750,760,260,360,360,0
+test963,pass963,RI,Waubonsie Valley High School,Aurora,IL,1.54,2023,Political Science and Government,Art/Art Studies,250,300,10,36,25,31,26,700,350,630,400,580,300,600,680,700,10
+test964,pass964,OK,Waubonsie Valley High School,Aurora,IL,2.41,2021,English Language and Literature,English Language and Literature,260,310,36,12,21,34,26,350,560,420,470,670,270,710,390,470,7
+test965,pass965,OK,Waubonsie Valley High School,Aurora,IL,3.19,2027,Physical Sciences,French Language and Literature,780,610,27,34,25,27,28,420,630,610,480,530,590,710,460,660,9
+test966,pass966,UT,Waubonsie Valley High School,Aurora,IL,2.03,2024,Chemical and Biomolecular Engineering,Physical Sciences,440,230,9,10,11,3,8,780,280,240,290,450,560,600,780,380,0
+test967,pass967,MS,Waubonsie Valley High School,Aurora,IL,1.04,2021,Art/Art Studies,European Studies/Civilization,200,610,13,11,12,24,15,340,440,470,200,500,280,670,570,540,6
+test968,pass968,ND,Waubonsie Valley High School,Aurora,IL,1.44,2026,Geology/Earth Science,Design and Applied Arts,550,370,24,18,32,31,26,790,490,450,310,720,400,680,290,640,7
+test969,pass969,VT,Waubonsie Valley High School,Aurora,IL,1.28,2024,Bioengineering and Biomedical Engineering,Information Science/Studies,210,310,30,5,6,18,15,670,750,240,730,480,770,680,580,400,0
+test970,pass970,NE,Waubonsie Valley High School,Aurora,IL,3.31,2022,Environmental Design/Architecture,Chemical and Biomolecular Engineering,360,720,21,23,14,35,23,520,630,500,210,650,560,220,340,590,0
+test971,pass971,CA,Westlake Academy,Westlake,TX,2.5,2026,Health Services/Allied Health/Health Sciences,Health Services/Allied Health/Health Sciences,380,720,27,26,28,18,25,290,440,800,670,690,740,750,230,690,8
+test972,pass972,NE,Westlake Academy,Westlake,TX,3.88,2021,Physics,Health Services/Allied Health/Health Sciences,420,450,36,19,31,15,25,580,610,530,620,710,300,380,670,210,0
+test973,pass973,NY,Westlake Academy,Westlake,TX,0.83,2024,European Studies/Civilization,Music,390,470,8,8,8,8,8,310,650,260,430,660,780,270,270,310,1
+test974,pass974,CA,Westlake Academy,Westlake,TX,0.91,2020,Civil Engineering,Clinical Laboratory Science/Medical Technology/Technologist,720,490,3,5,24,6,10,250,260,460,590,410,210,390,370,340,6
+test975,pass975,SD,Westlake Academy,Westlake,TX,3.28,2026,Graphic Design,Art/Art Studies,470,560,9,28,14,32,21,350,270,230,680,230,220,490,610,370,8
+test976,pass976,MA,Westlake Academy,Westlake,TX,1.83,2023,Biological and Physical Sciences,Cinematography and Film/Video Production,580,740,21,9,11,32,18,800,370,370,470,590,470,320,630,390,2
+test977,pass977,PA,Westlake Academy,Westlake,TX,3.49,2024,Religion/Religious Studies,Biology/Biological Sciences,380,510,3,12,8,6,7,570,520,330,320,560,220,540,550,620,6
+test978,pass978,HI,Westlake Academy,Westlake,TX,3.34,2021,Comparative Literature,Computer and Information Sciences,330,230,13,12,10,20,14,580,680,760,660,270,440,220,680,770,6
+test979,pass979,UT,Westlake Academy,Westlake,TX,2.18,2027,Biological and Physical Sciences,Art/Art Studies,340,420,19,17,1,9,12,220,600,600,260,740,790,580,490,680,5
+test980,pass980,IA,Westlake Academy,Westlake,TX,2.38,2024,Chemical and Biomolecular Engineering,Fine/Studio Arts,500,440,21,16,3,33,18,490,410,400,510,650,220,430,310,690,7
+test981,pass981,MA,Westlake High School,Westlake Village,CA,0.22,2021,Linguistics,Sculpture,500,690,2,29,10,24,16,700,500,620,800,380,460,450,710,240,7
+test982,pass982,MI,Westlake High School,Westlake Village,CA,0.57,2026,Drama and Dramatics/Theatre Arts,Biochemistry,560,520,1,24,20,32,19,450,510,670,220,320,720,710,280,340,4
+test983,pass983,FL,Westlake High School,Westlake Village,CA,3.09,2025,Printmaking,Ecology,590,560,28,5,2,30,16,540,560,530,420,210,320,680,300,400,10
+test984,pass984,MS,Westlake High School,Westlake Village,CA,1.79,2025,Environmental Studies,Economics,560,790,13,27,15,32,22,800,530,720,370,450,210,550,790,660,7
+test985,pass985,OH,Westlake High School,Westlake Village,CA,3.81,2025,Italian Language and Literature,Multi-/Interdisciplinary Studies,400,680,35,9,29,26,25,630,510,670,360,530,480,360,760,310,4
+test986,pass986,IA,Westlake High School,Westlake Village,CA,0.67,2020,Cinematography and Film/Video Production,Sociology,680,800,9,4,26,33,18,570,400,550,620,260,700,440,210,800,1
+test987,pass987,ND,Westlake High School,Westlake Village,CA,1.14,2021,German Language and Literature,American/United States Studies/Civilization,710,600,7,18,30,34,22,460,660,340,200,430,780,610,250,430,2
+test988,pass988,IL,Westlake High School,Westlake Village,CA,2.81,2020,Geology/Earth Science,Health Services/Allied Health/Health Sciences,650,300,25,6,9,7,12,400,450,320,260,410,370,540,690,230,1
+test989,pass989,WA,Westlake High School,Westlake Village,CA,2.89,2025,Clinical Laboratory Science/Medical Technology/Technologist,Journalism,490,720,4,22,20,10,14,700,410,540,690,360,500,560,550,730,7
+test990,pass990,WY,Westlake High School,Westlake Village,CA,0.29,2025,Physical Sciences,Fine/Studio Arts,320,610,36,35,17,22,28,330,360,680,770,690,370,320,580,790,0
+test991,pass991,ND,Westwood High School,Austin,TX,1.47,2026,Pharmacology,Pharmacology,580,420,26,11,10,25,18,300,780,470,240,300,780,700,660,510,10
+test992,pass992,AL,Westwood High School,Austin,TX,2.15,2028,Ecology,Bioengineering and Biomedical Engineering,630,490,31,32,29,8,25,220,420,690,420,410,540,590,400,310,9
+test993,pass993,NE,Westwood High School,Austin,TX,3.63,2021,Mathematics,Clinical Laboratory Science/Medical Technology/Technologist,290,590,18,34,7,36,24,260,200,250,790,740,780,510,260,210,6
+test994,pass994,AK,Westwood High School,Austin,TX,0.04,2027,Art Teacher Education,Civil Engineering,550,780,24,15,24,14,19,380,210,370,430,400,210,730,410,250,0
+test995,pass995,OH,Westwood High School,Austin,TX,2.14,2020,Human Computer Interaction,Design and Visual Communications,560,590,4,24,35,16,20,550,240,660,470,210,470,560,530,360,9
+test996,pass996,MN,Westwood High School,Austin,TX,2.67,2021,Information Science/Studies,American/United States Studies/Civilization,480,280,3,33,36,4,19,720,560,710,310,610,700,620,360,210,3
+test997,pass997,KY,Westwood High School,Austin,TX,3.48,2021,Sociology,Interior Architecture,370,740,4,24,32,22,20,630,420,790,360,480,550,310,710,400,5
+test998,pass998,TN,Westwood High School,Austin,TX,0.33,2021,Digital Communication and Media/Multimedia,Chemical and Biomolecular Engineering,450,430,22,14,32,2,18,420,800,480,630,200,240,790,530,710,9
+test999,pass999,NC,Westwood High School,Austin,TX,0.75,2022,Physics,Biology/Biological Sciences,600,640,8,22,2,22,14,230,550,620,390,500,530,630,550,540,2
+test1000,pass1000,NJ,Westwood High School,Austin,TX,3.47,2025,Anthropology,Biology/Biological Sciences,690,440,11,16,27,14,17,780,350,290,400,610,440,200,670,760,2
+test1001,pass1001,SD,Whitefish Bay High School,Whitefish Bay,WI,2.69,2023,Visual and Performing Arts,Comparative Literature,800,260,30,7,24,14,19,520,480,520,270,320,540,200,220,370,10
+test1002,pass1002,WI,Whitefish Bay High School,Whitefish Bay,WI,3.05,2026,Economics,Biology/Biological Sciences,690,550,25,8,28,10,18,800,780,230,410,780,470,400,200,420,10
+test1003,pass1003,NC,Whitefish Bay High School,Whitefish Bay,WI,1.4,2021,Design and Applied Arts,Environmental Design/Architecture,320,440,30,34,27,11,26,480,500,640,680,250,710,240,620,630,4
+test1004,pass1004,TX,Whitefish Bay High School,Whitefish Bay,WI,2,2027,Bioengineering and Biomedical Engineering,Italian Language and Literature,370,800,14,14,32,17,19,500,680,560,610,490,460,550,470,710,2
+test1005,pass1005,IL,Whitefish Bay High School,Whitefish Bay,WI,2.13,2021,Physics,Mechanical Engineering,730,290,5,9,4,9,7,310,290,300,550,320,220,510,540,200,1
+test1006,pass1006,OK,Whitefish Bay High School,Whitefish Bay,WI,3.09,2024,Biology/Biological Sciences,Creative Writing,290,680,25,32,3,8,17,530,450,300,690,330,310,560,760,440,10
+test1007,pass1007,CT,Whitefish Bay High School,Whitefish Bay,WI,0.26,2023,Cinematography and Film/Video Production,Digital Communication and Media/Multimedia,490,350,10,34,7,26,19,530,720,250,510,590,300,690,290,230,7
+test1008,pass1008,MO,Whitefish Bay High School,Whitefish Bay,WI,1.17,2023,Health Services/Allied Health/Health Sciences,Biology/Biological Sciences,400,210,14,11,6,16,12,550,280,620,280,420,670,780,350,540,0
+test1009,pass1009,NM,Whitefish Bay High School,Whitefish Bay,WI,3.7,2028,Atmospheric Sciences and Meteorology,Film/Video and Photographic Arts,800,750,34,11,22,10,19,290,420,450,370,290,630,290,730,610,10
+test1010,pass1010,NV,Whitefish Bay High School,Whitefish Bay,WI,3.51,2026,Social Work,Visual and Performing Arts,590,690,25,14,29,1,17,300,360,660,580,620,510,260,700,780,6
+test1011,pass1011,AL,Whitney High School,Cerritos,CA,3.29,2026,Electrical and Electronics Engineering,Clinical Laboratory Science/Medical Technology/Technologist,570,680,8,8,4,19,10,240,590,510,350,200,520,740,240,420,5
+test1012,pass1012,KS,Whitney High School,Cerritos,CA,0.28,2028,Art Teacher Education,Italian Language and Literature,790,800,29,15,29,10,21,200,300,520,480,740,660,800,670,480,4
+test1013,pass1013,NJ,Whitney High School,Cerritos,CA,1.57,2020,Illustration,Art/Art Studies,590,220,28,29,34,36,32,780,610,480,320,320,220,750,800,630,7
+test1014,pass1014,WV,Whitney High School,Cerritos,CA,1.07,2027,Computer Graphics,Business Administration and Management,470,250,34,29,2,20,21,750,580,200,290,400,660,260,580,800,7
+test1015,pass1015,TX,Whitney High School,Cerritos,CA,3.3,2022,Clinical Laboratory Science/Medical Technology/Technologist,Marine Biology and Biological Oceanography,340,220,33,10,13,34,22,530,330,570,350,570,300,500,750,560,6
+test1016,pass1016,CA,Whitney High School,Cerritos,CA,1.32,2025,Drama and Dramatics/Theatre Arts,Human Computer Interaction,710,650,29,10,35,29,26,580,520,310,790,750,220,730,790,390,3
+test1017,pass1017,PA,Whitney High School,Cerritos,CA,1.92,2027,Information Science/Studies,Marine Biology and Biological Oceanography,330,270,16,2,5,30,13,500,230,200,520,320,520,550,500,470,8
+test1018,pass1018,VT,Whitney High School,Cerritos,CA,0.06,2021,American/United States Studies/Civilization,Anthropology,370,310,25,19,26,11,20,780,200,560,660,510,250,260,420,690,7
+test1019,pass1019,IN,Whitney High School,Cerritos,CA,0.09,2027,German Language and Literature,Applied Mathematics,270,400,31,28,28,14,25,310,350,630,200,220,550,690,680,460,4
+test1020,pass1020,MI,Whitney High School,Cerritos,CA,2.98,2020,Health Services/Allied Health/Health Sciences,Biochemistry,250,660,17,1,34,32,21,540,320,570,680,440,690,320,440,470,10

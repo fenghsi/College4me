@@ -6,6 +6,7 @@ import './css/signupform.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
 
 
 const app = (
@@ -13,6 +14,8 @@ const app = (
         <App/>
     </BrowserRouter>
 );
+
+axios.defaults.headers.common['RequestFrom'] = 'axios';
 
 ReactDOM.render(app, document.getElementById('root'));
 

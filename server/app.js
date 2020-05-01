@@ -46,6 +46,14 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+//this fix refresh issue
+app.get("/*", function(req, res, next) { 
+  if(req.headers['user-agent'] != undefined && req.headers['requestfrom'] !== 'axios') { 
+  return res.sendFile(path.join(__dirname, './public', 'index.html')); 
+  } 
+  next(); 
+  });
+
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
@@ -56,6 +64,8 @@ app.use('/', scrapeRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {

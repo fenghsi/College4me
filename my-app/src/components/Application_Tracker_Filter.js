@@ -258,12 +258,12 @@ function Application_Tracker_Filter(props) {
                     <Checkbox value="accepted">Accepted</Checkbox>
                 </Col>
                 <Col style={{width:150}}>
-                    <Checkbox value="rejected">Denied</Checkbox>
+                    <Checkbox value="denied">Denied</Checkbox>
                 </Col>
             </Row>
             <Row>
                 <Col style={{width:150}}>
-                    <Checkbox value="wait-list">Wait-list</Checkbox>
+                    <Checkbox value="wait-listed">Wait-list</Checkbox>
                 </Col>
                 <Col style={{width:150}}>
                     <Checkbox value="pending">Pending</Checkbox>

@@ -114,8 +114,8 @@ function Profile(props) {
     const appStatus = <Select style={{width:417, padding: "0 0 5px 10px"}}>
                     <Option value="accepted">accepted</Option>
                     <Option value="pending">pending</Option>
-                    <Option value="wait-list">wait-list</Option>
-                    <Option value="rejected">rejected</Option>
+                    <Option value="wait-listed">wait-listed</Option>
+                    <Option value="denied">denied</Option>
                     <Option value="deferred">deferred</Option>
                     <Option value="withdrawn">withdrawn</Option>
                     </Select>;

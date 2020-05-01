@@ -3,7 +3,7 @@ import axios from 'axios';
 import { notification } from 'antd';
 function Scrape(props) {
 
-    
+    // Modified - 4/30
     async function handleDeleteStduents(event){
         event.preventDefault();
         notification.open({
@@ -58,6 +58,15 @@ function Scrape(props) {
            
         });
         
+    }
+    
+    async function handleScrapeImportedStudentHighSchool(event){
+        event.preventDefault();
+        notification.open({
+            message: "scrape_imported_student_highschool",
+            duration:2.5 
+        });
+        await axios.post('/scrape_imported_student_highschool');
     }
     async function handleComputeImportHSScore(event){
         event.preventDefault();
@@ -136,11 +145,17 @@ function Scrape(props) {
             </form>
             <br></br>
             7.5.1A
+            <form onSubmit={handleScrapeImportedStudentHighSchool}>
+                    <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Scrape Imported Student High School</button>
+            </form>
+            <br></br>
+            
+            7.5.1B
             <form onSubmit={handleComputeImportHSScore}>
                     <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Compute Imported Student High School Score</button>
             </form>
             <br></br>
-            7.5.1B
+            7.5.1C
             <form onSubmit={handleComputeImportStudentScore}>
                     <button className="btn btn-outline-dark text-uppercase mt-4" type="submit">Compute Imported Student Score</button>
             </form>

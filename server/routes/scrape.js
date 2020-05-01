@@ -11,8 +11,8 @@ const Applications = require('../models/applications');
 const WSJUrl = "http://allv22.all.cs.stonybrook.edu/~stoller/cse416/WSJ_THE/united_states_rankings_2020_limit0_25839923f8b1714cf54659d4e4af6c3b.json";
 const CollegeScoreCardUrl = '../../../../desktop/CollegScoreCard.csv';
 const collegeTxtUrl = 'colleges.txt';
-const StudentsUrl = 'students.csv';
-const ApplicationsUrl = 'applications.csv';
+const StudentsUrl = 'c4me-10-student.csv';
+const ApplicationsUrl = 'application-test.csv';
 const actCollegeDataUrl = 'https://www.collegedata.com/';
 const nicheURL = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/niche/';
 const HighSchool = require('../models/highshools');
@@ -345,7 +345,6 @@ router.post('/import_student_profile_dataset_Student', async function (req, res,
                     accountType: "student"
                 });
                 await newStudent.save();
-                await import_scrape_hs_niche(student.high_school_name, student.high_school_city, student.high_school_state);
             } else {
                 await Student.updateOne({ userid: student.userid },
                     {
@@ -378,8 +377,6 @@ router.post('/import_student_profile_dataset_Student', async function (req, res,
                         num_AP_passed: student.num_AP_passed,
                         accountType: "student"
                     })
-                await import_scrape_hs_niche(student.high_school_name, student.high_school_city, student.high_school_state);
-
             }
         });
     });
@@ -994,38 +991,56 @@ router.post('/compute_imported_student_score', async function (req, res, next) {
     });
 });
 //3
-async function import_scrape_hs_niche(hs_name, hs_city, hs_state) {
-    //for each NEW high school (name, city, state) entry, scrape niche.com information
-    let has_name = (hs_name != undefined && hs_name != "" && hs_name != null);
-    let has_city = (hs_city != undefined && hs_city != "" && hs_city != null);
-    let has_hs_state = (hs_state != undefined && hs_state != "" && hs_state != null);
+router.post('/scrape_imported_student_highschool', async function (req, res, next) {
+    let all_students = await Student.find({accountType:"student"}).lean();
+    
+    const hs_list = [];
+    const getHSMapping = all_students.map(async (student, index) => {
+        let exists = hs_list.findIndex(x => x.name == student.high_school_name && x.city == student.high_school_city && x.state == student.high_school_state)
+        if (exists == -1) {
+            hs_list.push({
+                name: student.high_school_name,
+                city: student.high_school_city,
+                state: student.high_school_state
+            });
+        }
+    });
+    await Promise.all(getHSMapping);
+    
+    const scrapeMapping = hs_list.map(async(hs, index) => {
+        let hs_name = hs.name;
+        let hs_city = hs.city;
+        let hs_state = hs.state;
+        let has_name = (hs_name != undefined && hs_name != "" && hs_name != null);
+        let has_city = (hs_city != undefined && hs_city != "" && hs_city != null);
+        let has_hs_state = (hs_state != undefined && hs_state != "" && hs_state != null);
 
-    if (has_name && has_city && has_hs_state) {
-        let school_name = hs_name.replace(/\'/g, "").replace(/\.?\s+/g, '-').replace("\.", "").toLowerCase();
-        let school_city = hs_city.replace(/\s+/g, '-').toLowerCase();
-        let school_state = hs_state.toLowerCase();
+        if (has_name && has_city && has_hs_state) {
+            let school_name = hs_name.replace(/\'/g, "").replace(/\.?\s+/g, '-').replace("\.", "").toLowerCase();
+            let school_city = hs_city.replace(/\s+/g, '-').toLowerCase();
+            let school_state = hs_state.toLowerCase();
 
-        let url = nicheURL + school_name + "-" + school_city + "-" + school_state + "/";
-
-        let scrape_school = await HighSchool.findOne({ "name": hs_name.toLowerCase(), "city": hs_city.toLowerCase(), "state": hs_state.toLowerCase() });
-        // If the high school is already known to the system, no need to scrape information again
-        if (scrape_school == null) {
-            // const niche = await axios.get(url);
-            let academic_url = url + "academics/";
-            let niche_academic = null;
-            let niche = null;
-            try {
-                niche = await axios.get(url);
-                niche_academic = await axios.get(academic_url);
-                scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state);
-            }
-            catch (err) {
-                console.log("Unable to find high school", url);
+            let url = nicheURL + school_name + "-" + school_city + "-" + school_state + "/";
+            let scrape_school = await HighSchool.findOne({ "name": hs_name.toLowerCase(), "city": hs_city.toLowerCase(), "state": hs_state.toLowerCase() });
+            // If the high school is already known to the system, no need to scrape information again
+            if (scrape_school == null) {
+                // const niche = await axios.get(url);
+                let academic_url = url + "academics/";
+                let niche_academic = null;
+                let niche = null;
+                try {
+                    niche = await axios.get(url);
+                    niche_academic = await axios.get(academic_url);
+                    scrape_each_hs_info(niche, niche_academic, hs_name, hs_city, hs_state);
+                }
+                catch (err) {
+                    console.log("Unable to find high school", url);
+                }
             }
         }
-    }
-}
-
+    });
+    await Promise.all(scrapeMapping);
+});
 
 
 

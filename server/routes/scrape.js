@@ -15,6 +15,7 @@ const StudentsUrl = 'c4me-10-student.csv';
 const ApplicationsUrl = 'application-test.csv';
 const actCollegeDataUrl = 'https://www.collegedata.com/';
 const nicheURL = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/niche/';
+const mirrorCollegeDataUrl = 'http://allv22.all.cs.stonybrook.edu/~stoller/cse416/collegedata/';
 const HighSchool = require('../models/highshools');
 
 
@@ -104,9 +105,11 @@ router.post('/scrape_college_data', async function(req, res, next) {
         }
         const colDataUrl = actCollegeDataUrl + 'college/' + extension;
         const majUrl = colDataUrl + '/?tab=profile-academics-tab';
-        console.log(majUrl)
+        const mirrDataUrl = mirrorCollegeDataUrl + extension;
+        console.log(mirrDataUrl)
         try {
-            await Promise.all([scrapeEachCollegeData(colDataUrl, col), scrapeMajors(majUrl, col)]);
+            scrapeEachCollegeData(mirrDataUrl, col);
+            scrapeMajors(mirrDataUrl, col);
         }
         catch (err) {
             return res.json({
